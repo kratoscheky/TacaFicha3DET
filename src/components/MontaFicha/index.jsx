@@ -17,7 +17,7 @@ export const MontaFicha = () => {
         if(pontosTotaisTemp <= 0){
             setErrorMessage(`${key} Excede os seus pontos restantes`)
             console.error(`${key} Excede os seus pontos restantes`)
-            return;
+            // return;
         }
 
         
