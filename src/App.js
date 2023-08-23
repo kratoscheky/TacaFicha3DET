@@ -5,7 +5,7 @@ import logo from './images/logo.png'
 function App() {
   return (
     <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '8px'}}>
-      <div style={{width: '100%', backgroundColor: '#000', padding: '8px'}}>
+      <div style={{width: '100%', backgroundColor: '#000'}}>
         <img style={{height: '50px', paddingLeft: '16px'}} src={logo} />
       </div>
       <div style={{padding: '8px', display: 'flex', flexDirection: 'column', maxWidth: '500px'}}>
