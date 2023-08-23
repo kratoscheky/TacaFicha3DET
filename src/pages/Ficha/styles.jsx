@@ -3,6 +3,7 @@ import frame from '../../images/frame.png'
 
 export const ContainerFicha = styled.div`
     padding: 8px;
+    min-width: 400px;
     max-width: 500px;
 `
 
