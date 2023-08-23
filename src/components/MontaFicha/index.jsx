@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useFicha } from "../../context/ficha.context";
+import { ContainerMontaFicha } from "./styles";
 
 export const MontaFicha = () => {
 
@@ -25,25 +26,42 @@ export const MontaFicha = () => {
     }
 
     return (
-        <div style={{display: 'flex', flexDirection: 'column', maxWidth: '500px', padding: '8px'}}>
-            <h1>Dados basicos</h1>
-            <label>Nome:</label>
-            <input value={nome} onChange={e => setNome(e.target.value)}></input>
-            <label>Descrição</label>
-            <textarea value={detalhes} onChange={e => setDetalhes(e.target.value)}></textarea>
+        <ContainerMontaFicha>
+            <h1>Dados Basicos</h1>
+            <div>
+                <label>Nome:</label>
+                <input value={nome} onChange={e => setNome(e.target.value)}></input>
+            </div>
+            <div>
+                <label>Descrição:</label>
+                <textarea value={detalhes} onChange={e => setDetalhes(e.target.value)}></textarea>
+            </div>
             <h1>Atributos</h1>
-            <label>Poder</label>
-            <input value={atributos.poder} onChange={v => HandleAtributos(v.target.value, 'poder')}></input>
-            <label>Habilidade</label>
-            <input value={atributos.habilidade} onChange={v => HandleAtributos(v.target.value, 'habilidade')}></input>
-            <label>Resistência</label>
-            <input value={atributos.resistencia} onChange={v => HandleAtributos(v.target.value, 'resistencia')}></input>
-            <label>Perícias</label>
-            <textarea value={periciais} onChange={v => setPericias(v.target.value)}></textarea>
-            <label>Vantagens</label>
-            <textarea value={vantagens} onChange={v => setVantagens(v.target.value)}></textarea>
-            <label>Desvantagens</label>
-            <textarea value={desvantagens} onChange={v => setDesvantagens(v.target.value)}></textarea>
-        </div>
+            <div>
+                <label>Poder:</label>
+                <input value={atributos.poder} onChange={v => HandleAtributos(v.target.value, 'poder')}></input>
+            </div>
+            <div>
+                <label>Habilidade:</label>
+                <input value={atributos.habilidade} onChange={v => HandleAtributos(v.target.value, 'habilidade')}></input>
+            </div>
+            <div>
+                <label>Resistência:</label>
+                <input value={atributos.resistencia} onChange={v => HandleAtributos(v.target.value, 'resistencia')}></input>
+            </div>
+            <h1>Personalidade</h1>
+            <div>
+                <label>Perícias:</label>
+                <textarea value={periciais} onChange={v => setPericias(v.target.value)}></textarea>
+            </div>
+            <div>
+                <label>Vantagens:</label>
+                <textarea value={vantagens} onChange={v => setVantagens(v.target.value)}></textarea>
+            </div>
+            <div>
+                <label>Desvantagens:</label>
+                <textarea value={desvantagens} onChange={v => setDesvantagens(v.target.value)}></textarea>
+            </div>
+        </ContainerMontaFicha>
     )
 }
