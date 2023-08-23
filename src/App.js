@@ -4,7 +4,7 @@ import logo from './images/logo.png'
 
 function App() {
   return (
-    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '8px'}}>
       <div style={{width: '100%', backgroundColor: '#000', padding: '8px'}}>
         <img style={{height: '50px', paddingLeft: '16px'}} src={logo} />
       </div>
