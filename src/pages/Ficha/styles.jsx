@@ -3,8 +3,9 @@ import frame from '../../images/frame.png'
 
 export const ContainerFicha = styled.div`
     padding: 8px;
-    min-width: 400px;
-    max-width: 500px;
+    width: 100%;
+    min-width: 300px;
+    max-width: 400px;
 `
 
 export const DadosPersonagem = styled.div`
