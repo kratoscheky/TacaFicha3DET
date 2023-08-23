@@ -6,6 +6,7 @@ export const ContainerMontaFicha = styled.div`
     max-width: 500px;
     padding: 8px;
     gap: 20px;
+    width: 100%;
 
     div {
         display: flex;
