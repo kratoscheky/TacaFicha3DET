@@ -9,7 +9,7 @@ function App() {
         <img style={{height: '50px', paddingLeft: '16px'}} src={logo} />
       </div>
       <div style={{padding: '8px', display: 'flex', flexDirection: 'column', maxWidth: '500px'}}>
-        <h1>3DeT tacaficha</h1>
+        <h1 style={{textTransform: 'uppercase'}}>3DeT tacaficha</h1>
         <p>Este é um site não oficial para auxiliar na criação de personagens no sistema 3DeT Victory.</p>
       </div>
       <Ficha />
