@@ -1,7 +1,7 @@
 import React from "react";
 import { useFicha } from "../../context/ficha.context";
 import { MontaFicha } from "../../components/MontaFicha";
-import { ContainerAtributos, ContainerFicha, ContainerExtras, DadosPersonagem, Icon } from "./styles";
+import { ContainerAtributos, ContainerFicha, ContainerExtras, DadosPersonagem, Icon, Button } from "./styles";
 import poderIcon from '../../images/poder.png'
 import habilidadeIcon from '../../images/habilidade.png'
 import resistenciaIcon from '../../images/resistencia.png'
@@ -72,9 +72,9 @@ export const Ficha = () => {
                     </div>
                 </ContainerExtras>
             </ContainerFicha>
-            <button onClick={captureAndSaveFicha}>
+            <Button onClick={captureAndSaveFicha}>
                 Salvar Ficha
-            </button>
+            </Button>
         </>
     )
 }

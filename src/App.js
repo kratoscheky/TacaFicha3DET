@@ -4,7 +4,9 @@ import { Ficha } from './pages/Ficha';
 
 function App() {
   return (
-    <Ficha />
+    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+      <Ficha />
+    </div>
   );
 }
 
