@@ -33,6 +33,7 @@ export const Ficha = () => {
     return (
         <>
             <MontaFicha />
+            <h1>Preview:</h1>
             <ContainerFicha id="container-ficha">
                 <DadosPersonagem>
                     <h1>{nome}</h1>

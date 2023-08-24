@@ -4,9 +4,10 @@ export const ContainerMontaFicha = styled.div`
     display: flex;
     flex-direction: column;
     max-width: 500px;
-    padding: 8px;
+    padding: 8px 0px;
     gap: 20px;
     width: 100%;
+    margin-bottom: 16px;
 
     div {
         display: flex;

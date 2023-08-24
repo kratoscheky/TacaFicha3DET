@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useFicha } from "../../context/ficha.context";
 import { ContainerMontaFicha } from "./styles";
+import dadinho from '../../images/dadinhos.png'
 
 export const MontaFicha = () => {
   const {
@@ -53,6 +54,7 @@ export const MontaFicha = () => {
             onChange={(e) => setDetalhes(e.target.value)}
           ></textarea>
         </div>
+        <img src={dadinho} />
         <h1>Atributos</h1>
         <div>
           <label>Poder:</label>
@@ -75,6 +77,7 @@ export const MontaFicha = () => {
             onChange={(v) => HandleAtributos(v.target.value, "resistencia")}
           ></input>
         </div>
+        <img src={dadinho} />
         <h1>Personalidade</h1>
         <div>
           <label>Perícias:</label>

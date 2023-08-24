@@ -2,10 +2,10 @@ import styled from 'styled-components';
 import frame from '../../images/frame.png'
 
 export const ContainerFicha = styled.div`
-    padding: 8px;
-    width: 100%;
     min-width: 300px;
     max-width: 400px;
+    margin-bottom: 16px;
+    box-shadow: 4px 4px 9px 0px rgba(0, 0, 0, 0.25);
 `
 
 export const DadosPersonagem = styled.div`
