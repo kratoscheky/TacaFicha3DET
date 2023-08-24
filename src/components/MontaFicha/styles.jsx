@@ -16,8 +16,6 @@ export const ContainerMontaFicha = styled.div`
         min-width: 110px;
     }
     div input, div textarea{
-        text-shadow: 0 0 16px rgba(0,0,0,.53);
-        box-shadow: 0 0 10px 0 rgba(0,0,0,.5);
         display: inline-block;
         line-height: 1;
         font-size: 15px;
@@ -26,7 +24,7 @@ export const ContainerMontaFicha = styled.div`
         color: #000;
         fill: #fff;
         transition: all .3s;
-        border: none;
+        border: 1px solid #00000050;
         width: 100%;
     }
 ` 
