@@ -50,6 +50,7 @@ export const MontaFicha = () => {
         <div>
           <label>Descrição:</label>
           <textarea
+            maxLength={250}
             value={detalhes}
             onChange={(e) => setDetalhes(e.target.value)}
           ></textarea>
