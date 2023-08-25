@@ -1,12 +1,8 @@
 import * as React from 'react';
-import Typography from '@mui/material/Typography';
 import { ContainerItens, ContainerModal, ConteudoModal } from './styles';
-import { useFicha } from '../../context/ficha.context';
 import { Pericias } from '../../data/pericias';
 
 export default function ModalPericias({open, handleClose}) {
-    const {setPericias} = useFicha()
-
   return (
     <div>
       <ContainerModal

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useFicha } from "../../context/ficha.context";
 import { ContainerMontaFicha, TextArea } from "./styles";
 import dadinho from '../../images/dadinhos.png'
