@@ -38,7 +38,7 @@ export const FichaCard = () => {
 
     return(
         <div style={{marginTop: '16px'}}>
-            <h1>Preview:</h1>
+            <h1>Preview:</h1><p style={{color: '#d11ce0'}}>BETA</p>
             <ContainerFicha style={{ backgroundImage: `url(${inputValue})` }} id="container-ficha-card">
                 <DadosPersonagem>
                     <CamposTopo>
