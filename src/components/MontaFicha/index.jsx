@@ -5,6 +5,8 @@ import FichaInput from '../FichaInput'
 import dadinho from '../../images/dadinhos.png'
 import InfoRoundedIcon from '@mui/icons-material/InfoRounded';
 import ModalPericias from "../ModalPericias";
+import ModalVantagens from "../ModalVantagens";
+import ModalDesvantagens from "../ModalDesvantagens";
 
 export const MontaFicha = () => {
   const {
@@ -23,6 +25,8 @@ export const MontaFicha = () => {
   } = useFicha();
 
   const [addPericiasOpen, setAddPericiasOpen] = useState(false);
+  const [addVantagensOpen, setAddVantagensOpen] = useState(false);
+  const [addDesvantagensOpen, setAddDesvantagensOpen] = useState(false);
 
   const SeparadorDadinho = () => <img src={dadinho} alt={'Dados'} />;
 
@@ -46,11 +50,25 @@ export const MontaFicha = () => {
             onChange={(v) => setPericias(v.target.value)}
           ></TextArea>
         </div>
-        <FichaInput label={'Vantagens'} valor={vantagens} onEdit={(v) => setVantagens(v.target.value)} isTextArea />
-        <FichaInput label={'Desvantagens'} valor={desvantagens} onEdit={(v) => setDesvantagens(v.target.value)} isTextArea />
+        <div>
+          <label style={{display: 'flex', alignItems: 'center', gap: '4px'}}>Vantagens <InfoRoundedIcon style={{width: '15px'}} onClick={() => setAddVantagensOpen(true)} />:</label>
+          <TextArea
+            value={vantagens}
+            onChange={(v) => setVantagens(v.target.value)}
+          ></TextArea>
+        </div>
+        <div>
+          <label style={{display: 'flex', alignItems: 'center', gap: '4px'}}>Desvantagens <InfoRoundedIcon style={{width: '15px'}} onClick={() => setAddDesvantagensOpen(true)} />:</label>
+          <TextArea
+            value={desvantagens}
+            onChange={(v) => setDesvantagens(v.target.value)}
+          ></TextArea>
+        </div>
       </ContainerMontaFicha>
 
       <ModalPericias open={addPericiasOpen} handleClose={() => setAddPericiasOpen(false)} />
+      <ModalVantagens open={addVantagensOpen} handleClose={() => setAddVantagensOpen(false)} />
+      <ModalDesvantagens open={addDesvantagensOpen} handleClose={() => setAddDesvantagensOpen(false)} />
     </>
   );
 };
