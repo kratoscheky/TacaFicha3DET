@@ -36,6 +36,7 @@ export const DadosPersonagem = styled.div`
 
 export const ContainerAtributos = styled.div`
     padding: 0px 0px 16px 28px;
+    background-color: #FFFFFF;
     div{
         display: flex;
         align-items: center;
@@ -62,6 +63,7 @@ export const Icon = styled.img`
 `
 export const ContainerExtras = styled.div`
     padding: 0px 0px 16px 28px;
+    background-color: #FFFFFF;
     div{
         display: flex;
         flex-direction: column;
