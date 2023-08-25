@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useFicha } from "../../context/ficha.context";
-import { ContainerMontaFicha } from "./styles";
+import { ContainerMontaFicha, TextArea } from "./styles";
 import dadinho from '../../images/dadinhos.png'
+import InfoRoundedIcon from '@mui/icons-material/InfoRounded';
+import ModalPericias from "../ModalPericias";
 
 export const MontaFicha = () => {
   const {
-    setAtributos,
     atributos,
-    pontosTotais,
-    setPontosTotais,
     detalhes,
     setDetalhes,
     setNome,
@@ -19,25 +18,10 @@ export const MontaFicha = () => {
     setDesvantagens,
     periciais,
     setPericias,
+    HandleAtributos
   } = useFicha();
 
-  const [errorMessage, setErrorMessage] = useState("");
-
-  const HandleAtributos = (value, key) => {
-    console.log(value, key, atributos, pontosTotais);
-
-    let pontosAtuais = atributos[key];
-    let pontosTotaisTemp = pontosTotais + pontosAtuais;
-
-    if (pontosTotaisTemp <= 0) {
-      setErrorMessage(`${key} Excede os seus pontos restantes`);
-      console.error(`${key} Excede os seus pontos restantes`);
-      // return;
-    }
-
-    setPontosTotais(pontosTotaisTemp - value);
-    setAtributos({ ...atributos, [key]: value });
-  };
+  const [addPericiasOpen, setAddPericiasOpen] = useState(false);
 
   return (
     <>
@@ -49,11 +33,11 @@ export const MontaFicha = () => {
         </div>
         <div>
           <label>Descrição:</label>
-          <textarea
+          <TextArea
             maxLength={250}
             value={detalhes}
             onChange={(e) => setDetalhes(e.target.value)}
-          ></textarea>
+          ></TextArea>
         </div>
         <img src={dadinho} />
         <h1>Atributos</h1>
@@ -81,27 +65,29 @@ export const MontaFicha = () => {
         <img src={dadinho} />
         <h1>Personalidade</h1>
         <div>
-          <label>Perícias:</label>
-          <textarea
+          <label style={{display: 'flex', alignItems: 'center', gap: '4px'}}>Perícias <InfoRoundedIcon style={{width: '15px'}} onClick={() => setAddPericiasOpen(true)} />:</label>
+          <TextArea
             value={periciais}
             onChange={(v) => setPericias(v.target.value)}
-          ></textarea>
+          ></TextArea>
         </div>
         <div>
           <label>Vantagens:</label>
-          <textarea
+          <TextArea
             value={vantagens}
             onChange={(v) => setVantagens(v.target.value)}
-          ></textarea>
+          ></TextArea>
         </div>
         <div>
           <label>Desvantagens:</label>
-          <textarea
+          <TextArea
             value={desvantagens}
             onChange={(v) => setDesvantagens(v.target.value)}
-          ></textarea>
+          ></TextArea>
         </div>
       </ContainerMontaFicha>
+
+      <ModalPericias open={addPericiasOpen} handleClose={() => setAddPericiasOpen(false)} />
     </>
   );
 };

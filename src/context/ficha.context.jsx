@@ -27,6 +27,21 @@ export const FichaProvider = ({ children }) => {
 
   const [pontosTotais, setPontosTotais] = useState(10);
 
+  const HandleAtributos = (value, key) => {
+    console.log(value, key, atributos, pontosTotais);
+
+    let pontosAtuais = atributos[key];
+    let pontosTotaisTemp = pontosTotais + pontosAtuais;
+
+    if (pontosTotaisTemp <= 0) {
+      console.error(`${key} Excede os seus pontos restantes`);
+      // return;
+    }
+
+    setPontosTotais(pontosTotaisTemp - value);
+    setAtributos({ ...atributos, [key]: value });
+  };
+
   useEffect(() => {
     setRecursos({
         pontosDeAcao: atributos.poder,
@@ -36,7 +51,7 @@ export const FichaProvider = ({ children }) => {
   }, [atributos])
 
   return (
-    <FichaContext.Provider value={{ atributos, setAtributos, recursos, setRecursos, pontosTotais, setPontosTotais, nome, setNome, detalhes, setDetalhes, vantagens, setVantagens,  desvantagens, setDesvantagens, pericias, setPericias}}>
+    <FichaContext.Provider value={{ atributos, setAtributos, recursos, setRecursos, pontosTotais, setPontosTotais, nome, setNome, detalhes, setDetalhes, vantagens, setVantagens,  desvantagens, setDesvantagens, pericias, setPericias, HandleAtributos}}>
       {children}
     </FichaContext.Provider>
   );
