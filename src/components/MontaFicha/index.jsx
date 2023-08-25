@@ -44,21 +44,21 @@ export const MontaFicha = () => {
         <SeparadorDadinho />
         <h1>Personalidade</h1>
         <div>
-          <label style={{display: 'flex', alignItems: 'center', gap: '4px'}}>Perícias <InfoRoundedIcon style={{width: '15px'}} onClick={() => setAddPericiasOpen(true)} />:</label>
+          {/* <label style={{display: 'flex', alignItems: 'center', gap: '4px'}}>Perícias <InfoRoundedIcon style={{width: '15px'}} onClick={() => setAddPericiasOpen(true)} />:</label> */}
           <TextArea
             value={periciais}
             onChange={(v) => setPericias(v.target.value)}
           ></TextArea>
         </div>
         <div>
-          <label style={{display: 'flex', alignItems: 'center', gap: '4px'}}>Vantagens <InfoRoundedIcon style={{width: '15px'}} onClick={() => setAddVantagensOpen(true)} />:</label>
+          {/* <label style={{display: 'flex', alignItems: 'center', gap: '4px'}}>Vantagens <InfoRoundedIcon style={{width: '15px'}} onClick={() => setAddVantagensOpen(true)} />:</label> */}
           <TextArea
             value={vantagens}
             onChange={(v) => setVantagens(v.target.value)}
           ></TextArea>
         </div>
         <div>
-          <label style={{display: 'flex', alignItems: 'center', gap: '4px'}}>Desvantagens <InfoRoundedIcon style={{width: '15px'}} onClick={() => setAddDesvantagensOpen(true)} />:</label>
+          {/* <label style={{display: 'flex', alignItems: 'center', gap: '4px'}}>Desvantagens <InfoRoundedIcon style={{width: '15px'}} onClick={() => setAddDesvantagensOpen(true)} />:</label> */}
           <TextArea
             value={desvantagens}
             onChange={(v) => setDesvantagens(v.target.value)}
