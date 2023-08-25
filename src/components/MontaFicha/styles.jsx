@@ -15,7 +15,7 @@ export const ContainerMontaFicha = styled.div`
         gap: 8px;
     }
     div label{
-        min-width: 110px;
+        min-width: 132px;
     }
     div input{
         display: inline-block;
