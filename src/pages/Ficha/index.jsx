@@ -52,13 +52,13 @@ export const Ficha = () => {
                 </ContainerAtributos>
                 <ContainerAtributos>
                     <div>
-                        <Icon src={acaoIcon} /><b>Pontos de Ação</b><p>{recursos.pontosDeAcao}</p>
+                        <Icon src={acaoIcon} /><b>Pontos de Ação</b><p>{recursos.pontosDeAcao != 0 ? recursos.pontosDeAcao : 1}</p>
                     </div>
                     <div>
-                        <Icon src={manaIcon} /><b>Pontos de Mana</b><p>{recursos.pontosDeMana}</p>
+                        <Icon src={manaIcon} /><b>Pontos de Mana</b><p>{recursos.pontosDeMana != 0 ? recursos.pontosDeMana : 1}</p>
                     </div>
                     <div>
-                        <Icon src={vidaIcon} /><b>Pontos de Vida</b><p>{recursos.pontosDeVida}</p>
+                        <Icon src={vidaIcon} /><b>Pontos de Vida</b><p>{recursos.pontosDeVida != 0 ? recursos.pontosDeVida : 1}</p>
                     </div>
                 </ContainerAtributos>
                 <ContainerExtras>
