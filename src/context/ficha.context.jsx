@@ -28,18 +28,18 @@ export const FichaProvider = ({ children }) => {
   const [pontosTotais, setPontosTotais] = useState(10);
 
   const HandleAtributos = (value, key) => {
-    // console.log(value, key, atributos, pontosTotais);
+    console.log(value, key, atributos, pontosTotais);
 
-    // let pontosAtuais = atributos[key];
-    // let pontosTotaisTemp = pontosTotais + pontosAtuais;
+    let pontosAtuais = atributos[key];
+    let pontosTotaisTemp = pontosTotais + pontosAtuais;
 
-    // if (pontosTotaisTemp <= 0) {
-    //   console.error(`${key} Excede os seus pontos restantes`);
-    //   // return;
-    // }
+    if (pontosTotaisTemp <= 0) {
+      console.error(`${key} Excede os seus pontos restantes`);
+      // return;
+    }
 
     // setPontosTotais(pontosTotaisTemp - value);
-    // setAtributos({ ...atributos, [key]: value });
+    setAtributos({ ...atributos, [key]: value });
   };
 
   useEffect(() => {
