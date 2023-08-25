@@ -24,7 +24,7 @@ function App() {
           <p style={{
             color: '#FFF',
             textAlign: 'center'
-          }}>Este site foi criado por <a style={{color: '#D11CE0'}} href='https://twitter.com/Kratoscheky'>@kratoscheky</a> com colaboração de <a style={{color: '#D11CE0'}} href='https://twitter.com/OvelhaDev'>@OvelhaDev</a></p>
+          }}>Este site foi criado por <a style={{color: '#D11CE0'}} href='https://twitter.com/Kratoscheky'>@kratoscheky</a> com colaboração de <a style={{color: '#D11CE0'}} href='https://twitter.com/OvelhaDev'>@OvelhaDev</a> e <a style={{color: '#D11CE0'}} href='https://twitter.com/kpoper_cansada'>@kpoper_cansada</a></p>
       </div>
     </>
   );
