@@ -12,20 +12,19 @@ function App() {
         <Ficha />
       </ContainerPage>
       <div
-        style={{
-          background: "#000",
-          width: "100%",
-          height: "75px",
-        }}
-      >
-        <p style={{
-          color: '#FFF',
-          display: 'flex',
-          height: '100%',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: '4px',
-        }}>Este site foi criado por <a style={{color: '#D11CE0'}} href='https://twitter.com/Kratoscheky'>@kratoscheky</a> com colaboração de <a style={{color: '#D11CE0'}} href='https://twitter.com/OvelhaDev'>@OvelhaDev</a></p>
+          style={{
+            background: "#000",
+            width: "100%",
+            display: 'flex',
+            padding: '16px',
+            display: 'flex',
+            justifyContent: 'center'
+          }}
+        >
+          <p style={{
+            color: '#FFF',
+            textAlign: 'center'
+          }}>Este site foi criado por <a style={{color: '#D11CE0'}} href='https://twitter.com/Kratoscheky'>@kratoscheky</a> com colaboração de <a style={{color: '#D11CE0'}} href='https://twitter.com/OvelhaDev'>@OvelhaDev</a></p>
       </div>
     </>
   );
