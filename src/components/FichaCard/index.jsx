@@ -125,7 +125,7 @@ export const FichaCard = () => {
                         <SubStatusContainer>
                             <SubStatusTexto>
                                 <IconSecundario src={acaoIcon} />
-                                <p>{recursos.pontosDeAcao}</p>
+                                <p>{recursos.pontosDeAcao != 0 ? recursos.pontosDeAcao : 1}</p>
                             </SubStatusTexto>
                             <svg style={{
                                 position: 'absolute',
@@ -176,7 +176,7 @@ export const FichaCard = () => {
                         <StatusContainer>
                             <SubStatusTexto>
                                 <IconSecundario src={manaIcon} />
-                                <p>{recursos.pontosDeMana}</p>
+                                <p>{recursos.pontosDeMana != 0 ? recursos.pontosDeMana : 1}</p>
                             </SubStatusTexto>
                             <svg style={{
                                 position: 'absolute',
@@ -226,7 +226,7 @@ export const FichaCard = () => {
                         <StatusContainer>
                             <SubStatusTexto>
                                 <IconSecundario src={vidaIcon} />
-                                <p>{recursos.pontosDeVida}</p>
+                                <p>{recursos.pontosDeVida != 0 ? recursos.pontosDeVida : 1}</p>
                             </SubStatusTexto>
                             <svg style={{
                                 position: 'absolute',
