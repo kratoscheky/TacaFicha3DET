@@ -67,10 +67,10 @@ export const MontaFicha = () => {
         <div>
           <label style={{ display: "flex", alignItems: "center", gap: "4px" }}>
             Perícias{" "}
-            {/* <InfoRoundedIcon
+            <InfoRoundedIcon
               style={{ width: "15px" }}
               onClick={() => setAddPericiasOpen(true)}
-            /> */}
+            />
             :
           </label>
           <TextArea
@@ -81,10 +81,10 @@ export const MontaFicha = () => {
         <div>
           <label style={{ display: "flex", alignItems: "center", gap: "4px" }}>
             Vantagens
-            {/* <InfoRoundedIcon
+            <InfoRoundedIcon
               style={{ width: "15px" }}
               onClick={() => setAddVantagensOpen(true)}
-            /> */}
+            />
             :
           </label>
           <TextArea
@@ -95,10 +95,10 @@ export const MontaFicha = () => {
         <div>
           <label style={{ display: "flex", alignItems: "center", gap: "4px" }}>
             Desvantagens{" "}
-            {/* <InfoRoundedIcon
+            <InfoRoundedIcon
               style={{ width: "15px" }}
               onClick={() => setAddDesvantagensOpen(true)}
-            /> */}
+            />
             :
           </label>
           <TextArea
