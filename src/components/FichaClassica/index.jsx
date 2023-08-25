@@ -1,12 +1,12 @@
 import React from "react";
 import { useFicha } from "../../context/ficha.context";
 import { ContainerAtributos, ContainerFicha, ContainerExtras, DadosPersonagem, Icon, Button } from "./styles";
-import poderIcon from '../../images/poder.png'
-import habilidadeIcon from '../../images/habilidade.png'
-import resistenciaIcon from '../../images/resistencia.png'
-import acaoIcon from '../../images/acao.png'
-import manaIcon from '../../images/mana.png'
-import vidaIcon from '../../images/vida.png'
+import poderIcon from '../../images/poder.svg'
+import habilidadeIcon from '../../images/habilidade.svg'
+import resistenciaIcon from '../../images/resistencia.svg'
+import acaoIcon from '../../images/acao.svg'
+import manaIcon from '../../images/mana.svg'
+import vidaIcon from '../../images/vida.svg'
 import html2canvas from "html2canvas";
 
 
@@ -31,7 +31,7 @@ export const FichaClassica = () => {
     };
 
     return(
-        <>
+        <div>
             <h1>Preview:</h1>
             <ContainerFicha id="container-ficha-classica">
                 <DadosPersonagem>
@@ -76,6 +76,6 @@ export const FichaClassica = () => {
             <Button onClick={captureAndSaveFicha}>
                 Salvar Ficha
             </Button>
-        </>
+        </div>
     )
 }

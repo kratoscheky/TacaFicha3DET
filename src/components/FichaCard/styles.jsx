@@ -3,9 +3,18 @@ import frame from '../../images/frame.png'
 
 export const ContainerFicha = styled.div`
     margin-bottom: 16px;
+    padding-bottom: 16px;
     background-color: #FFFFFF;
     box-shadow: 4px 4px 9px 0px rgba(0, 0, 0, 0.25);
-    zoom: 70%;
+    background-size: cover;
+    zoom: 50%;
+    width: 684px;
+`
+
+export const PontosTotais = styled.h1`
+    text-align: right;
+    font-size: 50px;
+    padding-right: 20px;
 `
 
 export const CamposTopo = styled.div`
@@ -24,6 +33,14 @@ export const CamposTopo = styled.div`
     }
 `
 
+export const AlinhamentoInfos = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+`
+
 export const DadosPersonagem = styled.div`
     position: relative;
     display: flex;
@@ -35,67 +52,119 @@ export const DadosPersonagem = styled.div`
 `
 
 export const ContainerAtributos = styled.div`
+    display: flex;
+    gap: 28px;
+    flex-direction: column;
+    height: 380px;
+`
+
+export const StatusContainer = styled.div`
+    position: relative;
     width: 100%;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
     align-items: flex-start;
-    div{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2px;
+`
+export const SubStatusContainer = styled.div`
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    z-index: 1000;
+`
+export const SubStatusTexto = styled.div`
+    padding-left: 8px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+    z-index: 1000;
+    p {
+        font-size: 20px;
+        color: #5785FA;
     }
-    div div{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-    }
-    div div b{
-        color: #D11CE0;
-        font-style: normal;
-        font-weight: 800;
-        line-height: normal;
-        text-transform: uppercase;
-        text-align: center;
-    }
-    div div p{
+`
+
+export const SubStatusContainerValues = styled.div`
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+`
+
+export const AtributoContainer = styled.div`
+    position: absolute;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    height: 100%;
+    top: -4px;
+    left: 8px;
+    p{
         padding-top: 4px;
         font-weight: 800;
-        font-size: 16;
+        font-size: 38px;
+        color: #FFF;
     }
 `
 
 export const Icon = styled.img`
+    width: 50px;
+    height: 50px;
+    filter: brightness(0) invert(1);
+`
+
+export const IconSecundario = styled.img`
     width: 20px;
     height: 20px;
 `
+
 export const ContainerExtras = styled.div`
-    padding: 0px 0px 16px 28px;
-    div{
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-        padding-bottom: 12px;
+    width: 653px;
+    height: 251px;
+    background: rgba(255, 255, 255, 0.80);
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+`
+export const PericiasTexto = styled.div`
+    b{
+        font-size: 26px;
+        font-weight: 900;
     }
-    div b{
-        font-style: normal;
-        font-weight: 800;
-        line-height: normal;
-        text-transform: uppercase;
+`
+
+export const VantagensTexto = styled.div`
+    p{
+        font-size: 26px;
+        font-weight: 600;
     }
-    div:nth-child(1) b{
-        color: #3FA535;
+`
+
+export const DesvantagensTexto = styled.div`
+    p{
+        font-size: 26px;
+        color: #71444B;
+        font-weight: 600;
     }
-    div:nth-child(2) b{
-        color: #0447BE;
-    }
-    div:nth-child(3) b{
-        color: #E7017D;
-    }   
-    div p{
-        margin-left: 8px;
-        font-size: 16;
+`
+
+export const Detalhes = styled.div`
+    width: 653px;
+    height: 135px;
+    padding: 14px;
+    border-radius: 0px 0px 13px 13px;
+    background: rgba(36, 36, 36, 0.80);
+    p {
+        color: #FFF;
+        font-size: 22px;
     }
 `
 
@@ -118,4 +187,10 @@ export const Button = styled.button`
     color: #fff;
     cursor: pointer;
     width: 100%;
+`
+
+export const ImageInputContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding: 16px 0 16px 0;
 `

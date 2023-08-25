@@ -22,6 +22,8 @@ export const MontaFicha = () => {
     periciais,
     setPericias,
     HandleAtributos,
+    pontosTotais,
+    setPontosTotais
   } = useFicha();
 
   const [addPericiasOpen, setAddPericiasOpen] = useState(false);
@@ -34,6 +36,11 @@ export const MontaFicha = () => {
     <>
       <ContainerMontaFicha>
         <h1>Dados Basicos</h1>
+        <FichaInput
+          label={"Pontos Totais"}
+          valor={pontosTotais}
+          onEdit={(e) => setPontosTotais(e.target.value)}
+        />
         <FichaInput
           label={"Nome"}
           valor={nome}

@@ -7,8 +7,10 @@ export const Ficha = () => {
     return (
         <>
             <MontaFicha />
-            <FichaClassica />
-            <FichaCard />
+            <div>
+                <FichaClassica />
+                <FichaCard />
+            </div>
         </>
     )
 }
