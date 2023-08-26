@@ -46,7 +46,7 @@ export const MontaFicha = () => {
           valor={nome}
           onEdit={(e) => setNome(e.target.value)}
         />
-        <FichaInput
+        <TextArea
           label={"Descrição"}
           valor={detalhes}
           onEdit={(e) => setDetalhes(e.target.value)}
