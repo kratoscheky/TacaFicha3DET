@@ -25,7 +25,9 @@ export const MontaFicha = () => {
     pontosTotais,
     setPontosTotais,
     arquetipo,
-    setArquetipo
+    setArquetipo,
+    extras,
+    setExtras
   } = useFicha();
 
   const [addPericiasOpen, setAddPericiasOpen] = useState(false);
@@ -49,6 +51,7 @@ export const MontaFicha = () => {
           onEdit={(e) => setNome(e.target.value)}
         />
         <FichaInput
+          isTextArea
           label={"Descrição"}
           valor={detalhes}
           onEdit={(e) => setDetalhes(e.target.value)}
@@ -120,6 +123,22 @@ export const MontaFicha = () => {
             onChange={(v) => setDesvantagens(v.target.value)}
           ></TextArea>
         </div>
+        <h1>Extras</h1>
+        <FichaInput
+          label={"+Pontos de Ação"}
+          valor={extras.pontosDeAcao}
+          onEdit={(e) => setExtras({...extras, pontosDeAcao: e.target.value})}
+        />
+        <FichaInput
+          label={"+Pontos de Mana"}
+          valor={extras.pontosDeMana}
+          onEdit={(e) => setExtras({...extras, pontosDeMana: e.target.value})}
+        />
+        <FichaInput
+          label={"+Pontos de Vida"}
+          valor={extras.pontosDeVida}
+          onEdit={(e) => setExtras({...extras, pontosDeVida: e.target.value})}
+        />
       </ContainerMontaFicha>
 
       <ModalPericias

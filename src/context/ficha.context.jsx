@@ -16,9 +16,17 @@ const initialRecursos = {
   pontosDeVida: 0,
 };
 
+const initialExtras = {
+  pontosDeAcao: 0,
+  pontosDeMana: 0,
+  pontosDeVida: 0,
+}
+
 export const FichaProvider = ({ children }) => {
   const [atributos, setAtributos] = useState(initialAtributos);
   const [recursos, setRecursos] = useState(initialRecursos);
+  const [extras, setExtras] = useState(initialExtras);
+
   const [nome, setNome] = useState("");
   const [detalhes, setDetalhes] = useState("");
   const [pericias, setPericias] = useState("");
@@ -73,6 +81,8 @@ export const FichaProvider = ({ children }) => {
         HandleAtributos,
         arquetipo,
         setArquetipo,
+        extras,
+        setExtras
       }}
     >
       {children}

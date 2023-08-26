@@ -16,7 +16,13 @@ import html2canvas from "html2canvas";
 
 
 export const FichaCard = () => {
-    const {atributos, recursos, nome, detalhes, vantagens, desvantagens, pericias, pontosTotais, arquetipo} = useFicha();
+    const {atributos, recursos, nome, detalhes, vantagens, desvantagens, pericias, pontosTotais, arquetipo, extras} = useFicha();
+
+    const recursosFinal = {
+        pontosDeAcao: parseInt(recursos.pontosDeAcao) + parseInt(extras.pontosDeAcao),
+        pontosDeMana: parseInt(recursos.pontosDeMana) + parseInt(extras.pontosDeMana),
+        pontosDeVida: parseInt(recursos.pontosDeVida) + parseInt(extras.pontosDeVida)
+    }
 
     const [inputValue, setInputValue] = useState('');
 
@@ -72,7 +78,7 @@ export const FichaCard = () => {
                                 <img src={barrinhaPreta} />
                                 <SubAlinhamentos>
                                     <IconSecundario src={acaoIcon} />
-                                    <p>{recursos.pontosDeAcao != 0 ? recursos.pontosDeAcao : 1}</p>
+                                    <p>{recursos.pontosDeAcao != 0 ? recursosFinal.pontosDeAcao : recursosFinal.pontosDeAcao + 1}</p>
                                 </SubAlinhamentos>
                             </SubStatusTexto>
                         </SubStatusContainer>
@@ -105,7 +111,7 @@ export const FichaCard = () => {
                                 <img src={barrinhaPreta} />
                                 <SubAlinhamentos>
                                     <IconSecundario src={manaIcon} />
-                                    <p>{recursos.pontosDeMana != 0 ? recursos.pontosDeMana : 1}</p>
+                                    <p>{recursos.pontosDeMana != 0 ? recursosFinal.pontosDeMana : recursosFinal.pontosDeMana + 1}</p>
                                 </SubAlinhamentos>
                             </SubStatusTexto>
                         </StatusContainer>
@@ -138,7 +144,7 @@ export const FichaCard = () => {
                                 <img src={barrinhaPreta} />
                                 <SubAlinhamentos>
                                     <IconSecundario src={vidaIcon} />
-                                    <p>{recursos.pontosDeVida != 0 ? recursos.pontosDeVida : 1}</p>
+                                    <p>{recursos.pontosDeVida != 0 ? recursosFinal.pontosDeVida : recursosFinal.pontosDeVida + 1}</p>
                                 </SubAlinhamentos>
                             </SubStatusTexto>
                         </StatusContainer>
