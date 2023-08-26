@@ -48,17 +48,12 @@ export const MontaFicha = () => {
           valor={nome}
           onEdit={(e) => setNome(e.target.value)}
         />
-        <div>
-          <label>
-            Descrição:
-          </label>
-          <TextArea
-            label={"Descrição"}
-            valor={detalhes}
-            onEdit={(e) => setDetalhes(e.target.value)}
-            maxLength={250}
-          />
-        </div>
+        <FichaInput
+          label={"Descrição"}
+          valor={detalhes}
+          onEdit={(e) => setDetalhes(e.target.value)}
+          maxLength={250}
+        />
         <FichaInput
           label={"Arquetipo"}
           valor={arquetipo}
