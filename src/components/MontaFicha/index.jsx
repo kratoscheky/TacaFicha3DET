@@ -123,6 +123,7 @@ export const MontaFicha = () => {
             onChange={(v) => setDesvantagens(v.target.value)}
           ></TextArea>
         </div>
+        <SeparadorDadinho />
         <h1>Extras</h1>
         <FichaInput
           label={"+Pontos de Ação"}
