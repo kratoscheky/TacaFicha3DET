@@ -77,28 +77,28 @@ export const SubStatusContainer = styled.div`
     gap: 8px;
 `
 export const SubStatusTexto = styled.div`
+    display: grid;
     width: 100px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
     gap: 16px;
-    background-color: #000;
-    padding: 8px 8px 8px 6px;
-    &::after {
-        background: black none repeat scroll 0 0;
-        content: "";
-        height: 52px;
-        position: absolute;
-        right: 561px;
-        transform: skew(-20deg);
-        width: 28px;
-        z-index: 1;
-    }
+    grid-template-columns: 1fr;
     p {
         font-size: 36px;
         color: #5785FA;
         z-index: 2;
     }
+    img {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+`
+
+export const SubAlinhamentos = styled.div`
+    display: flex;
+    gap: 16px;
+    padding-top: 8px;
+    padding-left: 4px;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
 `
 
 export const SubStatusContainerValues = styled.div`
@@ -121,7 +121,7 @@ export const AtributoContainer = styled.div`
     p{
         padding-top: 4px;
         font-weight: 800;
-        font-size: 38px;
+        font-size: 52px;
         color: #FFF;
     }
 `
@@ -132,8 +132,10 @@ export const Icon = styled.img`
 `
 
 export const IconSecundario = styled.img`
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
 `
 
 export const ContainerExtras = styled.div`
@@ -206,4 +208,13 @@ export const ImageInputContainer = styled.div`
     display: flex;
     flex-direction: column;
     padding: 16px 0 16px 0;
+`
+
+export const ArquetipoTexto = styled.p`
+    z-index: 1000;
+    position: absolute;
+    color: #FFF;
+    font-size: 20px;
+    bottom: 34px;
+    left: 8px;
 `

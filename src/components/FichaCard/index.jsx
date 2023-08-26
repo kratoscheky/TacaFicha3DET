@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useFicha } from "../../context/ficha.context";
-import { ContainerAtributos, ContainerFicha, ContainerExtras, DadosPersonagem, Icon, Button, CamposTopo, IconSecundario, AtributoContainer, StatusContainer, SubStatusContainer, SubStatusTexto, PericiasTexto, VantagensTexto, DesvantagensTexto, Detalhes, AlinhamentoInfos, ImageInputContainer, PontosTotais } from "./styles";
+import { ContainerAtributos, ContainerFicha, ContainerExtras, DadosPersonagem, Icon, Button, CamposTopo, IconSecundario, AtributoContainer, StatusContainer, SubStatusContainer, SubStatusTexto, PericiasTexto, VantagensTexto, DesvantagensTexto, Detalhes, AlinhamentoInfos, ImageInputContainer, PontosTotais, SubAlinhamentos, ArquetipoTexto } from "./styles";
 import poderIcon from '../../images/tcg/poder.svg'
 import habilidadeIcon from '../../images/tcg/habilidade.svg'
 import resistenciaIcon from '../../images/tcg/resistencia.svg'
@@ -8,6 +8,7 @@ import acaoIcon from '../../images/tcg/acao.svg'
 import manaIcon from '../../images/tcg/mana.svg'
 import vidaIcon from '../../images/tcg/vida.svg'
 import topoImage from '../../images/tcg/topo.svg'
+import barrinhaPreta from '../../images/tcg/barrinhapreta.svg'
 import pontoBar from '../../images/tcg/ponto.svg'
 import bottomBar from '../../images/tcg/bottombar.svg'
 import cardrosa from '../../images/tcg/cardrosa.svg'
@@ -15,7 +16,7 @@ import html2canvas from "html2canvas";
 
 
 export const FichaCard = () => {
-    const {atributos, recursos, nome, detalhes, vantagens, desvantagens, pericias, pontosTotais} = useFicha();
+    const {atributos, recursos, nome, detalhes, vantagens, desvantagens, pericias, pontosTotais, arquetipo} = useFicha();
 
     const [inputValue, setInputValue] = useState('');
 
@@ -55,6 +56,7 @@ export const FichaCard = () => {
                         position: 'absolute',
                         top: '84px'
                     }} />
+                    <ArquetipoTexto>{arquetipo}</ArquetipoTexto>
                 </DadosPersonagem>
                 <ContainerAtributos>
                     <div>
@@ -67,8 +69,11 @@ export const FichaCard = () => {
                         </StatusContainer>
                         <SubStatusContainer>
                             <SubStatusTexto>
-                                <IconSecundario src={acaoIcon} />
-                                <p>{recursos.pontosDeAcao != 0 ? recursos.pontosDeAcao : 1}</p>
+                                <img src={barrinhaPreta} />
+                                <SubAlinhamentos>
+                                    <IconSecundario src={acaoIcon} />
+                                    <p>{recursos.pontosDeAcao != 0 ? recursos.pontosDeAcao : 1}</p>
+                                </SubAlinhamentos>
                             </SubStatusTexto>
                         </SubStatusContainer>
                     </div>
@@ -97,8 +102,11 @@ export const FichaCard = () => {
                         </StatusContainer>
                         <StatusContainer>
                             <SubStatusTexto>
-                                <IconSecundario src={manaIcon} />
-                                <p>{recursos.pontosDeMana != 0 ? recursos.pontosDeMana : 1}</p>
+                                <img src={barrinhaPreta} />
+                                <SubAlinhamentos>
+                                    <IconSecundario src={manaIcon} />
+                                    <p>{recursos.pontosDeMana != 0 ? recursos.pontosDeMana : 1}</p>
+                                </SubAlinhamentos>
                             </SubStatusTexto>
                         </StatusContainer>
                     </div>
@@ -127,8 +135,11 @@ export const FichaCard = () => {
                         </StatusContainer>
                         <StatusContainer>
                             <SubStatusTexto>
-                                <IconSecundario src={vidaIcon} />
-                                <p>{recursos.pontosDeVida != 0 ? recursos.pontosDeVida : 1}</p>
+                                <img src={barrinhaPreta} />
+                                <SubAlinhamentos>
+                                    <IconSecundario src={vidaIcon} />
+                                    <p>{recursos.pontosDeVida != 0 ? recursos.pontosDeVida : 1}</p>
+                                </SubAlinhamentos>
                             </SubStatusTexto>
                         </StatusContainer>
                     </div>

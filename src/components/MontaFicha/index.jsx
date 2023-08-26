@@ -23,7 +23,9 @@ export const MontaFicha = () => {
     setPericias,
     HandleAtributos,
     pontosTotais,
-    setPontosTotais
+    setPontosTotais,
+    arquetipo,
+    setArquetipo
   } = useFicha();
 
   const [addPericiasOpen, setAddPericiasOpen] = useState(false);
@@ -57,6 +59,11 @@ export const MontaFicha = () => {
             maxLength={250}
           />
         </div>
+        <FichaInput
+          label={"Arquetipo"}
+          valor={arquetipo}
+          onEdit={(e) => setArquetipo(e.target.value)}
+        />
         <SeparadorDadinho />
         <h1>Atributos</h1>
         <FichaInput
