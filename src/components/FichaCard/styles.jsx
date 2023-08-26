@@ -8,7 +8,9 @@ export const ContainerFicha = styled.div`
     box-shadow: 4px 4px 9px 0px rgba(0, 0, 0, 0.25);
     background-size: cover;
     zoom: 50%;
-    width: 684px;
+    width: 694px;
+    border: 12px solid #000;
+    border-radius: 8px;
 `
 
 export const PontosTotais = styled.h1`
@@ -142,6 +144,8 @@ export const ContainerExtras = styled.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
+    border: 5px solid;
+    border-image: linear-gradient(179deg, black, #ffa50000) 1;
 `
 export const PericiasTexto = styled.div`
     b{
