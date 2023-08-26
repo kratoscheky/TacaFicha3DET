@@ -11,7 +11,6 @@ import topoImage from '../../images/tcg/topo.svg'
 import pontoBar from '../../images/tcg/ponto.svg'
 import bottomBar from '../../images/tcg/bottombar.svg'
 import cardrosa from '../../images/tcg/cardrosa.svg'
-import barrinhapreta from '../../images/tcg/barrinhapreta.svg'
 import html2canvas from "html2canvas";
 
 

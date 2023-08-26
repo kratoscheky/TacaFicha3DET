@@ -77,27 +77,27 @@ export const SubStatusContainer = styled.div`
     gap: 8px;
 `
 export const SubStatusTexto = styled.div`
-    padding-left: 8px;
     width: 100px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 16px;
     background-color: #000;
-    padding: 16px;
-    &::before {
+    padding: 8px 8px 8px 6px;
+    &::after {
         background: black none repeat scroll 0 0;
         content: "";
         height: 52px;
         position: absolute;
-        right: 566px;
+        right: 561px;
         transform: skew(-20deg);
         width: 28px;
         z-index: 1;
     }
     p {
-        font-size: 20px;
+        font-size: 36px;
         color: #5785FA;
+        z-index: 2;
     }
 `
 

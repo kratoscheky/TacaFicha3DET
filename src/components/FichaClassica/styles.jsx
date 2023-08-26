@@ -59,6 +59,7 @@ export const ContainerAtributos = styled.div`
 export const Icon = styled.img`
     width: 20px;
     height: 20px;
+    padding: 2px;
 `
 export const ContainerExtras = styled.div`
     padding: 0px 0px 16px 28px;
