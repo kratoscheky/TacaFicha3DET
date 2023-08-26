@@ -167,6 +167,7 @@ export const FichaCard = () => {
                     </Detalhes>
                 </AlinhamentoInfos>
             </ContainerFicha>
+            <p>Modelo de ficha por <a href="https://twitter.com/lukeskelington">@lukeskelington</a></p>
 
             <ImageInputContainer>
                 <label>Enviar Imagem Customizada:</label>
