@@ -55,7 +55,7 @@ export const ContainerAtributos = styled.div`
     display: flex;
     gap: 28px;
     flex-direction: column;
-    height: 380px;
+    height: 444px;
 `
 
 export const StatusContainer = styled.div`
@@ -73,16 +73,26 @@ export const SubStatusContainer = styled.div`
     justify-content: flex-start;
     align-items: center;
     gap: 8px;
-    z-index: 1000;
 `
 export const SubStatusTexto = styled.div`
     padding-left: 8px;
-    width: 100%;
+    width: 100px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 16px;
-    z-index: 1000;
+    background-color: #000;
+    padding: 16px;
+    &::before {
+        background: black none repeat scroll 0 0;
+        content: "";
+        height: 52px;
+        position: absolute;
+        right: 566px;
+        transform: skew(-20deg);
+        width: 28px;
+        z-index: 1;
+    }
     p {
         font-size: 20px;
         color: #5785FA;
@@ -117,7 +127,6 @@ export const AtributoContainer = styled.div`
 export const Icon = styled.img`
     width: 50px;
     height: 50px;
-    filter: brightness(0) invert(1);
 `
 
 export const IconSecundario = styled.img`
