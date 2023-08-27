@@ -8,8 +8,8 @@ import { SaveSlots } from "./components/SaveSlots";
 function App() {
   return (
     <>
+      <Topo />
       <ContainerPage>
-        <Topo />
         <SaveSlots />
         <Ficha />
       </ContainerPage>

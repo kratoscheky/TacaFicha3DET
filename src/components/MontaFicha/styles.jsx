@@ -14,6 +14,9 @@ export const ContainerMontaFicha = styled.div`
         display: flex;
         gap: 8px;
     }
+    h1{
+        color: #D11CE0;
+    }
     div input{
         display: inline-block;
         line-height: 1;

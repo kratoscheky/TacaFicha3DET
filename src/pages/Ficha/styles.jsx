@@ -13,10 +13,35 @@ export const ImageInputContainer = styled.div`
     display: flex;
     flex-direction: column;
     padding: 16px 0 16px 0;
+    label{
+        padding: 8px 0;
+        font-weight: 700;
+    }
 `
 
 export const Container = styled.div`
     max-width: 500px;
+    width: 100%;
+`
+
+export const ButtonUpload = styled.button`
+    font-weight: 600;
+    text-shadow: 0 0 16px rgba(0,0,0,.53);
+    background-color: #D11CE0;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.5);
+    font-size: 16px;
+    padding: 15px 30px;
+    border-radius: 4px;
+    text-decoration: none;
+    fill: #fff;
+    text-align: center;
+    transition: all .3s;
+    border: none;
+    flex-grow: 1;
+    order: 10;
+    display: inline-block;
+    color: #fff;
+    cursor: pointer;
     width: 100%;
 `
 
