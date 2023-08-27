@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const ContainerCards = styled.div`
     width: 100%;
-    max-width: 500px;
     display: flex;
     gap: 16px;
     overflow: auto;
@@ -15,6 +14,7 @@ export const ContainerSessao = styled.div`
     padding: 8px;
     border: 1px solid #D11CE0;
     border-radius: 8px;
+    max-width: 500px;
 `
 
 export const AvisoTexto = styled.p`
