@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useFicha } from "../../context/ficha.context";
-import { ButtonFicha, ContainerMontaFicha } from "./styles";
+import { ButtonFicha, ContainerInputs, ContainerMontaFicha } from "./styles";
 import FichaInput from "../FichaInput";
 import dadinho from "../../images/dadinhos.png";
 import ModalPericias from "../ModalPericias";
@@ -44,15 +44,23 @@ export const MontaFicha = () => {
       <ContainerMontaFicha>
         <h1>Dados Basicos</h1>
         <FichaInput
-          label={"Pontos Totais"}
-          valor={pontosTotais}
-          onEdit={(e) => setPontosTotais(e.target.value)}
-        />
-        <FichaInput
           label={"Nome"}
           valor={nome}
           onEdit={(e) => setNome(e.target.value)}
         />
+        <ContainerInputs>
+          <FichaInput
+            label={"Arquetipo"}
+            valor={arquetipo}
+            onEdit={(e) => setArquetipo(e.target.value)}
+          />
+          <FichaInput
+            label={"Pontos Totais"}
+            valor={pontosTotais}
+            width={'110px'}
+            onEdit={(e) => setPontosTotais(e.target.value)}
+          />
+        </ContainerInputs>
         <FichaInput
           isTextArea
           label={"Descrição"}
@@ -60,28 +68,25 @@ export const MontaFicha = () => {
           onEdit={(e) => setDetalhes(e.target.value)}
           maxLength={250}
         />
-        <FichaInput
-          label={"Arquetipo"}
-          valor={arquetipo}
-          onEdit={(e) => setArquetipo(e.target.value)}
-        />
         <SeparadorDadinho />
         <h1>Atributos</h1>
-        <FichaInput
-          label={"Poder"}
-          valor={atributos.poder}
-          onEdit={(v) => HandleAtributos(v.target.value, "poder")}
-        />
-        <FichaInput
-          label={"Habilidade"}
-          valor={atributos.habilidade}
-          onEdit={(v) => HandleAtributos(v.target.value, "habilidade")}
-        />
-        <FichaInput
-          label={"Resistência"}
-          valor={atributos.resistencia}
-          onEdit={(v) => HandleAtributos(v.target.value, "resistencia")}
-        />
+        <ContainerInputs>
+          <FichaInput
+            label={"Poder"}
+            valor={atributos.poder}
+            onEdit={(v) => HandleAtributos(v.target.value, "poder")}
+          />
+          <FichaInput
+            label={"Habilidade"}
+            valor={atributos.habilidade}
+            onEdit={(v) => HandleAtributos(v.target.value, "habilidade")}
+          />
+          <FichaInput
+            label={"Resistência"}
+            valor={atributos.resistencia}
+            onEdit={(v) => HandleAtributos(v.target.value, "resistencia")}
+          />
+        </ContainerInputs>
         <SeparadorDadinho />
         <h1>Personalidade</h1>
         <div>
@@ -116,21 +121,23 @@ export const MontaFicha = () => {
         </div>
         <SeparadorDadinho />
         <h1>Extras</h1>
-        <FichaInput
-          label={"+Pontos de Ação"}
-          valor={extras.pontosDeAcao}
-          onEdit={(e) => setExtras({...extras, pontosDeAcao: e.target.value})}
-        />
-        <FichaInput
-          label={"+Pontos de Mana"}
-          valor={extras.pontosDeMana}
-          onEdit={(e) => setExtras({...extras, pontosDeMana: e.target.value})}
-        />
-        <FichaInput
-          label={"+Pontos de Vida"}
-          valor={extras.pontosDeVida}
-          onEdit={(e) => setExtras({...extras, pontosDeVida: e.target.value})}
-        />
+        <ContainerInputs>
+          <FichaInput
+            label={"+Pontos de Ação"}
+            valor={extras.pontosDeAcao}
+            onEdit={(e) => setExtras({...extras, pontosDeAcao: e.target.value})}
+          />
+          <FichaInput
+            label={"+Pontos de Mana"}
+            valor={extras.pontosDeMana}
+            onEdit={(e) => setExtras({...extras, pontosDeMana: e.target.value})}
+          />
+          <FichaInput
+            label={"+Pontos de Vida"}
+            valor={extras.pontosDeVida}
+            onEdit={(e) => setExtras({...extras, pontosDeVida: e.target.value})}
+          />
+        </ContainerInputs>
         <ButtonFicha onClick={() => SaveSlot()}>
           Salvar Ficha em Slot
         </ButtonFicha>

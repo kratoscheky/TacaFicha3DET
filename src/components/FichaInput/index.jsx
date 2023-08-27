@@ -2,7 +2,7 @@ import * as React from "react";
 import { TextArea, Label, InputContainer, Input } from "./styles";
 
 export default function FichaInput(props) {
-  const { label, valor, onEdit, isTextArea, maxLength } = props;
+  const { label, valor, onEdit, isTextArea, maxLength, width } = props;
 
   const renderInput = () => {
     return isTextArea ? (
@@ -13,7 +13,7 @@ export default function FichaInput(props) {
   };
 
   return (
-    <InputContainer>
+    <InputContainer style={width && {width: width}}>
       <Label>{label}:</Label>
       {renderInput()}
     </InputContainer>

@@ -3,11 +3,13 @@ import styled from "styled-components";
 
 export const InputContainer = styled.div`
   display: flex;
+  flex-direction: column;
   gap: 8px;
+  width: 100%;
 `;
 
 export const Label = styled.label`
-  min-width: 110px;
+
 `;
 
 export const Input = styled.input`

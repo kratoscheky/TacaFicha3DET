@@ -14,12 +14,12 @@ import {
   DescricaoMinimalista,
   ArquetipoTexto
 } from "./styles";
-import poderIcon from "../../images/poder.svg";
-import habilidadeIcon from "../../images/habilidade.svg";
-import resistenciaIcon from "../../images/resistencia.svg";
-import acaoIcon from "../../images/acao.svg";
-import manaIcon from "../../images/mana.svg";
-import vidaIcon from "../../images/vida.svg";
+import poderIcon from "../../images/minimalista/poder.svg";
+import habilidadeIcon from "../../images/minimalista/habilidade.svg";
+import resistenciaIcon from "../../images/minimalista/resistencia.svg";
+import acaoIcon from "../../images/minimalista/acao.svg";
+import manaIcon from "../../images/minimalista/mana.svg";
+import vidaIcon from "../../images/minimalista/vida.svg";
 import html2canvas from "html2canvas";
 
 export const FichaMinimalista = () => {

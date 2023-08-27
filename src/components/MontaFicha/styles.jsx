@@ -14,9 +14,6 @@ export const ContainerMontaFicha = styled.div`
         display: flex;
         gap: 8px;
     }
-    div label{
-        min-width: 132px;
-    }
     div input{
         display: inline-block;
         line-height: 1;
@@ -63,4 +60,9 @@ export const ButtonFicha = styled.button`
     color: #fff;
     cursor: pointer;
     width: 100%;
+`
+
+export const ContainerInputs = styled.div`
+    width: 100%;
+    align-items: flex-end;
 `
