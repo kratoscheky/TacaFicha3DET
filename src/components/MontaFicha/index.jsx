@@ -7,6 +7,7 @@ import InfoRoundedIcon from "@mui/icons-material/InfoRounded";
 import ModalPericias from "../ModalPericias";
 import ModalVantagens from "../ModalVantagens";
 import ModalDesvantagens from "../ModalDesvantagens";
+import { useSlots } from "../../context/slots.context";
 
 export const MontaFicha = () => {
   const {
@@ -29,6 +30,8 @@ export const MontaFicha = () => {
     extras,
     setExtras
   } = useFicha();
+
+  const {SaveSlot} = useSlots();
 
   const [addPericiasOpen, setAddPericiasOpen] = useState(false);
   const [addVantagensOpen, setAddVantagensOpen] = useState(false);
@@ -140,6 +143,9 @@ export const MontaFicha = () => {
           valor={extras.pontosDeVida}
           onEdit={(e) => setExtras({...extras, pontosDeVida: e.target.value})}
         />
+        <button onClick={() => SaveSlot()}>
+          Salvar em Slot
+        </button>
       </ContainerMontaFicha>
 
       <ModalPericias

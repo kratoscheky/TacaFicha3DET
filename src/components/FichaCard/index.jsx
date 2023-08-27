@@ -16,15 +16,13 @@ import html2canvas from "html2canvas";
 
 
 export const FichaCard = () => {
-    const {atributos, recursos, nome, detalhes, vantagens, desvantagens, pericias, pontosTotais, arquetipo, extras} = useFicha();
+    const {atributos, recursos, nome, detalhes, vantagens, desvantagens, pericias, pontosTotais, arquetipo, extras, inputValue, setInputValue} = useFicha();
 
     const recursosFinal = {
         pontosDeAcao: parseInt(recursos.pontosDeAcao) + parseInt(extras.pontosDeAcao),
         pontosDeMana: parseInt(recursos.pontosDeMana) + parseInt(extras.pontosDeMana),
         pontosDeVida: parseInt(recursos.pontosDeVida) + parseInt(extras.pontosDeVida)
     }
-
-    const [inputValue, setInputValue] = useState('');
 
     const handleInputChange = (event) => {
         setInputValue(URL.createObjectURL(event.target.files[0]));
@@ -49,7 +47,6 @@ export const FichaCard = () => {
 
     return(
         <div style={{marginTop: '16px'}}>
-            <h1>Preview:</h1><p style={{color: '#d11ce0'}}>BETA</p>
             <ContainerFicha style={{ backgroundImage: `url(${inputValue})` }} id="container-ficha-card">
                 <DadosPersonagem>
                     <CamposTopo>

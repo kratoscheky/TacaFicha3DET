@@ -33,6 +33,7 @@ export const FichaProvider = ({ children }) => {
   const [vantagens, setVantagens] = useState("");
   const [desvantagens, setDesvantagens] = useState("");
   const [arquetipo, setArquetipo] = useState("");
+  const [inputValue, setInputValue] = useState('');
 
   const [pontosTotais, setPontosTotais] = useState(10);
 
@@ -82,7 +83,9 @@ export const FichaProvider = ({ children }) => {
         arquetipo,
         setArquetipo,
         extras,
-        setExtras
+        setExtras,
+        inputValue,
+        setInputValue
       }}
     >
       {children}

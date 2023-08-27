@@ -3,12 +3,14 @@ import "./App.css";
 import { Topo } from "./components/Topo";
 import { Ficha } from "./pages/Ficha";
 import { ContainerPage } from "./styles";
+import { SaveSlots } from "./components/SaveSlots";
 
 function App() {
   return (
     <>
       <ContainerPage>
         <Topo />
+        <SaveSlots />
         <Ficha />
       </ContainerPage>
       <div
