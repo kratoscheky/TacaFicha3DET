@@ -33,11 +33,13 @@ export const Card = styled.div`
     padding: 8px;
     background: #5785FA;
     background-image: ${(props) => props.backgroundImage && `url(${props.backgroundImage})`};
+    box-shadow: rgba(0, 0, 0, 0.25) 4px 4px 9px 0px;
     background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     border: 4px solid #000;
+    margin-bottom: 10px;
 `
 export const InnerCard = styled.div`
     display: flex;
