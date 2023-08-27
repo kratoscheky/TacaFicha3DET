@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import frame from '../../images/frame.png'
 
 export const ContainerFicha = styled.div`
-    min-width: 300px;
+    min-width: 400px;
     max-width: 400px;
     margin-bottom: 16px;
     background-color: #FFFFFF;
