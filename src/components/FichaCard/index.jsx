@@ -16,17 +16,25 @@ import html2canvas from "html2canvas";
 
 
 export const FichaCard = () => {
-    const {atributos, recursos, nome, detalhes, vantagens, desvantagens, pericias, pontosTotais, arquetipo, extras, inputValue, setInputValue} = useFicha();
+    const {
+      atributos,
+      recursos,
+      nome,
+      detalhes,
+      vantagens,
+      desvantagens,
+      pericias,
+      pontosTotais,
+      arquetipo,
+      extras,
+      inputValue
+    } = useFicha();
 
     const recursosFinal = {
         pontosDeAcao: parseInt(recursos.pontosDeAcao) + parseInt(extras.pontosDeAcao),
         pontosDeMana: parseInt(recursos.pontosDeMana) + parseInt(extras.pontosDeMana),
         pontosDeVida: parseInt(recursos.pontosDeVida) + parseInt(extras.pontosDeVida)
     }
-
-    const handleInputChange = (event) => {
-        setInputValue(URL.createObjectURL(event.target.files[0]));
-    };
 
     const captureAndSaveFicha = () => {
         const container = document.querySelector('#container-ficha-card'); // Use a classe do ContainerFicha real
@@ -47,6 +55,7 @@ export const FichaCard = () => {
 
     return(
         <div style={{marginTop: '16px'}}>
+            <h1>TCG</h1>
             <ContainerFicha style={{ backgroundImage: `url(${inputValue})` }} id="container-ficha-card">
                 <DadosPersonagem>
                     <CamposTopo>
@@ -165,17 +174,9 @@ export const FichaCard = () => {
                 </AlinhamentoInfos>
             </ContainerFicha>
             <p>Modelo de ficha por <a href="https://twitter.com/lukeskelington">@lukeskelington</a></p>
-
-            <ImageInputContainer>
-                <label>Enviar Imagem Customizada:</label>
-                <input
-                    type="file"
-                    onChange={handleInputChange}
-                />
-            </ImageInputContainer>
-
+            <br />
             <Button onClick={captureAndSaveFicha}>
-                Salvar Ficha
+                Salvar Imagem
             </Button>
         </div>
     )

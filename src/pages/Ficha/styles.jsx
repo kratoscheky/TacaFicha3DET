@@ -9,6 +9,23 @@ export const ContainerFicha = styled.div`
     box-shadow: 4px 4px 9px 0px rgba(0, 0, 0, 0.25);
 `
 
+export const ImageInputContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding: 16px 0 16px 0;
+`
+
+export const Container = styled.div`
+    max-width: 500px;
+    width: 100%;
+`
+
+export const ContainerFichas = styled.div`
+    display: flex;
+    overflow: auto;
+    gap: 16px;
+`
+
 export const DadosPersonagem = styled.div`
     display: flex;
     flex-direction: column;

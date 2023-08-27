@@ -204,12 +204,6 @@ export const Button = styled.button`
     width: 100%;
 `
 
-export const ImageInputContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    padding: 16px 0 16px 0;
-`
-
 export const ArquetipoTexto = styled.p`
     z-index: 1000;
     position: absolute;

@@ -52,6 +52,10 @@ export const FichaProvider = ({ children }) => {
     setAtributos({ ...atributos, [key]: value });
   };
 
+  const handleInputChange = (event) => {
+    setInputValue(URL.createObjectURL(event.target.files[0]));
+  };
+
   useEffect(() => {
     setRecursos({
       pontosDeAcao: atributos.poder,
@@ -85,7 +89,8 @@ export const FichaProvider = ({ children }) => {
         extras,
         setExtras,
         inputValue,
-        setInputValue
+        setInputValue,
+        handleInputChange
       }}
     >
       {children}

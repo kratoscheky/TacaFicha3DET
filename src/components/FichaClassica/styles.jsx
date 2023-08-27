@@ -89,9 +89,16 @@ export const ContainerExtras = styled.div`
         font-size: 16;
     }
 `
+export const Container = styled.div`
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+`
 
 export const Button = styled.button`
     font-weight: 600;
+    max-height: 48px;
     text-shadow: 0 0 16px rgba(0,0,0,.53);
     background-color: #ffb300;
     box-shadow: 0 0 10px 0 rgba(0,0,0,.5);

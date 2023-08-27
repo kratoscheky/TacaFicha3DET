@@ -1,6 +1,6 @@
 import React from "react";
 import { useFicha } from "../../context/ficha.context";
-import { ContainerAtributos, ContainerFicha, ContainerExtras, DadosPersonagem, Icon, Button } from "./styles";
+import { ContainerAtributos, ContainerFicha, ContainerExtras, DadosPersonagem, Icon, Button, Container } from "./styles";
 import poderIcon from '../../images/poder.svg'
 import habilidadeIcon from '../../images/habilidade.svg'
 import resistenciaIcon from '../../images/resistencia.svg'
@@ -46,8 +46,8 @@ export const FichaClassica = () => {
     };
 
     return (
-      <div>
-        <h1>Preview:</h1>
+      <Container>
+        <h1>Clássico</h1>
         <ContainerFicha id="container-ficha-classica">
           <DadosPersonagem>
             <h1>{nome}</h1>
@@ -109,7 +109,7 @@ export const FichaClassica = () => {
           </ContainerExtras>
         </ContainerFicha>
 
-        <Button onClick={captureAndSaveFicha}>Salvar Ficha</Button>
-      </div>
+        <Button onClick={captureAndSaveFicha}>Salvar Imagem</Button>
+      </Container>
     );
 }
