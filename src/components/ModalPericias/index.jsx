@@ -16,7 +16,7 @@ export default function ModalPericias({open, handleClose, onAdicionarClick}) {
         aria-describedby="modal-modal-description"
       >
         <ConteudoModal>
-          <h1>Pericias</h1>
+          <h1>Perícias</h1>
           <br />
           <ContainerItens>
             <Titulo>
@@ -28,10 +28,10 @@ export default function ModalPericias({open, handleClose, onAdicionarClick}) {
                 Adicionar
               </AdicionarButton>
             </Titulo>
-            <p>Sua mesa utiliza uma pericia customizada ou não encontrou o que procurava?
-            <br/><br/>Sem problemas! Adicione a vantagem que quiser no campo abaixo</p>
+            <p>Sua mesa utiliza uma perícia customizada ou não encontrou o que procurava?
+            <br/><br/>Sem problemas! Adicione a perícia que quiser no campo abaixo</p>
             <FichaInput
-              label={"Nome da pericia"}
+              label={"Nome da perícia"}
               valor={customizada}
               onEdit={(e) => setCustomizada(e.target.value)}
             />

@@ -29,7 +29,7 @@ export default function ModalDesvantagens({open, handleClose, onAdicionarClick})
               </AdicionarButton>
             </Titulo>
             <p>Sua mesa utiliza uma desvantagem customizada ou não encontrou o que procurava?
-            <br/><br/>Sem problemas! Adicione a vantagem que quiser no campo abaixo</p>
+            <br/><br/>Sem problemas! Adicione a desvantagem que quiser no campo abaixo</p>
             <FichaInput
               label={"Nome da desvantagem"}
               valor={customizada}
