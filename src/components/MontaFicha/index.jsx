@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useFicha } from "../../context/ficha.context";
-import { ContainerMontaFicha, TextArea } from "./styles";
+import { ButtonFicha, ContainerMontaFicha, TextArea } from "./styles";
 import FichaInput from "../FichaInput";
 import dadinho from "../../images/dadinhos.png";
 import InfoRoundedIcon from "@mui/icons-material/InfoRounded";
@@ -143,9 +143,9 @@ export const MontaFicha = () => {
           valor={extras.pontosDeVida}
           onEdit={(e) => setExtras({...extras, pontosDeVida: e.target.value})}
         />
-        <button onClick={() => SaveSlot()}>
-          Salvar em Slot
-        </button>
+        <ButtonFicha onClick={() => SaveSlot()}>
+          Salvar Ficha em Slot
+        </ButtonFicha>
       </ContainerMontaFicha>
 
       <ModalPericias
