@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import frame from '../../images/frame.png'
 
 export const ContainerFicha = styled.div`
-    min-width: 400px;
-    max-width: 400px;
+    min-width: 350px;
+    max-width: 350px;
     margin-bottom: 16px;
     background-color: #FFFFFF;
     box-shadow: 4px 4px 9px 0px rgba(0, 0, 0, 0.25);

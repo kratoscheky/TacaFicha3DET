@@ -21,6 +21,7 @@ export const Ficha = () => {
             <MontaFicha />
             <Container>
                 <h1 style={{color: '#D11CE0'}}>Fichas:</h1>
+                <p>Arraste para o lado para ver outras fichas!</p>
                 <ContainerFichas>
                     <FichaClassica />
                     <FichaCard />
