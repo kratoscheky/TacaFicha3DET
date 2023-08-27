@@ -14,8 +14,6 @@ export const SlotsProvider = ({ children }) => {
   const {
     atributos,
     setAtributos,
-    recursos,
-    setRecursos,
     pontosTotais,
     setPontosTotais,
     nome,
@@ -28,7 +26,6 @@ export const SlotsProvider = ({ children }) => {
     setDesvantagens,
     pericias,
     setPericias,
-    HandleAtributos,
     arquetipo,
     setArquetipo,
     extras,
@@ -47,6 +44,7 @@ export const SlotsProvider = ({ children }) => {
       vantagens: vantagens,
       desvantagens: desvantagens,
       arquetipo: arquetipo,
+      pontosTotais: pontosTotais,
       atributos: {
         poder: atributos.poder,
         habilidade: atributos.habilidade,
@@ -72,6 +70,7 @@ export const SlotsProvider = ({ children }) => {
     setArquetipo(slot.arquetipo)
     setAtributos(slot.atributos)
     setExtras(slot.extras)
+    setPontosTotais(slot.pontosTotais)
   }
 
   const LoadSlots = () => {
