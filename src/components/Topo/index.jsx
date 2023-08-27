@@ -12,7 +12,7 @@ export const Topo = () => {
                 display: 'flex',
                 justifyContent: 'center'
             }}>
-                <div style={{padding: '8px 0', display: 'flex', flexDirection: 'column', maxWidth: '500px'}}>
+                <div style={{padding: '8px 8px', display: 'flex', flexDirection: 'column', maxWidth: '500px'}}>
                     <h1 style={{textTransform: 'uppercase'}}>3DeT tacaficha</h1>
                     <br />
                     <p style={{color: '#7A7A7A'}}>Este é um site não oficial para auxiliar na criação de personagens no sistema 3DeT Victory.</p>
