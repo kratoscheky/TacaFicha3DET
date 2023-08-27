@@ -16,7 +16,14 @@ export const ContainerFicha = styled.div`
 export const PontosTotais = styled.h1`
     text-align: right;
     font-size: 50px;
+    color: #D11CE0;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    width: 100%;
     padding-right: 20px;
+    top: 28px !important;
 `
 
 export const CamposTopo = styled.div`
@@ -30,7 +37,7 @@ export const CamposTopo = styled.div`
         line-height: normal;
         text-transform: uppercase;
         width: 100%;
-        top: 30px;
+        top: 38px;
         left: 8px;
     }
 `
