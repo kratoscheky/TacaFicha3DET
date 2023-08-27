@@ -75,9 +75,12 @@ export const FichaMinimalista = () => {
         <NomeTopo>
           <p>{nome}</p>
         </NomeTopo>
-        <ArquetipoTexto>
-          <p>{arquetipo}</p>
-        </ArquetipoTexto>
+        {
+          arquetipo && 
+          <ArquetipoTexto>
+            <p>{arquetipo}</p>
+          </ArquetipoTexto>
+        }
         <ContainerIcons>
           <InnerCard>
             <StatusContainer>
