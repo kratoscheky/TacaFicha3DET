@@ -8,6 +8,7 @@ import acaoIcon from '../../images/acao.svg'
 import manaIcon from '../../images/mana.svg'
 import vidaIcon from '../../images/vida.svg'
 import html2canvas from "html2canvas";
+import SaveIcon from '@mui/icons-material/Save';
 
 
 export const FichaClassica = () => {
@@ -109,7 +110,10 @@ export const FichaClassica = () => {
           </ContainerExtras>
         </ContainerFicha>
 
-        <Button onClick={captureAndSaveFicha}>Salvar Imagem</Button>
+        <Button onClick={captureAndSaveFicha}>
+            <SaveIcon />
+            Salvar Imagem
+          </Button>
       </Container>
     );
 }

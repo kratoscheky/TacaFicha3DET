@@ -13,6 +13,7 @@ import pontoBar from '../../images/tcg/ponto.svg'
 import bottomBar from '../../images/tcg/bottombar.svg'
 import cardrosa from '../../images/tcg/cardrosa.svg'
 import html2canvas from "html2canvas";
+import SaveIcon from '@mui/icons-material/Save';
 
 
 export const FichaCard = () => {
@@ -176,6 +177,7 @@ export const FichaCard = () => {
             <p>Modelo de ficha por <a href="https://twitter.com/lukeskelington">@lukeskelington</a></p>
             <br />
             <Button onClick={captureAndSaveFicha}>
+                <SaveIcon />
                 Salvar Imagem
             </Button>
         </div>

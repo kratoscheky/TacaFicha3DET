@@ -192,6 +192,7 @@ export const Button = styled.button`
     padding: 15px 30px;
     border-radius: 4px;
     text-decoration: none;
+    max-height: 48px;
     fill: #fff;
     text-align: center;
     transition: all .3s;
@@ -202,6 +203,10 @@ export const Button = styled.button`
     color: #fff;
     cursor: pointer;
     width: 100%;
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    align-items: center;
 `
 
 export const ArquetipoTexto = styled.p`

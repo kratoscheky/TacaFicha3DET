@@ -8,6 +8,7 @@ import ModalVantagens from "../ModalVantagens";
 import ModalDesvantagens from "../ModalDesvantagens";
 import { ListaCaracteristicas } from "../ListaCaracteristicas";
 import { useSlots } from "../../context/slots.context";
+import BookIcon from '@mui/icons-material/Book';
 
 export const MontaFicha = () => {
   const {
@@ -139,6 +140,7 @@ export const MontaFicha = () => {
           />
         </ContainerInputs>
         <ButtonFicha onClick={() => SaveSlot()}>
+          <BookIcon />
           Salvar Ficha em Slot
         </ButtonFicha>
       </ContainerMontaFicha>

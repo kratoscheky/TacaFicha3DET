@@ -5,6 +5,7 @@ import { FichaCard } from "../../components/FichaCard";
 import { Container, ContainerFichas, ImageInputContainer, ButtonUpload } from "./styles";
 import { useFicha } from "../../context/ficha.context";
 import { FichaMinimalista } from "../../components/FichaMinimalista";
+import BackupIcon from '@mui/icons-material/Backup';
 
 export const Ficha = () => {
     const {handleInputChange} = useFicha();
@@ -28,6 +29,7 @@ export const Ficha = () => {
                 <ImageInputContainer>
                     <label>Enviar Imagem Customizada:</label>
                     <ButtonUpload onClick={handleClick}>
+                        <BackupIcon />
                         Enviar Uma Imagem
                     </ButtonUpload>
                     <input

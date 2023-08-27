@@ -21,6 +21,7 @@ import acaoIcon from "../../images/minimalista/acao.svg";
 import manaIcon from "../../images/minimalista/mana.svg";
 import vidaIcon from "../../images/minimalista/vida.svg";
 import html2canvas from "html2canvas";
+import SaveIcon from '@mui/icons-material/Save';
 
 export const FichaMinimalista = () => {
   const {
@@ -142,7 +143,10 @@ export const FichaMinimalista = () => {
         </DescricaoMinimalista>
       </Card>
 
-      <Button onClick={captureAndSaveFicha}>Salvar Imagem</Button>
+      <Button onClick={captureAndSaveFicha}>
+        <SaveIcon />
+        Salvar Imagem
+      </Button>
     </Container>
   );
 };

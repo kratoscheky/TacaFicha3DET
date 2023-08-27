@@ -116,4 +116,8 @@ export const Button = styled.button`
     color: #fff;
     cursor: pointer;
     width: 100%;
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    align-items: center;
 `
