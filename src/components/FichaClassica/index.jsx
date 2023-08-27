@@ -96,15 +96,15 @@ export const FichaClassica = () => {
           <ContainerExtras>
             <div>
               <b>Perícias</b>
-              <p>{pericias}</p>
+              <p>{pericias.map(v => v.Nome + '.').join(' ')}</p>
             </div>
             <div>
               <b>Vantagens</b>
-              <p>{vantagens}</p>
+              <p>{vantagens.map(v => v.Nome + '.').join(' ')}</p>
             </div>
             <div>
               <b>Desvantagens</b>
-              <p>{desvantagens}</p>
+              <p>{desvantagens.map(v => v.Nome + '.').join(' ')}</p>
             </div>
           </ContainerExtras>
         </ContainerFicha>

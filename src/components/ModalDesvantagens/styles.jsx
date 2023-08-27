@@ -22,3 +22,17 @@ export const ContainerItens = styled.div`
     flex-direction: column;
     gap: 16px;
 `
+
+export const Titulo = styled.h3`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+` 
+
+export const AdicionarButton = styled.span`
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 600;
+    cursor: pointer;
+` 

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useFicha } from "../../context/ficha.context";
-import { ButtonFicha, ContainerMontaFicha, TextArea } from "./styles";
+import { ButtonFicha, ContainerMontaFicha } from "./styles";
 import FichaInput from "../FichaInput";
 import dadinho from "../../images/dadinhos.png";
-import InfoRoundedIcon from "@mui/icons-material/InfoRounded";
 import ModalPericias from "../ModalPericias";
 import ModalVantagens from "../ModalVantagens";
 import ModalDesvantagens from "../ModalDesvantagens";
+import { ListaCaracteristicas } from "../ListaCaracteristicas";
 import { useSlots } from "../../context/slots.context";
 
 export const MontaFicha = () => {
@@ -20,7 +20,7 @@ export const MontaFicha = () => {
     setVantagens,
     desvantagens,
     setDesvantagens,
-    periciais,
+    pericias,
     setPericias,
     HandleAtributos,
     pontosTotais,
@@ -86,45 +86,33 @@ export const MontaFicha = () => {
         <h1>Personalidade</h1>
         <div>
           <label style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-            Perícias{" "}
-            <InfoRoundedIcon
-              style={{ width: "15px" }}
-              onClick={() => setAddPericiasOpen(true)}
-            />
-            :
+            Perícias:
           </label>
-          <TextArea
-            value={periciais}
-            onChange={(v) => setPericias(v.target.value)}
-          ></TextArea>
+          <ListaCaracteristicas
+            caracteristicas={pericias}
+            onAdicionarClick={() => setAddPericiasOpen(true)}
+            onRemoverClick={(Id) => setPericias(pericias.filter((v) => v.Id !== Id))}
+          />
         </div>
         <div>
           <label style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-            Vantagens
-            <InfoRoundedIcon
-              style={{ width: "15px" }}
-              onClick={() => setAddVantagensOpen(true)}
-            />
-            :
+            Vantagens:
           </label>
-          <TextArea
-            value={vantagens}
-            onChange={(v) => setVantagens(v.target.value)}
-          ></TextArea>
+          <ListaCaracteristicas
+            caracteristicas={vantagens}
+            onAdicionarClick={() => setAddVantagensOpen(true)}
+            onRemoverClick={(Id) => setVantagens(vantagens.filter((v) => v.Id !== Id))}
+          />
         </div>
         <div>
           <label style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-            Desvantagens{" "}
-            <InfoRoundedIcon
-              style={{ width: "15px" }}
-              onClick={() => setAddDesvantagensOpen(true)}
-            />
-            :
+            Desvantagens:
           </label>
-          <TextArea
-            value={desvantagens}
-            onChange={(v) => setDesvantagens(v.target.value)}
-          ></TextArea>
+          <ListaCaracteristicas
+            caracteristicas={desvantagens}
+            onAdicionarClick={() => setAddDesvantagensOpen(true)}
+            onRemoverClick={(Id) => setDesvantagens(desvantagens.filter((v) => v.Id !== Id))}
+          />
         </div>
         <SeparadorDadinho />
         <h1>Extras</h1>
@@ -151,14 +139,26 @@ export const MontaFicha = () => {
       <ModalPericias
         open={addPericiasOpen}
         handleClose={() => setAddPericiasOpen(false)}
+        onAdicionarClick={(Nome) => {
+          setPericias([...pericias, { Id: crypto.randomUUID(), Nome }]);
+          setAddPericiasOpen(false);
+        }}
       />
       <ModalVantagens
         open={addVantagensOpen}
         handleClose={() => setAddVantagensOpen(false)}
+        onAdicionarClick={(Nome) => {
+          setVantagens([...vantagens, { Id: crypto.randomUUID(), Nome }]);
+          setAddVantagensOpen(false);
+        }}
       />
       <ModalDesvantagens
         open={addDesvantagensOpen}
         handleClose={() => setAddDesvantagensOpen(false)}
+        onAdicionarClick={(Nome) => {
+          setDesvantagens([...desvantagens, { Id: crypto.randomUUID(), Nome }]);
+          setAddDesvantagensOpen(false);
+        }}
       />
     </>
   );

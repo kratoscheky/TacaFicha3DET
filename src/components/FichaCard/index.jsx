@@ -150,13 +150,13 @@ export const FichaCard = () => {
                 <AlinhamentoInfos>
                     <ContainerExtras>
                         <PericiasTexto>
-                            <b>{pericias}</b>
+                            <b>{pericias.map(v => v.Nome + '.').join(' ')}</b>
                         </PericiasTexto>
                         <VantagensTexto>
-                            <p>{vantagens}</p>
+                            <p>{vantagens.map(v => v.Nome + '.').join(' ')}</p>
                         </VantagensTexto>
                         <DesvantagensTexto>
-                            <p>{desvantagens}</p>
+                            <p>{desvantagens.map(v => v.Nome + '.').join(' ')}</p>
                         </DesvantagensTexto>
                     </ContainerExtras>
                     <Detalhes>
