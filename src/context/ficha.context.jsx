@@ -29,9 +29,9 @@ export const FichaProvider = ({ children }) => {
 
   const [nome, setNome] = useState("");
   const [detalhes, setDetalhes] = useState("");
-  const [pericias, setPericias] = useState("");
-  const [vantagens, setVantagens] = useState("");
-  const [desvantagens, setDesvantagens] = useState("");
+  const [pericias, setPericias] = useState([]);
+  const [vantagens, setVantagens] = useState([]);
+  const [desvantagens, setDesvantagens] = useState([]);
   const [arquetipo, setArquetipo] = useState("");
 
   const [pontosTotais, setPontosTotais] = useState(10);
