@@ -5,12 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { FichaProvider } from './context/ficha.context';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+import { SlotsProvider } from './context/slots.context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <FichaProvider>
-      <App />
+      <SlotsProvider>
+        <App />
+      </SlotsProvider>
     </FichaProvider>
   </React.StrictMode>
 );

@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { useFicha } from "../../context/ficha.context";
-import { ContainerMontaFicha, TextArea, ContainerSelecionados } from "./styles";
+import { ButtonFicha, ContainerMontaFicha } from "./styles";
 import FichaInput from "../FichaInput";
 import dadinho from "../../images/dadinhos.png";
-import InfoRoundedIcon from "@mui/icons-material/InfoRounded";
-import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import ModalPericias from "../ModalPericias";
 import ModalVantagens from "../ModalVantagens";
 import ModalDesvantagens from "../ModalDesvantagens";
 import { ListaCaracteristicas } from "../ListaCaracteristicas";
+import { useSlots } from "../../context/slots.context";
 
 export const MontaFicha = () => {
   const {
@@ -31,6 +30,8 @@ export const MontaFicha = () => {
     extras,
     setExtras
   } = useFicha();
+
+  const {SaveSlot} = useSlots();
 
   const [addPericiasOpen, setAddPericiasOpen] = useState(false);
   const [addVantagensOpen, setAddVantagensOpen] = useState(false);
@@ -130,6 +131,9 @@ export const MontaFicha = () => {
           valor={extras.pontosDeVida}
           onEdit={(e) => setExtras({...extras, pontosDeVida: e.target.value})}
         />
+        <ButtonFicha onClick={() => SaveSlot()}>
+          Salvar Ficha em Slot
+        </ButtonFicha>
       </ContainerMontaFicha>
 
       <ModalPericias
