@@ -90,13 +90,15 @@ export const FichaTCGMinimalista = () => {
 
   return (
     <Container>
-      <div style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center'
-      }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
         <h1>TCG Rounded</h1>
-        <p style={{color: '#d11ce0'}}>BETA</p>
+        <p style={{ color: "#d11ce0" }}>BETA</p>
         <Card
           style={{
             backgroundImage: `url(${
@@ -166,14 +168,23 @@ export const FichaTCGMinimalista = () => {
           </ContainerAtributos>
           <ContainerTextos>
             <ContainerVantagensDes>
-              <H1Descricao>Vantagens</H1Descricao>
-              <PDescricao>
-                {vantagens.map((v) => v.Nome + ".").join(" ")}
-              </PDescricao>
-              <H1Descricao>Desvantagens</H1Descricao>
-              <PDescricao>
-                {desvantagens.map((v) => v.Nome + ".").join(" ")}
-              </PDescricao>
+              {vantagens.length > 0 && (
+                <>
+                  <H1Descricao>Vantagens</H1Descricao>
+                  <PDescricao>
+                    {vantagens.map((v) => v.Nome + ".").join(" ")}
+                  </PDescricao>
+                </>
+              )}
+
+              {desvantagens.length > 0 && (
+                <>
+                  <H1Descricao>Desvantagens</H1Descricao>
+                  <PDescricao>
+                    {desvantagens.map((v) => v.Nome + ".").join(" ")}
+                  </PDescricao>
+                </>
+              )}
             </ContainerVantagensDes>
             <ContainerDescricao>
               <p>{detalhes}</p>
@@ -181,7 +192,12 @@ export const FichaTCGMinimalista = () => {
           </ContainerTextos>
         </Card>
         <br />
-        <p>Modelo de ficha por <a href="https://www.facebook.com/groups/161485003862799/user/100086200497493/">Lungas Neto</a></p>
+        <p>
+          Modelo de ficha por{" "}
+          <a href="https://www.facebook.com/groups/161485003862799/user/100086200497493/">
+            Lungas Neto
+          </a>
+        </p>
         <br />
       </div>
       <Button onClick={() => captureAndSaveFicha()}>Salvar</Button>
