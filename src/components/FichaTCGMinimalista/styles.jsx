@@ -108,7 +108,7 @@ export const ArquetipoText = styled.p`
 
 export const H1Descricao = styled.h1`
     font-family: Oxanium;
-    font-size: 24px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -116,7 +116,7 @@ export const H1Descricao = styled.h1`
 
 export const PDescricao = styled.p`
     font-family: Oxanium;
-    font-size: 18px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -159,7 +159,7 @@ export const ContainerDescricao = styled.div`
     color: #FFF;
     padding: 18px 20px;
     p{
-        font-size: 18px;
+        font-size: 20px;
     }
 `
 
