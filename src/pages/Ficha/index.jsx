@@ -23,7 +23,7 @@ export const Ficha = () => {
         hiddenFileInput.current.click();
     };
 
-    const SeparadorDadinho = () => <img src={dadinho} alt={"Dados"} />;
+    const SeparadorDadinho = () => <img src={dadinho} style={{width: '100%'}} alt={"Dados"} />;
 
     return (
         <>
