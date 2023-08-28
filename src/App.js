@@ -5,10 +5,12 @@ import { Ficha } from "./pages/Ficha";
 import { ContainerPage } from "./styles";
 import { SaveSlots } from "./components/SaveSlots";
 import { FichaTCGMinimalista } from "./components/FichaTCGMinimalista";
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   return (
     <>
+      <Analytics />
       <Topo />
       <ContainerPage>
         <SaveSlots />
