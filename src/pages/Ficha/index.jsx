@@ -1,14 +1,15 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { MontaFicha } from "../../components/MontaFicha";
 import { FichaClassica } from "../../components/FichaClassica";
 import { FichaCard } from "../../components/FichaCard";
-import { Container, ContainerFichas, ImageInputContainer, ButtonUpload } from "./styles";
+import { Container, ContainerFichas, ImageInputContainer, ButtonUpload, Slide, ContainerButtons, ButtonFicha } from "./styles";
 import { useFicha } from "../../context/ficha.context";
 import { FichaMinimalista } from "../../components/FichaMinimalista";
 import BackupIcon from '@mui/icons-material/Backup';
 
 export const Ficha = () => {
     const {handleInputChange} = useFicha();
+    const [swiper, setSwiper] = useState(null);
 
     const hiddenFileInput = useRef(null);
 
@@ -22,10 +23,19 @@ export const Ficha = () => {
             <Container>
                 <h1 style={{color: '#D11CE0'}}>Fichas:</h1>
                 <p>Arraste para o lado para ver outras fichas!</p>
-                <ContainerFichas>
-                    <FichaClassica />
-                    <FichaCard />
-                    <FichaMinimalista />
+                <ContainerButtons>
+                    <ButtonFicha onClick={() => swiper.slideTo(0)}>Clássico</ButtonFicha>
+                    <ButtonFicha onClick={() => swiper.slideTo(1)}>TCG</ButtonFicha>
+                    <ButtonFicha onClick={() => swiper.slideTo(2)}>Minimalista</ButtonFicha>
+                </ContainerButtons>
+                <ContainerFichas
+                    spaceBetween={50}
+                    slidesPerView={1}
+                    onSwiper={setSwiper}
+                >
+                    <Slide><FichaClassica /></Slide>
+                    <Slide><FichaCard /></Slide>
+                    <Slide><FichaMinimalista /></Slide>
                 </ContainerFichas>
                 <ImageInputContainer>
                     <label>Enviar Imagem Customizada:</label>

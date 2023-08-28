@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import frame from '../../images/frame.png'
+import {Swiper, SwiperSlide} from 'swiper/react';
 
 export const ContainerFicha = styled.div`
     min-width: 300px;
@@ -17,6 +18,42 @@ export const ImageInputContainer = styled.div`
         padding: 8px 0;
         font-weight: 700;
     }
+`
+
+export const Slide = styled(SwiperSlide)`
+
+`
+
+export const ContainerButtons = styled.div`
+    display: flex;
+    gap: 8px;
+    padding: 16px 0;
+    flex-wrap: wrap;
+`
+
+export const ButtonFicha = styled.button`
+    font-weight: 800;
+    text-shadow: 0 0 16px rgba(0,0,0,.53);
+    background-color: #D11CE0;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.5);
+    font-size: 12px;
+    padding: 8px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    fill: #fff;
+    text-align: center;
+    transition: all .3s;
+    border: none;
+    order: 10;
+    display: inline-block;
+    color: #fff;
+    cursor: pointer;
+    width: fit-content;
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    align-items: center;
+    max-height: 40px;
 `
 
 export const Container = styled.div`
@@ -49,10 +86,8 @@ export const ButtonUpload = styled.button`
     align-items: center;
 `
 
-export const ContainerFichas = styled.div`
-    display: flex;
-    overflow: auto;
-    gap: 16px;
+export const ContainerFichas = styled(Swiper)`
+
 `
 
 export const DadosPersonagem = styled.div`

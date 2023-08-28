@@ -55,7 +55,7 @@ export const FichaCard = () => {
     };
 
     return(
-        <div style={{marginTop: '16px'}}>
+        <div style={{marginTop: '16px', display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
             <h1>TCG</h1>
             <ContainerFicha style={{ backgroundImage: `url(${inputValue})` }} id="container-ficha-card">
                 <DadosPersonagem>
