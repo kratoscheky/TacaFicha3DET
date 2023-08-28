@@ -1,6 +1,6 @@
 import React from "react";
 import { useFicha } from "../../context/ficha.context";
-import { ContainerAtributos, ContainerFicha, ContainerExtras, DadosPersonagem, Icon, Button, Container } from "./styles";
+import { ContainerAtributos, ContainerFicha, ContainerExtras, DadosPersonagem, Icon, Button, Container, Frame } from "./styles";
 import poderIcon from '../../images/poder.svg'
 import habilidadeIcon from '../../images/habilidade.svg'
 import resistenciaIcon from '../../images/resistencia.svg'
@@ -9,6 +9,7 @@ import manaIcon from '../../images/mana.svg'
 import vidaIcon from '../../images/vida.svg'
 import html2canvas from "html2canvas";
 import SaveIcon from '@mui/icons-material/Save';
+import frame from '../../images/frame.png'
 
 
 export const FichaClassica = () => {
@@ -51,8 +52,11 @@ export const FichaClassica = () => {
         <h1>Clássico</h1>
         <ContainerFicha id="container-ficha-classica">
           <DadosPersonagem>
-            <h1>{nome}</h1>
-            <p>{detalhes}</p>
+            <Frame src={frame} />
+            <div>
+              <h1>{nome}</h1>
+              <p>{detalhes}</p>
+            </div>
           </DadosPersonagem>
           <ContainerAtributos>
             <div>

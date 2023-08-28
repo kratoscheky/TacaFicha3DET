@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import frame from '../../images/frame.png'
 
 export const ContainerFicha = styled.div`
     min-width: 350px;
@@ -9,14 +8,23 @@ export const ContainerFicha = styled.div`
     box-shadow: 4px 4px 9px 0px rgba(0, 0, 0, 0.25);
 `
 
+export const Frame = styled.img`
+    width: 100%;
+    grid-column: 1 / 2;
+    grid-row: 1/ 2;
+`
+
 export const DadosPersonagem = styled.div`
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 12px;
-    background-image: url('${frame}');
     background-size: cover;
     background-position-y: bottom;
-    padding: 0 40px 40px 40px;
+    div{
+        grid-column: 1 / 2;
+        grid-row: 1/ 2;
+        padding: 4px 24px;
+    }
     h1 {
         color: #D11CE0;
         font-style: normal;
