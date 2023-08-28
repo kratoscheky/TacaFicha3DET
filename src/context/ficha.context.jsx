@@ -33,7 +33,7 @@ export const FichaProvider = ({ children }) => {
   const [vantagens, setVantagens] = useState([]);
   const [desvantagens, setDesvantagens] = useState([]);
   const [arquetipo, setArquetipo] = useState("");
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
 
   const [pontosTotais, setPontosTotais] = useState(10);
 
@@ -55,6 +55,18 @@ export const FichaProvider = ({ children }) => {
   const handleInputChange = (event) => {
     setInputValue(URL.createObjectURL(event.target.files[0]));
   };
+
+  const LimparCampos = () => {
+    setNome('')
+    setDetalhes('')
+    setPericias([])
+    setVantagens([])
+    setDesvantagens([])
+    setArquetipo('')
+    setAtributos(initialAtributos)
+    setExtras(initialExtras)
+    setPontosTotais(10)
+  }
 
   useEffect(() => {
     setRecursos({
@@ -90,7 +102,8 @@ export const FichaProvider = ({ children }) => {
         setExtras,
         inputValue,
         setInputValue,
-        handleInputChange
+        handleInputChange,
+        LimparCampos
       }}
     >
       {children}

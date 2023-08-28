@@ -69,6 +69,31 @@ export const ButtonFicha = styled.button`
     align-items: center;
 `
 
+export const ButtonSecundario = styled.button`
+    font-weight: 600;
+    text-shadow: 0 0 16px rgba(0,0,0,.53);
+    background-color: #ffb300;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.5);
+    font-size: 16px;
+    padding: 15px 30px;
+    border-radius: 4px;
+    text-decoration: none;
+    fill: #fff;
+    text-align: center;
+    transition: all .3s;
+    border: none;
+    flex-grow: 1;
+    order: 10;
+    display: inline-block;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    align-items: center;
+`
+
 export const ContainerInputs = styled.div`
     width: 100%;
     align-items: flex-end;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useFicha } from "../../context/ficha.context";
-import { ButtonFicha, ContainerInputs, ContainerMontaFicha } from "./styles";
+import { ButtonFicha, ButtonSecundario, ContainerInputs, ContainerMontaFicha } from "./styles";
 import FichaInput from "../FichaInput";
 import dadinho from "../../images/dadinhos.png";
 import ModalPericias from "../ModalPericias";
@@ -8,7 +8,8 @@ import ModalVantagens from "../ModalVantagens";
 import ModalDesvantagens from "../ModalDesvantagens";
 import { ListaCaracteristicas } from "../ListaCaracteristicas";
 import { useSlots } from "../../context/slots.context";
-import BookIcon from '@mui/icons-material/Book';
+import BookIcon from "@mui/icons-material/Book";
+import BackspaceIcon from "@mui/icons-material/Backspace";
 
 export const MontaFicha = () => {
   const {
@@ -29,10 +30,11 @@ export const MontaFicha = () => {
     arquetipo,
     setArquetipo,
     extras,
-    setExtras
+    setExtras,
+    LimparCampos,
   } = useFicha();
 
-  const {SaveSlot} = useSlots();
+  const { SaveSlot } = useSlots();
 
   const [addPericiasOpen, setAddPericiasOpen] = useState(false);
   const [addVantagensOpen, setAddVantagensOpen] = useState(false);
@@ -58,7 +60,7 @@ export const MontaFicha = () => {
           <FichaInput
             label={"Pontos Totais"}
             valor={pontosTotais}
-            width={'110px'}
+            width={"110px"}
             onEdit={(e) => setPontosTotais(e.target.value)}
           />
         </ContainerInputs>
@@ -97,7 +99,9 @@ export const MontaFicha = () => {
           <ListaCaracteristicas
             caracteristicas={pericias}
             onAdicionarClick={() => setAddPericiasOpen(true)}
-            onRemoverClick={(Id) => setPericias(pericias.filter((v) => v.Id !== Id))}
+            onRemoverClick={(Id) =>
+              setPericias(pericias.filter((v) => v.Id !== Id))
+            }
           />
         </div>
         <div>
@@ -107,7 +111,9 @@ export const MontaFicha = () => {
           <ListaCaracteristicas
             caracteristicas={vantagens}
             onAdicionarClick={() => setAddVantagensOpen(true)}
-            onRemoverClick={(Id) => setVantagens(vantagens.filter((v) => v.Id !== Id))}
+            onRemoverClick={(Id) =>
+              setVantagens(vantagens.filter((v) => v.Id !== Id))
+            }
           />
         </div>
         <div>
@@ -117,7 +123,9 @@ export const MontaFicha = () => {
           <ListaCaracteristicas
             caracteristicas={desvantagens}
             onAdicionarClick={() => setAddDesvantagensOpen(true)}
-            onRemoverClick={(Id) => setDesvantagens(desvantagens.filter((v) => v.Id !== Id))}
+            onRemoverClick={(Id) =>
+              setDesvantagens(desvantagens.filter((v) => v.Id !== Id))
+            }
           />
         </div>
         <SeparadorDadinho />
@@ -126,23 +134,35 @@ export const MontaFicha = () => {
           <FichaInput
             label={"+Pontos de Ação"}
             valor={extras.pontosDeAcao}
-            onEdit={(e) => setExtras({...extras, pontosDeAcao: e.target.value})}
+            onEdit={(e) =>
+              setExtras({ ...extras, pontosDeAcao: e.target.value })
+            }
           />
           <FichaInput
             label={"+Pontos de Mana"}
             valor={extras.pontosDeMana}
-            onEdit={(e) => setExtras({...extras, pontosDeMana: e.target.value})}
+            onEdit={(e) =>
+              setExtras({ ...extras, pontosDeMana: e.target.value })
+            }
           />
           <FichaInput
             label={"+Pontos de Vida"}
             valor={extras.pontosDeVida}
-            onEdit={(e) => setExtras({...extras, pontosDeVida: e.target.value})}
+            onEdit={(e) =>
+              setExtras({ ...extras, pontosDeVida: e.target.value })
+            }
           />
         </ContainerInputs>
-        <ButtonFicha onClick={() => SaveSlot()}>
-          <BookIcon />
-          Salvar Ficha em Slot
-        </ButtonFicha>
+        <div>
+          <ButtonFicha onClick={() => SaveSlot()}>
+            <BookIcon />
+            Salvar Ficha em Slot
+          </ButtonFicha>
+          <ButtonSecundario style={{maxWidth: '110px'}} onClick={() => LimparCampos()}>
+            <BackspaceIcon />
+            Limpar Campos
+          </ButtonSecundario>
+        </div>
       </ContainerMontaFicha>
 
       <ModalPericias
