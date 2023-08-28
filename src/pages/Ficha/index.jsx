@@ -7,6 +7,10 @@ import { useFicha } from "../../context/ficha.context";
 import { FichaMinimalista } from "../../components/FichaMinimalista";
 import BackupIcon from '@mui/icons-material/Backup';
 import dadinho from '../../images/dadinhos.png'
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
 export const Ficha = () => {
     const {handleInputChange} = useFicha();
