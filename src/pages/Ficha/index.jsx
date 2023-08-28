@@ -35,8 +35,9 @@ export const Ficha = () => {
                 <p>Arraste para o lado para ver outras fichas!</p>
                 <ContainerButtons>
                     <ButtonFicha onClick={() => swiper.slideTo(0)}>Clássico</ButtonFicha>
-                    <ButtonFicha onClick={() => swiper.slideTo(1)}>TCG</ButtonFicha>
-                    <ButtonFicha onClick={() => swiper.slideTo(2)}>Minimalista</ButtonFicha>
+                    <ButtonFicha onClick={() => swiper.slideTo(1)}>TCG Rounded</ButtonFicha>
+                    <ButtonFicha onClick={() => swiper.slideTo(2)}>TCG</ButtonFicha>
+                    <ButtonFicha onClick={() => swiper.slideTo(3)}>Minimalista</ButtonFicha>
                 </ContainerButtons>
                 <Swiper
                     spaceBetween={50}
