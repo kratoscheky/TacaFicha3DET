@@ -149,7 +149,7 @@ export const ContainerVantagensDes = styled.div`
     border-radius: 28px 28px 0px 0px;
     background: rgba(255, 255, 255, 0.82);
     height: 50%;
-    padding: 40px 20px;
+    padding: 20px 20px;
 `
 
 export const ContainerDescricao = styled.div`
@@ -158,6 +158,9 @@ export const ContainerDescricao = styled.div`
     height: 50%;
     color: #FFF;
     padding: 18px 20px;
+    p{
+        font-size: 18px;
+    }
 `
 
 export const Borda = styled.img`
