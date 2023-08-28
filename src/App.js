@@ -4,6 +4,7 @@ import { Topo } from "./components/Topo";
 import { Ficha } from "./pages/Ficha";
 import { ContainerPage } from "./styles";
 import { SaveSlots } from "./components/SaveSlots";
+import { FichaTCGMinimalista } from "./components/FichaTCGMinimalista";
 
 function App() {
   return (

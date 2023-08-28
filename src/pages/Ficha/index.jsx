@@ -12,6 +12,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import {Swiper, SwiperSlide} from 'swiper/react';
+import { FichaTCGMinimalista } from "../../components/FichaTCGMinimalista";
 
 export const Ficha = () => {
     const {handleInputChange} = useFicha();
@@ -43,6 +44,7 @@ export const Ficha = () => {
                     onSwiper={setSwiper}
                 >
                     <SwiperSlide><FichaClassica /></SwiperSlide>
+                    <SwiperSlide><FichaTCGMinimalista /></SwiperSlide>
                     <SwiperSlide><FichaCard /></SwiperSlide>
                     <SwiperSlide><FichaMinimalista /></SwiperSlide>
                 </Swiper>
