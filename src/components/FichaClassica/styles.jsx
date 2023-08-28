@@ -23,7 +23,7 @@ export const DadosPersonagem = styled.div`
     div{
         grid-column: 1 / 2;
         grid-row: 1/ 2;
-        padding: 4px 24px;
+        padding: 4px 28px;
     }
     h1 {
         color: #D11CE0;

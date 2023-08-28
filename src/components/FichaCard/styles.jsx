@@ -187,6 +187,7 @@ export const Detalhes = styled.div`
     p {
         color: #FFF;
         font-size: 22px;
+        text-align: justify;
     }
 `
 

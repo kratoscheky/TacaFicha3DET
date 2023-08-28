@@ -246,6 +246,9 @@ export const DescricaoMinimalista = styled.div`
     border-radius: 4px;
     color: #FFF;
     border: 1px solid #FFF;
+    P {
+        text-align: justify;
+    }
 `
 
 export const ArquetipoTexto = styled.div`
