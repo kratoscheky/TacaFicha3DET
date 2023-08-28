@@ -11,6 +11,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import {Swiper, SwiperSlide} from 'swiper/react';
 
 export const Ficha = () => {
     const {handleInputChange} = useFicha();
@@ -36,15 +37,15 @@ export const Ficha = () => {
                     <ButtonFicha onClick={() => swiper.slideTo(1)}>TCG</ButtonFicha>
                     <ButtonFicha onClick={() => swiper.slideTo(2)}>Minimalista</ButtonFicha>
                 </ContainerButtons>
-                <ContainerFichas
+                <Swiper
                     spaceBetween={50}
                     slidesPerView={1}
                     onSwiper={setSwiper}
                 >
-                    <Slide><FichaClassica /></Slide>
-                    <Slide><FichaCard /></Slide>
-                    <Slide><FichaMinimalista /></Slide>
-                </ContainerFichas>
+                    <SwiperSlide><FichaClassica /></SwiperSlide>
+                    <SwiperSlide><FichaCard /></SwiperSlide>
+                    <SwiperSlide><FichaMinimalista /></SwiperSlide>
+                </Swiper>
                 <ImageInputContainer>
                     <label>Enviar Imagem Customizada:</label>
                     <ButtonUpload onClick={handleClick}>

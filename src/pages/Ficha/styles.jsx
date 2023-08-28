@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import frame from '../../images/frame.png'
-import {Swiper, SwiperSlide} from 'swiper/react';
 
 export const ContainerFicha = styled.div`
     min-width: 300px;
@@ -18,10 +17,6 @@ export const ImageInputContainer = styled.div`
         padding: 8px 0;
         font-weight: 700;
     }
-`
-
-export const Slide = styled(SwiperSlide)`
-
 `
 
 export const ContainerButtons = styled.div`
@@ -84,10 +79,6 @@ export const ButtonUpload = styled.button`
     gap: 4px;
     justify-content: center;
     align-items: center;
-`
-
-export const ContainerFichas = styled(Swiper)`
-
 `
 
 export const DadosPersonagem = styled.div`
