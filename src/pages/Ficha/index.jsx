@@ -6,6 +6,7 @@ import { Container, ContainerFichas, ImageInputContainer, ButtonUpload, Slide, C
 import { useFicha } from "../../context/ficha.context";
 import { FichaMinimalista } from "../../components/FichaMinimalista";
 import BackupIcon from '@mui/icons-material/Backup';
+import dadinho from '../../images/dadinhos.png'
 
 export const Ficha = () => {
     const {handleInputChange} = useFicha();
@@ -17,9 +18,12 @@ export const Ficha = () => {
         hiddenFileInput.current.click();
     };
 
+    const SeparadorDadinho = () => <img src={dadinho} alt={"Dados"} />;
+
     return (
         <>
             <MontaFicha />
+            <SeparadorDadinho />
             <Container>
                 <h1 style={{color: '#D11CE0'}}>Fichas:</h1>
                 <p>Arraste para o lado para ver outras fichas!</p>
