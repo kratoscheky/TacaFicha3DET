@@ -101,7 +101,7 @@ export const FichaMinimalista = () => {
             <StatusContainer>
               <Icon src={acaoIcon} />
               <p>
-                {recursos.pontosDeVida !== 0
+                {recursos.pontosDeAcao !== 0
                   ? recursosFinal.pontosDeAcao
                   : extras.pontosDeAcao + 1}
               </p>

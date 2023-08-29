@@ -80,7 +80,7 @@ export const FichaClassica = () => {
               <Icon src={acaoIcon} />
               <b>Pontos de Ação</b>
               <p>
-                {recursos.pontosDeVida != 0 ? recursosFinal.pontosDeAcao : extras.pontosDeAcao + 1}
+                {recursos.pontosDeAcao != 0 ? recursosFinal.pontosDeAcao : extras.pontosDeAcao + 1}
               </p>
             </div>
             <div>
