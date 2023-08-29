@@ -160,7 +160,7 @@ export const ContainerAtributos = styled.div`
 export const ContainerTextos = styled.div`
     grid-row: 3 / 4;
     grid-column: 1 / 2;
-    padding: 0 50px 25px 50px;
+    padding: 0 50px 36px 50px;
 `
 
 export const ContainerVantagensDes = styled.div`
