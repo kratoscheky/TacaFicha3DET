@@ -8,8 +8,8 @@ export const ContainerCaracteristicas = styled.div`
 ` 
 
 export const Caracteristica = styled.div`
-    background-color: #FFFFFF;
-    box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.25);
+    background-color: var(--color-background);
+    box-shadow: 1px 1px 4px 0px var(--drop-shadow);
     padding: 10px 14px;
     align-items: center;
 

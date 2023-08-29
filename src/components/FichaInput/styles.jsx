@@ -18,10 +18,11 @@ export const Input = styled.input`
   font-size: 15px;
   padding: 12px 24px;
   border-radius: 3px;
-  color: #000;
-  fill: #fff;
+  color: var(--color-foreground);
+  fill: var(--color-background);
+  background-color: var(--color-background);
   transition: all 0.3s;
-  border: 1px solid #00000050;
+  border: 1px solid var(--input-border);
   width: 100%;
 `;
 
@@ -31,9 +32,10 @@ export const TextArea = styled(TextareaAutosize)`
   font-size: 15px;
   padding: 12px 24px;
   border-radius: 3px;
-  color: #000;
-  fill: #fff;
+  color: var(--color-foreground);
+  fill: var(--color-background);
+  background-color: var(--color-background);
   transition: all 0.3s;
-  border: 1px solid #00000050;
+  border: 1px solid var(--input-border);
   width: 100%;
 `;

@@ -6,7 +6,7 @@ export const ContainerFicha = styled.div`
     max-width: 400px;
     margin-bottom: 16px;
     background-color: #FFFFFF;
-    box-shadow: 4px 4px 9px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 4px 4px 9px 0px var(--drop-shadow);
 `
 
 export const DadosPersonagem = styled.div`
@@ -158,8 +158,8 @@ export const Card = styled.div`
     width: 300px;
     border-radius: 8px;
     padding: 8px;
-    background-image: ${(props) => props.backgroundImage && `url(${props.backgroundImage})`};
-    box-shadow: rgba(0, 0, 0, 0.25) 4px 4px 9px 0px;
+    ${(props) => props.backgroundImage ? `background-image: url(${props.backgroundImage})` : `background-color: #fff` };
+    box-shadow: var(--drop-shadow) 4px 4px 9px 0px;
     background-size: cover;
     display: flex;
     gap: 8px;

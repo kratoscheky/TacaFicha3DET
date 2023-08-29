@@ -6,6 +6,7 @@ export const Card = styled.div`
     width: 760px;
     background-color: #00000050;
     zoom: 50%;
+    color: #000;
     background-size: cover;
 `
 

@@ -8,7 +8,7 @@ export const ContainerModal = styled(Modal)`
     padding: 16px;
 `
 export const ConteudoModal = styled.div`
-    background: #FFF;
+    background: var(--color-background);
     max-width: 500px;
     max-height: 500px;
     padding: 16px;

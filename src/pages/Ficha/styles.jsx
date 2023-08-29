@@ -6,7 +6,7 @@ export const ContainerFicha = styled.div`
     max-width: 400px;
     margin-bottom: 16px;
     background-color: #FFFFFF;
-    box-shadow: 4px 4px 9px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 4px 4px 9px 0px var(--drop-shadow);
 `
 
 export const ImageInputContainer = styled.div`
