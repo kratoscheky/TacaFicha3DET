@@ -186,6 +186,18 @@ export const ContainerDescricao = styled.div`
     }
 `
 
+export const TagsPericias = styled.div`
+    display: flex;
+    gap: 10px;
+    p{
+        padding: 8px 16px;
+        color: #FFF;
+        font-family: Roboto;
+        font-size: 24px;
+        border-radius: 10px;
+    }
+`
+
 export const Borda = styled.img`
     grid-row: 1 / 5;
     grid-column: 1 / 2;

@@ -30,6 +30,7 @@ import {
   RecursoTexto,
   RecursosIcones,
   SubIcon,
+  TagsPericias,
   TopoNomePonto,
 } from "./styles";
 import ponto from "../../images/tcgminimalista/bg_niverl.svg";
@@ -62,6 +63,21 @@ export const FichaTCGMinimalista = () => {
     extras,
     inputValue,
   } = useFicha();
+
+  const CoresPericias = {
+    Animais: "#A6CEE3",
+    Arte: "#1F78B4",
+    Influência: "#B2DF8A",
+    Esporte: "#33A02C",
+    Luta: "#FB9A99",
+    Manha: "#E31A1C",
+    Máquinas: "#FDBF6F",
+    Medicina: "#FF7F00",
+    Mística: "#CAB2D6",
+    Percepção: "#6A3D9A",
+    Saber: "#F2C000",
+    Sustento: "#B15928",
+  };
 
   const recursosFinal = {
     pontosDeAcao:
@@ -171,11 +187,17 @@ export const FichaTCGMinimalista = () => {
           </ContainerAtributos>
           <ContainerTextos>
             <ContainerVantagensDes>
-                <div>
-                  <PDescricaoPericias>
-                    {pericias.map((v) => v.Nome + ".").join(" ")}
-                  </PDescricaoPericias>
-                </div>
+                <TagsPericias>
+                  {pericias.map((p) => (
+                    <p
+                      style={{
+                        backgroundColor: CoresPericias[p.Nome],
+                      }}
+                    >
+                      {p.Nome}
+                    </p>
+                  ))}
+                </TagsPericias>
               {vantagens.length > 0 && (
                 <div>
                   <PDescricaoVantagens>
