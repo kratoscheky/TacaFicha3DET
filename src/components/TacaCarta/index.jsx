@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   ArquetipoBar,
   ArquetipoText,
@@ -48,8 +48,13 @@ import vidaIcon from "../../images/minimalista/vida.svg";
 import html2canvas from "html2canvas";
 import { useFicha } from "../../context/ficha.context";
 import tresdettag from "../../images/tcg/3dettag.svg";
+import throttle from 'lodash/throttle';
 
 export const TacaCarta = () => {
+  const [rotation, setRotation] = useState({ x: 0, y: 0 });
+  const [gradientDegree, setGradientDegree] = useState(125);
+  const [foil, setFoil] = useState(false);
+
   const {
     atributos,
     recursos,
@@ -91,6 +96,9 @@ export const TacaCarta = () => {
   const captureAndSaveFicha = () => {
     const container = document.querySelector("#container-ficha-taca-carta"); // Use a classe do ContainerFicha real
 
+    if (foil)
+      container.classList.remove('foil');
+
     if (container) {
       html2canvas(container).then((canvas) => {
         // Convertendo o canvas para um URL de imagem
@@ -103,6 +111,32 @@ export const TacaCarta = () => {
         downloadLink.click();
       });
     }
+
+    if (foil)
+      container.classList.add('foil');
+  };
+
+  const handleMouseMove = throttle((e) => {
+    console.log(e.nativeEvent.offsetX);
+    console.log(e.nativeEvent.touches);
+    const posX = e.nativeEvent.offsetX || (e.nativeEvent.touches && e.nativeEvent.touches[0].clientX);
+    const posY = e.nativeEvent.offsetY || (e.nativeEvent.touches && e.nativeEvent.touches[0].clientY);
+    const x = Math.abs(Math.floor(100 / e.target.offsetWidth * posX) - 100);
+    const y = Math.abs(Math.floor(100 / e.target.offsetHeight * posY) - 100);
+    
+    const backgroundX = 50 + (x - 50) / 1.5;
+    const backgroundY = 50 + (y - 50) / 1.5;
+
+    const ty = ((backgroundY - 50) / 2) * -1;
+    const tx = ((backgroundX - 50) / 1.5) * 0.5;
+    setRotation({ x: ty, y: tx });
+
+    const _gradientDegree = 20 + Math.abs((50 - x) + (50 - y)) * 1.5;
+    setGradientDegree(_gradientDegree);
+  }, 100);
+
+  const handleMouseLeave = () => {
+    setRotation({ x: 0, y: 0 });
   };
 
   return (
@@ -116,13 +150,32 @@ export const TacaCarta = () => {
       >
         <h1>TacaCarta</h1>
         <p style={{ color: "#d11ce0" }}>BETA</p>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "100%",
+              paddingTop: "4px",
+              paddingBottom: "8px",
+            }}
+          >
+            <input type="checkbox" id="check-foil" onChange={(e) => setFoil(!foil)} checked={foil}/>
+            <label htmlFor="check-foil">Holográfica (apenas visualização)</label>
+        </div>
         <Card
-          style={{
-            backgroundImage: `url(${
-              inputValue ??
-              "https://site.jamboeditora.com.br/wp-content/uploads/2023/07/3DeT-abertura-mobile.png"
-            })`,
+          className={foil ? "foil" : ""}
+          onMouseMove={handleMouseMove}
+          onTouchMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          onTouchEnd={handleMouseLeave}
+          style={{ 
+            backgroundImage: `url(${inputValue ??
+                              "https://site.jamboeditora.com.br/wp-content/uploads/2023/07/3DeT-abertura-mobile.png"})`,
+            transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`
           }}
+          gradientDegree={gradientDegree}
           id="container-ficha-taca-carta"
         >
           <Borda src={borda} />
