@@ -9,6 +9,7 @@ export const ContainerFicha = styled.div`
     box-shadow: 4px 4px 9px 0px var(--drop-shadow);
     background-size: cover;
     zoom: 50%;
+    -moz-transform: scale(0.5);
     width: 694px;
     border: 12px solid #000;
     border-radius: 8px;
