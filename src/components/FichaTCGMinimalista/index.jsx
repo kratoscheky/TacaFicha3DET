@@ -17,14 +17,11 @@ import {
   ContainerTextos,
   ContainerVantagensDes,
   FundoAtributos,
-  H1Descricao,
   Icon,
   NomeArquetipoContainer,
   NomePontoTexto,
   Nometexto,
-  PDescricao,
   PDescricaoDesvantagens,
-  PDescricaoPericias,
   PDescricaoVantagens,
   Pontotexto,
   RecursoTexto,
@@ -130,8 +127,8 @@ export const FichaTCGMinimalista = () => {
           <ContainerBarras>
             <TopoNomePonto>
               <NomeArquetipoContainer>
-                <img src={name} />
-                <img src={ponto} />
+                <img alt="Nome" src={name} />
+                <img alt="Ponto" src={ponto} />
               </NomeArquetipoContainer>
               <NomePontoTexto>
                 <Nometexto>{nome}</Nometexto>

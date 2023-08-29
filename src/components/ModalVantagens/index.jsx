@@ -38,7 +38,7 @@ export default function ModalVantagens({open, handleClose, onAdicionarClick}) {
             <hr style={{ width: "100%" }} />
             {
                 Vantagens.map(v => {
-                return <div>
+                return <div key={v.Nome}>
                     <Titulo>
                       {v.Nome} {v.Pontos}pt
                       <AdicionarButton onClick={() => onAdicionarClick(v.Nome)}>

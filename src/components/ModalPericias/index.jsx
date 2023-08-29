@@ -38,7 +38,7 @@ export default function ModalPericias({open, handleClose, onAdicionarClick}) {
             <hr style={{ width: "100%" }} />
             {
                 Pericias.map(p => {
-                return <div>
+                return <div key={p.Nome}>
                     <Titulo>
                       {p.Nome}
                       <AdicionarButton onClick={() => onAdicionarClick(p.Nome)}>

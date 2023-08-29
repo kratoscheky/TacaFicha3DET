@@ -38,7 +38,7 @@ export default function ModalDesvantagens({open, handleClose, onAdicionarClick})
             <hr style={{ width: "100%" }} />
             {
                 Desvantagens.map(d => {
-                return <div>
+                return <div key={d.Nome}>
                     <Titulo>
                       {d.Nome} {d.Pontos}pt
                       <AdicionarButton onClick={() => onAdicionarClick(d.Nome)}>
