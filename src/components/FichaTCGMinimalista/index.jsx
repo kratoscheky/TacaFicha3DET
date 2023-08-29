@@ -117,7 +117,6 @@ export const FichaTCGMinimalista = () => {
         }}
       >
         <h1>TCG Rounded</h1>
-        <p style={{ color: "#d11ce0" }}>BETA</p>
         <Card
           style={{
             backgroundImage: `url(${
