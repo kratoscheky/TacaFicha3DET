@@ -6,6 +6,7 @@ import { ContainerPage } from "./styles";
 import { SaveSlots } from "./components/SaveSlots";
 import { FichaTCGMinimalista } from "./components/FichaTCGMinimalista";
 import { Analytics } from '@vercel/analytics/react';
+import { TacaCarta } from "./components/TacaCarta";
 
 function App() {
   return (

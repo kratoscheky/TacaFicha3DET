@@ -13,6 +13,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import { FichaTCGMinimalista } from "../../components/FichaTCGMinimalista";
+import { TacaCarta } from "../../components/TacaCarta";
 
 export const Ficha = () => {
     const {handleInputChange} = useFicha();
@@ -34,19 +35,21 @@ export const Ficha = () => {
                 <h1 style={{color: '#D11CE0'}}>Fichas:</h1>
                 <p>Arraste para o lado para ver outras fichas!</p>
                 <ContainerButtons>
-                    <ButtonFicha onClick={() => swiper.slideTo(0)}>Clássico</ButtonFicha>
-                    <ButtonFicha onClick={() => swiper.slideTo(1)}>TCG Rounded</ButtonFicha>
-                    <ButtonFicha onClick={() => swiper.slideTo(2)}>TCG</ButtonFicha>
-                    <ButtonFicha onClick={() => swiper.slideTo(3)}>Minimalista</ButtonFicha>
+                    <ButtonFicha onClick={() => swiper.slideTo(0)}>TacaCarta</ButtonFicha>
+                    <ButtonFicha onClick={() => swiper.slideTo(1)}>TCG</ButtonFicha>
+                    <ButtonFicha onClick={() => swiper.slideTo(2)}>TCG Rounded</ButtonFicha>
+                    <ButtonFicha onClick={() => swiper.slideTo(3)}>Clássico</ButtonFicha>
+                    <ButtonFicha onClick={() => swiper.slideTo(4)}>Minimalista</ButtonFicha>
                 </ContainerButtons>
                 <Swiper
                     spaceBetween={50}
                     slidesPerView={1}
                     onSwiper={setSwiper}
                 >
-                    <SwiperSlide><FichaClassica /></SwiperSlide>
-                    <SwiperSlide><FichaTCGMinimalista /></SwiperSlide>
+                    <SwiperSlide><TacaCarta /></SwiperSlide>
                     <SwiperSlide><FichaCard /></SwiperSlide>
+                    <SwiperSlide><FichaTCGMinimalista /></SwiperSlide>
+                    <SwiperSlide><FichaClassica /></SwiperSlide>
                     <SwiperSlide><FichaMinimalista /></SwiperSlide>
                 </Swiper>
                 <ImageInputContainer>
