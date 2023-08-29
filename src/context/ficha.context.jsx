@@ -33,7 +33,7 @@ export const FichaProvider = ({ children }) => {
   const [vantagens, setVantagens] = useState([]);
   const [desvantagens, setDesvantagens] = useState([]);
   const [arquetipo, setArquetipo] = useState("");
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState("https://site.jamboeditora.com.br/wp-content/uploads/2023/07/3DeT-abertura-mobile.png");
 
   const [pontosTotais, setPontosTotais] = useState(10);
 
