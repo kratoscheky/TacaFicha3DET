@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useFicha } from "../../context/ficha.context";
 import {
   ContainerAtributos,
@@ -132,7 +132,7 @@ export const FichaCard = () => {
                     <p>
                       {recursos.pontosDeAcao != 0
                         ? recursosFinal.pontosDeAcao
-                        : recursosFinal.pontosDeAcao + 1}
+                        : extras.pontosDeAcao + 1}
                     </p>
                   </SubAlinhamentos>
                 </SubStatusTexto>
@@ -200,7 +200,7 @@ export const FichaCard = () => {
                     <p>
                       {recursos.pontosDeMana != 0
                         ? recursosFinal.pontosDeMana
-                        : recursosFinal.pontosDeMana + 1}
+                        : extras.pontosDeMana + 1}
                     </p>
                   </SubAlinhamentos>
                 </SubStatusTexto>
@@ -268,7 +268,7 @@ export const FichaCard = () => {
                     <p>
                       {recursos.pontosDeVida != 0
                         ? recursosFinal.pontosDeVida
-                        : recursosFinal.pontosDeVida + 1}
+                        : extras.pontosDeVida + 1}
                     </p>
                   </SubAlinhamentos>
                 </SubStatusTexto>

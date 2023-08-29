@@ -34,15 +34,15 @@ export const SaveSlots = () => {
                 <p>{s.nome}</p>
               </NomeTopo>
               <StatusContainer>
-                <img src={poder} />
+                <img alt="Poder Icone" src={poder} />
                 <p>{s.atributos.poder}</p>
               </StatusContainer>
               <StatusContainer>
-                <img src={habilidade} />
+                <img alt="Habilidade Icone" src={habilidade} />
                 <p>{s.atributos.habilidade}</p>
               </StatusContainer>
               <StatusContainer>
-                <img src={resistencia} />
+                <img alt="Resistencia Icone" src={resistencia} />
                 <p>{s.atributos.resistencia}</p>
               </StatusContainer>
             </InnerCard>

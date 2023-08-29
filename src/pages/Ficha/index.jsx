@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { MontaFicha } from "../../components/MontaFicha";
 import { FichaClassica } from "../../components/FichaClassica";
 import { FichaCard } from "../../components/FichaCard";
-import { Container, ContainerFichas, ImageInputContainer, ButtonUpload, Slide, ContainerButtons, ButtonFicha } from "./styles";
+import { Container, ImageInputContainer, ButtonUpload, ContainerButtons, ButtonFicha } from "./styles";
 import { useFicha } from "../../context/ficha.context";
 import { FichaMinimalista } from "../../components/FichaMinimalista";
 import BackupIcon from '@mui/icons-material/Backup';

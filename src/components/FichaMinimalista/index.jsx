@@ -101,25 +101,25 @@ export const FichaMinimalista = () => {
             <StatusContainer>
               <Icon src={acaoIcon} />
               <p>
-                {recursos.pontosDeVida != 0
+                {recursos.pontosDeVida !== 0
                   ? recursosFinal.pontosDeAcao
-                  : recursosFinal.pontosDeAcao + 1}
+                  : extras.pontosDeAcao + 1}
               </p>
             </StatusContainer>
             <StatusContainer>
               <Icon src={manaIcon} />
               <p>
-                {recursos.pontosDeMana != 0
+                {recursos.pontosDeMana !== 0
                   ? recursosFinal.pontosDeMana
-                  : recursosFinal.pontosDeMana + 1}
+                  : extras.pontosDeMana + 1}
               </p>
             </StatusContainer>
             <StatusContainer>
               <Icon src={vidaIcon} />
               <p>
-                {recursos.pontosDeVida != 0
+                {recursos.pontosDeVida !== 0
                   ? recursosFinal.pontosDeVida
-                  : recursosFinal.pontosDeVida + 1}
+                  : extras.pontosDeVida + 1}
               </p>
             </StatusContainer>
           </InnerCard>

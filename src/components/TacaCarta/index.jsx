@@ -8,7 +8,6 @@ import {
   Button,
   Card,
   Container,
-  ContainerAlinhamentoA,
   ContainerAlinhamentoAHabilidade,
   ContainerAlinhamentoAPoder,
   ContainerAlinhamentoAResistencia,
@@ -21,7 +20,6 @@ import {
   ContainerRecursosTabs,
   ContainerTextos,
   ContainerVantagensDes,
-  FundoAtributos,
   H1Descricao,
   Icon,
   NomeArquetipoContainer,
@@ -30,7 +28,6 @@ import {
   PDescricao,
   Pontotexto,
   RecursoTexto,
-  RecursosIcones,
   SubIcon,
   TagRecursoAcao,
   TagRecursoMana,
@@ -41,9 +38,6 @@ import {
 import ponto from "../../images/tcgminimalista/bg_niverl.svg";
 import name from "../../images/tcgminimalista/bg_nme.svg";
 import arquetipoImage from "../../images/tcgminimalista/bg_arquetipo.svg";
-import poder from "../../images/tcgminimalista/bg_poder.svg";
-import habilidade from "../../images/tcgminimalista/bg_habilidade.svg";
-import resistencia from "../../images/tcgminimalista/bg_defesa.svg";
 import borda from "../../images/tcgminimalista/borda.svg";
 import poderIcon from "../../images/minimalista/poder.svg";
 import habilidadeIcon from "../../images/minimalista/habilidade.svg";
@@ -135,8 +129,8 @@ export const TacaCarta = () => {
           <ContainerBarras>
             <TopoNomePonto>
               <NomeArquetipoContainer>
-                <img src={name} />
-                <img src={ponto} />
+                <img alt="Nome" src={name} />
+                <img alt="Ponto" src={ponto} />
               </NomeArquetipoContainer>
               <NomePontoTexto>
                 <Nometexto>{nome}</Nometexto>
@@ -230,18 +224,24 @@ export const TacaCarta = () => {
             <ContainerRecursosTabs>
               <TagRecursoAcao>
                 <SubIcon src={acaoIcon} />
-                <RecursoTexto>{recursosFinal.pontosDeAcao}</RecursoTexto>
+                <RecursoTexto>{recursosFinal.pontosDeAcao !== 0
+                  ? recursosFinal.pontosDeAcao
+                  : extras.pontosDeAcao + 1}</RecursoTexto>
               </TagRecursoAcao>
               <TagRecursoMana>
                 <SubIcon src={manaIcon} />
-                <RecursoTexto>{recursosFinal.pontosDeMana}</RecursoTexto>
+                <RecursoTexto>{recursosFinal.pontosDeMana !== 0
+                  ? recursosFinal.pontosDeMana
+                  : extras.pontosDeMana + 1}</RecursoTexto>
               </TagRecursoMana>
               <TagRecursoVida>
                 <SubIcon src={vidaIcon} />
-                <RecursoTexto>{recursosFinal.pontosDeVida}</RecursoTexto>
+                <RecursoTexto>{recursosFinal.pontosDeVida !== 0
+                  ? recursosFinal.pontosDeVida
+                  : extras.pontosDeVida + 1}</RecursoTexto>
               </TagRecursoVida>
             </ContainerRecursosTabs>
-            <img src={tresdettag} />
+            <img alt="Três dê e tê tag" src={tresdettag} />
           </ContainerRecursos>
         </Card>
         <br />

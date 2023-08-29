@@ -150,7 +150,9 @@ export const FichaTCGMinimalista = () => {
                 </AtributosIcones>
                 <RecursosIcones>
                   <SubIcon src={acaoIcon} />
-                  <RecursoTexto>{recursosFinal.pontosDeAcao}</RecursoTexto>
+                  <RecursoTexto>{recursosFinal.pontosDeAcao !== 0
+                  ? recursosFinal.pontosDeAcao
+                  : extras.pontosDeAcao + 1}</RecursoTexto>
                 </RecursosIcones>
               </ContainerAlinhamentoA>
             </ContainerITAtributos>
@@ -163,7 +165,9 @@ export const FichaTCGMinimalista = () => {
                 </AtributosIcones>
                 <RecursosIcones>
                   <SubIcon src={manaIcon} />
-                  <RecursoTexto>{recursosFinal.pontosDeMana}</RecursoTexto>
+                  <RecursoTexto>{recursosFinal.pontosDeMana !== 0
+                  ? recursosFinal.pontosDeMana
+                  : extras.pontosDeMana + 1}</RecursoTexto>
                 </RecursosIcones>
               </ContainerAlinhamentoA>
             </ContainerITAtributos>
@@ -176,7 +180,9 @@ export const FichaTCGMinimalista = () => {
                 </AtributosIcones>
                 <RecursosIcones>
                   <SubIcon src={vidaIcon} />
-                  <RecursoTexto>{recursosFinal.pontosDeVida}</RecursoTexto>
+                  <RecursoTexto>{recursosFinal.pontosDeVida !== 0
+                  ? recursosFinal.pontosDeVida
+                  : extras.pontosDeVida + 1}</RecursoTexto>
                 </RecursosIcones>
               </ContainerAlinhamentoA>
             </ContainerITAtributos>

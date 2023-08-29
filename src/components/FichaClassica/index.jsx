@@ -80,21 +80,21 @@ export const FichaClassica = () => {
               <Icon src={acaoIcon} />
               <b>Pontos de Ação</b>
               <p>
-                {recursos.pontosDeVida != 0 ? recursosFinal.pontosDeAcao : recursosFinal.pontosDeAcao + 1}
+                {recursos.pontosDeVida != 0 ? recursosFinal.pontosDeAcao : extras.pontosDeAcao + 1}
               </p>
             </div>
             <div>
               <Icon src={manaIcon} />
               <b>Pontos de Mana</b>
               <p>
-                {recursos.pontosDeMana != 0 ? recursosFinal.pontosDeMana : recursosFinal.pontosDeMana + 1}
+                {recursos.pontosDeMana != 0 ? recursosFinal.pontosDeMana : extras.pontosDeMana + 1}
               </p>
             </div>
             <div>
               <Icon src={vidaIcon} />
               <b>Pontos de Vida</b>
               <p>
-                {recursos.pontosDeVida != 0 ? recursosFinal.pontosDeVida : recursosFinal.pontosDeVida + 1}
+                {recursos.pontosDeVida != 0 ? recursosFinal.pontosDeVida : extras.pontosDeVida + 1}
               </p>
             </div>
           </ContainerAtributos>
