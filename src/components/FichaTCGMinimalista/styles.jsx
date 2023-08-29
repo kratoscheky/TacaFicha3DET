@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Card = styled.div`
     display: grid;
-    grid-template-rows: 177px 441px 421px;
+    grid-template-rows: 177px 411px 450px;
     width: 760px;
     background-color: #00000050;
     color: #000;
@@ -108,19 +108,36 @@ export const ArquetipoText = styled.p`
 `
 
 export const H1Descricao = styled.h1`
-    font-family: Oxanium;
-    font-size: 20px;
+    font-family: Roboto;
+    font-size: 24px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
 `
 
-export const PDescricao = styled.p`
-    font-family: Oxanium;
-    font-size: 20px;
+export const PDescricaoPericias = styled.p`
+    font-family: Roboto;
+    font-size: 26px;
+    font-weight: 900;
     font-style: normal;
-    font-weight: 500;
     line-height: normal;
+`
+
+export const PDescricaoVantagens = styled.p`
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 26px;
+    font-style: normal;
+    line-height: normal;
+`
+
+export const PDescricaoDesvantagens = styled.p`
+    font-family: Roboto;
+    font-size: 26px;
+    font-style: normal;
+    line-height: normal;
+    font-weight: 900;
+    color: #E31A1C;
 `
 
 export const NomeArquetipoContainer = styled.div`
@@ -134,7 +151,7 @@ export const NomeArquetipoContainer = styled.div`
 export const ContainerAtributos = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 26px;
+    gap: 15px;
     justify-content: center;
     grid-row: 2 / 3;
     grid-column: 1 / 2;
@@ -143,24 +160,29 @@ export const ContainerAtributos = styled.div`
 export const ContainerTextos = styled.div`
     grid-row: 3 / 4;
     grid-column: 1 / 2;
-    padding: 50px;
+    padding: 0 50px 25px 50px;
 `
 
 export const ContainerVantagensDes = styled.div`
     border-radius: 28px 28px 0px 0px;
     background: rgba(255, 255, 255, 0.82);
-    height: 50%;
+    height: 60%;
     padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
 `
 
 export const ContainerDescricao = styled.div`
     border-radius: 0px 0px 28px 28px;
     background: #131313;
-    height: 50%;
+    height: 40%;
     color: #FFF;
     padding: 18px 20px;
     p{
-        font-size: 20px;
+        font-family: Roboto;
+        font-size: 24px;
+        text-align: justify;
     }
 `
 

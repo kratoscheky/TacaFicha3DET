@@ -23,6 +23,9 @@ import {
   NomePontoTexto,
   Nometexto,
   PDescricao,
+  PDescricaoDesvantagens,
+  PDescricaoPericias,
+  PDescricaoVantagens,
   Pontotexto,
   RecursoTexto,
   RecursosIcones,
@@ -168,22 +171,25 @@ export const FichaTCGMinimalista = () => {
           </ContainerAtributos>
           <ContainerTextos>
             <ContainerVantagensDes>
+                <div>
+                  <PDescricaoPericias>
+                    {pericias.map((v) => v.Nome + ".").join(" ")}
+                  </PDescricaoPericias>
+                </div>
               {vantagens.length > 0 && (
-                <>
-                  <H1Descricao>Vantagens</H1Descricao>
-                  <PDescricao>
+                <div>
+                  <PDescricaoVantagens>
                     {vantagens.map((v) => v.Nome + ".").join(" ")}
-                  </PDescricao>
-                </>
+                  </PDescricaoVantagens>
+                </div>
               )}
 
               {desvantagens.length > 0 && (
-                <>
-                  <H1Descricao>Desvantagens</H1Descricao>
-                  <PDescricao>
+                <div>
+                  <PDescricaoDesvantagens>
                     {desvantagens.map((v) => v.Nome + ".").join(" ")}
-                  </PDescricao>
-                </>
+                  </PDescricaoDesvantagens>
+                </div>
               )}
             </ContainerVantagensDes>
             <ContainerDescricao>

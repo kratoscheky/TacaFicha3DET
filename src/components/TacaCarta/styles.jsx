@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Card = styled.div`
     display: grid;
-    grid-template-rows: 180px 378px 370px 116px;
+    grid-template-rows: 180px 370px 378px 116px;
     width: 760px;
     background-color: #00000050;
     zoom: 50%;
@@ -208,7 +208,7 @@ export const NomeArquetipoContainer = styled.div`
 export const ContainerAtributos = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 26px;
+    gap: 15px;
     justify-content: center;
     grid-row: 2 / 3;
     grid-column: 1 / 2;
@@ -223,12 +223,12 @@ export const ContainerTextos = styled.div`
 export const ContainerVantagensDes = styled.div`
     border-radius: 28px 28px 0px 0px;
     background: rgba(255, 255, 255, 0.82);
-    height: 248px;
+    height: 256px;
     padding: 20px 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    justify-content: flex-end;
+    justify-content: flex-start;
 `
 
 export const TagsPericias = styled.div`
