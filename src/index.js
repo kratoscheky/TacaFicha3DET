@@ -7,15 +7,18 @@ import { FichaProvider } from './context/ficha.context';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import { SlotsProvider } from './context/slots.context';
 import { ColorSchemeProvider } from './context/color-scheme.context';
+import { ShareProvider } from './context/share.context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <FichaProvider>
       <SlotsProvider>
-        <ColorSchemeProvider>
-          <App />
-        </ColorSchemeProvider>
+        <ShareProvider>
+          <ColorSchemeProvider>
+            <App />
+          </ColorSchemeProvider>
+        </ShareProvider>
       </SlotsProvider>
     </FichaProvider>
   </React.StrictMode>

@@ -1,3 +1,4 @@
+import { stubFalse } from "lodash";
 import React, { createContext, useContext, useEffect, useState } from "react";
 
 export const FichaContext = createContext();
@@ -33,8 +34,8 @@ export const FichaProvider = ({ children }) => {
   const [vantagens, setVantagens] = useState([]);
   const [desvantagens, setDesvantagens] = useState([]);
   const [arquetipo, setArquetipo] = useState("");
-  const [inputValue, setInputValue] = useState("https://site.jamboeditora.com.br/wp-content/uploads/2023/07/3DeT-abertura-mobile.png");
-
+  const [inputValue, setInputValue] = useState("");
+  const [foil, setFoil] = useState(stubFalse);
   const [pontosTotais, setPontosTotais] = useState(10);
 
   const HandleAtributos = (value, key) => {
@@ -65,7 +66,7 @@ export const FichaProvider = ({ children }) => {
     setArquetipo('')
     setAtributos(initialAtributos)
     setExtras(initialExtras)
-    setPontosTotais(10)
+    setPontosTotais(10);
   }
 
   useEffect(() => {
@@ -100,6 +101,8 @@ export const FichaProvider = ({ children }) => {
         setArquetipo,
         extras,
         setExtras,
+        foil,
+        setFoil,
         inputValue,
         setInputValue,
         handleInputChange,

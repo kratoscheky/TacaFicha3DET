@@ -29,7 +29,9 @@ export const SlotsProvider = ({ children }) => {
     arquetipo,
     setArquetipo,
     extras,
-    setExtras
+    setExtras,
+    foil,
+    setFoil
   } = useFicha();
 
   const SaveSlot = () => {
@@ -54,7 +56,8 @@ export const SlotsProvider = ({ children }) => {
         pontosDeAcao: extras.pontosDeAcao,
         pontosDeMana: extras.pontosDeMana,
         pontosDeVida: extras.pontosDeVida,
-      }
+      },
+      foil: foil
     })
 
     localStorage.setItem('slots', JSON.stringify(localStorageVar))
@@ -71,6 +74,7 @@ export const SlotsProvider = ({ children }) => {
     setAtributos(slot.atributos)
     setExtras(slot.extras)
     setPontosTotais(slot.pontosTotais)
+    setFoil(slot.foil ?? false)
   }
 
   const LoadSlots = () => {
