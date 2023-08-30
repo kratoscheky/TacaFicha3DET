@@ -33,8 +33,8 @@ export const FichaProvider = ({ children }) => {
   const [vantagens, setVantagens] = useState([]);
   const [desvantagens, setDesvantagens] = useState([]);
   const [arquetipo, setArquetipo] = useState("");
-  const [inputValue, setInputValue] = useState("https://site.jamboeditora.com.br/wp-content/uploads/2023/07/3DeT-abertura-mobile.png");
 
+  const [inputValue, setInputValue] = useState("");
   const [pontosTotais, setPontosTotais] = useState(10);
 
   const HandleAtributos = (value, key) => {
@@ -75,6 +75,14 @@ export const FichaProvider = ({ children }) => {
       pontosDeVida: atributos.resistencia * 5,
     });
   }, [atributos]);
+
+  useEffect(() => {
+    fetch("https://site.jamboeditora.com.br/wp-content/uploads/2023/07/3DeT-abertura-mobile.png")
+      .then(response => response.blob())
+      .then(blob => {
+        setInputValue(URL.createObjectURL(blob));
+    });
+  }, []);
 
   return (
     <FichaContext.Provider
