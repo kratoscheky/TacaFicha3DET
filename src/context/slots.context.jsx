@@ -34,7 +34,9 @@ export const SlotsProvider = ({ children }) => {
     imageUrl,
     setImageUrl,
     extras,
-    setExtras
+    setExtras,
+    foil,
+    setFoil
   } = useFicha();
 
   const { uploadImage } = useImgur();
@@ -79,6 +81,7 @@ export const SlotsProvider = ({ children }) => {
         pontosDeVida: extras.pontosDeVida,
       },
       imageUrl: _imageUrl,
+      foil: foil,
     })
 
     localStorage.setItem('slots', JSON.stringify(localStorageVar))
@@ -96,6 +99,7 @@ export const SlotsProvider = ({ children }) => {
     setExtras(slot.extras)
     setPontosTotais(slot.pontosTotais)
     setImageUrl(slot.imageUrl)
+    setFoil(slot.foil ?? false)
   }
 
   const LoadSlots = () => {

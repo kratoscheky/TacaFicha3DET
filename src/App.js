@@ -1,22 +1,52 @@
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import { Topo } from "./components/Topo";
 import { Ficha } from "./pages/Ficha";
+import { ShareView } from "./pages/ShareView";
 import { ContainerPage } from "./styles";
 import { SaveSlots } from "./components/SaveSlots";
 import { Analytics } from "@vercel/analytics/react";
 import { AvisoTopo } from "./components/AvisoTopo";
 import { ArquetipoPainel } from "./components/ArquetiposPainel";
+import { useShare } from "./context/share.context";
 
 function App() {
+  const [page, setPage] = useState("");
+
+  const { loadShareableString } = useShare();
+
+  useEffect(() => {
+    //Checa se o link de compartilhamento foi passado via URL
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const shareableData = urlSearchParams.get("share");
+
+    if (shareableData) {
+      try {
+        loadShareableString(shareableData)
+        setPage("ShareView");
+      } catch (error) {
+        //Redireciona para a homepage sem o link na url
+        window.location.href = window.location.origin
+      }
+    } else {
+      setPage("MontaFicha");
+    }
+  }, [])
+
   return (
     <>
       <Analytics />
       <Topo />
       <AvisoTopo />
       <ContainerPage>
-        <SaveSlots />
-        <ArquetipoPainel />
-        <Ficha />
+        {page == "MontaFicha" && (
+          <>
+            <SaveSlots />
+            <ArquetipoPainel />
+            <Ficha />
+          </>
+        )}
+        {page == "ShareView" && (<ShareView />)}
       </ContainerPage>
       <div
         style={{

@@ -1,3 +1,4 @@
+import { stubFalse } from "lodash";
 import React, { createContext, useContext, useEffect, useState } from "react";
 
 export const FichaContext = createContext();
@@ -37,6 +38,8 @@ export const FichaProvider = ({ children }) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [imageBlob, setImageBlob] = useState("");
   const [imageUrl, setImageUrl] = useState(null);
+
+  const [foil, setFoil] = useState(stubFalse);
   const [pontosTotais, setPontosTotais] = useState(10);
 
   const [recursosFinal, setRecursosFinal] = useState(initialRecursos);
@@ -92,7 +95,7 @@ export const FichaProvider = ({ children }) => {
     setArquetipo('')
     setAtributos(initialAtributos)
     setExtras(initialExtras)
-    setPontosTotais(10)
+    setPontosTotais(10);
   }
 
   useEffect(() => {
@@ -143,7 +146,9 @@ export const FichaProvider = ({ children }) => {
         imageUrl,
         setImageUrl,
         LimparCampos,
-        recursosFinal
+        recursosFinal,
+        foil,
+        setFoil,
       }}
     >
       {children}
