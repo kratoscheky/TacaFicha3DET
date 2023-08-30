@@ -48,7 +48,7 @@ export const Topo = () => {
             </Descricao>
 
             <a
-              href="https://blog.jamboeditora.com.br/wp-content/uploads/2023/08/3DeT-DEMO-Kit-Introdutorio.pdf"
+              href="https://blog.jamboeditora.com.br/wp-content/uploads/2023/08/3DeT_-_DEMO_-_Kit_Introdutorio.pdf"
               style={{ textDecoration: "none" }}
             >
               <Button>
