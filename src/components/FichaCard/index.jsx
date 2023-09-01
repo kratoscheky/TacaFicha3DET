@@ -92,17 +92,9 @@ export const FichaCard = () => {
         display: 'flex',
         marginTop: "16px",
         flexDirection: 'column',
-        alignItems: 'center',
-        height: '624px'
+        alignItems: 'center'
       }}>
         <h1>TCG</h1>
-        <p style={{
-          marginBottom: '18px'
-        }}>
-          Modelo de ficha por{" "}
-          <a href="https://twitter.com/lukeskelington">@lukeskelington</a>
-        </p>
-        <br />
         <ContainerFicha
           style={{ backgroundImage: `url(${inputValue})` }}
           id="container-ficha-card"
@@ -300,6 +292,11 @@ export const FichaCard = () => {
             </Detalhes>
           </AlinhamentoInfos>
         </ContainerFicha>
+        <p>
+          Modelo de ficha por{" "}
+          <a href="https://twitter.com/lukeskelington">@lukeskelington</a>
+        </p>
+        <br />
       </div>
       <Button onClick={captureAndSaveFicha}>
         <SaveIcon />
