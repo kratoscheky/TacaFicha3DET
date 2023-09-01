@@ -5,14 +5,14 @@ export const Card = styled.div`
     grid-template-rows: 180px 370px 378px 116px;
     width: 760px;
     background-color: #00000050;
-    zoom: 50%;
-    -moz-transform: scale(0.5);
+    transform: scale(0.50) !important;
+    transform-origin: center !important;
+    margin-top: -260px;
     color: #000;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 0%;
     transform-origin: center;
-
     &:before,
     &:after {
         content: "";

@@ -111,9 +111,17 @@ export const FichaTCGMinimalista = () => {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          height: '624px'
         }}
       >
         <h1>TCG Rounded</h1>
+        <p>
+          Modelo de ficha por{" "}
+          <a href="https://www.facebook.com/groups/161485003862799/user/100086200497493/">
+            Lungas Neto
+          </a>
+        </p>
+        <br />
         <Card
           style={{
             backgroundImage: `url(${
@@ -221,14 +229,6 @@ export const FichaTCGMinimalista = () => {
             </ContainerDescricao>
           </ContainerTextos>
         </Card>
-        <br />
-        <p>
-          Modelo de ficha por{" "}
-          <a href="https://www.facebook.com/groups/161485003862799/user/100086200497493/">
-            Lungas Neto
-          </a>
-        </p>
-        <br />
       </div>
       <Button onClick={() => captureAndSaveFicha()}>Salvar</Button>
     </Container>

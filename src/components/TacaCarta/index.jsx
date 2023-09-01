@@ -146,10 +146,17 @@ export const TacaCarta = () => {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          height: '624px'
         }}
       >
         <h1>TacaCarta</h1>
-        <p style={{ color: "#6F0062" }}>BETA</p>
+        <p>
+          Modelo de ficha por{" "}
+          <a href="https://www.facebook.com/groups/161485003862799/user/100086200497493/">
+            Lungas Neto
+          </a>
+        </p>
+        <br />
           <div
             style={{
               display: "flex",
@@ -297,14 +304,6 @@ export const TacaCarta = () => {
             <img alt="Três dê e tê tag" src={tresdettag} />
           </ContainerRecursos>
         </Card>
-        <br />
-        <p>
-          Modelo de ficha por{" "}
-          <a href="https://www.facebook.com/groups/161485003862799/user/100086200497493/">
-            Lungas Neto
-          </a>
-        </p>
-        <br />
       </div>
       <Button onClick={() => captureAndSaveFicha()}>Salvar</Button>
     </Container>
