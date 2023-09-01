@@ -28,7 +28,7 @@ export const ContainerBanner = styled.div`
     height: 578px;
     display: flex;
     justify-content: center;
-    background-size: auto;
+    background-size: cover;
     border-bottom: 10px solid #6F0062;
 `
 
