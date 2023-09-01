@@ -9,7 +9,7 @@ export const ImgurProvider = ({ children }) => {
   const apiKey = "8f6d8eb03eab07d"
   // "ain mas a sua apikey ta publica no repositorio, vo usar ela hihi 🤓☝️
   // é gratis pra criar apikey no imgur o bobão, quer estourar o rate limit pra ser um bobão completo vai lá pô
-  const maxUploadsPerDay = 10;
+  const maxUploadsPerDay = 5;
   const localStorageKey = "imgurUploadCount";
   
   const [imageUploadCount, setImageUploadCount] = useState(0);
