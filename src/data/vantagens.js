@@ -22,7 +22,34 @@ export const Vantagens = [
     {
         Nome: "Ajudante",
         Descricao: "Você tem um companheiro ou recurso confiável que pode lhe auxiliar em combate e outras situações.",
-        Pontos: 1
+        Pontos: 1,
+        Tipo: [
+            {
+                Nome: "Curandeiro",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Especialista",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Familiar",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Lutador",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Montaria",
+                Descricao: "",
+                Pontos: 1
+            },
+        ]
     },
     {
         Nome: "Alcance",
@@ -37,7 +64,7 @@ export const Vantagens = [
     {
         Nome: "Arena",
         Descricao: "Você é mais eficiente em um tipo específico de terreno.",
-        Pontos: 1
+        Pontos: 1,
     },
     {
         Nome: "Artefato",
@@ -47,7 +74,69 @@ export const Vantagens = [
     {
         Nome: "Ataque Especial",
         Descricao: "Você pode gastar energia para ativar ataques aprimorados.",
-        Pontos: 1
+        Pontos: 1,
+        Tipo: [
+            {
+                Nome: "Área",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Choque",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Distante",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Espiritual",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Investida",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Múltiplo",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Penetrante",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Perigoso",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Poderoso",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Potente",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Preciso",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Titânico",
+                Descricao: "",
+                Pontos: 1
+            }
+        ]
     },
     {
         Nome: "Base",
@@ -77,7 +166,54 @@ export const Vantagens = [
     {
         Nome: "Defesa Especial",
         Descricao: "Quando sofre um ataque, você pode gastar energia para ativar uma técnica de defesa especial.",
-        Pontos: 1
+        Pontos: 1,
+        Tipo: [
+            {
+                Nome: "Blindada",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Bloqueio",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Esquiva",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Proteção",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Provocação",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Reflexão",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Robusta",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Tenaz",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Titânica",
+                Descricao: "",
+                Pontos: 1
+            }
+        ]
     },
     {
         Nome: "Desgaste",
@@ -132,7 +268,7 @@ export const Vantagens = [
     {
         Nome: "Ilusão",
         Descricao: "Você tem a habilidade de criar ilusões tridimensionais convincentes.",
-        Pontos: 2
+        Pontos: 2,
     },
     {
         Nome: "Imitar",
@@ -152,7 +288,34 @@ export const Vantagens = [
     {
         Nome: "Imune",
         Descricao: "Você é imune a algum elemento que normalmente afeta outros.",
-        Pontos: 1
+        Pontos: 1,
+        Tipo: [
+            {
+                Nome: "Abiótico",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Anfíbio",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Doenças",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Resiliente",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Sem Mente",
+                Descricao: "",
+                Pontos: 1
+            }
+        ]
     },
     {
         Nome: "Incorpóreo",
@@ -252,7 +415,29 @@ export const Vantagens = [
     {
         Nome: "Sentido",
         Descricao: 'Seus sentidos são excepcionais, diferentes ou aprimorados.',
-        Pontos: 1
+        Pontos: 1,
+        Tipo: [
+            {
+                Nome: "Aguçado",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Infravisão",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Radar",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Raio X",
+                Descricao: "",
+                Pontos: 1
+            }
+        ]
     },
     {
         Nome: "Telepata",

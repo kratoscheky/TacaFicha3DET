@@ -37,7 +37,54 @@ export const Desvantagens = [
     {
         Nome: "Código",
         Descricao: "Você segue um código de conduta que o impede de realizar (ou deixar de realizar) certas ações.",
-        Pontos: -1
+        Pontos: -1,
+        Tipo: [
+            {
+                Nome: "1ª Lei de Asimov",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "2ª Lei de Asimov",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Código do Caçador",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Código do Combate",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Código da Derrota",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Código da Gratidão",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Código dos Heróis",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Código da Honestidade",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Código da Redenção",
+                Descricao: "",
+                Pontos: 1
+            }
+        ]
     },
     {
         Nome: "Dependência",
@@ -67,7 +114,19 @@ export const Desvantagens = [
     {
         Nome: "Fraqueza",
         Descricao: "Você tem uma vulnerabilidade especial a um objeto, elemento ou condição específica.",
-        Pontos: "-1-2"
+        Pontos: "-1-2",
+        Tipo: [
+            {
+                Nome: "Incomum",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Comum",
+                Descricao: "",
+                Pontos: 1
+            }
+        ]
     },
     {
         Nome: "Fúria",
@@ -97,7 +156,49 @@ export const Desvantagens = [
     {
         Nome: "Insano",
         Descricao: "Sofre de um problema mental.",
-        Pontos: -1
+        Pontos: -1,
+        Tipo: [
+            {
+                Nome: "Cleptomania",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Compulsão",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Distração",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Fantasia",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Fobia",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Megalomania",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Mitomania",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Paranoia",
+                Descricao: "",
+                Pontos: 1
+            }
+        ]
     },
     {
         Nome: "Lento",
@@ -142,7 +243,19 @@ export const Desvantagens = [
     {
         Nome: "Restrição",
         Descricao: "Uso de poderes dificultado por condição.",
-        Pontos: "-1-2"
+        Pontos: "-1-2",
+        Tipo: [
+            {
+                Nome: "Incomum",
+                Descricao: "",
+                Pontos: 1
+            },
+            {
+                Nome: "Comum",
+                Descricao: "",
+                Pontos: 1
+            }
+        ]
     },
     {
         Nome: "Sem Vida",
