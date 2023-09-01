@@ -130,7 +130,7 @@ export const MontaFicha = () => {
               </ContainerInputs>
               <ContainerInputs>
                 <FichaInput
-                  label={"+Pontos de Ação"}
+                  label={"+Ação"}
                   valor={extras.pontosDeAcao}
                   icon={pontosacaoplus}
                   onEdit={(e) =>
@@ -138,7 +138,7 @@ export const MontaFicha = () => {
                   }
                 />
                 <FichaInput
-                  label={"+Pontos de Mana"}
+                  label={"+Mana"}
                   valor={extras.pontosDeMana}
                   icon={pontosmanaplus}
                   onEdit={(e) =>
@@ -146,7 +146,7 @@ export const MontaFicha = () => {
                   }
                 />
                 <FichaInput
-                  label={"+Pontos de Vida"}
+                  label={"+Vida"}
                   valor={extras.pontosDeVida}
                   icon={pontosvidaplus}
                   onEdit={(e) =>
