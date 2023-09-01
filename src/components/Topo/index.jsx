@@ -26,7 +26,7 @@ export const Topo = () => {
           <img
             style={{ height: "37px" }}
             src={tresdetlogo}
-            alt="3DeT TacaFicha"
+            alt="TacaFicha"
           />
         </ContainerLogo>
         <DarkModeToggle />
