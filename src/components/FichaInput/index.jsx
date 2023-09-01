@@ -2,7 +2,7 @@ import * as React from "react";
 import { TextArea, Label, InputContainer, Input, IconInput, Icon } from "./styles";
 
 export default function FichaInput(props) {
-  const { label, valor, onEdit, isTextArea, maxLength, width, disabled, icon } = props;
+  const { label, valor, onEdit, isTextArea, maxLength, width, disabled, icon, type } = props;
 
   const renderInput = () => {
     return isTextArea ? (
@@ -12,7 +12,7 @@ export default function FichaInput(props) {
         {
           icon && <Icon src={icon} />
         }
-        <Input style={{
+        <Input type={type} style={{
           padding: icon ? '16px 16px 16px 42px' : '16px 16px',
           width: '100%'
         }} disabled={disabled} value={valor} onChange={onEdit}></Input>

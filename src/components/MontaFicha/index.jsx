@@ -110,18 +110,21 @@ export const MontaFicha = () => {
               <br />
               <ContainerInputs>
                 <FichaInput
+                  type="number"
                   label={"Poder"}
                   valor={atributos.poder}
                   icon={poder}
                   onEdit={(v) => HandleAtributos(v.target.value, "poder")}
                 />
                 <FichaInput
+                  type="number"
                   label={"Habilidade"}
                   valor={atributos.habilidade}
                   icon={habilidade}
                   onEdit={(v) => HandleAtributos(v.target.value, "habilidade")}
                 />
                 <FichaInput
+                  type="number"
                   label={"Resistência"}
                   valor={atributos.resistencia}
                   icon={resistencia}
@@ -130,6 +133,7 @@ export const MontaFicha = () => {
               </ContainerInputs>
               <ContainerInputs>
                 <FichaInput
+                  type="number"
                   label={"+Ação"}
                   valor={extras.pontosDeAcao}
                   icon={pontosacaoplus}
@@ -138,6 +142,7 @@ export const MontaFicha = () => {
                   }
                 />
                 <FichaInput
+                  type="number"
                   label={"+Mana"}
                   valor={extras.pontosDeMana}
                   icon={pontosmanaplus}
@@ -146,6 +151,7 @@ export const MontaFicha = () => {
                   }
                 />
                 <FichaInput
+                  type="number"
                   label={"+Vida"}
                   valor={extras.pontosDeVida}
                   icon={pontosvidaplus}
