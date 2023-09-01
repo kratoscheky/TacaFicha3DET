@@ -12,13 +12,19 @@ export const ContainerSessao = styled.div`
     flex-direction: column;
     width: 100%;
     padding: 8px;
-    border: 1px solid #D11CE0;
     border-radius: 8px;
-    max-width: 500px;
+    max-width: 1200px;
+    padding: 16px;
+    background: #6F0062;
+    margin: 16px 0;
+    h1{
+        color: #FFBF22;
+        text-transform: uppercase;
+    }
 `
 
 export const AvisoTexto = styled.p`
-    color: #D11CE0;
+    color: #6F0062;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -46,7 +52,7 @@ export const InnerCard = styled.div`
     flex-direction: column;
     gap: 8px;
     p {
-        color: #D11CE0;
+        color: #6F0062;
         font-weight: 900;
     }
 `

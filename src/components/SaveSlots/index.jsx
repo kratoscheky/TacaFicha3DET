@@ -23,7 +23,7 @@ export const SaveSlots = () => {
 
   return (
     <ContainerSessao>
-      <p style={{color: '#d11ce0'}}>BETA</p>
+      <p style={{color: '#fff'}}>BETA</p>
       <h1>Personagens Salvos</h1>
       <br />
       <ContainerCards>

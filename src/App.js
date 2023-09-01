@@ -7,12 +7,14 @@ import { SaveSlots } from "./components/SaveSlots";
 import { FichaTCGMinimalista } from "./components/FichaTCGMinimalista";
 import { Analytics } from '@vercel/analytics/react';
 import { TacaCarta } from "./components/TacaCarta";
+import { AvisoTopo } from "./components/AvisoTopo";
 
 function App() {
   return (
     <>
       <Analytics />
       <Topo />
+      <AvisoTopo />
       <ContainerPage>
         <SaveSlots />
         <Ficha />

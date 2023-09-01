@@ -32,7 +32,7 @@ export const Ficha = () => {
             <MontaFicha />
             <SeparadorDadinho />
             <Container>
-                <h1 style={{color: '#D11CE0'}}>Fichas:</h1>
+                <h1 style={{color: '#6F0062'}}>Fichas:</h1>
                 <p>Arraste para o lado para ver outras fichas!</p>
                 <ContainerButtons>
                     <ButtonFicha onClick={() => swiper.slideTo(0)}>TacaCarta</ButtonFicha>

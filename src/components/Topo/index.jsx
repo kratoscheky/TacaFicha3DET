@@ -49,6 +49,7 @@ export const Topo = () => {
 
             <a
               href="https://blog.jamboeditora.com.br/wp-content/uploads/2023/08/3DeT_-_DEMO_-_Kit_Introdutorio.pdf"
+              target="_blank"
               style={{ textDecoration: "none" }}
             >
               <Button>
@@ -62,7 +63,7 @@ export const Topo = () => {
             </a>
           </ContainerTexto>
           <ContainerTablet>
-            {/* <img src={tablet} /> */}
+            <img src={tablet} />
           </ContainerTablet>
         </ContainerTextoETablet>
       </ContainerBanner>

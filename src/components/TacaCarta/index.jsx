@@ -149,7 +149,7 @@ export const TacaCarta = () => {
         }}
       >
         <h1>TacaCarta</h1>
-        <p style={{ color: "#d11ce0" }}>BETA</p>
+        <p style={{ color: "#6F0062" }}>BETA</p>
           <div
             style={{
               display: "flex",

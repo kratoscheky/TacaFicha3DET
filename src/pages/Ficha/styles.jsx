@@ -29,7 +29,7 @@ export const ContainerButtons = styled.div`
 export const ButtonFicha = styled.button`
     font-weight: 800;
     text-shadow: 0 0 16px rgba(0,0,0,.53);
-    background-color: #D11CE0;
+    background-color: #6F0062;
     box-shadow: 0 0 10px 0 rgba(0,0,0,.5);
     font-size: 12px;
     padding: 8px 15px;
@@ -59,7 +59,7 @@ export const Container = styled.div`
 export const ButtonUpload = styled.button`
     font-weight: 600;
     text-shadow: 0 0 16px rgba(0,0,0,.53);
-    background-color: #D11CE0;
+    background-color: #6F0062;
     box-shadow: 0 0 10px 0 rgba(0,0,0,.5);
     font-size: 16px;
     padding: 15px 30px;
@@ -90,7 +90,7 @@ export const DadosPersonagem = styled.div`
     background-position-y: bottom;
     padding: 0 40px 40px 40px;
     h1 {
-        color: #D11CE0;
+        color: #6F0062;
         font-style: normal;
         font-weight: 700;
         line-height: normal;
@@ -115,7 +115,7 @@ export const ContainerAtributos = styled.div`
         gap: 2px;
     }
     div b{
-        color: #D11CE0;
+        color: #6F0062;
         font-style: normal;
         font-weight: 800;
         line-height: normal;

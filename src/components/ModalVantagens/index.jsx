@@ -31,6 +31,7 @@ export default function ModalVantagens({open, handleClose, onAdicionarClick}) {
             <p>Sua mesa utiliza uma vantagem customizada ou não encontrou o que procurava?
             <br/><br/>Sem problemas! Adicione a vantagem que quiser no campo abaixo</p>
             <FichaInput
+              width='100%'
               label={"Nome da vantagem"}
               valor={customizada}
               onEdit={(e) => setCustomizada(e.target.value)}
@@ -38,7 +39,11 @@ export default function ModalVantagens({open, handleClose, onAdicionarClick}) {
             <hr style={{ width: "100%" }} />
             {
                 Vantagens.map(v => {
-                return <div key={v.Nome}>
+                return <div style={{
+                  backgroundColor: '#44003C',
+                  padding: '18px',
+                  borderRadius: '8px'
+                }} key={v.Nome}>
                     <Titulo>
                       {v.Nome} {v.Pontos}pt
                       <AdicionarButton onClick={() => onAdicionarClick(v.Nome)}>
