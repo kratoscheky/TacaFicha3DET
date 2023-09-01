@@ -49,7 +49,7 @@ export const FichaCard = () => {
     pontosTotais,
     arquetipo,
     extras,
-    inputValue,
+    imageBlob,
   } = useFicha();
 
   const recursosFinal = {
@@ -96,7 +96,7 @@ export const FichaCard = () => {
       }}>
         <h1>TCG</h1>
         <ContainerFicha
-          style={{ backgroundImage: `url(${inputValue})` }}
+          style={{ backgroundImage: `url(${imageBlob})` }}
           id="container-ficha-card"
         >
           <DadosPersonagem>

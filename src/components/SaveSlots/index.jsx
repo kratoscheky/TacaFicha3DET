@@ -28,7 +28,7 @@ export const SaveSlots = () => {
       <br />
       <ContainerCards>
         {slots.map((s, index) => (
-          <Card key={index + s.nome} backgroundImage='https://site.jamboeditora.com.br/wp-content/uploads/2023/07/3DeT-abertura-mobile.png'>
+          <Card key={index + s.nome} backgroundImage={s.imageUrl ?? 'https://site.jamboeditora.com.br/wp-content/uploads/2023/07/3DeT-abertura-mobile.png'}>
             <InnerCard>
               <NomeTopo>
                 <p>{s.nome}</p>

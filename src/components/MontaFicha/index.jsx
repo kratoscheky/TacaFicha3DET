@@ -30,6 +30,7 @@ import { ListaCaracteristicas } from "../ListaCaracteristicas";
 import { useSlots } from "../../context/slots.context";
 import BookIcon from "@mui/icons-material/Book";
 import BackspaceIcon from "@mui/icons-material/Backspace";
+import { useImgur } from "../../context/imgur.context";
 
 export const MontaFicha = () => {
   const {
@@ -56,6 +57,8 @@ export const MontaFicha = () => {
   } = useFicha();
 
   const { SaveSlot } = useSlots();
+
+  const { remainingUploadsToday } = useImgur();
 
   const [addPericiasOpen, setAddPericiasOpen] = useState(false);
   const [addVantagensOpen, setAddVantagensOpen] = useState(false);
@@ -218,7 +221,7 @@ export const MontaFicha = () => {
           </PainelPersonalidade>
         </ContainerPersonalidade>
         <div>
-          <ButtonFicha onClick={() => SaveSlot()}>
+          <ButtonFicha onClick={async () => await SaveSlot()}>
             <BookIcon />
             Salvar Ficha em Slot
           </ButtonFicha>
@@ -230,6 +233,11 @@ export const MontaFicha = () => {
             Limpar Campos
           </ButtonSecundario>
         </div>
+        <h6 style={{textAlign: "center", color: "var(--secondary-text)", lineHeight: "12px"}}>
+          Você pode salvar mais {remainingUploadsToday} fichas com imagem hoje
+          <br/>Após isso as fichas serão salvas sem imagem
+          <br/>Essa limitação permite que todos possam aproveitar o TacaFicha
+        </h6>
       </ContainerMontaFicha>
 
       <ModalPericias

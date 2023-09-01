@@ -34,7 +34,7 @@ export const FichaMinimalista = () => {
     desvantagens,
     pericias,
     extras,
-    inputValue
+    imageBlob
   } = useFicha();
 
   const recursosFinal = {
@@ -70,7 +70,7 @@ export const FichaMinimalista = () => {
         id="container-ficha-minimalista"
         style={{
           backgroundImage:
-          `url(${inputValue ?? 'https://site.jamboeditora.com.br/wp-content/uploads/2023/07/3DeT-abertura-mobile.png'})`,
+          `url(${imageBlob ?? 'https://site.jamboeditora.com.br/wp-content/uploads/2023/07/3DeT-abertura-mobile.png'})`,
         }}
       >
         <NomeTopo>

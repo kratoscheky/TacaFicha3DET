@@ -7,17 +7,20 @@ import { FichaProvider } from './context/ficha.context';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import { SlotsProvider } from './context/slots.context';
 import { ColorSchemeProvider } from './context/color-scheme.context';
+import { ImgurProvider } from './context/imgur.context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <FichaProvider>
-      <SlotsProvider>
-        <ColorSchemeProvider>
-          <App />
-        </ColorSchemeProvider>
-      </SlotsProvider>
-    </FichaProvider>
+    <ImgurProvider>
+      <FichaProvider>
+        <SlotsProvider>
+          <ColorSchemeProvider>
+            <App />
+          </ColorSchemeProvider>
+        </SlotsProvider>
+      </FichaProvider>
+    </ImgurProvider>
   </React.StrictMode>
 );
 

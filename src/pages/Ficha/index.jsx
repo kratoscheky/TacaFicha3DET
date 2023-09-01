@@ -16,7 +16,7 @@ import { FichaTCGMinimalista } from "../../components/FichaTCGMinimalista";
 import { TacaCarta } from "../../components/TacaCarta";
 
 export const Ficha = () => {
-    const {handleInputChange} = useFicha();
+    const {handleFileChange} = useFicha();
     const [swiper, setSwiper] = useState(null);
 
     const hiddenFileInput = useRef(null);
@@ -60,7 +60,7 @@ export const Ficha = () => {
                     </ButtonUpload>
                     <input
                         type="file"
-                        onChange={handleInputChange}
+                        onChange={handleFileChange}
                         style={{
                             display: 'none'
                         }}

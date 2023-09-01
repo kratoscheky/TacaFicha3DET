@@ -58,7 +58,7 @@ export const FichaTCGMinimalista = () => {
     pontosTotais,
     arquetipo,
     extras,
-    inputValue,
+    imageBlob,
   } = useFicha();
 
   const CoresPericias = {
@@ -117,7 +117,7 @@ export const FichaTCGMinimalista = () => {
         <Card
           style={{
             backgroundImage: `url(${
-              inputValue ??
+              imageBlob ??
               "https://site.jamboeditora.com.br/wp-content/uploads/2023/07/3DeT-abertura-mobile.png"
             })`,
           }}

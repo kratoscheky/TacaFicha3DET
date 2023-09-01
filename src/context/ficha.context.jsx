@@ -34,7 +34,9 @@ export const FichaProvider = ({ children }) => {
   const [desvantagens, setDesvantagens] = useState([]);
   const [arquetipo, setArquetipo] = useState("");
 
-  const [inputValue, setInputValue] = useState("");
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [imageBlob, setImageBlob] = useState("");
+  const [imageUrl, setImageUrl] = useState(null);
   const [pontosTotais, setPontosTotais] = useState(10);
 
   const HandleAtributos = (value, key) => {
@@ -52,8 +54,9 @@ export const FichaProvider = ({ children }) => {
     setAtributos({ ...atributos, [key]: value });
   };
 
-  const handleInputChange = (event) => {
-    setInputValue(URL.createObjectURL(event.target.files[0]));
+  const handleFileChange = (event) => {
+    setSelectedFile(event.target.files[0]);
+    setImageBlob(URL.createObjectURL(event.target.files[0]));
   };
 
   const LimparCampos = () => {
@@ -77,12 +80,12 @@ export const FichaProvider = ({ children }) => {
   }, [atributos]);
 
   useEffect(() => {
-    fetch("https://site.jamboeditora.com.br/wp-content/uploads/2023/07/3DeT-abertura-mobile.png")
+    fetch(imageUrl ?? "https://site.jamboeditora.com.br/wp-content/uploads/2023/07/3DeT-abertura-mobile.png", {referrer:""})
       .then(response => response.blob())
       .then(blob => {
-        setInputValue(URL.createObjectURL(blob));
+        setImageBlob(URL.createObjectURL(blob));
     });
-  }, []);
+  }, [imageUrl]);
 
   return (
     <FichaContext.Provider
@@ -108,9 +111,13 @@ export const FichaProvider = ({ children }) => {
         setArquetipo,
         extras,
         setExtras,
-        inputValue,
-        setInputValue,
-        handleInputChange,
+        imageBlob,
+        setImageBlob,
+        handleFileChange,
+        selectedFile,
+        setSelectedFile,
+        imageUrl,
+        setImageUrl,
         LimparCampos
       }}
     >

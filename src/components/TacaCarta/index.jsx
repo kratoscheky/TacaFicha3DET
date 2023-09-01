@@ -66,7 +66,7 @@ export const TacaCarta = () => {
     pontosTotais,
     arquetipo,
     extras,
-    inputValue,
+    imageBlob,
   } = useFicha();
 
   const CoresPericias = {
@@ -171,7 +171,7 @@ export const TacaCarta = () => {
           onMouseLeave={handleMouseLeave}
           onTouchEnd={handleMouseLeave}
           style={{ 
-            backgroundImage: `url(${inputValue ??
+            backgroundImage: `url(${imageBlob ??
                               "https://site.jamboeditora.com.br/wp-content/uploads/2023/07/3DeT-abertura-mobile.png"})`,
             transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`
           }}
