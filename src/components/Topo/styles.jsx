@@ -42,6 +42,9 @@ export const ContainerTextoETablet = styled.div`
 `
 
 export const ContainerTablet = styled.div`
+    display: flex;
+    height: 100%;
+    align-items: center;
     @media (max-width: 768px) {
         display: none;
     }

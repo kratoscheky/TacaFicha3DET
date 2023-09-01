@@ -24,7 +24,7 @@ export const ContainerSessao = styled.div`
 `
 
 export const AvisoTexto = styled.p`
-    color: #6F0062;
+    color: #FFF;
     font-style: normal;
     font-weight: 700;
     line-height: normal;

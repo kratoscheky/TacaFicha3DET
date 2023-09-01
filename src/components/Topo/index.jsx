@@ -63,7 +63,9 @@ export const Topo = () => {
             </a>
           </ContainerTexto>
           <ContainerTablet>
-            <img src={tablet} />
+            <img style={{
+              height: '500px'
+            }} src={tablet} />
           </ContainerTablet>
         </ContainerTextoETablet>
       </ContainerBanner>
