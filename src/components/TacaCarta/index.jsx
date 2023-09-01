@@ -49,11 +49,14 @@ import html2canvas from "html2canvas";
 import { useFicha } from "../../context/ficha.context";
 import tresdettag from "../../images/tcg/3dettag.svg";
 import throttle from 'lodash/throttle';
+import { useBrowserContext } from "../../context/browser.context";
 
 export const TacaCarta = () => {
   const [rotation, setRotation] = useState({ x: 0, y: 0 });
   const [gradientDegree, setGradientDegree] = useState(125);
   const [foil, setFoil] = useState(false);
+
+  const {isFirefox} = useBrowserContext();
 
   const {
     atributos,
@@ -173,7 +176,7 @@ export const TacaCarta = () => {
           style={{ 
             backgroundImage: `url(${imageBlob ??
                               "https://site.jamboeditora.com.br/wp-content/uploads/2023/07/3DeT-abertura-mobile.png"})`,
-            transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`
+            transform: `${isFirefox ? 'scale(0.5)' : ''} rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`
           }}
           gradientDegree={gradientDegree}
           id="container-ficha-taca-carta"

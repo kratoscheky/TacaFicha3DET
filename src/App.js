@@ -1,12 +1,9 @@
-import { display } from "@mui/system";
 import "./App.css";
 import { Topo } from "./components/Topo";
 import { Ficha } from "./pages/Ficha";
 import { ContainerPage } from "./styles";
 import { SaveSlots } from "./components/SaveSlots";
-import { FichaTCGMinimalista } from "./components/FichaTCGMinimalista";
 import { Analytics } from '@vercel/analytics/react';
-import { TacaCarta } from "./components/TacaCarta";
 import { AvisoTopo } from "./components/AvisoTopo";
 
 function App() {
@@ -25,7 +22,6 @@ function App() {
             width: "100%",
             display: 'flex',
             padding: '16px',
-            display: 'flex',
             justifyContent: 'center'
           }}
         >

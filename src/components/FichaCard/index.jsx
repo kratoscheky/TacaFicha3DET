@@ -18,7 +18,6 @@ import {
   DesvantagensTexto,
   Detalhes,
   AlinhamentoInfos,
-  ImageInputContainer,
   PontosTotais,
   SubAlinhamentos,
   ArquetipoTexto,

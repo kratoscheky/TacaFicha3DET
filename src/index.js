@@ -8,19 +8,22 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import { SlotsProvider } from './context/slots.context';
 import { ColorSchemeProvider } from './context/color-scheme.context';
 import { ImgurProvider } from './context/imgur.context';
+import { BrowserProvider } from './context/browser.context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ImgurProvider>
-      <FichaProvider>
-        <SlotsProvider>
-          <ColorSchemeProvider>
-            <App />
-          </ColorSchemeProvider>
-        </SlotsProvider>
-      </FichaProvider>
-    </ImgurProvider>
+    <BrowserProvider>
+      <ImgurProvider>
+        <FichaProvider>
+          <SlotsProvider>
+            <ColorSchemeProvider>
+              <App />
+            </ColorSchemeProvider>
+          </SlotsProvider>
+        </FichaProvider>
+      </ImgurProvider>
+    </BrowserProvider>
   </React.StrictMode>
 );
 
