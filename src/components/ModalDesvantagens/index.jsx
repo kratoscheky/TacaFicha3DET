@@ -78,6 +78,7 @@ export default function ModalDesvantagens({
                         <Titulo
                           style={{
                             paddingBottom: "8px",
+                            paddingLeft: '8px'
                           }}
                         >
                           {t.Nome} -{t.Pontos}pt
