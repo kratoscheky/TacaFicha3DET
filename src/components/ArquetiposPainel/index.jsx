@@ -29,9 +29,7 @@ export const ArquetipoPainel = () => {
           {arquetipos.map((a) => (
             <Painel>
               <img src={a.Imagem} />
-              <p style={{
-                background: a.cor
-              }}>{a.Nome}</p>
+              <p>{a.Nome}</p>
             </Painel>
           ))}
         </Container>

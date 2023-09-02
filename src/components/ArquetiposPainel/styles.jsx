@@ -40,6 +40,7 @@ export const Painel = styled.div`
         width: 100%;
         text-align: center;
         padding: 8px;
+        background: #000;
         border-radius: 0 0 8px 8px;
     }
 `
