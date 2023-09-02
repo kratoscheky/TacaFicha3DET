@@ -26,7 +26,7 @@ import alien from '../images/arquetipos/alien.png'
 
 export const arquetipos = [
     {
-        Nome: 'Aberrante',
+        Nome: 'Aberrante - 1pt',
         Descricao: '',
         Imagem: aberrante,
         slot: {
@@ -51,7 +51,7 @@ export const arquetipos = [
         }
     },
     {
-        Nome: 'Abissal',
+        Nome: 'Abissal - 1pt',
         Descricao: '',
         Imagem: abissal,
         slot: {
@@ -76,7 +76,7 @@ export const arquetipos = [
         }
     },
     {
-        Nome: 'Alien',
+        Nome: 'Alien - 1pt',
         Descricao: '',
         Imagem: alien,
         slot: {
@@ -101,7 +101,7 @@ export const arquetipos = [
         }
     },
     {
-        Nome: 'Anão',
+        Nome: 'Anão - 1pt',
         Descricao: '',
         Imagem: anao,
         slot: {
@@ -126,7 +126,7 @@ export const arquetipos = [
         }
     },
     {
-        Nome: 'Anfibio',
+        Nome: 'Anfibio - 1pt',
         Descricao: '',
         Imagem: anfibio,
         slot: {
@@ -151,7 +151,7 @@ export const arquetipos = [
         }
     },
     {
-        Nome: 'Celestial',
+        Nome: 'Celestial - 1pt',
         Descricao: '',
         Imagem: celestial,
         slot: {
@@ -176,7 +176,7 @@ export const arquetipos = [
         }
     },
     {
-        Nome: 'Centauro',
+        Nome: 'Centauro - 2pt',
         Descricao: '',
         Imagem: centauro,
         slot: {
@@ -201,7 +201,7 @@ export const arquetipos = [
         }
     },
     {
-        Nome: 'Ciborgue',
+        Nome: 'Ciborgue - 2pt',
         Descricao: '',
         Imagem: ciborgue,
         slot: {
@@ -226,7 +226,7 @@ export const arquetipos = [
         }
     },
     {
-        Nome: 'Construto',
+        Nome: 'Construto - 1pt',
         Descricao: '',
         Imagem: constructo,
         slot: {
@@ -251,7 +251,7 @@ export const arquetipos = [
         }
     },
     {
-        Nome: 'Dahllan',
+        Nome: 'Dahllan - 2pt',
         Descricao: '',
         Imagem: dahllan,
         slot: {
@@ -276,7 +276,7 @@ export const arquetipos = [
         }
     },
     {
-        Nome: 'Elfo',
+        Nome: 'Elfo - 1pt',
         Descricao: '',
         Imagem: elfo,
         slot: {
@@ -301,7 +301,7 @@ export const arquetipos = [
         }
     },
     {
-        Nome: 'Fada',
+        Nome: 'Fada - 1pt',
         Descricao: '',
         Imagem: fada,
         slot: {
@@ -326,7 +326,7 @@ export const arquetipos = [
         }
     },
     {
-        Nome: 'Fantasma',
+        Nome: 'Fantasma - 2pt',
         Descricao: '',
         Imagem: fantasma,
         slot: {
@@ -351,7 +351,7 @@ export const arquetipos = [
         }
     },
     {
-        Nome: 'Goblin',
+        Nome: 'Goblin - 1pt',
         Descricao: '',
         Imagem: goblin,
         slot: {
@@ -376,7 +376,7 @@ export const arquetipos = [
         }
     },
     {
-        Nome: 'Humano',
+        Nome: 'Humano - 0pt',
         Descricao: '',
         Imagem: humano,
         slot: {
@@ -401,7 +401,7 @@ export const arquetipos = [
         }
     },
     {
-        Nome: 'Hynne',
+        Nome: 'Hynne - 1pt',
         Descricao: '',
         Imagem: hynne,
         slot: {
@@ -426,7 +426,7 @@ export const arquetipos = [
         }
     },
     {
-        Nome: 'Kallyanach',
+        Nome: 'Kallyanach - 2pt',
         Descricao: '',
         Imagem: kallyanach,
         slot: {
@@ -451,7 +451,7 @@ export const arquetipos = [
         }
     },
     {
-        Nome: 'Kemono',
+        Nome: 'Kemono - 1pt',
         Descricao: '',
         Imagem: kemono,
         slot: {
@@ -476,7 +476,7 @@ export const arquetipos = [
         }
     },
     {
-        Nome: 'Medusa',
+        Nome: 'Medusa - 1pt',
         Descricao: '',
         Imagem: medusa,
         slot: {
@@ -501,7 +501,7 @@ export const arquetipos = [
         }
     },
     {
-        Nome: 'Minotauro',
+        Nome: 'Minotauro - 1pt',
         Descricao: '',
         Imagem: minotauro,
         slot: {
@@ -526,7 +526,7 @@ export const arquetipos = [
         }
     },
     {
-        Nome: 'Ogro',
+        Nome: 'Ogro - 1pt',
         Descricao: '',
         Imagem: ogro,
         slot: {
@@ -551,7 +551,7 @@ export const arquetipos = [
         }
     },
     {
-        Nome: 'Osteon',
+        Nome: 'Osteon - 2pt',
         Descricao: '',
         Imagem: osteon,
         slot: {
@@ -576,7 +576,7 @@ export const arquetipos = [
         }
     },
     {
-        Nome: 'Qareen',
+        Nome: 'Qareen - 3pt',
         Descricao: '',
         Imagem: qareen,
         slot: {
@@ -601,7 +601,7 @@ export const arquetipos = [
         }
     },
     {
-        Nome: 'Sauroide',
+        Nome: 'Sauroide - 2pt',
         Descricao: '',
         Imagem: sauroide,
         slot: {
@@ -626,7 +626,7 @@ export const arquetipos = [
         }
     },
     {
-        Nome: 'Vampiro',
+        Nome: 'Vampiro - 1pt',
         Descricao: '',
         Imagem: vampiro,
         slot: {

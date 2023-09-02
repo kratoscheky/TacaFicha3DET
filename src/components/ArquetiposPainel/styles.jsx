@@ -35,7 +35,7 @@ export const Painel = styled.div`
         grid-column: 1 / 2;
         color: #FFBF22;
         font-weight: 900;
-        font-size: 24px;
+        font-size: 20px;
         text-transform: uppercase;
         width: 100%;
         text-align: center;
