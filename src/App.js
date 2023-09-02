@@ -5,6 +5,7 @@ import { ContainerPage } from "./styles";
 import { SaveSlots } from "./components/SaveSlots";
 import { Analytics } from '@vercel/analytics/react';
 import { AvisoTopo } from "./components/AvisoTopo";
+import { ArquetipoPainel } from "./components/ArquetiposPainel";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <AvisoTopo />
       <ContainerPage>
         <SaveSlots />
+        <ArquetipoPainel />
         <Ficha />
       </ContainerPage>
       <div
