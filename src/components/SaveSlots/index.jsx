@@ -35,11 +35,11 @@ const ModalConfirmarDelete = ({ open, onClose, onDelete }) => {
         <ContainerConteudoModal>
           <h1>TU VAI DELETA MANO!</h1>
           <p>
-            Cara, tu tem certeza mesmo que quer deletar teu personagem? Tipo, se
-            vai perder ele sabe! PRA SEMPRE! Você ainda quer deletar ele?
+            Cara, tem certeza mesmo que quer deletar teu personagem?
+            Tipo, cê vai perder ele, sabe? PRA SEMPRE! Ainda quer deletar ele?
           </p>
           <ButtonsFlex>
-            <ConfirmButton onClick={onClose}><p>Eu desisto! Não quero mais</p></ConfirmButton>
+            <ConfirmButton onClick={onClose}><p>Eu desisto! Não quero mais.</p></ConfirmButton>
             <DeleteButton onClick={onDelete}><p>Deleta logo!</p></DeleteButton>
           </ButtonsFlex>
         </ContainerConteudoModal>
