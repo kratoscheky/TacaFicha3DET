@@ -15,61 +15,73 @@ export const arquetipos = [
     {
         Nome: 'Abissal',
         Descricao: '',
-        Imagem: abissal
+        Imagem: abissal,
+        cor: '#342E30'
     },
     {
         Nome: 'Anão',
         Descricao: '',
-        Imagem: anao
+        Imagem: anao,
+        cor: '#48403E'
     },
     {
         Nome: 'Anfibio',
         Descricao: '',
-        Imagem: anfibio
+        Imagem: anfibio,
+        cor: '#689D8D'
     },
     {
         Nome: 'Celestial',
         Descricao: '',
-        Imagem: celestial
+        Imagem: celestial,
+        cor: '#C34B89'
     },
     {
         Nome: 'Ciborgue',
         Descricao: '',
-        Imagem: ciborgue
+        Imagem: ciborgue,
+        cor: '#9E9CA9'
     },
     {
         Nome: 'Dahllan',
         Descricao: '',
-        Imagem: dahllan
+        Imagem: dahllan,
+        cor: '#955E37'
     },
     {
         Nome: 'Fada',
         Descricao: '',
-        Imagem: fada
+        Imagem: fada,
+        cor: '#939915'
     },
     {
         Nome: 'Fantasma',
         Descricao: '',
-        Imagem: fantasma
+        Imagem: fantasma,
+        cor: '#2A79F2'
     },
     {
         Nome: 'Humano',
         Descricao: '',
-        Imagem: humano
+        Imagem: humano,
+        cor: '#BC8649'
     },
     {
         Nome: 'Hynne',
         Descricao: '',
-        Imagem: hynne
+        Imagem: hynne,
+        cor: '#EC4926'
     },
     {
         Nome: 'Kemono',
         Descricao: '',
-        Imagem: kemono
+        Imagem: kemono,
+        cor: '#C43525'
     },
     {
         Nome: 'Ogro',
         Descricao: '',
-        Imagem: ogro
+        Imagem: ogro,
+        cor: '#6CA39E'
     }
 ]

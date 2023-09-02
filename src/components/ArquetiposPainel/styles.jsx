@@ -25,9 +25,10 @@ export const Painel = styled.div`
     cursor: pointer;
     img {
         width: 100%;
-        max-height: 200px;
+        max-height: 250px;
         grid-row: 1 / 2;
         grid-column: 1 / 2;
+        border-radius: 0 0 8px  8px;
     }
     p{
         grid-row: 1 / 2;
@@ -36,6 +37,9 @@ export const Painel = styled.div`
         font-weight: 900;
         font-size: 24px;
         text-transform: uppercase;
-        height: 90%;
+        width: 100%;
+        text-align: center;
+        padding: 8px;
+        border-radius: 0 0 8px 8px;
     }
 `
