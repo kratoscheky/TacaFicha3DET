@@ -12,7 +12,8 @@ export const Container = styled.div`
 export const Painel = styled.div`
     border-radius: 8px;
     height: 200px;
-    min-width: 100px;
+    min-width: 200px;
+    width: 200px;
     display: grid;
     grid-template-rows: 1fr;
     align-items: end;

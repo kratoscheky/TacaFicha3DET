@@ -7,7 +7,8 @@ export const ArquetipoPainel = () => {
     <div
       style={{
         borderRadius: "8px",
-        width: '100%'
+        width: '100%',
+        maxWidth: '1200px'
       }}
     >
       <div style={{
@@ -18,6 +19,7 @@ export const ArquetipoPainel = () => {
         <h1
           style={{
             color: "#FFBF22",
+            textTransform: 'uppercase'
           }}
         >
           Arquetipos
