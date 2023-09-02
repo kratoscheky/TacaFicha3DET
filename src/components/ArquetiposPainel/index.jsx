@@ -1,8 +1,11 @@
 import React from "react";
 import { arquetipos } from "../../data/arquetipos";
 import { Container, Painel } from "./styles";
+import { useSlots } from "../../context/slots.context";
 
 export const ArquetipoPainel = () => {
+  const {LoadSlot} = useSlots();
+
   return (
     <div
       style={{
@@ -27,7 +30,7 @@ export const ArquetipoPainel = () => {
         <br />
         <Container>
           {arquetipos.map((a) => (
-            <Painel>
+            <Painel onClick={() => LoadSlot(a.slot)}>
               <img src={a.Imagem} />
               <p>{a.Nome}</p>
             </Painel>
