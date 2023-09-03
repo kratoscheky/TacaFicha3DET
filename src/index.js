@@ -27,6 +27,13 @@ root.render(
   </React.StrictMode>
 );
 
-serviceWorkerRegistration.unregister();
+serviceWorkerRegistration.register({
+  onUpdate: registration => {
+    if (registration && registration.waiting) {
+      registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+    }
+    window.location.reload();
+  }
+});
 
 reportWebVitals();
