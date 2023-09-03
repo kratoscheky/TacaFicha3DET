@@ -54,6 +54,7 @@ export const MontaFicha = () => {
     setExtras,
     LimparCampos,
     recursos,
+    recursosFinal
   } = useFicha();
 
   const { SaveSlot } = useSlots();
@@ -167,19 +168,19 @@ export const MontaFicha = () => {
                 <FichaInput
                   disabled
                   label={"Pontos de Ação"}
-                  valor={recursos.pontosDeAcao}
+                  valor={recursosFinal.pontosDeAcao}
                   icon={pontosdeacao}
                 />
                 <FichaInput
                   disabled
                   label={"Pontos de Mana"}
-                  valor={recursos.pontosDeMana}
+                  valor={recursosFinal.pontosDeMana}
                   icon={pontosdemana}
                 />
                 <FichaInput
                   disabled
                   label={"Pontos de Vida"}
-                  valor={recursos.pontosDeVida}
+                  valor={recursosFinal.pontosDeVida}
                   icon={pontosdevida}
                 />
               </ContainerInputs>
