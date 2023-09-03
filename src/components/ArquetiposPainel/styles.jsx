@@ -28,7 +28,7 @@ export const Painel = styled.div`
         max-height: 250px;
         grid-row: 1 / 2;
         grid-column: 1 / 2;
-        border-radius: 0 0 8px  8px;
+        border-radius: 8px;
     }
     p{
         grid-row: 1 / 2;
