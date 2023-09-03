@@ -14,9 +14,10 @@ import 'swiper/css/scrollbar';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import { FichaTCGMinimalista } from "../../components/FichaTCGMinimalista";
 import { TacaCarta } from "../../components/TacaCarta";
+import { CropComponent } from "../../components/CropComponent/indes";
 
 export const Ficha = () => {
-    const {handleFileChange} = useFicha();
+    const {handleFileChange, imageBlob} = useFicha();
     const [swiper, setSwiper] = useState(null);
 
     const hiddenFileInput = useRef(null);
@@ -66,6 +67,7 @@ export const Ficha = () => {
                         }}
                         ref={hiddenFileInput}
                     />
+                    {imageBlob && <CropComponent />}
                  </ImageInputContainer>
             </Container>
         </>
