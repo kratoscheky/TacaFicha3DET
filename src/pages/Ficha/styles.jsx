@@ -13,6 +13,7 @@ export const ImageInputContainer = styled.div`
     display: flex;
     flex-direction: column;
     padding: 16px 0 16px 0;
+    gap: 16px;
     label{
         padding: 8px 0;
         font-weight: 700;
@@ -70,7 +71,6 @@ export const ButtonUpload = styled.button`
     transition: all .3s;
     border: none;
     flex-grow: 1;
-    order: 10;
     display: inline-block;
     color: #fff;
     cursor: pointer;
