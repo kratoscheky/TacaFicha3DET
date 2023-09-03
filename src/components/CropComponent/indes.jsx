@@ -19,7 +19,7 @@ export const CropComponent = () => {
       <Cropper
         src={imageBlob}
         style={{ height: '300px', width: "100%" }}
-        initialAspectRatio={9 / 16}
+        initialAspectRatio={76 / 105}
         guides={false}
         crop={onCrop}
         ref={cropperRef}
@@ -30,7 +30,7 @@ export const CropComponent = () => {
         // background={false}
         responsive={true}
         autoCropArea={1}
-        aspectRatio={9 / 16}
+        aspectRatio={76 / 105}
         checkOrientation={false}
       />
       <Button onClick={() => setImageBlob(() => croppedImg)}>Cortar</Button>
