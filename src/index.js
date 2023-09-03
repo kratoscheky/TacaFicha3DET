@@ -30,7 +30,6 @@ root.render(
 
 serviceWorkerRegistration.register({
   onUpdate: registration => {
-    alert('Nova versão está disponivel!  Atualizar agora?');
     if (registration && registration.waiting) {
       registration.waiting.postMessage({ type: 'SKIP_WAITING' });
     }
