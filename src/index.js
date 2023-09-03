@@ -18,6 +18,7 @@ root.render(
         <FichaProvider>
           <SlotsProvider>
             <ColorSchemeProvider>
+            <h1>UPDATE</h1>
               <App />
             </ColorSchemeProvider>
           </SlotsProvider>
