@@ -70,6 +70,7 @@ export const TacaCarta = () => {
     arquetipo,
     extras,
     imageBlob,
+    recursosFinal
   } = useFicha();
 
   const CoresPericias = {
@@ -85,15 +86,6 @@ export const TacaCarta = () => {
     Percepção: "#6A3D9A",
     Saber: "#F2C000",
     Sustento: "#B15928",
-  };
-
-  const recursosFinal = {
-    pontosDeAcao:
-      parseInt(recursos.pontosDeAcao) + parseInt(extras.pontosDeAcao),
-    pontosDeMana:
-      parseInt(recursos.pontosDeMana) + parseInt(extras.pontosDeMana),
-    pontosDeVida:
-      parseInt(recursos.pontosDeVida) + parseInt(extras.pontosDeVida),
   };
 
   const captureAndSaveFicha = () => {
@@ -280,21 +272,15 @@ export const TacaCarta = () => {
             <ContainerRecursosTabs>
               <TagRecursoAcao>
                 <SubIcon src={acaoIcon} />
-                <RecursoTexto>{recursosFinal.pontosDeAcao !== 0
-                  ? recursosFinal.pontosDeAcao
-                  : extras.pontosDeAcao + 1}</RecursoTexto>
+                <RecursoTexto>{recursosFinal.pontosDeAcao}</RecursoTexto>
               </TagRecursoAcao>
               <TagRecursoMana>
                 <SubIcon src={manaIcon} />
-                <RecursoTexto>{recursosFinal.pontosDeMana !== 0
-                  ? recursosFinal.pontosDeMana
-                  : extras.pontosDeMana + 1}</RecursoTexto>
+                <RecursoTexto>{recursosFinal.pontosDeMana}</RecursoTexto>
               </TagRecursoMana>
               <TagRecursoVida>
                 <SubIcon src={vidaIcon} />
-                <RecursoTexto>{recursosFinal.pontosDeVida !== 0
-                  ? recursosFinal.pontosDeVida
-                  : extras.pontosDeVida + 1}</RecursoTexto>
+                <RecursoTexto>{recursosFinal.pontosDeVida}</RecursoTexto>
               </TagRecursoVida>
             </ContainerRecursosTabs>
             <img alt="Três dê e tê tag" src={tresdettag} />

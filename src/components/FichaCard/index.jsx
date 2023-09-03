@@ -39,7 +39,6 @@ import SaveIcon from "@mui/icons-material/Save";
 export const FichaCard = () => {
   const {
     atributos,
-    recursos,
     nome,
     detalhes,
     vantagens,
@@ -49,16 +48,8 @@ export const FichaCard = () => {
     arquetipo,
     extras,
     imageBlob,
+    recursosFinal
   } = useFicha();
-
-  const recursosFinal = {
-    pontosDeAcao:
-      parseInt(recursos.pontosDeAcao) + parseInt(extras.pontosDeAcao),
-    pontosDeMana:
-      parseInt(recursos.pontosDeMana) + parseInt(extras.pontosDeMana),
-    pontosDeVida:
-      parseInt(recursos.pontosDeVida) + parseInt(extras.pontosDeVida),
-  };
 
   const captureAndSaveFicha = () => {
     const container = document.querySelector("#container-ficha-card"); // Use a classe do ContainerFicha real
@@ -129,9 +120,7 @@ export const FichaCard = () => {
                   <SubAlinhamentos>
                     <IconSecundario src={acaoIcon} />
                     <p>
-                      {recursos.pontosDeAcao != 0
-                        ? recursosFinal.pontosDeAcao
-                        : extras.pontosDeAcao + 1}
+                      {recursosFinal.pontosDeAcao}
                     </p>
                   </SubAlinhamentos>
                 </SubStatusTexto>
@@ -197,9 +186,7 @@ export const FichaCard = () => {
                   <SubAlinhamentos>
                     <IconSecundario src={manaIcon} />
                     <p>
-                      {recursos.pontosDeMana != 0
-                        ? recursosFinal.pontosDeMana
-                        : extras.pontosDeMana + 1}
+                      {recursosFinal.pontosDeMana}
                     </p>
                   </SubAlinhamentos>
                 </SubStatusTexto>
@@ -265,9 +252,7 @@ export const FichaCard = () => {
                   <SubAlinhamentos>
                     <IconSecundario src={vidaIcon} />
                     <p>
-                      {recursos.pontosDeVida != 0
-                        ? recursosFinal.pontosDeVida
-                        : extras.pontosDeVida + 1}
+                      {recursosFinal.pontosDeVida}
                     </p>
                   </SubAlinhamentos>
                 </SubStatusTexto>

@@ -34,17 +34,9 @@ export const FichaMinimalista = () => {
     desvantagens,
     pericias,
     extras,
-    imageBlob
+    imageBlob,
+    recursosFinal
   } = useFicha();
-
-  const recursosFinal = {
-    pontosDeAcao:
-      parseInt(recursos.pontosDeAcao) + parseInt(extras.pontosDeAcao),
-    pontosDeMana:
-      parseInt(recursos.pontosDeMana) + parseInt(extras.pontosDeMana),
-    pontosDeVida:
-      parseInt(recursos.pontosDeVida) + parseInt(extras.pontosDeVida),
-  };
 
   const captureAndSaveFicha = () => {
     const container = document.querySelector("#container-ficha-minimalista"); // Use a classe do ContainerFicha real
@@ -101,25 +93,19 @@ export const FichaMinimalista = () => {
             <StatusContainer>
               <Icon src={acaoIcon} />
               <p>
-                {recursos.pontosDeAcao !== 0
-                  ? recursosFinal.pontosDeAcao
-                  : extras.pontosDeAcao + 1}
+                {recursosFinal.pontosDeAcao}
               </p>
             </StatusContainer>
             <StatusContainer>
               <Icon src={manaIcon} />
               <p>
-                {recursos.pontosDeMana !== 0
-                  ? recursosFinal.pontosDeMana
-                  : extras.pontosDeMana + 1}
+                {recursosFinal.pontosDeMana}
               </p>
             </StatusContainer>
             <StatusContainer>
               <Icon src={vidaIcon} />
               <p>
-                {recursos.pontosDeVida !== 0
-                  ? recursosFinal.pontosDeVida
-                  : extras.pontosDeVida + 1}
+                {recursosFinal.pontosDeVida}
               </p>
             </StatusContainer>
           </InnerCard>

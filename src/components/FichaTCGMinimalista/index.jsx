@@ -59,6 +59,7 @@ export const FichaTCGMinimalista = () => {
     arquetipo,
     extras,
     imageBlob,
+    recursosFinal
   } = useFicha();
 
   const CoresPericias = {
@@ -74,15 +75,6 @@ export const FichaTCGMinimalista = () => {
     Percepção: "#6A3D9A",
     Saber: "#F2C000",
     Sustento: "#B15928",
-  };
-
-  const recursosFinal = {
-    pontosDeAcao:
-      parseInt(recursos.pontosDeAcao) + parseInt(extras.pontosDeAcao),
-    pontosDeMana:
-      parseInt(recursos.pontosDeMana) + parseInt(extras.pontosDeMana),
-    pontosDeVida:
-      parseInt(recursos.pontosDeVida) + parseInt(extras.pontosDeVida),
   };
 
   const captureAndSaveFicha = () => {
@@ -150,9 +142,7 @@ export const FichaTCGMinimalista = () => {
                 </AtributosIcones>
                 <RecursosIcones>
                   <SubIcon src={acaoIcon} />
-                  <RecursoTexto>{recursosFinal.pontosDeAcao !== 0
-                  ? recursosFinal.pontosDeAcao
-                  : extras.pontosDeAcao + 1}</RecursoTexto>
+                  <RecursoTexto>{recursosFinal.pontosDeAcao}</RecursoTexto>
                 </RecursosIcones>
               </ContainerAlinhamentoA>
             </ContainerITAtributos>
@@ -165,9 +155,7 @@ export const FichaTCGMinimalista = () => {
                 </AtributosIcones>
                 <RecursosIcones>
                   <SubIcon src={manaIcon} />
-                  <RecursoTexto>{recursosFinal.pontosDeMana !== 0
-                  ? recursosFinal.pontosDeMana
-                  : extras.pontosDeMana + 1}</RecursoTexto>
+                  <RecursoTexto>{recursosFinal.pontosDeMana}</RecursoTexto>
                 </RecursosIcones>
               </ContainerAlinhamentoA>
             </ContainerITAtributos>
@@ -180,9 +168,7 @@ export const FichaTCGMinimalista = () => {
                 </AtributosIcones>
                 <RecursosIcones>
                   <SubIcon src={vidaIcon} />
-                  <RecursoTexto>{recursosFinal.pontosDeVida !== 0
-                  ? recursosFinal.pontosDeVida
-                  : extras.pontosDeVida + 1}</RecursoTexto>
+                  <RecursoTexto>{recursosFinal.pontosDeVida}</RecursoTexto>
                 </RecursosIcones>
               </ContainerAlinhamentoA>
             </ContainerITAtributos>

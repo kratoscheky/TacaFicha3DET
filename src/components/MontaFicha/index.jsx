@@ -141,7 +141,7 @@ export const MontaFicha = () => {
                   valor={extras.pontosDeAcao}
                   icon={pontosacaoplus}
                   onEdit={(e) =>
-                    setExtras({ ...extras, pontosDeAcao: e.target.value })
+                    setExtras({ ...extras, pontosDeAcao: parseInt(e.target.value) })
                   }
                 />
                 <FichaInput
@@ -150,7 +150,7 @@ export const MontaFicha = () => {
                   valor={extras.pontosDeMana}
                   icon={pontosmanaplus}
                   onEdit={(e) =>
-                    setExtras({ ...extras, pontosDeMana: e.target.value })
+                    setExtras({ ...extras, pontosDeMana: parseInt(e.target.value) })
                   }
                 />
                 <FichaInput
@@ -159,7 +159,7 @@ export const MontaFicha = () => {
                   valor={extras.pontosDeVida}
                   icon={pontosvidaplus}
                   onEdit={(e) =>
-                    setExtras({ ...extras, pontosDeVida: e.target.value })
+                    setExtras({ ...extras, pontosDeVida: parseInt(e.target.value) })
                   }
                 />
               </ContainerInputs>
