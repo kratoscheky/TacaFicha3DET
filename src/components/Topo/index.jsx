@@ -48,7 +48,7 @@ export const Topo = () => {
         <SwiperSlide>
           <ContainerBanner
             style={{
-              backgroundImage: `url(${bannerPng})`,
+              backgroundImage: `url(${bannerPng})`
             }}
           >
             <ContainerTextoETablet>
@@ -92,6 +92,7 @@ export const Topo = () => {
           <ContainerBanner
             style={{
               backgroundImage: `url(${tacaficha})`,
+              backgroundPositionX: 'right'
             }}
           >
             <ContainerTextoETablet>
