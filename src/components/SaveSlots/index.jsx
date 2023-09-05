@@ -21,7 +21,9 @@ import resistencia from "../../images/resistencia.svg";
 import IconButton from "@mui/material/IconButton";
 import SimCardDownloadRoundedIcon from "@mui/icons-material/SimCardDownloadRounded";
 import DeleteForeverRoundedIcon from "@mui/icons-material/DeleteForeverRounded";
-import { Modal } from "@mui/material";
+import ShareIcon from '@mui/icons-material/Share';
+import { Modal, Tooltip } from "@mui/material";
+import { useShare } from "../../context/share.context";
 
 const ModalConfirmarDelete = ({ open, onClose, onDelete }) => {
   return (
@@ -51,7 +53,10 @@ const ModalConfirmarDelete = ({ open, onClose, onDelete }) => {
 export const SaveSlots = () => {
   const { slots, DeleteSlot, LoadSlot } = useSlots();
   const [open, setOpen] = React.useState(false);
+  const [copyTooltip, setCopyTooltip] = React.useState("Copiar link de compartilhamento");
   const [actualIndex, setActualIndex] = React.useState();
+
+  const { copyShareableLinkToClipboard } = useShare();
 
   if (!slots.length) {
     return (
@@ -72,6 +77,20 @@ export const SaveSlots = () => {
     DeleteSlot(actualIndex);
     setOpen(false);
   };
+
+  const handleEdit = (slot) => {
+    LoadSlot(slot);
+    const anchor = document.querySelector('#monta-ficha-dados-basicos');
+    anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  const handleCopyLinkToClipboard = (slot) => {
+    copyShareableLinkToClipboard(slot);
+    setCopyTooltip("Link copiado!");
+    setTimeout(() => {
+      setCopyTooltip("Copiar link de compartilhamento");
+    }, 2000);
+  }
 
   return (
     <ContainerSessao>
@@ -105,12 +124,21 @@ export const SaveSlots = () => {
               </StatusContainer>
             </InnerCard>
             <ContainerButtons>
-              <IconButton onClick={() => handleOpen(index)}>
-                <DeleteForeverRoundedIcon style={{ color: "Crimson" }} />
-              </IconButton>
-              <IconButton onClick={() => LoadSlot(s)}>
-                <SimCardDownloadRoundedIcon style={{ color: "#FFF" }} />
-              </IconButton>
+              <Tooltip title="Deletar">
+                <IconButton onClick={() => handleOpen(index)}>
+                  <DeleteForeverRoundedIcon style={{ color: "Crimson" }} />
+                </IconButton>
+              </Tooltip>
+              <Tooltip title="Editar">
+                <IconButton onClick={() => handleEdit(s)}>
+                  <SimCardDownloadRoundedIcon style={{ color: "#FFF" }} />
+                </IconButton>
+              </Tooltip>
+              <Tooltip title={copyTooltip}>
+                <IconButton onClick={() => handleCopyLinkToClipboard(s)}>
+                  <ShareIcon style={{ color: "#FFF" }} />
+                </IconButton>
+              </Tooltip>
             </ContainerButtons>
           </Card>
         ))}

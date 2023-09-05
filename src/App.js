@@ -31,22 +31,22 @@ function App() {
     } else {
       setPage("MontaFicha");
     }
-  }, [])
+  }, [loadShareableString]);
 
   return (
     <>
       <Analytics />
-      <Topo />
-      <AvisoTopo />
+      <Topo showSwiper={page !== "ShareView"} />
+      {page !== "ShareView" && (<AvisoTopo />)}
       <ContainerPage>
-        {page == "MontaFicha" && (
+        {page === "MontaFicha" && (
           <>
             <SaveSlots />
             <ArquetipoPainel />
             <Ficha />
           </>
         )}
-        {page == "ShareView" && (<ShareView />)}
+        {page === "ShareView" && (<ShareView />)}
       </ContainerPage>
       <div
         style={{

@@ -1,24 +1,18 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { MontaFicha } from "../../components/MontaFicha";
-import { FichaClassica } from "../../components/FichaClassica";
-import { FichaCard } from "../../components/FichaCard";
-import { Container, ImageInputContainer, ButtonUpload, ContainerButtons, ButtonFicha } from "./styles";
+import { Container, ImageInputContainer, ButtonUpload } from "./styles";
 import { useFicha } from "../../context/ficha.context";
-import { FichaMinimalista } from "../../components/FichaMinimalista";
 import BackupIcon from '@mui/icons-material/Backup';
 import dadinho from '../../images/dadinhos.png'
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import {Swiper, SwiperSlide} from 'swiper/react';
-import { FichaTCGMinimalista } from "../../components/FichaTCGMinimalista";
-import { TacaCarta } from "../../components/TacaCarta";
 import { CropComponent } from "../../components/CropComponent/indes";
+import { FichaSwiper } from "../../components/FichaSwiper";
 
 export const Ficha = () => {
     const {handleFileChange, imageBlob} = useFicha();
-    const [swiper, setSwiper] = useState(null);
 
     const hiddenFileInput = useRef(null);
 
@@ -35,24 +29,7 @@ export const Ficha = () => {
             <Container>
                 <h1 style={{color: '#6F0062'}}>Fichas:</h1>
                 <p>Arraste para o lado para ver outras fichas!</p>
-                <ContainerButtons>
-                    <ButtonFicha onClick={() => swiper.slideTo(0)}>TacaCarta</ButtonFicha>
-                    <ButtonFicha onClick={() => swiper.slideTo(1)}>TCG</ButtonFicha>
-                    <ButtonFicha onClick={() => swiper.slideTo(2)}>TCG Rounded</ButtonFicha>
-                    <ButtonFicha onClick={() => swiper.slideTo(3)}>Clássico</ButtonFicha>
-                    <ButtonFicha onClick={() => swiper.slideTo(4)}>Minimalista</ButtonFicha>
-                </ContainerButtons>
-                <Swiper
-                    spaceBetween={50}
-                    slidesPerView={1}
-                    onSwiper={setSwiper}
-                >
-                    <SwiperSlide><TacaCarta /></SwiperSlide>
-                    <SwiperSlide><FichaCard /></SwiperSlide>
-                    <SwiperSlide><FichaTCGMinimalista /></SwiperSlide>
-                    <SwiperSlide><FichaClassica /></SwiperSlide>
-                    <SwiperSlide><FichaMinimalista /></SwiperSlide>
-                </Swiper>
+                <FichaSwiper />
                 <ImageInputContainer>
                     <label>Enviar Imagem Customizada:</label>
                     <ButtonUpload onClick={handleClick}>

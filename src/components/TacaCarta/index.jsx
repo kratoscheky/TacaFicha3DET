@@ -51,6 +51,7 @@ import tresdettag from "../../images/tcg/3dettag.svg";
 import throttle from 'lodash/throttle';
 import { useBrowserContext } from "../../context/browser.context";
 import { useShare } from "../../context/share.context";
+import SaveIcon from "@mui/icons-material/Save";
 
 export const TacaCarta = () => {
   const [rotation, setRotation] = useState({ x: 0, y: 0 });
@@ -60,7 +61,6 @@ export const TacaCarta = () => {
 
   const {
     atributos,
-    recursos,
     nome,
     detalhes,
     vantagens,
@@ -68,14 +68,13 @@ export const TacaCarta = () => {
     pericias,
     pontosTotais,
     arquetipo,
-    extras,
     imageBlob,
     recursosFinal,
     foil,
     setFoil,
   } = useFicha();
 
-  const { isShareView, copyShareableLinkToClipboard } = useShare();
+  const { isShareView } = useShare();
 
   const CoresPericias = {
     Animais: "#A6CEE3",
@@ -301,12 +300,10 @@ export const TacaCarta = () => {
         </p>
         <br />
       </div>
-      {!isShareView && (
-        <>
-          <Button onClick={() => captureAndSaveFicha()}>Salvar</Button>
-          <Button onClick={() => copyShareableLinkToClipboard("TacaCarta")}>Copiar link compartilhavel</Button>
-        </>
-      )}
+      <Button onClick={() => captureAndSaveFicha()}>
+        <SaveIcon />
+        Salvar Imagem
+      </Button>
     </Container>
   );
 };

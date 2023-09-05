@@ -45,11 +45,11 @@ import manaIcon from "../../images/minimalista/mana.svg";
 import vidaIcon from "../../images/minimalista/vida.svg";
 import html2canvas from "html2canvas";
 import { useFicha } from "../../context/ficha.context";
+import SaveIcon from "@mui/icons-material/Save";
 
 export const FichaTCGMinimalista = () => {
   const {
     atributos,
-    recursos,
     nome,
     detalhes,
     vantagens,
@@ -57,7 +57,6 @@ export const FichaTCGMinimalista = () => {
     pericias,
     pontosTotais,
     arquetipo,
-    extras,
     imageBlob,
     recursosFinal
   } = useFicha();
@@ -216,7 +215,10 @@ export const FichaTCGMinimalista = () => {
         </p>
         <br />
       </div>
-      <Button onClick={() => captureAndSaveFicha()}>Salvar</Button>
+      <Button onClick={() => captureAndSaveFicha()}>
+        <SaveIcon />
+        Salvar Imagem
+      </Button>
     </Container>
   );
 };

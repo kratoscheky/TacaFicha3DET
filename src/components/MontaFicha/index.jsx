@@ -53,7 +53,6 @@ export const MontaFicha = () => {
     extras,
     setExtras,
     LimparCampos,
-    recursos,
     recursosFinal
   } = useFicha();
 
@@ -79,7 +78,7 @@ export const MontaFicha = () => {
       <ContainerMontaFicha>
         <SeparadorDadinho />
         <SessaoInputs>
-          <h1>Dados Basicos</h1>
+          <h1 id="monta-ficha-dados-basicos">Dados Basicos</h1>
           <ContainerInputs>
             <FichaInput
               label={"Nome"}
