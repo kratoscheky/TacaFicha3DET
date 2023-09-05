@@ -106,7 +106,7 @@ export const Topo = () => {
                 </Descricao>
 
                 <a
-                  href="https://blog.jamboeditora.com.br/wp-content/uploads/2023/08/3DeT_-_DEMO_-_Kit_Introdutorio.pdf"
+                  href="https://drive.google.com/file/d/1MFfAR6sVmTt6yUc8J6EIl_4o-0gfG3Me/view"
                   target="_blank"
                   style={{ textDecoration: "none" }}
                 >
