@@ -34,9 +34,37 @@ export const FichaProvider = ({ children }) => {
   const [vantagens, setVantagens] = useState([]);
   const [desvantagens, setDesvantagens] = useState([]);
   const [arquetipo, setArquetipo] = useState("");
-  const [inputValue, setInputValue] = useState("");
+
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [imageBlob, setImageBlob] = useState("");
+  const [imageUrl, setImageUrl] = useState(null);
+
   const [foil, setFoil] = useState(stubFalse);
   const [pontosTotais, setPontosTotais] = useState(10);
+
+  const [recursosFinal, setRecursosFinal] = useState(initialRecursos);
+
+  useEffect(() => {
+    let acaoFinal = atributos.poder === 0 ? 1 : atributos.poder;
+    let manaFinal = atributos.habilidade === 0 ? 1 : atributos.habilidade * 5;
+    let vidaFinal = atributos.resistencia === 0 ? 1 : atributos.resistencia * 5;
+
+    console.log({
+      acaoFinal,
+      manaFinal,
+      vidaFinal
+    })
+
+    let resultadoFinal = {
+      pontosDeAcao: acaoFinal + extras.pontosDeAcao,
+      pontosDeMana: manaFinal + extras.pontosDeMana,
+      pontosDeVida: vidaFinal + extras.pontosDeVida,
+    }
+
+    console.log(resultadoFinal)
+
+    setRecursosFinal(resultadoFinal);
+  }, [atributos, extras])
 
   const HandleAtributos = (value, key) => {
     console.log(value, key, atributos, pontosTotais);
@@ -50,11 +78,12 @@ export const FichaProvider = ({ children }) => {
     }
 
     // setPontosTotais(pontosTotaisTemp - value);
-    setAtributos({ ...atributos, [key]: value });
+    setAtributos({ ...atributos, [key]: parseInt(value) });
   };
 
-  const handleInputChange = (event) => {
-    setInputValue(URL.createObjectURL(event.target.files[0]));
+  const handleFileChange = (event) => {
+    setSelectedFile(event.target.files[0]);
+    setImageBlob(URL.createObjectURL(event.target.files[0]));
   };
 
   const LimparCampos = () => {
@@ -76,6 +105,14 @@ export const FichaProvider = ({ children }) => {
       pontosDeVida: atributos.resistencia * 5,
     });
   }, [atributos]);
+
+  useEffect(() => {
+    fetch(imageUrl ?? "https://site.jamboeditora.com.br/wp-content/uploads/2023/07/3DeT-abertura-mobile.png", {referrer:""})
+      .then(response => response.blob())
+      .then(blob => {
+        setImageBlob(URL.createObjectURL(blob));
+    });
+  }, [imageUrl]);
 
   return (
     <FichaContext.Provider
@@ -101,12 +138,17 @@ export const FichaProvider = ({ children }) => {
         setArquetipo,
         extras,
         setExtras,
+        imageBlob,
+        setImageBlob,
+        handleFileChange,
+        selectedFile,
+        setSelectedFile,
+        imageUrl,
+        setImageUrl,
+        LimparCampos,
+        recursosFinal,
         foil,
         setFoil,
-        inputValue,
-        setInputValue,
-        handleInputChange,
-        LimparCampos
       }}
     >
       {children}

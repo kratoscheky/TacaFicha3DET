@@ -18,7 +18,7 @@ export const DadosPersonagem = styled.div`
     background-position-y: bottom;
     padding: 0 40px 40px 40px;
     h1 {
-        color: #D11CE0;
+        color: #6F0062;
         font-style: normal;
         font-weight: 700;
         line-height: normal;
@@ -42,7 +42,7 @@ export const ContainerAtributos = styled.div`
         gap: 2px;
     }
     div b{
-        color: #D11CE0;
+        color: #6F0062;
         font-style: normal;
         font-weight: 800;
         line-height: normal;
@@ -140,13 +140,13 @@ export const ContainerSessao = styled.div`
     flex-direction: column;
     width: 100%;
     padding: 8px;
-    border: 1px solid #D11CE0;
+    border: 1px solid #6F0062;
     border-radius: 8px;
     max-width: 500px;
 `
 
 export const AvisoTexto = styled.p`
-    color: #D11CE0;
+    color: #6F0062;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -173,14 +173,14 @@ export const InnerCard = styled.div`
     flex-direction: column;
     gap: 8px;
     p {
-        color: #D11CE0;
+        color: #6F0062;
         font-weight: 900;
     }
 `
 
 export const NomeTopo = styled.div`
     background-color: #FFF;
-    color: #D11CE0;
+    color: #6F0062;
     font-weight: 900;
     padding: 6px;
     border-radius: 4px;

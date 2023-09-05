@@ -21,14 +21,9 @@ export const FichaClassica = () => {
       vantagens,
       desvantagens,
       pericias,
-      extras
+      extras,
+      recursosFinal
     } = useFicha();
-
-    const recursosFinal = {
-        pontosDeAcao: parseInt(recursos.pontosDeAcao) + parseInt(extras.pontosDeAcao),
-        pontosDeMana: parseInt(recursos.pontosDeMana) + parseInt(extras.pontosDeMana),
-        pontosDeVida: parseInt(recursos.pontosDeVida) + parseInt(extras.pontosDeVida)
-    }
 
     const captureAndSaveFicha = () => {
         const container = document.querySelector('#container-ficha-classica'); // Use a classe do ContainerFicha real
@@ -80,21 +75,21 @@ export const FichaClassica = () => {
               <Icon src={acaoIcon} />
               <b>Pontos de Ação</b>
               <p>
-                {recursos.pontosDeAcao != 0 ? recursosFinal.pontosDeAcao : extras.pontosDeAcao + 1}
+                {recursosFinal.pontosDeAcao}
               </p>
             </div>
             <div>
               <Icon src={manaIcon} />
               <b>Pontos de Mana</b>
               <p>
-                {recursos.pontosDeMana != 0 ? recursosFinal.pontosDeMana : extras.pontosDeMana + 1}
+                {recursosFinal.pontosDeMana}
               </p>
             </div>
             <div>
               <Icon src={vidaIcon} />
               <b>Pontos de Vida</b>
               <p>
-                {recursos.pontosDeVida != 0 ? recursosFinal.pontosDeVida : extras.pontosDeVida + 1}
+                {recursosFinal.pontosDeVida}
               </p>
             </div>
           </ContainerAtributos>

@@ -1,14 +1,13 @@
-import react, { useState, useEffect } from "react";
-import { display } from "@mui/system";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import { Topo } from "./components/Topo";
 import { Ficha } from "./pages/Ficha";
 import { ShareView } from "./pages/ShareView";
 import { ContainerPage } from "./styles";
 import { SaveSlots } from "./components/SaveSlots";
-import { FichaTCGMinimalista } from "./components/FichaTCGMinimalista";
-import { Analytics } from '@vercel/analytics/react';
-import { TacaCarta } from "./components/TacaCarta";
+import { Analytics } from "@vercel/analytics/react";
+import { AvisoTopo } from "./components/AvisoTopo";
+import { ArquetipoPainel } from "./components/ArquetiposPainel";
 import { useShare } from "./context/share.context";
 
 function App() {
@@ -32,35 +31,72 @@ function App() {
     } else {
       setPage("MontaFicha");
     }
-  }, [])
+  }, [loadShareableString]);
 
   return (
     <>
       <Analytics />
-      <Topo />
+      <Topo showSwiper={page !== "ShareView"} />
+      {page !== "ShareView" && (<AvisoTopo />)}
       <ContainerPage>
-        {page == "MontaFicha" && (
+        {page === "MontaFicha" && (
           <>
             <SaveSlots />
+            <ArquetipoPainel />
             <Ficha />
           </>
         )}
-        {page == "ShareView" && (<ShareView />)}
+        {page === "ShareView" && (<ShareView />)}
       </ContainerPage>
       <div
+        style={{
+          background: "#000",
+          width: "100%",
+          display: "flex",
+          flexDirection: 'column',
+          padding: "16px",
+          justifyContent: "center",
+          alignItems: 'center'
+        }}
+      >
+        <p
           style={{
-            background: "#000",
-            width: "100%",
-            display: 'flex',
-            padding: '16px',
-            display: 'flex',
-            justifyContent: 'center'
+            color: "#FFF",
+            textAlign: "center",
           }}
         >
-          <p style={{
-            color: '#FFF',
-            textAlign: 'center'
-          }}>Este site foi criado por <a style={{color: '#D11CE0'}} href='https://twitter.com/Kratoscheky'>@kratoscheky</a> com colaboração de <a style={{color: '#D11CE0'}} href='https://twitter.com/OvelhaDev'>@OvelhaDev</a> e <a style={{color: '#D11CE0'}} href='https://twitter.com/kpoper_cansada'>@kpoper_cansada</a></p>
+          Este site foi criado por{" "}
+          <a
+            style={{ color: "#D11CE0" }}
+            href="https://twitter.com/Kratoscheky"
+          >
+            @kratoscheky
+          </a>{" "}
+          com colaboração de{" "}
+          <a style={{ color: "#D11CE0" }} href="https://twitter.com/OvelhaDev">
+            @OvelhaDev
+          </a>{" "}
+          e{" "}
+          <a
+            style={{ color: "#D11CE0" }}
+            href="https://twitter.com/kpoper_cansada"
+          >
+            @kpoper_cansada
+          </a>
+        </p>
+        <br />
+        <p style={{
+          color: '#FFF'
+        }}>
+          Design feito por
+          <a style={{ color: "#D11CE0", paddingLeft: '8px', paddingRight: '8px' }} href="https://www.facebook.com/groups/161485003862799/user/100086200497493/">
+            Lungas Neto
+          </a>
+          e
+          <a style={{ color: "#D11CE0", paddingLeft: '8px' }} href="https://twitter.com/Kratoscheky">
+            Mauricio Soares
+          </a>
+        </p>
       </div>
     </>
   );

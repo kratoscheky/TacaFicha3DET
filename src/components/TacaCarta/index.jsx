@@ -49,15 +49,18 @@ import html2canvas from "html2canvas";
 import { useFicha } from "../../context/ficha.context";
 import tresdettag from "../../images/tcg/3dettag.svg";
 import throttle from 'lodash/throttle';
+import { useBrowserContext } from "../../context/browser.context";
 import { useShare } from "../../context/share.context";
+import SaveIcon from "@mui/icons-material/Save";
 
 export const TacaCarta = () => {
   const [rotation, setRotation] = useState({ x: 0, y: 0 });
   const [gradientDegree, setGradientDegree] = useState(125);
 
+  const {isFirefox} = useBrowserContext();
+
   const {
     atributos,
-    recursos,
     nome,
     detalhes,
     vantagens,
@@ -65,13 +68,13 @@ export const TacaCarta = () => {
     pericias,
     pontosTotais,
     arquetipo,
-    extras,
-    inputValue,
+    imageBlob,
+    recursosFinal,
     foil,
     setFoil,
   } = useFicha();
 
-  const { isShareView, copyShareableLinkToClipboard } = useShare();
+  const { isShareView } = useShare();
 
   const CoresPericias = {
     Animais: "#A6CEE3",
@@ -86,15 +89,6 @@ export const TacaCarta = () => {
     Percepção: "#6A3D9A",
     Saber: "#F2C000",
     Sustento: "#B15928",
-  };
-
-  const recursosFinal = {
-    pontosDeAcao:
-      parseInt(recursos.pontosDeAcao) + parseInt(extras.pontosDeAcao),
-    pontosDeMana:
-      parseInt(recursos.pontosDeMana) + parseInt(extras.pontosDeMana),
-    pontosDeVida:
-      parseInt(recursos.pontosDeVida) + parseInt(extras.pontosDeVida),
   };
 
   const captureAndSaveFicha = () => {
@@ -153,20 +147,20 @@ export const TacaCarta = () => {
         {!isShareView && (
           <>
             <h1>TacaCarta</h1>
-            <p style={{ color: "#d11ce0" }}>BETA</p>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  width: "100%",
-                  paddingTop: "4px",
-                  paddingBottom: "8px",
-                }}
-              >
-                <input type="checkbox" id="check-foil" onChange={(e) => setFoil(!foil)} checked={foil}/>
-                <label htmlFor="check-foil">Holográfica (apenas visualização)</label>
+            <p style={{ color: "#6F0062" }}>BETA</p>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "100%",
+                paddingTop: "4px",
+                paddingBottom: "8px",
+              }}
+            >
+              <input type="checkbox" id="check-foil" onChange={(e) => setFoil(!foil)} checked={foil}/>
+              <label htmlFor="check-foil">Holográfica (apenas visualização)</label>
             </div>
           </>
         )}
@@ -177,9 +171,9 @@ export const TacaCarta = () => {
           onMouseLeave={handleMouseLeave}
           onTouchEnd={handleMouseLeave}
           style={{ 
-            backgroundImage: `url(${inputValue ??
+            backgroundImage: `url(${imageBlob ??
                               "https://site.jamboeditora.com.br/wp-content/uploads/2023/07/3DeT-abertura-mobile.png"})`,
-            transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`
+            transform: `${isFirefox ? 'scale(0.5)' : ''} rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`
           }}
           gradientDegree={gradientDegree}
           id="container-ficha-taca-carta"
@@ -283,21 +277,15 @@ export const TacaCarta = () => {
             <ContainerRecursosTabs>
               <TagRecursoAcao>
                 <SubIcon src={acaoIcon} />
-                <RecursoTexto>{recursosFinal.pontosDeAcao !== 0
-                  ? recursosFinal.pontosDeAcao
-                  : extras.pontosDeAcao + 1}</RecursoTexto>
+                <RecursoTexto>{recursosFinal.pontosDeAcao}</RecursoTexto>
               </TagRecursoAcao>
               <TagRecursoMana>
                 <SubIcon src={manaIcon} />
-                <RecursoTexto>{recursosFinal.pontosDeMana !== 0
-                  ? recursosFinal.pontosDeMana
-                  : extras.pontosDeMana + 1}</RecursoTexto>
+                <RecursoTexto>{recursosFinal.pontosDeMana}</RecursoTexto>
               </TagRecursoMana>
               <TagRecursoVida>
                 <SubIcon src={vidaIcon} />
-                <RecursoTexto>{recursosFinal.pontosDeVida !== 0
-                  ? recursosFinal.pontosDeVida
-                  : extras.pontosDeVida + 1}</RecursoTexto>
+                <RecursoTexto>{recursosFinal.pontosDeVida}</RecursoTexto>
               </TagRecursoVida>
             </ContainerRecursosTabs>
             <img alt="Três dê e tê tag" src={tresdettag} />
@@ -312,12 +300,10 @@ export const TacaCarta = () => {
         </p>
         <br />
       </div>
-      {!isShareView && (
-        <>
-          <Button onClick={() => captureAndSaveFicha()}>Salvar</Button>
-          <Button onClick={() => copyShareableLinkToClipboard("TacaCarta")}>Copiar link compartilhavel</Button>
-        </>
-      )}
+      <Button onClick={() => captureAndSaveFicha()}>
+        <SaveIcon />
+        Salvar Imagem
+      </Button>
     </Container>
   );
 };

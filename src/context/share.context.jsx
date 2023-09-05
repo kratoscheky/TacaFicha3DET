@@ -8,7 +8,6 @@ export const useShare = () => useContext(ShareContext);
 
 export const ShareProvider = ({ children }) => {
   const [isShareView, setShareView] = useState(false);
-  const [modeloDeFicha, setModeloDeFicha] = useState("");
 
   const {
     atributos,
@@ -30,36 +29,58 @@ export const ShareProvider = ({ children }) => {
     extras,
     setExtras,
     foil,
-    setFoil
+    setFoil,
+    imageUrl,
+    setImageUrl,
   } = useFicha();
 
-  const copyShareableLinkToClipboard = (_modeloDeFicha) => {
-    const shareableLink = generateShareableString(_modeloDeFicha);
+  const copyShareableLinkToClipboard = (slot) => {
+    const shareableLink = generateShareableString(slot);
     navigator.clipboard.writeText(window.location.origin + "?share=" + shareableLink);
   }
 
-  const generateShareableString = (_modeloDeFicha) => {
-    const dataToShare = {
-      nome: nome,
-      detalhes: detalhes,
-      pericias: pericias,
-      vantagens: vantagens,
-      desvantagens: desvantagens,
-      arquetipo: arquetipo,
-      pontosTotais: pontosTotais,
-      atributos: {
-        poder: atributos.poder,
-        habilidade: atributos.habilidade,
-        resistencia: atributos.resistencia,
-      },
-      extras: {
-        pontosDeAcao: extras.pontosDeAcao,
-        pontosDeMana: extras.pontosDeMana,
-        pontosDeVida: extras.pontosDeVida,
-      },
-      foil: foil,
-      modeloDeFicha: _modeloDeFicha,
-    };
+  const generateShareableString = (slot) => {
+    let dataToShare;
+
+    //Se fui passado um slot (cenario padrao), entao montamos o link com esses dados
+    if (slot) {
+      dataToShare = {
+        nome: slot.nome,
+        detalhes: slot.detalhes,
+        pericias: slot.pericias,
+        vantagens: slot.vantagens,
+        desvantagens: slot.desvantagens,
+        arquetipo: slot.arquetipo,
+        pontosTotais: slot.pontosTotais,
+        atributos: slot.atributos,
+        extras: slot.extras,
+        imageUrl: slot.imageUrl,
+        foil: slot.foil,
+      };
+    //Caso nenhum slot tenha sido passado, montamos o link com os dados atuais da ficha (Pode ser util no futuro)
+    } else {
+      dataToShare = {
+        nome: nome,
+        detalhes: detalhes,
+        pericias: pericias,
+        vantagens: vantagens,
+        desvantagens: desvantagens,
+        arquetipo: arquetipo,
+        pontosTotais: pontosTotais,
+        atributos: {
+          poder: atributos.poder,
+          habilidade: atributos.habilidade,
+          resistencia: atributos.resistencia,
+        },
+        extras: {
+          pontosDeAcao: extras.pontosDeAcao,
+          pontosDeMana: extras.pontosDeMana,
+          pontosDeVida: extras.pontosDeVida,
+        },
+        imageUrl: imageUrl,
+        foil: foil,
+      };
+    }
 
     return Base64.encode(JSON.stringify(dataToShare), true);
   }
@@ -75,9 +96,9 @@ export const ShareProvider = ({ children }) => {
     setAtributos(dataToShare.atributos)
     setExtras(dataToShare.extras)
     setPontosTotais(dataToShare.pontosTotais)
+    setImageUrl(dataToShare.imageUrl)
     setFoil(dataToShare.foil ?? false)
 
-    setModeloDeFicha(modeloDeFicha);
     setShareView(true);
   }
 
@@ -87,7 +108,6 @@ export const ShareProvider = ({ children }) => {
         copyShareableLinkToClipboard,
         generateShareableString,
         loadShareableString,
-        modeloDeFicha,
         isShareView,
       }}
     >

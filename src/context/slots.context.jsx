@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { useFicha } from "./ficha.context";
+import { useImgur } from "./imgur.context";
 
 
 export const SlotsContext = createContext();
@@ -28,13 +29,35 @@ export const SlotsProvider = ({ children }) => {
     setPericias,
     arquetipo,
     setArquetipo,
+    selectedFile,
+    setSelectedFile,
+    imageUrl,
+    setImageUrl,
     extras,
     setExtras,
     foil,
     setFoil
   } = useFicha();
 
-  const SaveSlot = () => {
+  const { uploadImage } = useImgur();
+
+  const SaveSlot = async () => {
+    let _imageUrl = imageUrl;
+
+    //Se tem arquivo de imagem no input, entao faremos o upload
+    if (selectedFile) {
+      try {
+        if (selectedFile) {
+          _imageUrl = await uploadImage(selectedFile);
+          console.log("Uploaded image URL:", _imageUrl);
+          setSelectedFile(null);
+          setImageUrl(_imageUrl);
+        }
+      } catch (error) {
+        console.error("Error uploading image:", error);
+      }
+    }
+
     let localStorageVar = JSON.parse(localStorage.getItem('slots'));
     if(!localStorageVar)
       localStorageVar = []
@@ -57,7 +80,8 @@ export const SlotsProvider = ({ children }) => {
         pontosDeMana: extras.pontosDeMana,
         pontosDeVida: extras.pontosDeVida,
       },
-      foil: foil
+      imageUrl: _imageUrl,
+      foil: foil,
     })
 
     localStorage.setItem('slots', JSON.stringify(localStorageVar))
@@ -74,6 +98,7 @@ export const SlotsProvider = ({ children }) => {
     setAtributos(slot.atributos)
     setExtras(slot.extras)
     setPontosTotais(slot.pontosTotais)
+    setImageUrl(slot.imageUrl)
     setFoil(slot.foil ?? false)
   }
 

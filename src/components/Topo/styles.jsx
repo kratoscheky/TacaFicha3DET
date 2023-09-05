@@ -28,26 +28,25 @@ export const ContainerBanner = styled.div`
     height: 578px;
     display: flex;
     justify-content: center;
-    background-size: auto;
+    background-size: cover;
     border-bottom: 10px solid #6F0062;
 `
 
 export const ContainerTextoETablet = styled.div`
     padding: 8px;
     display: flex;
-    max-width: 500px;
+    max-width: 1200px;
     justify-content: space-between;
     width: 100%;
     align-items: center;
 `
 
 export const ContainerTablet = styled.div`
-    position: relative;
-    img{
-        position: absolute;
-        position: absolute;
-        right: -110px;
-        top: -289px;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    @media (max-width: 768px) {
+        display: none;
     }
 `
 
@@ -60,17 +59,19 @@ gap: 70px;
         font-weight: 700;
         line-height: normal;
         color: #FFF;
+        font-size: 40px;
     }
     p{
         font-style: normal;
         font-weight: 400;
         line-height: normal;
         color: #FFF;
+        font-size: 20px;
     }
 `
 
 export const Descricao = styled.div`
-    max-width: 250px;
+    max-width: 400px;
 `
 
 export const Button = styled.button`
@@ -80,6 +81,7 @@ export const Button = styled.button`
     border: none;
     padding: 12px;
     align-items: center;
+    cursor: pointer;
     b{
         font-size: 20px;
         font-style: normal;

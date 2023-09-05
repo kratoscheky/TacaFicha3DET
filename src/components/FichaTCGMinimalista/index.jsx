@@ -45,11 +45,11 @@ import manaIcon from "../../images/minimalista/mana.svg";
 import vidaIcon from "../../images/minimalista/vida.svg";
 import html2canvas from "html2canvas";
 import { useFicha } from "../../context/ficha.context";
+import SaveIcon from "@mui/icons-material/Save";
 
 export const FichaTCGMinimalista = () => {
   const {
     atributos,
-    recursos,
     nome,
     detalhes,
     vantagens,
@@ -57,8 +57,8 @@ export const FichaTCGMinimalista = () => {
     pericias,
     pontosTotais,
     arquetipo,
-    extras,
-    inputValue,
+    imageBlob,
+    recursosFinal
   } = useFicha();
 
   const CoresPericias = {
@@ -74,15 +74,6 @@ export const FichaTCGMinimalista = () => {
     Percepção: "#6A3D9A",
     Saber: "#F2C000",
     Sustento: "#B15928",
-  };
-
-  const recursosFinal = {
-    pontosDeAcao:
-      parseInt(recursos.pontosDeAcao) + parseInt(extras.pontosDeAcao),
-    pontosDeMana:
-      parseInt(recursos.pontosDeMana) + parseInt(extras.pontosDeMana),
-    pontosDeVida:
-      parseInt(recursos.pontosDeVida) + parseInt(extras.pontosDeVida),
   };
 
   const captureAndSaveFicha = () => {
@@ -117,7 +108,7 @@ export const FichaTCGMinimalista = () => {
         <Card
           style={{
             backgroundImage: `url(${
-              inputValue ??
+              imageBlob ??
               "https://site.jamboeditora.com.br/wp-content/uploads/2023/07/3DeT-abertura-mobile.png"
             })`,
           }}
@@ -150,9 +141,7 @@ export const FichaTCGMinimalista = () => {
                 </AtributosIcones>
                 <RecursosIcones>
                   <SubIcon src={acaoIcon} />
-                  <RecursoTexto>{recursosFinal.pontosDeAcao !== 0
-                  ? recursosFinal.pontosDeAcao
-                  : extras.pontosDeAcao + 1}</RecursoTexto>
+                  <RecursoTexto>{recursosFinal.pontosDeAcao}</RecursoTexto>
                 </RecursosIcones>
               </ContainerAlinhamentoA>
             </ContainerITAtributos>
@@ -165,9 +154,7 @@ export const FichaTCGMinimalista = () => {
                 </AtributosIcones>
                 <RecursosIcones>
                   <SubIcon src={manaIcon} />
-                  <RecursoTexto>{recursosFinal.pontosDeMana !== 0
-                  ? recursosFinal.pontosDeMana
-                  : extras.pontosDeMana + 1}</RecursoTexto>
+                  <RecursoTexto>{recursosFinal.pontosDeMana}</RecursoTexto>
                 </RecursosIcones>
               </ContainerAlinhamentoA>
             </ContainerITAtributos>
@@ -180,9 +167,7 @@ export const FichaTCGMinimalista = () => {
                 </AtributosIcones>
                 <RecursosIcones>
                   <SubIcon src={vidaIcon} />
-                  <RecursoTexto>{recursosFinal.pontosDeVida !== 0
-                  ? recursosFinal.pontosDeVida
-                  : extras.pontosDeVida + 1}</RecursoTexto>
+                  <RecursoTexto>{recursosFinal.pontosDeVida}</RecursoTexto>
                 </RecursosIcones>
               </ContainerAlinhamentoA>
             </ContainerITAtributos>
@@ -230,7 +215,10 @@ export const FichaTCGMinimalista = () => {
         </p>
         <br />
       </div>
-      <Button onClick={() => captureAndSaveFicha()}>Salvar</Button>
+      <Button onClick={() => captureAndSaveFicha()}>
+        <SaveIcon />
+        Salvar Imagem
+      </Button>
     </Container>
   );
 };

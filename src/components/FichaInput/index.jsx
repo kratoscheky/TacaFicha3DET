@@ -1,14 +1,22 @@
 import * as React from "react";
-import { TextArea, Label, InputContainer, Input } from "./styles";
+import { TextArea, Label, InputContainer, Input, IconInput, Icon } from "./styles";
 
 export default function FichaInput(props) {
-  const { label, valor, onEdit, isTextArea, maxLength, width } = props;
+  const { label, valor, onEdit, isTextArea, maxLength, width, disabled, icon, type } = props;
 
   const renderInput = () => {
     return isTextArea ? (
-      <TextArea maxLength={maxLength ?? 99999} value={valor} onChange={onEdit}></TextArea>
+      <TextArea disabled={disabled} maxLength={maxLength ?? 99999} value={valor} onChange={onEdit}></TextArea>
     ) : (
-      <Input value={valor} onChange={onEdit}></Input>
+      <IconInput>
+        {
+          icon && <Icon src={icon} />
+        }
+        <Input type={type} style={{
+          padding: icon ? '16px 16px 16px 42px' : '16px 16px',
+          width: '100%'
+        }} disabled={disabled} value={valor} onChange={onEdit}></Input>
+      </IconInput>
     );
   };
 

@@ -16,9 +16,9 @@ export default function ModalPericias({open, handleClose, onAdicionarClick}) {
         aria-describedby="modal-modal-description"
       >
         <ConteudoModal>
-          <h1>Perícias</h1>
-          <br />
           <ContainerItens>
+            <h1>Perícias</h1>
+            <br />
             <Titulo>
               Customizada
               <AdicionarButton onClick={() => onAdicionarClick(customizada)}>
@@ -31,6 +31,7 @@ export default function ModalPericias({open, handleClose, onAdicionarClick}) {
             <p>Sua mesa utiliza uma perícia customizada ou não encontrou o que procurava?
             <br/><br/>Sem problemas! Adicione a perícia que quiser no campo abaixo</p>
             <FichaInput
+              width='100%'
               label={"Nome da perícia"}
               valor={customizada}
               onEdit={(e) => setCustomizada(e.target.value)}
@@ -38,7 +39,11 @@ export default function ModalPericias({open, handleClose, onAdicionarClick}) {
             <hr style={{ width: "100%" }} />
             {
                 Pericias.map(p => {
-                return <div key={p.Nome}>
+                return <div style={{
+                  backgroundColor: '#44003C',
+                  padding: '18px',
+                  borderRadius: '8px'
+                }} key={p.Nome}>
                     <Titulo>
                       {p.Nome}
                       <AdicionarButton onClick={() => onAdicionarClick(p.Nome)}>

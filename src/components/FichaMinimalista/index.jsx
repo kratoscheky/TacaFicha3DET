@@ -34,17 +34,9 @@ export const FichaMinimalista = () => {
     desvantagens,
     pericias,
     extras,
-    inputValue
+    imageBlob,
+    recursosFinal
   } = useFicha();
-
-  const recursosFinal = {
-    pontosDeAcao:
-      parseInt(recursos.pontosDeAcao) + parseInt(extras.pontosDeAcao),
-    pontosDeMana:
-      parseInt(recursos.pontosDeMana) + parseInt(extras.pontosDeMana),
-    pontosDeVida:
-      parseInt(recursos.pontosDeVida) + parseInt(extras.pontosDeVida),
-  };
 
   const captureAndSaveFicha = () => {
     const container = document.querySelector("#container-ficha-minimalista"); // Use a classe do ContainerFicha real
@@ -70,7 +62,7 @@ export const FichaMinimalista = () => {
         id="container-ficha-minimalista"
         style={{
           backgroundImage:
-          `url(${inputValue ?? 'https://site.jamboeditora.com.br/wp-content/uploads/2023/07/3DeT-abertura-mobile.png'})`,
+          `url(${imageBlob ?? 'https://site.jamboeditora.com.br/wp-content/uploads/2023/07/3DeT-abertura-mobile.png'})`,
         }}
       >
         <NomeTopo>
@@ -101,25 +93,19 @@ export const FichaMinimalista = () => {
             <StatusContainer>
               <Icon src={acaoIcon} />
               <p>
-                {recursos.pontosDeAcao !== 0
-                  ? recursosFinal.pontosDeAcao
-                  : extras.pontosDeAcao + 1}
+                {recursosFinal.pontosDeAcao}
               </p>
             </StatusContainer>
             <StatusContainer>
               <Icon src={manaIcon} />
               <p>
-                {recursos.pontosDeMana !== 0
-                  ? recursosFinal.pontosDeMana
-                  : extras.pontosDeMana + 1}
+                {recursosFinal.pontosDeMana}
               </p>
             </StatusContainer>
             <StatusContainer>
               <Icon src={vidaIcon} />
               <p>
-                {recursos.pontosDeVida !== 0
-                  ? recursosFinal.pontosDeVida
-                  : extras.pontosDeVida + 1}
+                {recursosFinal.pontosDeVida}
               </p>
             </StatusContainer>
           </InnerCard>

@@ -4,18 +4,19 @@ import styled from 'styled-components';
 export const ContainerMontaFicha = styled.div`
     display: flex;
     flex-direction: column;
-    max-width: 500px;
-    padding: 8px 0px;
+    max-width: 1200px;
     gap: 20px;
     width: 100%;
     margin-bottom: 16px;
+    border-radius: 8px;
 
     div {
         display: flex;
         gap: 8px;
     }
     h1{
-        color: #D11CE0;
+        color: #FFBF22;
+        text-transform: uppercase;
     }
     div input{
         display: inline-block;
@@ -49,7 +50,7 @@ export const TextArea = styled(TextareaAutosize)`
 export const ButtonFicha = styled.button`
     font-weight: 600;
     text-shadow: 0 0 16px rgba(0,0,0,.53);
-    background-color: #D11CE0;
+    background-color: #6F0062;
     box-shadow: 0 0 10px 0 rgba(0,0,0,.5);
     font-size: 16px;
     padding: 15px 30px;
@@ -99,4 +100,60 @@ export const ButtonSecundario = styled.button`
 export const ContainerInputs = styled.div`
     width: 100%;
     align-items: flex-end;
+`
+
+export const SessaoInputs = styled.div`
+    padding: 16px;
+    background: #6F0062;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+`
+
+export const SessaoInputsAtributos = styled.div`
+    background: #6F0062;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+`
+
+export const InternoAtributos = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+`
+
+export const PainelPersonalidade = styled.div`
+    width: 100%;
+    padding: 16px;
+    background-color: #6F0062;
+    border-radius: 8px;
+`
+
+export const ContainerPersonalidade = styled.div`
+    display: flex;
+    @media (max-width: 768px) {
+        flex-wrap: wrap;
+    }
+`
+
+export const ContainerAtributos = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding: 16px 0 16px 16px;
+    width: 50%;
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+`
+
+export const AtributosImagem = styled.div`
+    background-size: cover;
+    background-position: center;
+    width: 50%;
+    background-image: url('https://site.jamboeditora.com.br/wp-content/uploads/2023/07/3DeT-faq.png');
+
+    @media (max-width: 768px) {
+        width: 0px;
+    }
 `
