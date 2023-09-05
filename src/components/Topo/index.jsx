@@ -25,7 +25,7 @@ export const Topo = (props) => {
   return (
     <>
       <ContainerBarraSuperior>
-        <ContainerLogo>
+        <ContainerLogo onClick={() => window.location.href = "https://tacaficha.com.br"}>
           <img style={{ height: "37px" }} src={logo} alt="3DeT TacaFicha" />
           <div />
           <img style={{ height: "37px" }} src={tresdetlogo} alt="TacaFicha" />

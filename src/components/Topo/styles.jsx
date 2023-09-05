@@ -17,6 +17,7 @@ export const ContainerLogo = styled.div`
     display: flex;
     gap: 20px;
     align-items: center;
+    cursor: pointer;
     div{
         height: 40px;
         border: 1px solid #FFF;
