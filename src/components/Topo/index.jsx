@@ -40,6 +40,9 @@ export const Topo = () => {
           delay: 5000,
           disableOnInteraction: false,
         }}
+        pagination={{
+          clickable: false,
+        }}
         modules={[Autoplay, Pagination, Navigation]}
       >
         <SwiperSlide>
