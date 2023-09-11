@@ -36,7 +36,9 @@ export const SlotsProvider = ({ children }) => {
     extras,
     setExtras,
     foil,
-    setFoil
+    setFoil,
+    anotacoes,
+    setAnotacoes
   } = useFicha();
 
   const { uploadImage } = useImgur();
@@ -70,6 +72,7 @@ export const SlotsProvider = ({ children }) => {
       desvantagens: desvantagens,
       arquetipo: arquetipo,
       pontosTotais: pontosTotais,
+      anotacoes,
       atributos: {
         poder: atributos.poder,
         habilidade: atributos.habilidade,
@@ -100,6 +103,7 @@ export const SlotsProvider = ({ children }) => {
     setPontosTotais(slot.pontosTotais)
     setImageUrl(slot.imageUrl)
     setFoil(slot.foil ?? false)
+    setAnotacoes(slot.anotacoes ?? '')
   }
 
   const LoadSlots = () => {

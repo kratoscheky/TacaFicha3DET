@@ -10,6 +10,7 @@ import 'swiper/css/scrollbar';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import { FichaTCGMinimalista } from "../../components/FichaTCGMinimalista";
 import { TacaCarta } from "../../components/TacaCarta";
+import { TacaCola } from "../TacaCola";
 
 export const FichaSwiper = () => {
     const [swiper, setSwiper] = useState(null);
@@ -18,10 +19,11 @@ export const FichaSwiper = () => {
         <>
             <ContainerButtons>
                 <ButtonFicha onClick={() => swiper.slideTo(0)}>TacaCarta</ButtonFicha>
-                <ButtonFicha onClick={() => swiper.slideTo(1)}>TCG</ButtonFicha>
-                <ButtonFicha onClick={() => swiper.slideTo(2)}>TCG Rounded</ButtonFicha>
-                <ButtonFicha onClick={() => swiper.slideTo(3)}>Clássico</ButtonFicha>
-                <ButtonFicha onClick={() => swiper.slideTo(4)}>Minimalista</ButtonFicha>
+                <ButtonFicha onClick={() => swiper.slideTo(1)}>TacaCola</ButtonFicha>
+                <ButtonFicha onClick={() => swiper.slideTo(2)}>TCG</ButtonFicha>
+                <ButtonFicha onClick={() => swiper.slideTo(3)}>TCG Rounded</ButtonFicha>
+                <ButtonFicha onClick={() => swiper.slideTo(4)}>Clássico</ButtonFicha>
+                <ButtonFicha onClick={() => swiper.slideTo(5)}>Minimalista</ButtonFicha>
             </ContainerButtons>
             <Swiper
                 spaceBetween={50}
@@ -29,6 +31,7 @@ export const FichaSwiper = () => {
                 onSwiper={setSwiper}
             >
                 <SwiperSlide><TacaCarta /></SwiperSlide>
+                <SwiperSlide><TacaCola /></SwiperSlide>
                 <SwiperSlide><FichaCard /></SwiperSlide>
                 <SwiperSlide><FichaTCGMinimalista /></SwiperSlide>
                 <SwiperSlide><FichaClassica /></SwiperSlide>

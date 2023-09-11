@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import { useFicha } from "../../context/ficha.context";
 import poder from "../../images/home/poder.svg";
 import habilidade from "../../images/home/habilidade.svg";
@@ -12,7 +12,7 @@ import pontosmanaplus from "../../images/home/pontosmanaplus.svg";
 import {
   AtributosImagem,
   ButtonFicha,
-  ButtonSecundario,
+  ButtonSecundario, ContainerAnotacoes,
   ContainerAtributos,
   ContainerInputs,
   ContainerMontaFicha,
@@ -31,6 +31,8 @@ import { useSlots } from "../../context/slots.context";
 import BookIcon from "@mui/icons-material/Book";
 import BackspaceIcon from "@mui/icons-material/Backspace";
 import { useImgur } from "../../context/imgur.context";
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 export const MontaFicha = () => {
   const {
@@ -53,7 +55,9 @@ export const MontaFicha = () => {
     extras,
     setExtras,
     LimparCampos,
-    recursosFinal
+    recursosFinal,
+    anotacoes,
+    setAnotacoes
   } = useFicha();
 
   const { SaveSlot } = useSlots();
@@ -220,6 +224,12 @@ export const MontaFicha = () => {
             />
           </PainelPersonalidade>
         </ContainerPersonalidade>
+        <SessaoInputs>
+          <h1>Anotações</h1>
+          <ContainerAnotacoes>
+            <ReactQuill theme="snow" value={anotacoes} onChange={setAnotacoes} />
+          </ContainerAnotacoes>
+        </SessaoInputs>
         <div>
           <ButtonFicha onClick={async () => await SaveSlot()}>
             <BookIcon />

@@ -157,3 +157,12 @@ export const AtributosImagem = styled.div`
         width: 0px;
     }
 `
+
+export const ContainerAnotacoes = styled.div`
+  display: block !important;
+  width: 100%;
+  background: #FFF;
+  div {
+    display: block;
+  }
+`

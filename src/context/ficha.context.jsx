@@ -44,6 +44,8 @@ export const FichaProvider = ({ children }) => {
 
   const [recursosFinal, setRecursosFinal] = useState(initialRecursos);
 
+  const [anotacoes, setAnotacoes] = useState('');
+
   useEffect(() => {
     let acaoFinal = atributos.poder === 0 ? 1 : atributos.poder;
     let manaFinal = atributos.habilidade === 0 ? 1 : atributos.habilidade * 5;
@@ -96,6 +98,7 @@ export const FichaProvider = ({ children }) => {
     setAtributos(initialAtributos)
     setExtras(initialExtras)
     setPontosTotais(10);
+    setAnotacoes('');
   }
 
   useEffect(() => {
@@ -149,6 +152,8 @@ export const FichaProvider = ({ children }) => {
         recursosFinal,
         foil,
         setFoil,
+        anotacoes,
+        setAnotacoes
       }}
     >
       {children}
