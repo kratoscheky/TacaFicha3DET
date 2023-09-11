@@ -318,6 +318,9 @@ export const ContainerVantagensDes = styled.div`
       display: flex;
       flex-direction: column;
       gap: 8px;
+      h1{
+        padding-top: 4px;
+      }
     }
 `
 
