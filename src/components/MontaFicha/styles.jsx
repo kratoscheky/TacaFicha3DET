@@ -161,7 +161,17 @@ export const AtributosImagem = styled.div`
 export const ContainerAnotacoes = styled.div`
   display: block !important;
   width: 100%;
-  background: #FFF;
+  background: #6F0062;
+  color: #FFF;
+  svg{
+    filter: brightness(0) invert(1);
+  }
+  .ql-picker-options{
+    background: #6F0062;
+  }
+  span{
+    color: #FFF;
+  }
   div {
     display: block;
   }
