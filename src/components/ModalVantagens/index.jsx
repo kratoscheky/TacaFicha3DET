@@ -31,7 +31,7 @@ export default function ModalVantagens({
           <ContainerItens>
             <Titulo>
               Customizada
-              <AdicionarButton onClick={() => onAdicionarClick(customizada)}>
+              <AdicionarButton onClick={() => onAdicionarClick(customizada)} data-test-id="vantagem-adicionar-customizada">
                 <AddIcon style={{ width: "15px" }} />
                 Adicionar
               </AdicionarButton>
@@ -48,6 +48,7 @@ export default function ModalVantagens({
               label={"Nome da vantagem"}
               valor={customizada}
               onEdit={(e) => setCustomizada(e.target.value)}
+              testId="vantagem-customizada"
             />
             <hr style={{ width: "100%" }} />
             {Vantagens.map((v) => {
@@ -62,7 +63,7 @@ export default function ModalVantagens({
                 >
                   <Titulo>
                     {v.Nome} {v.Pontos}pt
-                    <AdicionarButton onClick={() => onAdicionarClick(v.Nome)}>
+                    <AdicionarButton onClick={() => onAdicionarClick(v.Nome)} data-test-id={'vantagem-' + v.Nome}>
                       <AddIcon style={{ width: "15px" }} />
                       Adicionar
                     </AdicionarButton>

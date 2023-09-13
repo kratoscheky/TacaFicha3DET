@@ -43,6 +43,7 @@ export const Ficha = () => {
                             display: 'none'
                         }}
                         ref={hiddenFileInput}
+                        data-test-id="imagem-customizada"
                     />
                     {imageBlob && <CropComponent />}
                  </ImageInputContainer>
