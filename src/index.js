@@ -10,6 +10,7 @@ import { ColorSchemeProvider } from './context/color-scheme.context';
 import { ImgurProvider } from './context/imgur.context';
 import { BrowserProvider } from './context/browser.context';
 import { ShareProvider } from './context/share.context';
+import {TacaFicha} from "./components/TacaFicha";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -20,6 +21,7 @@ root.render(
           <SlotsProvider>
             <ShareProvider>
               <ColorSchemeProvider>
+                <TacaFicha />
                 <App />
               </ColorSchemeProvider>
             </ShareProvider>
