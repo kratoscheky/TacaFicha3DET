@@ -11,6 +11,7 @@ import {Swiper, SwiperSlide} from 'swiper/react';
 import { FichaTCGMinimalista } from "../../components/FichaTCGMinimalista";
 import { TacaCarta } from "../../components/TacaCarta";
 import { TacaCola } from "../TacaCola";
+import {TacaFicha} from "../TacaFicha";
 
 export const FichaSwiper = () => {
     const [swiper, setSwiper] = useState(null);
@@ -30,6 +31,7 @@ export const FichaSwiper = () => {
                 slidesPerView={1}
                 onSwiper={setSwiper}
             >
+                <SwiperSlide><TacaFicha /></SwiperSlide>
                 <SwiperSlide><TacaCarta /></SwiperSlide>
                 <SwiperSlide><TacaCola /></SwiperSlide>
                 <SwiperSlide><FichaCard /></SwiperSlide>
