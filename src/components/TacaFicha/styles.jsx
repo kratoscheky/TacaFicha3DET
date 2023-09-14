@@ -14,7 +14,7 @@ export const Carta = styled.div`
   background-size: cover;
   background-position: center;
   color: #FFF;
-  zoom: 50%;
+  zoom: 40%;
 `
 
 export const EscalaPoder = styled.div`
