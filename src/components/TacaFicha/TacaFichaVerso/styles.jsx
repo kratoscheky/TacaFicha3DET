@@ -42,6 +42,7 @@ export const Meio = styled.div`
   justify-content: space-between;
   font-weight: 900;
   padding: 140px 60px 40px 60px;
+  text-align: justify;
   h1{
     margin: 8px 0;
   }

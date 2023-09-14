@@ -24,6 +24,7 @@ import {
 } from "./styles";
 import {useFicha} from "../../../context/ficha.context";
 import React from "react";
+import {Container} from "../styles";
 
 export const TacaFichaVerso = () => {
   const {
@@ -78,10 +79,8 @@ export const TacaFichaVerso = () => {
   }
 
   return (
-    <>
-      <Carta style={{
-        backgroundImage: `url(${imageBlob})`
-      }}>
+    <Container>
+      <Carta>
         <Frame src={frame} />
         <EscalaPoder>
           <Svg fillEscala={DefinirCorEscala(pontosTotais.toString())} width="175" height="59" viewBox="0 0 175 59" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -141,6 +140,6 @@ export const TacaFichaVerso = () => {
           </ContainerAtrRec>
         </Baixo>
       </Carta>
-    </>
+    </Container>
   )
 }

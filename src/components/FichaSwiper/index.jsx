@@ -11,44 +11,35 @@ import {Swiper, SwiperSlide} from 'swiper/react';
 import { FichaTCGMinimalista } from "../../components/FichaTCGMinimalista";
 import { TacaCarta } from "../../components/TacaCarta";
 import { TacaCola } from "../TacaCola";
-import {TacaFicha} from "../TacaFicha";
-import {TacaFichaVerso} from "../TacaFicha/TacaFichaVerso";
+import {TacaFichaTCG} from "../TacaFicha/TacaFichaTCG";
 
 export const FichaSwiper = () => {
     const [swiper, setSwiper] = useState(null);
 
     return (
         <>
-            <ContainerButtons>
-                <ButtonFicha onClick={() => swiper.slideTo(0)}>TacaCarta</ButtonFicha>
-                <ButtonFicha onClick={() => swiper.slideTo(1)}>TacaCola</ButtonFicha>
-                <ButtonFicha onClick={() => swiper.slideTo(2)}>TCG</ButtonFicha>
-                <ButtonFicha onClick={() => swiper.slideTo(3)}>TCG Rounded</ButtonFicha>
-                <ButtonFicha onClick={() => swiper.slideTo(4)}>Clássico</ButtonFicha>
-                <ButtonFicha onClick={() => swiper.slideTo(5)}>Minimalista</ButtonFicha>
-            </ContainerButtons>
-          <div style={{
-            display: 'flex',
-            gap: '8px',
-            overflow: 'auto',
-            padding: '20px'
-          }}>
-            <TacaFicha />
-            <TacaFichaVerso />
-          </div>
+          <ContainerButtons>
+            <ButtonFicha onClick={() => swiper.slideTo(0)}>TacaCarta</ButtonFicha>
+            <ButtonFicha onClick={() => swiper.slideTo(1)}>TacaCola</ButtonFicha>
+            <ButtonFicha onClick={() => swiper.slideTo(2)}>TCG</ButtonFicha>
+            <ButtonFicha onClick={() => swiper.slideTo(3)}>TCG Rounded</ButtonFicha>
+            <ButtonFicha onClick={() => swiper.slideTo(4)}>Clássico</ButtonFicha>
+            <ButtonFicha onClick={() => swiper.slideTo(5)}>Minimalista</ButtonFicha>
+          </ContainerButtons>
+          <TacaFichaTCG/>
 
-            <Swiper
-                spaceBetween={50}
-                slidesPerView={1}
-                onSwiper={setSwiper}
-            >
-                <SwiperSlide><TacaCarta /></SwiperSlide>
-                <SwiperSlide><TacaCola /></SwiperSlide>
-                <SwiperSlide><FichaCard /></SwiperSlide>
-                <SwiperSlide><FichaTCGMinimalista /></SwiperSlide>
-                <SwiperSlide><FichaClassica /></SwiperSlide>
-                <SwiperSlide><FichaMinimalista /></SwiperSlide>
-            </Swiper>
+          <Swiper
+            spaceBetween={50}
+            slidesPerView={1}
+            onSwiper={setSwiper}
+          >
+            <SwiperSlide><TacaCarta/></SwiperSlide>
+            <SwiperSlide><TacaCola/></SwiperSlide>
+            <SwiperSlide><FichaCard/></SwiperSlide>
+            <SwiperSlide><FichaTCGMinimalista/></SwiperSlide>
+            <SwiperSlide><FichaClassica/></SwiperSlide>
+            <SwiperSlide><FichaMinimalista/></SwiperSlide>
+          </Swiper>
         </>
     )
 }

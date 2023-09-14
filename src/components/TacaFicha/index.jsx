@@ -15,7 +15,7 @@ import {
   AtributosContainer, AtributosContainerHabilidade,
   AtributosContainerPoder, AtributosContainerresistencia,
   Baixo,
-  Carta, ContainerFrame, ContainerFramesTextos, ContainerNomePontos, ContainerText, DetalhesContainer,
+  Carta, Container, ContainerFrame, ContainerFramesTextos, ContainerNomePontos, ContainerText, DetalhesContainer,
   EscalaPoder,
   Frame,
   Meio, RecursosContainer, Svg, TagsPericias, TextoDesVanContainer,
@@ -76,7 +76,7 @@ export const TacaFicha = () => {
   }
 
   return (
-    <>
+    <Container>
       <Carta style={{
         backgroundImage: `url(${imageBlob})`
       }}>
@@ -179,6 +179,6 @@ export const TacaFicha = () => {
           </RecursosContainer>
         </Baixo>
       </Carta>
-    </>
+    </Container>
   )
 }
