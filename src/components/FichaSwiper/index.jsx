@@ -12,6 +12,7 @@ import { FichaTCGMinimalista } from "../../components/FichaTCGMinimalista";
 import { TacaCarta } from "../../components/TacaCarta";
 import { TacaCola } from "../TacaCola";
 import {TacaFicha} from "../TacaFicha";
+import {TacaFichaVerso} from "../TacaFicha/TacaFichaVerso";
 
 export const FichaSwiper = () => {
     const [swiper, setSwiper] = useState(null);
@@ -26,12 +27,21 @@ export const FichaSwiper = () => {
                 <ButtonFicha onClick={() => swiper.slideTo(4)}>Clássico</ButtonFicha>
                 <ButtonFicha onClick={() => swiper.slideTo(5)}>Minimalista</ButtonFicha>
             </ContainerButtons>
+          <div style={{
+            display: 'flex',
+            gap: '8px',
+            overflow: 'auto',
+            padding: '20px'
+          }}>
+            <TacaFicha />
+            <TacaFichaVerso />
+          </div>
+
             <Swiper
                 spaceBetween={50}
                 slidesPerView={1}
                 onSwiper={setSwiper}
             >
-                <SwiperSlide><TacaFicha /></SwiperSlide>
                 <SwiperSlide><TacaCarta /></SwiperSlide>
                 <SwiperSlide><TacaCola /></SwiperSlide>
                 <SwiperSlide><FichaCard /></SwiperSlide>
