@@ -1,6 +1,6 @@
-import React, { useRef } from "react";
+import React, {useRef, useState} from "react";
 import { MontaFicha } from "../../components/MontaFicha";
-import { Container, ImageInputContainer, ButtonUpload } from "./styles";
+import {Container, ImageInputContainer, ButtonUpload, ButtonCut, ContainerButtons, CropContainer} from "./styles";
 import { useFicha } from "../../context/ficha.context";
 import BackupIcon from '@mui/icons-material/Backup';
 import dadinho from '../../images/dadinhos.png'
@@ -8,13 +8,17 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import { CropComponent } from "../../components/CropComponent/indes";
+import { CropComponent } from "../../components/CropComponent";
 import { FichaSwiper } from "../../components/FichaSwiper";
+import {TacaFichaTCG} from "../../components/TacaFicha/TacaFichaTCG";
+import ContentCutIcon from '@mui/icons-material/ContentCut';
+import * as PropTypes from "prop-types";
 
 export const Ficha = () => {
-    const {handleFileChange, imageBlob} = useFicha();
+    const {handleFileChange} = useFicha();
 
     const hiddenFileInput = useRef(null);
+    const [viewCrop, setViewCrop] = useState(false)
 
     const handleClick = event => {
         hiddenFileInput.current.click();
@@ -24,29 +28,49 @@ export const Ficha = () => {
 
     return (
         <>
-            <MontaFicha />
-            <SeparadorDadinho />
-            <Container>
-                <h1 style={{color: '#6F0062'}}>Fichas:</h1>
-                <p>Arraste para o lado para ver outras fichas!</p>
-                <FichaSwiper />
-                <ImageInputContainer>
-                    <label>Enviar Imagem Customizada:</label>
-                    <ButtonUpload onClick={handleClick}>
-                        <BackupIcon />
-                        Enviar Uma Imagem
-                    </ButtonUpload>
-                    <input
-                        type="file"
-                        onChange={handleFileChange}
-                        style={{
-                            display: 'none'
-                        }}
-                        ref={hiddenFileInput}
-                    />
-                    {imageBlob && <CropComponent />}
-                 </ImageInputContainer>
-            </Container>
+          <MontaFicha/>
+          <SeparadorDadinho/>
+          <Container>
+            <TacaFichaTCG/>
+            <br />
+            <h1 style={{color: '#6F0062'}}>Fichas Legado:</h1>
+            <p>Arraste para o lado para ver outras fichas!</p>
+            <FichaSwiper/>
+          </Container>
         </>
     )
+}
+
+export function ImageComponent() {
+  const [viewCrop, setViewCrop] = useState(false)
+  const hiddenFileInput = useRef(null);
+  const {handleFileChange} = useFicha();
+  const handleClick = event => {
+    hiddenFileInput.current.click();
+    setViewCrop(true);
+  };
+
+  return <ImageInputContainer>
+    <h1>Imagem</h1>
+    <ContainerButtons>
+      <ButtonUpload onClick={() => handleClick()}>
+        <BackupIcon/>
+        Enviar Uma Imagem
+      </ButtonUpload>
+      <input
+        type="file"
+        onChange={handleFileChange}
+        style={{
+          display: "none"
+        }}
+        ref={hiddenFileInput}
+      />
+      <ButtonCut onClick={() => setViewCrop(true)}><ContentCutIcon/></ButtonCut>
+    </ContainerButtons>
+    {viewCrop &&
+      <CropContainer onClick={() => setViewCrop(false)}>
+          <CropComponent Fechar={() => setViewCrop(false)}/>
+      </CropContainer>
+    }
+  </ImageInputContainer>;
 }

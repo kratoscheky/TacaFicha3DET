@@ -77,7 +77,7 @@ export const TacaFicha = () => {
 
   return (
     <Container>
-      <Carta style={{
+      <Carta id='tacaficha' style={{
         backgroundImage: `url(${imageBlob})`
       }}>
         <Frame src={frame} />

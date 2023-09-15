@@ -24,3 +24,10 @@ export const Button = styled.button`
     justify-content: center;
     align-items: center;
 `
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+`

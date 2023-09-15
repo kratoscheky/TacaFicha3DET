@@ -33,6 +33,7 @@ import BackspaceIcon from "@mui/icons-material/Backspace";
 import { useImgur } from "../../context/imgur.context";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import {ImageComponent} from "../../pages/Ficha";
 
 export const MontaFicha = () => {
   const {
@@ -230,6 +231,7 @@ export const MontaFicha = () => {
             <ReactQuill theme="snow" value={anotacoes} onChange={setAnotacoes} />
           </ContainerAnotacoes>
         </SessaoInputs>
+        <ImageComponent />
         <div>
           <ButtonFicha onClick={async () => await SaveSlot()}>
             <BookIcon />
