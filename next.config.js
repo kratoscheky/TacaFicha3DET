@@ -1,3 +1,0 @@
-purgeCSS: {
-    whitelistPatternsChildren: [/swiper/]
-}
