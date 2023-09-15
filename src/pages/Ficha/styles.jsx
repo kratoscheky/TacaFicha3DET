@@ -47,6 +47,11 @@ export const CropContainer = styled.div`
   align-items: center;
   justify-content: center;
 `
+export const ContainerLegado = styled.div`
+  padding: 20px;
+  background: #6f0062;
+  border-radius: 8px;
+`
 
 export const ButtonUpload = styled.button`
     font-weight: 600;

@@ -13,6 +13,7 @@ export const Container = styled.div`
   overflow: auto;
   align-items: flex-end;
   zoom: 70%;
+  padding: 20px 0;
 `
 
 export const ButtonFicha = styled.button`

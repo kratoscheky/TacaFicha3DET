@@ -1,6 +1,14 @@
 import React, {useRef, useState} from "react";
 import { MontaFicha } from "../../components/MontaFicha";
-import {Container, ImageInputContainer, ButtonUpload, ButtonCut, ContainerButtons, CropContainer} from "./styles";
+import {
+  Container,
+  ImageInputContainer,
+  ButtonUpload,
+  ButtonCut,
+  ContainerButtons,
+  CropContainer,
+  ContainerLegado
+} from "./styles";
 import { useFicha } from "../../context/ficha.context";
 import BackupIcon from '@mui/icons-material/Backup';
 import dadinho from '../../images/dadinhos.png'
@@ -33,9 +41,11 @@ export const Ficha = () => {
           <Container>
             <TacaFichaTCG/>
             <br />
-            <h1 style={{color: '#6F0062'}}>Fichas Legado:</h1>
-            <p>Arraste para o lado para ver outras fichas!</p>
-            <FichaSwiper/>
+            <ContainerLegado>
+              <h1 style={{color: '#FFBF22'}}>FICHAS LEGADO:</h1>
+              <p style={{color: '#FFF'}}>Arraste para o lado para ver outras fichas!</p>
+              <FichaSwiper/>
+            </ContainerLegado>
           </Container>
         </>
     )
