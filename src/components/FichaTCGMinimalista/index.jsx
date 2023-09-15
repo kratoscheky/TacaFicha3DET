@@ -104,7 +104,7 @@ export const FichaTCGMinimalista = () => {
           alignItems: "center",
         }}
       >
-        <h1>TCG Rounded</h1>
+        <h1 style={{color: '#FFF'}}>TCG Rounded</h1>
         <Card
           style={{
             backgroundImage: `url(${
@@ -207,9 +207,9 @@ export const FichaTCGMinimalista = () => {
           </ContainerTextos>
         </Card>
         <br />
-        <p>
+        <p style={{color: '#FFF'}}>
           Modelo de ficha por{" "}
-          <a href="https://www.facebook.com/groups/161485003862799/user/100086200497493/">
+          <a style={{color: '#FFF'}} href="https://www.facebook.com/groups/161485003862799/user/100086200497493/">
             Lungas Neto
           </a>
         </p>

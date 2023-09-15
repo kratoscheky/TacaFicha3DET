@@ -146,7 +146,7 @@ export const TacaCarta = () => {
       >
         {!isShareView && (
           <>
-            <h1>TacaCarta</h1>
+            <h1 style={{color: '#FFF'}}>TacaCarta</h1>
             <p style={{ color: "#6F0062" }}>BETA</p>
             <div
               style={{
@@ -160,7 +160,7 @@ export const TacaCarta = () => {
               }}
             >
               <input type="checkbox" id="check-foil" onChange={(e) => setFoil(!foil)} checked={foil}/>
-              <label htmlFor="check-foil">Holográfica (apenas visualização)</label>
+              <label htmlFor="check-foil" style={{color: '#FFF'}}><i>Holográfica (apenas visualização)</i></label>
             </div>
           </>
         )}
@@ -292,9 +292,9 @@ export const TacaCarta = () => {
           </ContainerRecursos>
         </Card>
         <br />
-        <p>
+        <p style={{color: '#FFF'}}>
           Modelo de ficha por{" "}
-          <a href="https://www.facebook.com/groups/161485003862799/user/100086200497493/">
+          <a style={{color: '#FFF'}} href="https://www.facebook.com/groups/161485003862799/user/100086200497493/">
             Lungas Neto
           </a>
         </p>

@@ -57,7 +57,7 @@ export const FichaMinimalista = () => {
 
   return (
     <Container>
-      <h1>Minimalista</h1>
+      <h1 style={{color: '#FFF'}}>Minimalista</h1>
       <Card
         id="container-ficha-minimalista"
         style={{

@@ -7,6 +7,15 @@ export const ContainerButtons = styled.div`
     flex-wrap: wrap;
 `
 
+export const Container = styled.div`
+  display: flex;
+  gap: 20px;
+  overflow: auto;
+  align-items: flex-end;
+  zoom: 70%;
+  padding: 20px 0;
+`
+
 export const ButtonFicha = styled.button`
     font-weight: 800;
     text-shadow: 0 0 16px rgba(0,0,0,.53);

@@ -12,23 +12,51 @@ export const ContainerFicha = styled.div`
 export const ImageInputContainer = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 16px 0 16px 0;
     gap: 16px;
-    label{
-        padding: 8px 0;
-        font-weight: 700;
+    width: 100%;
+    max-width: 1200px;
+    background: #6F0062;
+    padding: 20px;
+    border-radius: 8px;
+    h1 {
+      color: #FFBF22;
+      text-transform: uppercase;
     }
 `
 
 export const Container = styled.div`
-    max-width: 500px;
     width: 100%;
+  max-width: 1200px;
+`
+
+export const ContainerButtons = styled.div`
+  display: flex;
+  gap: 8px;
+`
+
+export const CropContainer = styled.div`
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 2000;
+  background: #00000090;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+export const ContainerLegado = styled.div`
+  padding: 20px;
+  background: #6f0062;
+  border-radius: 8px;
 `
 
 export const ButtonUpload = styled.button`
     font-weight: 600;
     text-shadow: 0 0 16px rgba(0,0,0,.53);
-    background-color: #6F0062;
+    background-color: #ffb300;
     box-shadow: 0 0 10px 0 rgba(0,0,0,.5);
     font-size: 16px;
     padding: 15px 30px;
@@ -38,7 +66,28 @@ export const ButtonUpload = styled.button`
     text-align: center;
     transition: all .3s;
     border: none;
-    flex-grow: 1;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+`
+
+export const ButtonCut = styled.button`
+    font-weight: 600;
+    text-shadow: 0 0 16px rgba(0,0,0,.53);
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.5);
+    font-size: 16px;
+    padding: 15px 30px;
+    border-radius: 4px;
+    text-decoration: none;
+    fill: #fff;
+    text-align: center;
+    transition: all .3s;
+    border: none;
     display: inline-block;
     color: #fff;
     cursor: pointer;
@@ -47,6 +96,8 @@ export const ButtonUpload = styled.button`
     gap: 4px;
     justify-content: center;
     align-items: center;
+    background: #ffb300;
+    max-width: 80px;
 `
 
 export const DadosPersonagem = styled.div`

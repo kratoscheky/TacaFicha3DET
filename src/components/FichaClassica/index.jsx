@@ -44,7 +44,7 @@ export const FichaClassica = () => {
 
     return (
       <Container>
-        <h1>Clássico</h1>
+        <h1 style={{color: '#FFF'}}>Clássico</h1>
         <ContainerFicha id="container-ficha-classica">
           <DadosPersonagem>
             <Frame src={frame} />
