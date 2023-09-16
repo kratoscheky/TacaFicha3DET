@@ -9,6 +9,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { AvisoTopo } from "./components/AvisoTopo";
 import { ArquetipoPainel } from "./components/ArquetiposPainel";
 import { useShare } from "./context/share.context";
+import {SalvarSlot} from "./components/SalvarSlot";
 
 function App() {
   const [page, setPage] = useState("");
@@ -44,6 +45,7 @@ function App() {
             <SaveSlots />
             <ArquetipoPainel />
             <Ficha />
+            <SalvarSlot />
           </>
         )}
         {page === "ShareView" && (<ShareView />)}

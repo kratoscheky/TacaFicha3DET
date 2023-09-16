@@ -11,13 +11,14 @@ export const ArquetipoPainel = () => {
       style={{
         borderRadius: "8px",
         width: '100%',
-        maxWidth: '1200px'
+        maxWidth: '1200px',
+        marginBottom: '16px'
       }}
     >
       <div style={{
         background: '#6F0062',
         padding: '16px',
-        borderRadius: '16px'
+        borderRadius: '8px'
       }}>
         <h1
           style={{

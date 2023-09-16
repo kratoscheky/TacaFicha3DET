@@ -81,7 +81,6 @@ export const MontaFicha = () => {
   return (
     <>
       <ContainerMontaFicha>
-        <SeparadorDadinho />
         <SessaoInputs>
           <h1 id="monta-ficha-dados-basicos">Dados Basicos</h1>
           <ContainerInputs>
@@ -110,7 +109,6 @@ export const MontaFicha = () => {
             maxLength={250}
           />
         </SessaoInputs>
-        <SeparadorDadinho />
         <SessaoInputsAtributos>
           <div>
             <ContainerAtributos>
@@ -192,7 +190,6 @@ export const MontaFicha = () => {
             <AtributosImagem />
           </div>
         </SessaoInputsAtributos>
-        <SeparadorDadinho />
         <ContainerPersonalidade>
           <PainelPersonalidade>
             <ListaCaracteristicas
@@ -232,24 +229,6 @@ export const MontaFicha = () => {
           </ContainerAnotacoes>
         </SessaoInputs>
         <ImageComponent />
-        <div>
-          <ButtonFicha onClick={async () => await SaveSlot()}>
-            <BookIcon />
-            Salvar Ficha em Slot
-          </ButtonFicha>
-          <ButtonSecundario
-            style={{ maxWidth: "110px" }}
-            onClick={() => LimparCampos()}
-          >
-            <BackspaceIcon />
-            Limpar Campos
-          </ButtonSecundario>
-        </div>
-        <h6 style={{textAlign: "center", color: "var(--secondary-text)", lineHeight: "12px"}}>
-          Você pode salvar mais {remainingUploadsToday} fichas com imagem hoje
-          <br/>Após isso as fichas serão salvas sem imagem
-          <br/>Essa limitação permite que todos possam aproveitar o TacaFicha
-        </h6>
       </ContainerMontaFicha>
 
       <ModalPericias

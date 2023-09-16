@@ -37,7 +37,6 @@ export const Ficha = () => {
     return (
         <>
           <MontaFicha/>
-          <SeparadorDadinho/>
           <Container>
             <TacaFichaTCG/>
           </Container>
