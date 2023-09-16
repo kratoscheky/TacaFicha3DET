@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, {useEffect, useState} from "react";
 import "./App.css";
-import { Topo } from "./components/Topo";
-import { Ficha } from "./pages/Ficha";
-import { ShareView } from "./pages/ShareView";
-import { ContainerPage } from "./styles";
-import { SaveSlots } from "./components/SaveSlots";
-import { Analytics } from "@vercel/analytics/react";
-import { AvisoTopo } from "./components/AvisoTopo";
-import { ArquetipoPainel } from "./components/ArquetiposPainel";
-import { useShare } from "./context/share.context";
+import {Topo} from "./components/Topo";
+import {Ficha} from "./pages/Ficha";
+import {ShareView} from "./pages/ShareView";
+import {ContainerPage} from "./styles";
+import {SaveSlots} from "./components/SaveSlots";
+import {Analytics} from "@vercel/analytics/react";
+import {AvisoTopo} from "./components/AvisoTopo";
+import {ArquetipoPainel} from "./components/ArquetiposPainel";
+import {useShare} from "./context/share.context";
 import {SalvarSlot} from "./components/SalvarSlot";
 
 function App() {
   const [page, setPage] = useState("");
 
-  const { loadShareableString } = useShare();
+  const {loadShareableString} = useShare();
 
   useEffect(() => {
     //Checa se o link de compartilhamento foi passado via URL
@@ -36,19 +36,19 @@ function App() {
 
   return (
     <>
-      <Analytics />
-      <Topo showSwiper={page !== "ShareView"} />
-      {page !== "ShareView" && (<AvisoTopo />)}
+      <Analytics/>
+      <Topo showSwiper={page !== "ShareView"}/>
+      {page !== "ShareView" && (<AvisoTopo/>)}
       <ContainerPage>
         {page === "MontaFicha" && (
           <>
-            <SaveSlots />
-            <ArquetipoPainel />
-            <Ficha />
-            <SalvarSlot />
+            <SaveSlots/>
+            <ArquetipoPainel/>
+            <Ficha/>
+            <SalvarSlot/>
           </>
         )}
-        {page === "ShareView" && (<ShareView />)}
+        {page === "ShareView" && (<ShareView/>)}
       </ContainerPage>
       <div
         style={{
@@ -69,33 +69,34 @@ function App() {
         >
           Este site foi criado por{" "}
           <a
-            style={{ color: "#D11CE0" }}
+            style={{color: "#D11CE0"}}
             href="https://twitter.com/Kratoscheky"
           >
             @kratoscheky
           </a>{" "}
           com colaboração de{" "}
-          <a style={{ color: "#D11CE0" }} href="https://twitter.com/OvelhaDev">
+          <a style={{color: "#D11CE0"}} href="https://twitter.com/OvelhaDev">
             @OvelhaDev
           </a>{" "}
           e{" "}
           <a
-            style={{ color: "#D11CE0" }}
+            style={{color: "#D11CE0"}}
             href="https://twitter.com/kpoper_cansada"
           >
             @kpoper_cansada
           </a>
         </p>
-        <br />
+        <br/>
         <p style={{
           color: '#FFF'
         }}>
           Design feito por
-          <a style={{ color: "#D11CE0", paddingLeft: '8px', paddingRight: '8px' }} href="https://www.facebook.com/groups/161485003862799/user/100086200497493/">
+          <a style={{color: "#D11CE0", paddingLeft: '8px', paddingRight: '8px'}}
+             href="https://www.facebook.com/groups/161485003862799/user/100086200497493/">
             Lungas Neto
           </a>
           e
-          <a style={{ color: "#D11CE0", paddingLeft: '8px' }} href="https://twitter.com/Kratoscheky">
+          <a style={{color: "#D11CE0", paddingLeft: '8px'}} href="https://twitter.com/Kratoscheky">
             Mauricio Soares
           </a>
         </p>

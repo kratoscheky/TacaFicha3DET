@@ -1,17 +1,17 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, {createContext, useContext, useEffect, useState} from "react";
 import axios from "axios";
 
 export const ImgurContext = createContext();
 
 export const useImgur = () => useContext(ImgurContext);
 
-export const ImgurProvider = ({ children }) => {
+export const ImgurProvider = ({children}) => {
   const apiKey = "8f6d8eb03eab07d"
   // "ain mas a sua apikey ta publica no repositorio, vo usar ela hihi 🤓☝️
   // é gratis pra criar apikey no imgur o bobão, quer estourar o rate limit pra ser um bobão completo vai lá pô
   const maxUploadsPerDay = 5;
   const localStorageKey = "imgurUploadCount";
-  
+
   const [imageUploadCount, setImageUploadCount] = useState(0);
   const [remainingUploadsToday, setRemainingUploadsToday] = useState(maxUploadsPerDay);
 
@@ -21,7 +21,7 @@ export const ImgurProvider = ({ children }) => {
     if (storedCount) {
       const storedDate = new Date(parseInt(storedCount.split(":")[0]));
       const currentDate = new Date();
-      
+
       // Reset the count if it's a new day
       if (currentDate.getDate() !== storedDate.getDate()) {
         localStorage.setItem(localStorageKey, `${currentDate.getTime()}:${0}`);
@@ -53,7 +53,7 @@ export const ImgurProvider = ({ children }) => {
         },
       });
 
-      const { data } = response.data;
+      const {data} = response.data;
 
       // Increment the image upload count
       const newCount = imageUploadCount + 1;

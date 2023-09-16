@@ -6,6 +6,7 @@ import {useFicha} from "../../context/ficha.context";
 import {useSlots} from "../../context/slots.context";
 import {useImgur} from "../../context/imgur.context";
 import {Container} from "./styles";
+
 export const SalvarSlot = () => {
   const {LimparCampos} = useFicha();
   const {remainingUploadsToday} = useImgur();
@@ -15,14 +16,14 @@ export const SalvarSlot = () => {
     <>
       <Container>
         <ButtonFicha onClick={async () => await SaveSlot()}>
-          <BookIcon />
+          <BookIcon/>
           Salvar Ficha em Slot
         </ButtonFicha>
         <ButtonSecundario
-          style={{ maxWidth: "110px" }}
+          style={{maxWidth: "110px"}}
           onClick={() => LimparCampos()}
         >
-          <BackspaceIcon />
+          <BackspaceIcon/>
           Limpar Campos
         </ButtonSecundario>
       </Container>

@@ -1,47 +1,37 @@
 import React, {useRef, useState} from "react";
-import { MontaFicha } from "../../components/MontaFicha";
-import {
-  Container,
-  ImageInputContainer,
-  ButtonUpload,
-  ButtonCut,
-  ContainerButtons,
-  CropContainer,
-  ContainerLegado
-} from "./styles";
-import { useFicha } from "../../context/ficha.context";
+import {MontaFicha} from "../../components/MontaFicha";
+import {ButtonCut, ButtonUpload, Container, ContainerButtons, CropContainer, ImageInputContainer} from "./styles";
+import {useFicha} from "../../context/ficha.context";
 import BackupIcon from '@mui/icons-material/Backup';
 import dadinho from '../../images/dadinhos.png'
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import { CropComponent } from "../../components/CropComponent";
-import { FichaSwiper } from "../../components/FichaSwiper";
+import {CropComponent} from "../../components/CropComponent";
 import {TacaFichaTCG} from "../../components/TacaFicha/TacaFichaTCG";
 import ContentCutIcon from '@mui/icons-material/ContentCut';
-import * as PropTypes from "prop-types";
 
 export const Ficha = () => {
-    const {handleFileChange} = useFicha();
+  const {handleFileChange} = useFicha();
 
-    const hiddenFileInput = useRef(null);
-    const [viewCrop, setViewCrop] = useState(false)
+  const hiddenFileInput = useRef(null);
+  const [viewCrop, setViewCrop] = useState(false)
 
-    const handleClick = event => {
-        hiddenFileInput.current.click();
-    };
+  const handleClick = event => {
+    hiddenFileInput.current.click();
+  };
 
-    const SeparadorDadinho = () => <img src={dadinho} style={{width: '100%', maxWidth: '500px'}} alt={"Dados"} />;
+  const SeparadorDadinho = () => <img src={dadinho} style={{width: '100%', maxWidth: '500px'}} alt={"Dados"}/>;
 
-    return (
-        <>
-          <MontaFicha/>
-          <Container>
-            <TacaFichaTCG/>
-          </Container>
-        </>
-    )
+  return (
+    <>
+      <MontaFicha/>
+      <Container>
+        <TacaFichaTCG/>
+      </Container>
+    </>
+  )
 }
 
 export function ImageComponent() {
@@ -72,7 +62,7 @@ export function ImageComponent() {
     </ContainerButtons>
     {viewCrop &&
       <CropContainer onClick={() => setViewCrop(false)}>
-          <CropComponent Fechar={() => setViewCrop(false)}/>
+        <CropComponent Fechar={() => setViewCrop(false)}/>
       </CropContainer>
     }
   </ImageInputContainer>;

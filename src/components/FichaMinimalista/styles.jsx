@@ -158,7 +158,7 @@ export const Card = styled.div`
     width: 300px;
     border-radius: 8px;
     padding: 8px;
-    ${(props) => props.backgroundImage ? `background-image: url(${props.backgroundImage})` : `background-color: #fff` };
+    ${(props) => props.backgroundImage ? `background-image: url(${props.backgroundImage})` : `background-color: #fff`};
     box-shadow: var(--drop-shadow) 4px 4px 9px 0px;
     background-size: cover;
     display: flex;

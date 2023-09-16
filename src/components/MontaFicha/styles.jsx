@@ -1,4 +1,4 @@
-import { TextareaAutosize } from '@mui/material';
+import {TextareaAutosize} from '@mui/material';
 import styled from 'styled-components';
 
 export const ContainerMontaFicha = styled.div`
@@ -31,7 +31,7 @@ export const ContainerMontaFicha = styled.div`
         border: 1px solid var(--input-border);
         width: 100%;
     }
-` 
+`
 
 export const TextArea = styled(TextareaAutosize)`
     display: inline-block;

@@ -1,6 +1,6 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
-import { useFicha } from "./ficha.context";
-import { useImgur } from "./imgur.context";
+import React, {createContext, useContext, useEffect, useState} from "react";
+import {useFicha} from "./ficha.context";
+import {useImgur} from "./imgur.context";
 
 
 export const SlotsContext = createContext();
@@ -9,7 +9,7 @@ export const useSlots = () => useContext(SlotsContext);
 
 const initialSlots = [];
 
-export const SlotsProvider = ({ children }) => {
+export const SlotsProvider = ({children}) => {
   const [slots, setSlots] = useState(initialSlots);
 
   const {
@@ -41,7 +41,7 @@ export const SlotsProvider = ({ children }) => {
     setAnotacoes
   } = useFicha();
 
-  const { uploadImage } = useImgur();
+  const {uploadImage} = useImgur();
 
   const SaveSlot = async () => {
     let _imageUrl = imageUrl;
@@ -61,10 +61,10 @@ export const SlotsProvider = ({ children }) => {
     }
 
     let localStorageVar = JSON.parse(localStorage.getItem('slots'));
-    if(!localStorageVar)
+    if (!localStorageVar)
       localStorageVar = []
 
-      localStorageVar.push({
+    localStorageVar.push({
       nome: nome,
       detalhes: detalhes,
       pericias: pericias,
@@ -108,7 +108,7 @@ export const SlotsProvider = ({ children }) => {
 
   const LoadSlots = () => {
     let localStorageVar = JSON.parse(localStorage.getItem('slots'));
-    if(!localStorageVar)
+    if (!localStorageVar)
       return
 
     setSlots(localStorageVar);

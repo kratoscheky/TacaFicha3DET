@@ -23,7 +23,7 @@ export const AvisoTopo = () => {
         <p style={{
           color: "var(--secondary-text)"
         }}><b>3DeT</b> é um sistema de RPG produzido pela <b>Jambô Editora.</b></p>
-        <br />
+        <br/>
         <a href='https://jamboeditora.com.br/'>
           <img src='https://blog.jamboeditora.com.br/wp-content/uploads/2022/05/logo-jambo.png'/>
         </a>

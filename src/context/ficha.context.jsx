@@ -1,5 +1,5 @@
-import { stubFalse } from "lodash";
-import React, { createContext, useContext, useEffect, useState } from "react";
+import {stubFalse} from "lodash";
+import React, {createContext, useContext, useEffect, useState} from "react";
 
 export const FichaContext = createContext();
 
@@ -23,7 +23,7 @@ const initialExtras = {
   pontosDeVida: 0,
 }
 
-export const FichaProvider = ({ children }) => {
+export const FichaProvider = ({children}) => {
   const [atributos, setAtributos] = useState(initialAtributos);
   const [recursos, setRecursos] = useState(initialRecursos);
   const [extras, setExtras] = useState(initialExtras);
@@ -80,7 +80,7 @@ export const FichaProvider = ({ children }) => {
     }
 
     // setPontosTotais(pontosTotaisTemp - value);
-    setAtributos({ ...atributos, [key]: parseInt(value) });
+    setAtributos({...atributos, [key]: parseInt(value)});
   };
 
   const handleFileChange = (event) => {
@@ -110,11 +110,11 @@ export const FichaProvider = ({ children }) => {
   }, [atributos]);
 
   useEffect(() => {
-    fetch(imageUrl ?? "https://site.jamboeditora.com.br/wp-content/uploads/2023/07/3DeT-abertura-mobile.png", {referrer:""})
+    fetch(imageUrl ?? "https://site.jamboeditora.com.br/wp-content/uploads/2023/07/3DeT-abertura-mobile.png", {referrer: ""})
       .then(response => response.blob())
       .then(blob => {
         setImageBlob(URL.createObjectURL(blob));
-    });
+      });
   }, [imageUrl]);
 
   return (

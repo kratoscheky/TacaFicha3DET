@@ -1,11 +1,14 @@
 [
-    {
-      "relation": ["delegate_permission/common.handle_all_urls"],
-      "target": {
-        "namespace": "android_app",
-        "package_name": "br.com.tacaficha.twa",
-        "sha256_cert_fingerprints":
-          ["F9:15:71:2B:BF:8E:D2:DA:90:87:36:19:EA:33:39:DE:86:36:93:38:9D:90:D2:A4:6B:E7:8D:EB:2C:B7:43:0D"]
-      }
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "br.com.tacaficha.twa",
+      "sha256_cert_fingerprints": [
+        "F9:15:71:2B:BF:8E:D2:DA:90:87:36:19:EA:33:39:DE:86:36:93:38:9D:90:D2:A4:6B:E7:8D:EB:2C:B7:43:0D"
+      ]
     }
+  }
 ]

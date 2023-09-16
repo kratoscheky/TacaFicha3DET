@@ -5,22 +5,22 @@ import habilidadeIcon from '../../../images/CartaTacaFicha/Icons/habilidadeIcon.
 import manaIcon from '../../../images/CartaTacaFicha/Icons/manaIcon.svg'
 import vidaIcon from '../../../images/CartaTacaFicha/Icons/vidaIcon.svg'
 import resistenciaIcon from '../../../images/CartaTacaFicha/Icons/resistenciaIcon.svg'
-import vantagemIcon from '../../../images/CartaTacaFicha/Icons/Vantagem.svg'
-import desvantagemIcon from '../../../images/CartaTacaFicha/Icons/Desvantagem.svg'
-import Bottom from '../../../images/CartaTacaFicha/Bottom.svg'
-import Top from '../../../images/CartaTacaFicha/Top.svg'
 
 import {
   ArquetipoContainer,
-  AtributosContainer, AtributosContainerHabilidade,
-  AtributosContainerPoder, AtributosContainerresistencia,
+  AtributosContainerHabilidade,
+  AtributosContainerPoder,
+  AtributosContainerresistencia,
   Baixo,
-  Carta, ContainerAtrRec, ContainerFrame, ContainerFramesTextos, ContainerNomePontos, ContainerText, DetalhesContainer,
+  Carta,
+  ContainerAtrRec,
+  ContainerNomePontos,
   EscalaPoder,
   Frame,
-  Meio, RecursosContainer, Svg, TagsPericias, TextoDesVanContainer,
-  TextosContainer,
-  Topo, VanDesContainer
+  Meio,
+  RecursosContainer,
+  Svg,
+  Topo
 } from "./styles";
 import {useFicha} from "../../../context/ficha.context";
 import React from "react";
@@ -81,20 +81,23 @@ export const TacaFichaVerso = () => {
   return (
     <Container>
       <Carta id='tacaficha-verso'>
-        <Frame src={frame} />
+        <Frame src={frame}/>
         <EscalaPoder>
-          <Svg fillEscala={DefinirCorEscala(pontosTotais.toString())} width="175" height="59" viewBox="0 0 175 59" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <g clip-path="url(#clip0_125_2)">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M174.004 58.3936L-0.00610352 58.3616L27.7039 -0.000366211H143.434L174.004 31.3496V58.3936Z" fill="#00A6C1"/>
-          </g>
-          <defs>
-            <clipPath id="clip0_125_2">
-              <rect width="175" height="59" fill="white"/>
-            </clipPath>
-          </defs>
+          <Svg fillEscala={DefinirCorEscala(pontosTotais.toString())} width="175" height="59" viewBox="0 0 175 59"
+               fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_125_2)">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M174.004 58.3936L-0.00610352 58.3616L27.7039 -0.000366211H143.434L174.004 31.3496V58.3936Z"
+                    fill="#00A6C1"/>
+            </g>
+            <defs>
+              <clipPath id="clip0_125_2">
+                <rect width="175" height="59" fill="white"/>
+              </clipPath>
+            </defs>
           </Svg>
         </EscalaPoder>
-        <EscalaPoder />
+        <EscalaPoder/>
         <Topo>
           <ContainerNomePontos>
             <p>{nome}</p>
@@ -105,36 +108,36 @@ export const TacaFichaVerso = () => {
           </ArquetipoContainer>
         </Topo>
         <Meio>
-          <div dangerouslySetInnerHTML={{__html: anotacoes}} />
+          <div dangerouslySetInnerHTML={{__html: anotacoes}}/>
         </Meio>
         <Baixo>
           <ContainerAtrRec>
             <AtributosContainerPoder>
-              <img src={poderIcon} />
+              <img src={poderIcon}/>
               <p>{atributos.poder.toString().padStart(2, '0')}</p>
             </AtributosContainerPoder>
             <RecursosContainer>
-              <img src={acaoIcon} />
+              <img src={acaoIcon}/>
               <p>{recursosFinal.pontosDeAcao.toString().padStart(2, '0')}</p>
             </RecursosContainer>
           </ContainerAtrRec>
           <ContainerAtrRec>
             <AtributosContainerHabilidade>
-              <img src={habilidadeIcon} />
+              <img src={habilidadeIcon}/>
               <p>{atributos.habilidade.toString().padStart(2, '0')}</p>
             </AtributosContainerHabilidade>
             <RecursosContainer>
-              <img src={manaIcon} />
+              <img src={manaIcon}/>
               <p>{recursosFinal.pontosDeMana.toString().padStart(2, '0')}</p>
             </RecursosContainer>
           </ContainerAtrRec>
           <ContainerAtrRec>
             <AtributosContainerresistencia>
-              <img src={resistenciaIcon} />
+              <img src={resistenciaIcon}/>
               <p>{atributos.resistencia.toString().padStart(2, '0')}</p>
             </AtributosContainerresistencia>
             <RecursosContainer>
-              <img src={vidaIcon} />
+              <img src={vidaIcon}/>
               <p>{recursosFinal.pontosDeVida.toString().padStart(2, '0')}</p>
             </RecursosContainer>
           </ContainerAtrRec>

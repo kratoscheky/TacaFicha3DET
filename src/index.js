@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { FichaProvider } from './context/ficha.context';
+import {FichaProvider} from './context/ficha.context';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
-import { SlotsProvider } from './context/slots.context';
-import { ColorSchemeProvider } from './context/color-scheme.context';
-import { ImgurProvider } from './context/imgur.context';
-import { BrowserProvider } from './context/browser.context';
-import { ShareProvider } from './context/share.context';
+import {SlotsProvider} from './context/slots.context';
+import {ColorSchemeProvider} from './context/color-scheme.context';
+import {ImgurProvider} from './context/imgur.context';
+import {BrowserProvider} from './context/browser.context';
+import {ShareProvider} from './context/share.context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -20,7 +20,7 @@ root.render(
           <SlotsProvider>
             <ShareProvider>
               <ColorSchemeProvider>
-                <App />
+                <App/>
               </ColorSchemeProvider>
             </ShareProvider>
           </SlotsProvider>
@@ -33,7 +33,7 @@ root.render(
 serviceWorkerRegistration.register({
   onUpdate: registration => {
     if (registration && registration.waiting) {
-      registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+      registration.waiting.postMessage({type: 'SKIP_WAITING'});
     }
     window.location.reload();
   }

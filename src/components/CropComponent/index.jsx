@@ -1,11 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import {useRef, useState} from "react";
 import Cropper from "react-cropper";
 import "cropperjs/dist/cropper.css";
-import { useFicha } from "../../context/ficha.context";
+import {useFicha} from "../../context/ficha.context";
 import {Button, Container} from "./styles";
 
 export const CropComponent = ({Fechar}) => {
-  const { imageBlob, setImageBlob } = useFicha();
+  const {imageBlob, setImageBlob} = useFicha();
   const cropperRef = useRef(null);
   const [croppedImg, setCroppedImg] = useState("");
   const onCrop = () => {
@@ -18,7 +18,7 @@ export const CropComponent = ({Fechar}) => {
     <Container onClick={e => e.stopPropagation()}>
       <Cropper
         src={imageBlob}
-        style={{ height: '300px', width: "100%" }}
+        style={{height: '300px', width: "100%"}}
         initialAspectRatio={76 / 105}
         guides={false}
         crop={onCrop}
@@ -33,7 +33,10 @@ export const CropComponent = ({Fechar}) => {
         aspectRatio={76 / 105}
         checkOrientation={false}
       />
-      <Button onClick={() => {setImageBlob(() => croppedImg); Fechar();}}>Cortar</Button>
+      <Button onClick={() => {
+        setImageBlob(() => croppedImg);
+        Fechar();
+      }}>Cortar</Button>
     </Container>
   );
 };

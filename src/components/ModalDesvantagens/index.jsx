@@ -1,20 +1,14 @@
 import * as React from "react";
-import {
-  ContainerItens,
-  ContainerModal,
-  ConteudoModal,
-  AdicionarButton,
-  Titulo,
-} from "./styles";
-import { Desvantagens } from "../../data/desvantagens";
+import {AdicionarButton, ContainerItens, ContainerModal, ConteudoModal, Titulo,} from "./styles";
+import {Desvantagens} from "../../data/desvantagens";
 import AddIcon from "@mui/icons-material/Add";
 import FichaInput from "../FichaInput";
 
 export default function ModalDesvantagens({
-  open,
-  handleClose,
-  onAdicionarClick,
-}) {
+                                            open,
+                                            handleClose,
+                                            onAdicionarClick,
+                                          }) {
   const [customizada, setCustomizada] = React.useState("");
 
   return (
@@ -27,20 +21,20 @@ export default function ModalDesvantagens({
       >
         <ConteudoModal>
           <h1>Desvantagens</h1>
-          <br />
+          <br/>
           <ContainerItens>
             <Titulo>
               Customizada
               <AdicionarButton onClick={() => onAdicionarClick(customizada)}>
-                <AddIcon style={{ width: "15px" }} />
+                <AddIcon style={{width: "15px"}}/>
                 Adicionar
               </AdicionarButton>
             </Titulo>
             <p>
               Sua mesa utiliza uma desvantagem customizada ou não encontrou o
               que procurava?
-              <br />
-              <br />
+              <br/>
+              <br/>
               Sem problemas! Adicione a desvantagem que quiser no campo abaixo
             </p>
             <FichaInput
@@ -48,7 +42,7 @@ export default function ModalDesvantagens({
               valor={customizada}
               onEdit={(e) => setCustomizada(e.target.value)}
             />
-            <hr style={{ width: "100%" }} />
+            <hr style={{width: "100%"}}/>
             {Desvantagens.map((d) => {
               return (
                 <div
@@ -62,7 +56,7 @@ export default function ModalDesvantagens({
                   <Titulo>
                     {d.Nome} {d.Pontos}pt
                     <AdicionarButton onClick={() => onAdicionarClick(d.Nome)}>
-                      <AddIcon style={{ width: "15px" }} />
+                      <AddIcon style={{width: "15px"}}/>
                       Adicionar
                     </AdicionarButton>
                   </Titulo>
@@ -73,7 +67,7 @@ export default function ModalDesvantagens({
                   ></p>
                   {d.Tipo && (
                     <>
-                      <br />
+                      <br/>
                       {d.Tipo.map((t) => (
                         <Titulo
                           style={{
@@ -87,7 +81,7 @@ export default function ModalDesvantagens({
                               onAdicionarClick(`${d.Nome} (${t.Nome})`)
                             }
                           >
-                            <AddIcon style={{ width: "15px" }} />
+                            <AddIcon style={{width: "15px"}}/>
                             Adicionar
                           </AdicionarButton>
                         </Titulo>

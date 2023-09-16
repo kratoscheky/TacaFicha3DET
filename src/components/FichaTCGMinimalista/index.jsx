@@ -2,10 +2,9 @@ import React from "react";
 import {
   ArquetipoBar,
   ArquetipoText,
-  AtributoTexto,
   AtributosIcones,
+  AtributoTexto,
   Borda,
-  Button,
   Card,
   Container,
   ContainerAlinhamentoA,
@@ -24,8 +23,8 @@ import {
   PDescricaoDesvantagens,
   PDescricaoVantagens,
   Pontotexto,
-  RecursoTexto,
   RecursosIcones,
+  RecursoTexto,
   SubIcon,
   TagsPericias,
   TopoNomePonto,
@@ -44,8 +43,7 @@ import acaoIcon from "../../images/minimalista/acao.svg";
 import manaIcon from "../../images/minimalista/mana.svg";
 import vidaIcon from "../../images/minimalista/vida.svg";
 import html2canvas from "html2canvas";
-import { useFicha } from "../../context/ficha.context";
-import SaveIcon from "@mui/icons-material/Save";
+import {useFicha} from "../../context/ficha.context";
 
 export const FichaTCGMinimalista = () => {
   const {
@@ -113,12 +111,12 @@ export const FichaTCGMinimalista = () => {
           }}
           id="container-ficha-tcg-minimalista"
         >
-          <Borda src={borda} />
+          <Borda src={borda}/>
           <ContainerBarras>
             <TopoNomePonto>
               <NomeArquetipoContainer>
-                <img alt="Nome" src={name} />
-                <img alt="Ponto" src={ponto} />
+                <img alt="Nome" src={name}/>
+                <img alt="Ponto" src={ponto}/>
               </NomeArquetipoContainer>
               <NomePontoTexto>
                 <Nometexto>{nome}</Nometexto>
@@ -126,46 +124,46 @@ export const FichaTCGMinimalista = () => {
               </NomePontoTexto>
             </TopoNomePonto>
             <ContainerArquetipo>
-              <ArquetipoBar src={arquetipoImage} />
+              <ArquetipoBar src={arquetipoImage}/>
               <ArquetipoText>{arquetipo}</ArquetipoText>
             </ContainerArquetipo>
           </ContainerBarras>
           <ContainerAtributos>
             <ContainerITAtributos>
-              <FundoAtributos src={poder} />
+              <FundoAtributos src={poder}/>
               <ContainerAlinhamentoA>
                 <AtributosIcones>
-                  <Icon src={poderIcon} />
+                  <Icon src={poderIcon}/>
                   <AtributoTexto>{atributos.poder}</AtributoTexto>
                 </AtributosIcones>
                 <RecursosIcones>
-                  <SubIcon src={acaoIcon} />
+                  <SubIcon src={acaoIcon}/>
                   <RecursoTexto>{recursosFinal.pontosDeAcao}</RecursoTexto>
                 </RecursosIcones>
               </ContainerAlinhamentoA>
             </ContainerITAtributos>
             <ContainerITAtributos>
-              <FundoAtributos src={habilidade} />
+              <FundoAtributos src={habilidade}/>
               <ContainerAlinhamentoA>
                 <AtributosIcones>
-                  <Icon src={habilidadeIcon} />
+                  <Icon src={habilidadeIcon}/>
                   <AtributoTexto>{atributos.habilidade}</AtributoTexto>
                 </AtributosIcones>
                 <RecursosIcones>
-                  <SubIcon src={manaIcon} />
+                  <SubIcon src={manaIcon}/>
                   <RecursoTexto>{recursosFinal.pontosDeMana}</RecursoTexto>
                 </RecursosIcones>
               </ContainerAlinhamentoA>
             </ContainerITAtributos>
             <ContainerITAtributos>
-              <FundoAtributos src={resistencia} />
+              <FundoAtributos src={resistencia}/>
               <ContainerAlinhamentoA>
                 <AtributosIcones>
-                  <Icon src={resistenciaIcon} />
+                  <Icon src={resistenciaIcon}/>
                   <AtributoTexto>{atributos.resistencia}</AtributoTexto>
                 </AtributosIcones>
                 <RecursosIcones>
-                  <SubIcon src={vidaIcon} />
+                  <SubIcon src={vidaIcon}/>
                   <RecursoTexto>{recursosFinal.pontosDeVida}</RecursoTexto>
                 </RecursosIcones>
               </ContainerAlinhamentoA>
@@ -173,17 +171,17 @@ export const FichaTCGMinimalista = () => {
           </ContainerAtributos>
           <ContainerTextos>
             <ContainerVantagensDes>
-                <TagsPericias>
-                  {pericias.map((p) => (
-                    <p
-                      style={{
-                        backgroundColor: CoresPericias[p.Nome],
-                      }}
-                    >
-                      {p.Nome}
-                    </p>
-                  ))}
-                </TagsPericias>
+              <TagsPericias>
+                {pericias.map((p) => (
+                  <p
+                    style={{
+                      backgroundColor: CoresPericias[p.Nome],
+                    }}
+                  >
+                    {p.Nome}
+                  </p>
+                ))}
+              </TagsPericias>
               {vantagens.length > 0 && (
                 <div>
                   <PDescricaoVantagens>

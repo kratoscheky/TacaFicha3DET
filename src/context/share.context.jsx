@@ -1,12 +1,12 @@
-import React, { createContext, useContext, useState } from "react";
-import { useFicha } from "./ficha.context";
-import { Base64 } from 'js-base64';
+import React, {createContext, useContext, useState} from "react";
+import {useFicha} from "./ficha.context";
+import {Base64} from 'js-base64';
 
 export const ShareContext = createContext();
 
 export const useShare = () => useContext(ShareContext);
 
-export const ShareProvider = ({ children }) => {
+export const ShareProvider = ({children}) => {
   const [isShareView, setShareView] = useState(false);
 
   const {
@@ -57,7 +57,7 @@ export const ShareProvider = ({ children }) => {
         imageUrl: slot.imageUrl,
         foil: slot.foil,
       };
-    //Caso nenhum slot tenha sido passado, montamos o link com os dados atuais da ficha (Pode ser util no futuro)
+      //Caso nenhum slot tenha sido passado, montamos o link com os dados atuais da ficha (Pode ser util no futuro)
     } else {
       dataToShare = {
         nome: nome,

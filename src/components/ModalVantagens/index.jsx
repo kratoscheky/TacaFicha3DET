@@ -1,20 +1,14 @@
 import * as React from "react";
-import {
-  ContainerItens,
-  ContainerModal,
-  ConteudoModal,
-  AdicionarButton,
-  Titulo,
-} from "./styles";
-import { Vantagens } from "../../data/vantagens";
+import {AdicionarButton, ContainerItens, ContainerModal, ConteudoModal, Titulo,} from "./styles";
+import {Vantagens} from "../../data/vantagens";
 import AddIcon from "@mui/icons-material/Add";
 import FichaInput from "../FichaInput";
 
 export default function ModalVantagens({
-  open,
-  handleClose,
-  onAdicionarClick,
-}) {
+                                         open,
+                                         handleClose,
+                                         onAdicionarClick,
+                                       }) {
   const [customizada, setCustomizada] = React.useState("");
 
   return (
@@ -27,20 +21,20 @@ export default function ModalVantagens({
       >
         <ConteudoModal>
           <h1>Vantagens</h1>
-          <br />
+          <br/>
           <ContainerItens>
             <Titulo>
               Customizada
               <AdicionarButton onClick={() => onAdicionarClick(customizada)}>
-                <AddIcon style={{ width: "15px" }} />
+                <AddIcon style={{width: "15px"}}/>
                 Adicionar
               </AdicionarButton>
             </Titulo>
             <p>
               Sua mesa utiliza uma vantagem customizada ou não encontrou o que
               procurava?
-              <br />
-              <br />
+              <br/>
+              <br/>
               Sem problemas! Adicione a vantagem que quiser no campo abaixo
             </p>
             <FichaInput
@@ -49,7 +43,7 @@ export default function ModalVantagens({
               valor={customizada}
               onEdit={(e) => setCustomizada(e.target.value)}
             />
-            <hr style={{ width: "100%" }} />
+            <hr style={{width: "100%"}}/>
             {Vantagens.map((v) => {
               return (
                 <div
@@ -63,7 +57,7 @@ export default function ModalVantagens({
                   <Titulo>
                     {v.Nome} {v.Pontos}pt
                     <AdicionarButton onClick={() => onAdicionarClick(v.Nome)}>
-                      <AddIcon style={{ width: "15px" }} />
+                      <AddIcon style={{width: "15px"}}/>
                       Adicionar
                     </AdicionarButton>
                   </Titulo>
@@ -74,7 +68,7 @@ export default function ModalVantagens({
                   ></p>
                   {v.Tipo && (
                     <>
-                      <br />
+                      <br/>
                       {v.Tipo.map((t) => (
                         <Titulo style={{
                           paddingBottom: '8px'
@@ -83,7 +77,7 @@ export default function ModalVantagens({
                           <AdicionarButton
                             onClick={() => onAdicionarClick(`${v.Nome} (${t.Nome})`)}
                           >
-                            <AddIcon style={{ width: "15px" }} />
+                            <AddIcon style={{width: "15px"}}/>
                             Adicionar
                           </AdicionarButton>
                         </Titulo>

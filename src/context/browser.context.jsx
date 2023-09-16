@@ -1,10 +1,10 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, {createContext, useContext, useEffect, useState} from "react";
 
 const BrowserContext = createContext();
 
 export const useBrowserContext = () => useContext(BrowserContext);
 
-export const BrowserProvider = ({ children }) => {
+export const BrowserProvider = ({children}) => {
   const [isFirefox, setIsFirefox] = useState(false);
 
   useEffect(() => {

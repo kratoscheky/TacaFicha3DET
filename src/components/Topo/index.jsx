@@ -4,7 +4,7 @@ import tacaficha from "../../images/home/TacaFicha_Pdf.jpg"
 import bannerPng from "../../images/TacaFicha/Banner.png";
 import tresdetlogo from "../../images/TacaFicha/logo 3DeT.svg";
 import tablet from "../../images/TacaFicha/tablet.png";
-import { DarkModeToggle } from "../DarkModeToggle";
+import {DarkModeToggle} from "../DarkModeToggle";
 import {
   Button,
   ContainerBanner,
@@ -17,20 +17,20 @@ import {
 } from "./styles";
 import DownloadIcon from "@mui/icons-material/Download";
 import {Swiper, SwiperSlide} from 'swiper/react';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import {Autoplay, Navigation, Pagination} from 'swiper/modules';
 
 export const Topo = (props) => {
-  const { showSwiper = true } = props;
+  const {showSwiper = true} = props;
 
   return (
     <>
       <ContainerBarraSuperior>
         <ContainerLogo onClick={() => window.location.href = "https://tacaficha.com.br"}>
-          <img style={{ height: "37px" }} src={logo} alt="3DeT TacaFicha" />
-          <div />
-          <img style={{ height: "37px" }} src={tresdetlogo} alt="TacaFicha" />
+          <img style={{height: "37px"}} src={logo} alt="3DeT TacaFicha"/>
+          <div/>
+          <img style={{height: "37px"}} src={tresdetlogo} alt="TacaFicha"/>
         </ContainerLogo>
-        <DarkModeToggle />
+        <DarkModeToggle/>
       </ContainerBarraSuperior>
       {showSwiper && (
         <Swiper
@@ -55,7 +55,7 @@ export const Topo = (props) => {
                 <ContainerTexto>
                   <Descricao>
                     <h1>Olá aventureiro!</h1>
-                    <br />
+                    <br/>
                     <p>
                       Este é um site não oficial para auxiliar na criação de
                       personagens no sistema <b>3DeT Victory</b>.
@@ -65,7 +65,7 @@ export const Topo = (props) => {
                   <a
                     href="https://blog.jamboeditora.com.br/wp-content/uploads/2023/08/3DeT_-_DEMO_-_Kit_Introdutorio.pdf"
                     target="_blank"
-                    style={{ textDecoration: "none" }}
+                    style={{textDecoration: "none"}}
                     rel="noreferrer"
                   >
                     <Button>
@@ -105,7 +105,7 @@ export const Topo = (props) => {
                     borderRadius: '8px'
                   }}>
                     <h1 style={{color: '#FFBF22'}}>Uma ficha completa!</h1>
-                    <br />
+                    <br/>
                     <p style={{color: '#FFF'}}>
                       Confira nossa ficha em branco no formato pdf. É só <b>baixar e imprimir!</b>
                     </p>
@@ -114,7 +114,7 @@ export const Topo = (props) => {
                   <a
                     href="https://drive.google.com/file/d/1ULj5wjFDZ5eD3cmnDbvMxGW_iKrZSGae/view"
                     target="_blank"
-                    style={{ textDecoration: "none" }}
+                    style={{textDecoration: "none"}}
                     rel="noreferrer"
                   >
                     <Button>
@@ -128,7 +128,7 @@ export const Topo = (props) => {
                   </a>
                 </ContainerTexto>
                 <ContainerTablet>
-                  
+
                 </ContainerTablet>
               </ContainerTextoETablet>
             </ContainerBanner>

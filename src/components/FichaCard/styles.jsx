@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import frame from '../../images/frame.png'
 
 export const ContainerFicha = styled.div`
     margin-bottom: 16px;

@@ -1,9 +1,9 @@
 import {TacaFicha} from "../index";
 import {TacaFichaVerso} from "../TacaFichaVerso";
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {Swiper, SwiperSlide} from 'swiper/react';
 
-import { EffectCards } from 'swiper/modules';
+import {EffectCards} from 'swiper/modules';
 import html2canvas from "html2canvas";
 import {Button} from "./styles";
 import SaveIcon from "@mui/icons-material/Save";
@@ -65,11 +65,11 @@ export function TacaFichaTCG() {
       <SwiperSlide><TacaFicha/></SwiperSlide>
       <SwiperSlide><TacaFichaVerso/></SwiperSlide>
       <SwiperSlide><TacaCarta/></SwiperSlide>
-      <SwiperSlide><TacaCola /></SwiperSlide>
-      <SwiperSlide><FichaTCGMinimalista /></SwiperSlide>
-      <SwiperSlide><FichaCard /></SwiperSlide>
+      <SwiperSlide><TacaCola/></SwiperSlide>
+      <SwiperSlide><FichaTCGMinimalista/></SwiperSlide>
+      <SwiperSlide><FichaCard/></SwiperSlide>
     </Swiper>
-    <br />
+    <br/>
     <div style={{
       display: 'flex',
       justifyContent: 'center',
@@ -83,11 +83,11 @@ export function TacaFichaTCG() {
             Modelo de ficha por{" "}
             <a style={{color: '#FFF'}} href="https://twitter.com/lukeskelington">@lukeskelington</a>
           </p>
-          <br />
+          <br/>
         </>
       }
       <Button onClick={() => captureAndSaveFicha()}>
-        <SaveIcon />
+        <SaveIcon/>
         Salvar Imagem
       </Button>
     </div>
