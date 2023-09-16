@@ -44,11 +44,11 @@ export const Meio = styled.div`
   display: flex;
   grid-column: 1/2;
   grid-row: 2/3;
-  padding-top: 8px;
-  height: 326px;
-  flex-direction: column;
-  justify-content: space-between;
   font-weight: 900;
+  align-items: flex-start;
+  flex-direction: column;
+  height: 342px;
+  justify-content: space-around;
 `
 
 export const TextosContainer = styled.div`
@@ -186,7 +186,7 @@ export const RecursosContainer = styled.div`
   display: flex;
   justify-content: center;
   gap: 8px;
-  align-items: center;
+  align-items: end;
   p{
     font-size: 34px;
   }
@@ -208,7 +208,6 @@ export const AtributosContainer = styled.div`
 export const AtributosContainerPoder = styled.div`
   display: flex;
   gap: 8px;
-  height: 102px;
   align-items: center;
   justify-content: center;
   width: 122px;
@@ -219,7 +218,6 @@ export const AtributosContainerPoder = styled.div`
 export const AtributosContainerHabilidade = styled.div`
   display: flex;
   gap: 8px;
-  height: 102px;
   align-items: center;
   justify-content: center;
   width: 122px;
@@ -230,7 +228,6 @@ export const AtributosContainerHabilidade = styled.div`
 export const AtributosContainerresistencia = styled.div`
   display: flex;
   gap: 8px;
-  height: 102px;
   align-items: center;
   justify-content: center;
   width: 122px;
