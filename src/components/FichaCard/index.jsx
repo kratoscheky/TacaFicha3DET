@@ -84,7 +84,6 @@ export const FichaCard = () => {
         flexDirection: 'column',
         alignItems: 'center'
       }}>
-        <h1 style={{color: '#FFF'}}>TCG</h1>
         <ContainerFicha
           style={{ backgroundImage: `url(${imageBlob})` }}
           id="container-ficha-card"
@@ -276,16 +275,7 @@ export const FichaCard = () => {
             </Detalhes>
           </AlinhamentoInfos>
         </ContainerFicha>
-        <p style={{color: '#FFF'}}>
-          Modelo de ficha por{" "}
-          <a style={{color: '#FFF'}} href="https://twitter.com/lukeskelington">@lukeskelington</a>
-        </p>
-        <br />
       </div>
-      <Button onClick={captureAndSaveFicha}>
-        <SaveIcon />
-        Salvar Imagem
-      </Button>
     </div>
   );
 };

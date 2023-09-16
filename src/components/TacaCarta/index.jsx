@@ -144,26 +144,6 @@ export const TacaCarta = () => {
           alignItems: "center",
         }}
       >
-        {!isShareView && (
-          <>
-            <h1 style={{color: '#FFF'}}>TacaCarta</h1>
-            <p style={{ color: "#6F0062" }}>BETA</p>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "center",
-                width: "100%",
-                paddingTop: "4px",
-                paddingBottom: "8px",
-              }}
-            >
-              <input type="checkbox" id="check-foil" onChange={(e) => setFoil(!foil)} checked={foil}/>
-              <label htmlFor="check-foil" style={{color: '#FFF'}}><i>Holográfica (apenas visualização)</i></label>
-            </div>
-          </>
-        )}
         <Card
           className={foil ? "foil" : ""}
           onMouseMove={handleMouseMove}
@@ -291,19 +271,7 @@ export const TacaCarta = () => {
             <img alt="Três dê e tê tag" src={tresdettag} />
           </ContainerRecursos>
         </Card>
-        <br />
-        <p style={{color: '#FFF'}}>
-          Modelo de ficha por{" "}
-          <a style={{color: '#FFF'}} href="https://www.facebook.com/groups/161485003862799/user/100086200497493/">
-            Lungas Neto
-          </a>
-        </p>
-        <br />
       </div>
-      <Button onClick={() => captureAndSaveFicha()}>
-        <SaveIcon />
-        Salvar Imagem
-      </Button>
     </Container>
   );
 };

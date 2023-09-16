@@ -104,7 +104,6 @@ export const FichaTCGMinimalista = () => {
           alignItems: "center",
         }}
       >
-        <h1 style={{color: '#FFF'}}>TCG Rounded</h1>
         <Card
           style={{
             backgroundImage: `url(${
@@ -206,19 +205,7 @@ export const FichaTCGMinimalista = () => {
             </ContainerDescricao>
           </ContainerTextos>
         </Card>
-        <br />
-        <p style={{color: '#FFF'}}>
-          Modelo de ficha por{" "}
-          <a style={{color: '#FFF'}} href="https://www.facebook.com/groups/161485003862799/user/100086200497493/">
-            Lungas Neto
-          </a>
-        </p>
-        <br />
       </div>
-      <Button onClick={() => captureAndSaveFicha()}>
-        <SaveIcon />
-        Salvar Imagem
-      </Button>
     </Container>
   );
 };

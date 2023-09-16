@@ -8,7 +8,7 @@ export const ContainerFicha = styled.div`
     color: #000;
     box-shadow: 4px 4px 9px 0px var(--drop-shadow);
     background-size: cover;
-    zoom: 50%;
+    zoom: 40%;
     -moz-transform: scale(0.5);
     width: 694px;
     border: 12px solid #000;

@@ -40,12 +40,6 @@ export const Ficha = () => {
           <SeparadorDadinho/>
           <Container>
             <TacaFichaTCG/>
-            <br />
-            <ContainerLegado>
-              <h1 style={{color: '#FFBF22'}}>FICHAS LEGADO:</h1>
-              <p style={{color: '#FFF'}}>Arraste para o lado para ver outras fichas!</p>
-              <FichaSwiper/>
-            </ContainerLegado>
           </Container>
         </>
     )
