@@ -11,13 +11,20 @@ import {TacaCarta} from "../../TacaCarta";
 import {TacaCola} from "../../TacaCola";
 import {FichaCard} from "../../FichaCard";
 import {FichaTCGMinimalista} from "../../FichaTCGMinimalista";
+import Brightness5Icon from '@mui/icons-material/Brightness5';
+import BrightnessHighIcon from '@mui/icons-material/BrightnessHigh';
+import {useFicha} from "../../../context/ficha.context";
 
 export function TacaFichaTCG() {
   const [swiper, setSwiper] = useState(null);
   const [actualCard, setActualCard] = useState('tacaficha')
+  const {foil, setFoil} = useFicha();
 
   const captureAndSaveFicha = () => {
-    const container = document.querySelector(`#${actualCard}`); // Use a classe do ContainerFicha real
+    const container = document.querySelector("#container-ficha-taca-carta"); // Use a classe do ContainerFicha real
+
+    if (foil)
+      container.classList.remove('foil');
 
     if (container) {
       html2canvas(container).then((canvas) => {
@@ -31,6 +38,9 @@ export function TacaFichaTCG() {
         downloadLink.click();
       });
     }
+
+    if (foil)
+      container.classList.add('foil');
   };
 
   const CartasIds = [
@@ -53,7 +63,21 @@ export function TacaFichaTCG() {
     background: '#6F0062',
     borderRadius: '8px',
   }}>
-    <h1 style={{color: '#FFBF22', paddingBottom: '20px'}}>TACA FICHA!</h1>
+    <div style={{
+      width: '100%',
+      display: 'flex',
+      justifyContent: 'space-between'
+    }}>
+      <h1 style={{color: '#FFBF22', paddingBottom: '20px'}}>TACA FICHA!</h1>
+      <Button onClick={() => setFoil(f => !f)}>
+        {
+          foil ?
+            <BrightnessHighIcon style={{color: '#FFF'}} />
+            :
+            <Brightness5Icon style={{color: '#FFF'}} />
+        }
+      </Button>
+    </div>
     <Swiper
       effect={'cards'}
       grabCursor={true}

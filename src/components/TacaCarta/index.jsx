@@ -89,29 +89,6 @@ export const TacaCarta = () => {
     Sustento: "#B15928",
   };
 
-  const captureAndSaveFicha = () => {
-    const container = document.querySelector("#container-ficha-taca-carta"); // Use a classe do ContainerFicha real
-
-    if (foil)
-      container.classList.remove('foil');
-
-    if (container) {
-      html2canvas(container).then((canvas) => {
-        // Convertendo o canvas para um URL de imagem
-        const imgURL = canvas.toDataURL("image/png");
-
-        // Criando um link para download
-        const downloadLink = document.createElement("a");
-        downloadLink.href = imgURL;
-        downloadLink.download = "ficha.png";
-        downloadLink.click();
-      });
-    }
-
-    if (foil)
-      container.classList.add('foil');
-  };
-
   const handleMouseMove = throttle((e) => {
     const posX = e.nativeEvent.offsetX || (e.nativeEvent.touches && e.nativeEvent.touches[0].clientX);
     const posY = e.nativeEvent.offsetY || (e.nativeEvent.touches && e.nativeEvent.touches[0].clientY);
