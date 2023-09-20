@@ -45,6 +45,7 @@ export const FichaProvider = ({ children }) => {
   const [recursosFinal, setRecursosFinal] = useState(initialRecursos);
 
   const [anotacoes, setAnotacoes] = useState('');
+  const [salvandoLoading, setSalvandoLoading] = useState(false)
 
   useEffect(() => {
     let acaoFinal = atributos.poder === 0 ? 1 : atributos.poder;
@@ -153,7 +154,9 @@ export const FichaProvider = ({ children }) => {
         foil,
         setFoil,
         anotacoes,
-        setAnotacoes
+        setAnotacoes,
+        salvandoLoading,
+        setSalvandoLoading
       }}
     >
       {children}

@@ -22,10 +22,12 @@ export const FichaClassica = () => {
       desvantagens,
       pericias,
       extras,
-      recursosFinal
+      recursosFinal,
+      setSalvandoLoading
     } = useFicha();
 
     const captureAndSaveFicha = () => {
+      setSalvandoLoading(true)
         const container = document.querySelector('#container-ficha-classica'); // Use a classe do ContainerFicha real
     
         if (container) {
@@ -38,6 +40,10 @@ export const FichaClassica = () => {
                 downloadLink.href = imgURL;
                 downloadLink.download = 'ficha.png';
                 downloadLink.click();
+                setSalvandoLoading(false)
+            }).catch(e => {
+              alert(`Ocorreu um erro! ${e.message}`)
+              setSalvandoLoading(false);
             });
         }
     };

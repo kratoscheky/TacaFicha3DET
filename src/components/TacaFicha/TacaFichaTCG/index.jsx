@@ -7,12 +7,15 @@ import { EffectCards } from 'swiper/modules';
 import html2canvas from "html2canvas";
 import {Button} from "./styles";
 import SaveIcon from "@mui/icons-material/Save";
+import {useFicha} from "../../../context/ficha.context";
 
 export function TacaFichaTCG() {
   const [swiper, setSwiper] = useState(null);
   const [actualCard, setActualCard] = useState('tacaficha')
+  const {setSalvandoLoading} = useFicha();
 
   const captureAndSaveFicha = () => {
+    setSalvandoLoading(true);
     const container = document.querySelector(`#${actualCard}`); // Use a classe do ContainerFicha real
 
     if (container) {
@@ -25,6 +28,10 @@ export function TacaFichaTCG() {
         downloadLink.href = imgURL;
         downloadLink.download = "ficha.png";
         downloadLink.click();
+        setSalvandoLoading(false);
+      }).catch(e => {
+        alert(`Ocorreu um erro! ${e.message}`)
+        setSalvandoLoading(false);
       });
     }
   };

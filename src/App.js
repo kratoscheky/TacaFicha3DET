@@ -9,6 +9,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { AvisoTopo } from "./components/AvisoTopo";
 import { ArquetipoPainel } from "./components/ArquetiposPainel";
 import { useShare } from "./context/share.context";
+import {LoadingSaveCard} from "./components/LoadingSaveCard";
 
 function App() {
   const [page, setPage] = useState("");
@@ -36,6 +37,7 @@ function App() {
   return (
     <>
       <Analytics />
+      <LoadingSaveCard />
       <Topo showSwiper={page !== "ShareView"} />
       {page !== "ShareView" && (<AvisoTopo />)}
       <ContainerPage>

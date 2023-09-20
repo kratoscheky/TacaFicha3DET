@@ -72,6 +72,7 @@ export const TacaCarta = () => {
     recursosFinal,
     foil,
     setFoil,
+    setSalvandoLoading
   } = useFicha();
 
   const { isShareView } = useShare();
@@ -92,6 +93,7 @@ export const TacaCarta = () => {
   };
 
   const captureAndSaveFicha = () => {
+    setSalvandoLoading(true)
     const container = document.querySelector("#container-ficha-taca-carta"); // Use a classe do ContainerFicha real
 
     if (foil)
@@ -107,6 +109,10 @@ export const TacaCarta = () => {
         downloadLink.href = imgURL;
         downloadLink.download = "ficha.png";
         downloadLink.click();
+        setSalvandoLoading(false);
+      }).catch(e => {
+        alert(`Ocorreu um erro! ${e.message}`)
+        setSalvandoLoading(false);
       });
     }
 
