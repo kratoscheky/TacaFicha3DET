@@ -51,7 +51,8 @@ export const FichaMinimalista = () => {
         // Criando um link para download
         const downloadLink = document.createElement("a");
         downloadLink.href = imgURL;
-        window.open(imgURL, '_blank')
+        downloadLink.download = "ficha.png";
+        downloadLink.click();
         setSalvandoLoading(false);
       }).catch(e => {
         alert(`Ocorreu um erro! ${e.message}`)
