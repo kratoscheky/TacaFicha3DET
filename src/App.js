@@ -10,6 +10,7 @@ import {AvisoTopo} from "./components/AvisoTopo";
 import {ArquetipoPainel} from "./components/ArquetiposPainel";
 import {useShare} from "./context/share.context";
 import {SalvarSlot} from "./components/SalvarSlot";
+import {TacaDado} from "./components/TacaDado";
 
 function App() {
   const [page, setPage] = useState("");
@@ -42,6 +43,7 @@ function App() {
       <ContainerPage>
         {page === "MontaFicha" && (
           <>
+            <TacaDado />
             <SaveSlots/>
             <ArquetipoPainel/>
             <Ficha/>
