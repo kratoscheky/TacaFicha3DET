@@ -27,7 +27,6 @@ export function TacaFichaTCG() {
     if (container) {
       html2canvas(container).then((canvas) => {
         // Convertendo o canvas para um URL de imagem
-        const imgURL = canvas.toDataURL("image/png");
 
         canvas.toBlob((blob) => {
           const newImg = document.createElement("img");
@@ -39,23 +38,12 @@ export function TacaFichaTCG() {
           };
 
           newImg.src = url;
-          // document.getElementById('imagem-gerada-container').appendChild(newImg);
           const downloadLink = document.createElement("a");
-          downloadLink.setAttribute('download', '')
           downloadLink.href = url;
           downloadLink.download = "ficha.png";
-          setImagemGerada(imgURL);
           downloadLink.click();
           setSalvandoLoading(false);
         });
-
-        // Criando um link para download
-        // const downloadLink = document.createElement("a");
-        // downloadLink.setAttribute('download', '')
-        // downloadLink.href = imgURL;
-        // downloadLink.download = "ficha.png";
-        // setImagemGerada(imgURL);
-        // downloadLink.click();
       }).catch(e => {
         alert(`Ocorreu um erro! ${e.message}`)
         setSalvandoLoading(false);
