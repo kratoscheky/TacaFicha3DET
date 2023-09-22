@@ -29,14 +29,33 @@ export function TacaFichaTCG() {
         // Convertendo o canvas para um URL de imagem
         const imgURL = canvas.toDataURL("image/png");
 
+        canvas.toBlob((blob) => {
+          const newImg = document.createElement("img");
+          const url = URL.createObjectURL(blob);
+
+          newImg.onload = () => {
+            // no longer need to read the blob so it's revoked
+            URL.revokeObjectURL(url);
+          };
+
+          newImg.src = url;
+          // document.getElementById('imagem-gerada-container').appendChild(newImg);
+          const downloadLink = document.createElement("a");
+          downloadLink.setAttribute('download', '')
+          downloadLink.href = url;
+          downloadLink.download = "ficha.png";
+          setImagemGerada(imgURL);
+          downloadLink.click();
+          setSalvandoLoading(false);
+        });
+
         // Criando um link para download
-        const downloadLink = document.createElement("a");
-        downloadLink.setAttribute('download', '')
-        downloadLink.href = imgURL;
-        downloadLink.download = "ficha.png";
-        setImagemGerada(imgURL);
-        downloadLink.click();
-        setSalvandoLoading(false);
+        // const downloadLink = document.createElement("a");
+        // downloadLink.setAttribute('download', '')
+        // downloadLink.href = imgURL;
+        // downloadLink.download = "ficha.png";
+        // setImagemGerada(imgURL);
+        // downloadLink.click();
       }).catch(e => {
         alert(`Ocorreu um erro! ${e.message}`)
         setSalvandoLoading(false);
