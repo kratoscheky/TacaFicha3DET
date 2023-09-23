@@ -16,14 +16,18 @@ export const LoadingSaveCard = () => {
     }
   };
 
-  // if(imagem)
-  //   return (
-  //     <>
-  //       <Container onClick={() => setImagemGerada(null)}>
-  //         <a href={imagem} download><Button>Download</Button></a>
-  //       </Container>
-  //     </>
-  //   )
+  if(imagem)
+    return (
+      <>
+        <Container onClick={() => setImagemGerada(null)}>
+          <img src={imagem} />
+          <br />
+          <h3>Caso o download não tenha iniciado automaticamente, clique abaixo ou salve a imagem manualmente.</h3>
+          <br />
+          <a href={imagem} download><Button>Download</Button></a>
+        </Container>
+      </>
+    )
 
   if(!salvandoLoading)
     return null

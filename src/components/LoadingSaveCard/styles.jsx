@@ -15,4 +15,12 @@ export const Container = styled.div`
   img{
     max-height: 400px;
   }
+  h3{
+    background: deeppink;
+    border-radius: 8px;
+    padding: 4px;
+    text-align: justify;
+    font-size: 12px;
+    max-width: 300px;
+  }
 `
