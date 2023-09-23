@@ -24,7 +24,7 @@ export const LoadingSaveCard = () => {
           <br />
           <h3>Caso o download não tenha iniciado automaticamente, clique abaixo ou salve a imagem manualmente.</h3>
           <br />
-          <a href={imagem} download><Button>Download</Button></a>
+          <a href={imagem} download="ficha.png"><Button>Download</Button></a>
         </Container>
       </>
     )
