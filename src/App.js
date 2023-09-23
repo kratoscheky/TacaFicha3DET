@@ -1,16 +1,15 @@
 import React, {useEffect, useState} from "react";
 import "./App.css";
-import {Topo} from "./components/Topo";
-import {Ficha} from "./pages/Ficha";
-import {ShareView} from "./pages/ShareView";
-import {ContainerPage} from "./styles";
-import {SaveSlots} from "./components/SaveSlots";
-import {Analytics} from "@vercel/analytics/react";
-import {AvisoTopo} from "./components/AvisoTopo";
-import {ArquetipoPainel} from "./components/ArquetiposPainel";
-import {useShare} from "./context/share.context";
-import {SalvarSlot} from "./components/SalvarSlot";
-import {TacaDado} from "./components/TacaDado";
+import { Topo } from "./components/Topo";
+import { Ficha } from "./pages/Ficha";
+import { ShareView } from "./pages/ShareView";
+import { ContainerPage } from "./styles";
+import { SaveSlots } from "./components/SaveSlots";
+import { Analytics } from "@vercel/analytics/react";
+import { AvisoTopo } from "./components/AvisoTopo";
+import { ArquetipoPainel } from "./components/ArquetiposPainel";
+import { useShare } from "./context/share.context";
+import {LoadingSaveCard} from "./components/LoadingSaveCard";
 
 function App() {
   const [page, setPage] = useState("");
@@ -37,9 +36,10 @@ function App() {
 
   return (
     <>
-      <Analytics/>
-      <Topo showSwiper={page !== "ShareView"}/>
-      {page !== "ShareView" && (<AvisoTopo/>)}
+      <Analytics />
+      <LoadingSaveCard />
+      <Topo showSwiper={page !== "ShareView"} />
+      {page !== "ShareView" && (<AvisoTopo />)}
       <ContainerPage>
         {page === "MontaFicha" && (
           <>

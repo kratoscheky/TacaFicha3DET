@@ -104,6 +104,7 @@ export const FichaTCGMinimalista = () => {
   };
 
   const captureAndSaveFicha = () => {
+    setSalvandoLoading(true)
     const container = document.querySelector(
       "#container-ficha-tcg-minimalista"
     ); // Use a classe do ContainerFicha real
@@ -118,6 +119,10 @@ export const FichaTCGMinimalista = () => {
         downloadLink.href = imgURL;
         downloadLink.download = "ficha.png";
         downloadLink.click();
+        setSalvandoLoading(false)
+      }).catch(e => {
+        alert(`Ocorreu um erro! ${e.message}`)
+        setSalvandoLoading(false);
       });
     }
   };
@@ -137,7 +142,6 @@ export const FichaTCGMinimalista = () => {
           onTouchMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
           onTouchEnd={handleMouseLeave}
-          id='tacaficha'
           style={{
             backgroundImage: `url(${imageBlob})`,
             transform: `${isFirefox ? 'scale(0.5)' : ''} rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`

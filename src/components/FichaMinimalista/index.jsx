@@ -35,10 +35,12 @@ export const FichaMinimalista = () => {
     pericias,
     extras,
     imageBlob,
-    recursosFinal
+    recursosFinal,
+    setSalvandoLoading
   } = useFicha();
 
   const captureAndSaveFicha = () => {
+    setSalvandoLoading(true);
     const container = document.querySelector("#container-ficha-minimalista"); // Use a classe do ContainerFicha real
 
     if (container) {
@@ -51,6 +53,10 @@ export const FichaMinimalista = () => {
         downloadLink.href = imgURL;
         downloadLink.download = "ficha.png";
         downloadLink.click();
+        setSalvandoLoading(false);
+      }).catch(e => {
+        alert(`Ocorreu um erro! ${e.message}`)
+        setSalvandoLoading(false);
       });
     }
   };

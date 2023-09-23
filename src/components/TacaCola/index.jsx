@@ -57,7 +57,8 @@ export const TacaCola = () => {
     recursosFinal,
     foil,
     setFoil,
-    anotacoes
+    anotacoes,
+    setSalvandoLoading
   } = useFicha();
 
   const {isShareView} = useShare();
@@ -78,6 +79,7 @@ export const TacaCola = () => {
   };
 
   const captureAndSaveFicha = () => {
+    setSalvandoLoading(true)
     const container = document.querySelector("#container-ficha-taca-cola"); // Use a classe do ContainerFicha real
 
     if (foil)
@@ -93,6 +95,10 @@ export const TacaCola = () => {
         downloadLink.href = imgURL;
         downloadLink.download = "ficha.png";
         downloadLink.click();
+        setSalvandoLoading(false)
+      }).catch(e => {
+        alert(`Ocorreu um erro! ${e.message}`)
+        setSalvandoLoading(false);
       });
     }
 

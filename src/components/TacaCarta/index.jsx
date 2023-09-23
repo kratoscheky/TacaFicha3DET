@@ -70,6 +70,7 @@ export const TacaCarta = () => {
     recursosFinal,
     foil,
     setFoil,
+    setSalvandoLoading
   } = useFicha();
 
   const {isShareView} = useShare();

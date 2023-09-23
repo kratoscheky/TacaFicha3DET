@@ -18,13 +18,11 @@ import {useFicha} from "../../../context/ficha.context";
 export function TacaFichaTCG() {
   const [swiper, setSwiper] = useState(null);
   const [actualCard, setActualCard] = useState('tacaficha')
-  const {foil, setFoil, setImagem} = useFicha();
+  const {setSalvandoLoading} = useFicha();
 
   const captureAndSaveFicha = () => {
-    const container = document.querySelector("#container-ficha-taca-carta"); // Use a classe do ContainerFicha real
-
-    if (foil)
-      container.classList.remove('foil');
+    setSalvandoLoading(true);
+    const container = document.querySelector(`#${actualCard}`); // Use a classe do ContainerFicha real
 
     if (container) {
       html2canvas(container).then((canvas) => {
@@ -37,6 +35,10 @@ export function TacaFichaTCG() {
         downloadLink.download = "ficha.png";
         setImagem(imgURL);
         downloadLink.click();
+        setSalvandoLoading(false);
+      }).catch(e => {
+        alert(`Ocorreu um erro! ${e.message}`)
+        setSalvandoLoading(false);
       });
     }
 

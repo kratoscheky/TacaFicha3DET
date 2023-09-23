@@ -45,6 +45,7 @@ export const FichaProvider = ({children}) => {
   const [recursosFinal, setRecursosFinal] = useState(initialRecursos);
 
   const [anotacoes, setAnotacoes] = useState('');
+  const [salvandoLoading, setSalvandoLoading] = useState(false)
 
   const [imagem, setImagemGerada] = useState("");
 
@@ -157,7 +158,9 @@ export const FichaProvider = ({children}) => {
         anotacoes,
         setAnotacoes,
         imagem,
-        setImagemGerada
+        setImagemGerada,
+        salvandoLoading,
+        setSalvandoLoading
       }}
     >
       {children}

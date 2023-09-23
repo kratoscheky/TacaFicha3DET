@@ -82,6 +82,7 @@ export const FichaCard = () => {
     const container = document.querySelector("#container-ficha-card"); // Use a classe do ContainerFicha real
 
     if (container) {
+      setSalvandoLoading(true)
       html2canvas(container).then((canvas) => {
         // Convertendo o canvas para um URL de imagem
         const imgURL = canvas.toDataURL("image/png");
@@ -91,6 +92,10 @@ export const FichaCard = () => {
         downloadLink.href = imgURL;
         downloadLink.download = "ficha.png";
         downloadLink.click();
+        setSalvandoLoading(false)
+      }).catch(e => {
+        alert(`Ocorreu um erro! ${e.message}`)
+        setSalvandoLoading(false);
       });
     }
   };
@@ -117,7 +122,6 @@ export const FichaCard = () => {
           onTouchMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
           onTouchEnd={handleMouseLeave}
-          id='tacaficha'
           style={{
             backgroundImage: `url(${imageBlob})`,
             transform: `${isFirefox ? 'scale(0.5)' : ''} rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`
