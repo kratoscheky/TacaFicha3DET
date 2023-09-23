@@ -11,6 +11,15 @@ export default defineConfig({
       globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg}'],
       maximumFileSizeToCacheInBytes: 17 * 1024 * 1024,
     },
+    build: {
+      rollupOptions: {
+        output: {
+          entryFileNames: `[name]v1.js`,
+          chunkFileNames: `[name]v1.js`,
+          assetFileNames: `[name]v1.[ext]`
+        }
+      }
+    },
     manifest: {
       "background_color": "#ffffff",
       "description": "TacaFicha é um site para ajudar a criar fichas de personagem no sistema de rpg 3DeT Victory! Oferecendo varios modelos de fichas diferentes.",
