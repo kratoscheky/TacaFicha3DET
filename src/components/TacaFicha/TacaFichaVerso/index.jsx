@@ -113,7 +113,6 @@ export const TacaFichaVerso = () => {
              onTouchMove={handleMouseMove}
              onMouseLeave={handleMouseLeave}
              onTouchEnd={handleMouseLeave}
-             id='tacaficha'
              style={{
                backgroundImage: `url(${imageBlob})`,
                transform: `${isFirefox ? 'scale(0.5)' : ''} rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`
