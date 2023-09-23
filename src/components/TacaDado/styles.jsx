@@ -15,6 +15,10 @@ export const Container = styled.div`
     bottom: 0;
     right: 0;
   }
+  @media (max-height: 680px) {
+    height: 100%;
+    bottom: 0;
+  }
 `
 
 export const ContainerButton = styled.div`
