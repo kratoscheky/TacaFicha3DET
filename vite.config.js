@@ -11,7 +11,8 @@ export default defineConfig({
     },
     injectRegister: 'auto',
     workbox: {
-      globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg}']
+      globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg}'],
+      maximumFileSizeToCacheInBytes: 17 * 1024 * 1024,
     },
     manifest: {
       "background_color": "#ffffff",
