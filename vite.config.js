@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
+import { version } from './package.json'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -14,9 +15,9 @@ export default defineConfig({
     build: {
       rollupOptions: {
         output: {
-          entryFileNames: `[name]v1.js`,
-          chunkFileNames: `[name]v1.js`,
-          assetFileNames: `[name]v1.[ext]`
+          entryFileNames: `[name].js?v=${version}`,
+          chunkFileNames: `[name].js?v=${version}`,
+          assetFileNames: `[name].[ext]?v=${version}`
         }
       }
     },
