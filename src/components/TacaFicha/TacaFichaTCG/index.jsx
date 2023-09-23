@@ -2,8 +2,7 @@ import {TacaFicha} from "../index";
 import {TacaFichaVerso} from "../TacaFichaVerso";
 import React, {useState} from "react";
 import {Swiper, SwiperSlide} from 'swiper/react';
-
-import {EffectCards} from 'swiper/modules';
+import {EffectCards, Navigation} from 'swiper/modules';
 import html2canvas from "html2canvas";
 import {Button} from "./styles";
 import SaveIcon from "@mui/icons-material/Save";
@@ -13,12 +12,13 @@ import {FichaCard} from "../../FichaCard";
 import {FichaTCGMinimalista} from "../../FichaTCGMinimalista";
 import Brightness5Icon from '@mui/icons-material/Brightness5';
 import BrightnessHighIcon from '@mui/icons-material/BrightnessHigh';
+import 'swiper/css/navigation';
 import {useFicha} from "../../../context/ficha.context";
 
 export function TacaFichaTCG() {
   const [swiper, setSwiper] = useState(null);
   const [actualCard, setActualCard] = useState('tacaficha')
-  const {foil, setFoil} = useFicha();
+  const {foil, setFoil, setImagem} = useFicha();
 
   const captureAndSaveFicha = () => {
     const container = document.querySelector("#container-ficha-taca-carta"); // Use a classe do ContainerFicha real
@@ -35,6 +35,7 @@ export function TacaFichaTCG() {
         const downloadLink = document.createElement("a");
         downloadLink.href = imgURL;
         downloadLink.download = "ficha.png";
+        setImagem(imgURL);
         downloadLink.click();
       });
     }
@@ -79,9 +80,10 @@ export function TacaFichaTCG() {
       </Button>
     </div>
     <Swiper
+      navigation
       effect={'cards'}
       grabCursor={true}
-      modules={[EffectCards]}
+      modules={[EffectCards, Navigation]}
       className="mySwiper"
       onSwiper={setSwiper}
       onSlideChange={e => HandleCardAtivo(e.activeIndex)}

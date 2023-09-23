@@ -15,6 +15,67 @@ export const Carta = styled.div`
   background-position: center;
   color: #FFF;
   zoom: 40%;
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-repeat: no-repeat;
+    opacity: .5;
+    mix-blend-mode: color-dodge;
+    // transition: all .33s ease;
+    filter: brightness(.66) contrast(1.33);
+  }
+
+  &.foil:before {
+    background-position: 50% 50%;
+    background-size: cover;
+    background-image: linear-gradient(125deg, #ff008450 15%, #fca40040 30%, #ffff0030 40%, #00ff8a20 60%, #00cfff40 70%, #cc4cfa50 85%);
+    opacity: 0.5;
+    filter: brightness(.66) contrast(1.33);
+    z-index: 1;
+  }
+
+  &.foil:after {
+    opacity: 1;
+    background-image: url("assets/sparkles.webp"),
+    url(assets/holo.webp),
+    linear-gradient(125deg, #ff008450 15%, #fca40040 30%, #ffff0030 40%, #00ff8a20 60%, #00cfff40 70%, #cc4cfa50 85%);
+    background-position: 50% 50%;
+    background-size: cover;
+    background-blend-mode: overlay;
+    z-index: 2;
+    filter: brightness(1) contrast(1);
+    transition: all .33s ease;
+    mix-blend-mode: color-dodge;
+    opacity: .75;
+  }
+
+  &.foil.active:after,
+  &.foil:hover:after {
+    filter: brightness(1) contrast(1);
+    opacity: 1;
+  }
+
+  &.foil.active,
+  &.foil:hover {
+    animation: none;
+    transition: box-shadow 0.1s ease-out;
+  }
+
+  &.foil.active:before,
+  &.foil:hover:before {
+    animation: none;
+    background: linear-gradient(${(props) => props.gradientDegree ? props.gradientDegree : '125'}deg, #ff008450 15%, #fca40040 30%, #ffff0030 40%, #00ff8a20 60%, #00cfff40 70%, #cc4cfa50 85%);
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+    opacity: .88;
+    filter: brightness(.66) contrast(1.33);
+    transition: background 0.3s ease-in-out !important;
+  }
 `
 
 export const EscalaPoder = styled.div`

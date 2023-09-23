@@ -23,8 +23,10 @@ import {
   Topo
 } from "./styles";
 import {useFicha} from "../../../context/ficha.context";
-import React from "react";
+import React, {useState} from "react";
 import {Container} from "../styles";
+import {useBrowserContext} from "../../../context/browser.context";
+import throttle from "lodash/throttle";
 
 export const TacaFichaVerso = () => {
   const {
@@ -42,6 +44,32 @@ export const TacaFichaVerso = () => {
     setFoil,
     anotacoes
   } = useFicha();
+
+  const [rotation, setRotation] = useState({x: 0, y: 0});
+  const [gradientDegree, setGradientDegree] = useState(125);
+
+  const {isFirefox} = useBrowserContext();
+
+  const handleMouseMove = throttle((e) => {
+    const posX = e.nativeEvent.offsetX || (e.nativeEvent.touches && e.nativeEvent.touches[0].clientX);
+    const posY = e.nativeEvent.offsetY || (e.nativeEvent.touches && e.nativeEvent.touches[0].clientY);
+    const x = Math.abs(Math.floor(100 / e.target.offsetWidth * posX) - 100);
+    const y = Math.abs(Math.floor(100 / e.target.offsetHeight * posY) - 100);
+
+    const backgroundX = 50 + (x - 50) / 1.5;
+    const backgroundY = 50 + (y - 50) / 1.5;
+
+    const ty = ((backgroundY - 50) / 2) * -1;
+    const tx = ((backgroundX - 50) / 1.5) * 0.5;
+    setRotation({x: ty, y: tx});
+
+    const _gradientDegree = 20 + Math.abs((50 - x) + (50 - y)) * 1.5;
+    setGradientDegree(_gradientDegree);
+  }, 100);
+
+  const handleMouseLeave = () => {
+    setRotation({x: 0, y: 0});
+  };
 
   const CoresPericias = {
     Animais: "#A6CEE3",
@@ -80,7 +108,18 @@ export const TacaFichaVerso = () => {
 
   return (
     <Container>
-      <Carta id='tacaficha-verso'>
+      <Carta className={foil ? "foil" : ""}
+             onMouseMove={handleMouseMove}
+             onTouchMove={handleMouseMove}
+             onMouseLeave={handleMouseLeave}
+             onTouchEnd={handleMouseLeave}
+             id='tacaficha'
+             style={{
+               backgroundImage: `url(${imageBlob})`,
+               transform: `${isFirefox ? 'scale(0.5)' : ''} rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`
+             }}
+             gradientDegree={gradientDegree}
+             id='tacaficha-verso'>
         <Frame src={frame}/>
         <EscalaPoder>
           <Svg fillEscala={DefinirCorEscala(pontosTotais.toString())} width="175" height="59" viewBox="0 0 175 59"

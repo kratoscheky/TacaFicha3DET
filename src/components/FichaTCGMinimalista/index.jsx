@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   ArquetipoBar,
   ArquetipoText,
@@ -44,6 +44,8 @@ import manaIcon from "../../images/minimalista/mana.svg";
 import vidaIcon from "../../images/minimalista/vida.svg";
 import html2canvas from "html2canvas";
 import {useFicha} from "../../context/ficha.context";
+import {useBrowserContext} from "../../context/browser.context";
+import throttle from "lodash/throttle";
 
 export const FichaTCGMinimalista = () => {
   const {
@@ -56,8 +58,35 @@ export const FichaTCGMinimalista = () => {
     pontosTotais,
     arquetipo,
     imageBlob,
-    recursosFinal
+    recursosFinal,
+    foil
   } = useFicha();
+
+  const [rotation, setRotation] = useState({x: 0, y: 0});
+  const [gradientDegree, setGradientDegree] = useState(125);
+
+  const {isFirefox} = useBrowserContext();
+
+  const handleMouseMove = throttle((e) => {
+    const posX = e.nativeEvent.offsetX || (e.nativeEvent.touches && e.nativeEvent.touches[0].clientX);
+    const posY = e.nativeEvent.offsetY || (e.nativeEvent.touches && e.nativeEvent.touches[0].clientY);
+    const x = Math.abs(Math.floor(100 / e.target.offsetWidth * posX) - 100);
+    const y = Math.abs(Math.floor(100 / e.target.offsetHeight * posY) - 100);
+
+    const backgroundX = 50 + (x - 50) / 1.5;
+    const backgroundY = 50 + (y - 50) / 1.5;
+
+    const ty = ((backgroundY - 50) / 2) * -1;
+    const tx = ((backgroundX - 50) / 1.5) * 0.5;
+    setRotation({x: ty, y: tx});
+
+    const _gradientDegree = 20 + Math.abs((50 - x) + (50 - y)) * 1.5;
+    setGradientDegree(_gradientDegree);
+  }, 100);
+
+  const handleMouseLeave = () => {
+    setRotation({x: 0, y: 0});
+  };
 
   const CoresPericias = {
     Animais: "#A6CEE3",
@@ -103,12 +132,17 @@ export const FichaTCGMinimalista = () => {
         }}
       >
         <Card
+          className={foil ? "foil" : ""}
+          onMouseMove={handleMouseMove}
+          onTouchMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          onTouchEnd={handleMouseLeave}
+          id='tacaficha'
           style={{
-            backgroundImage: `url(${
-              imageBlob ??
-              "https://site.jamboeditora.com.br/wp-content/uploads/2023/07/3DeT-abertura-mobile.png"
-            })`,
+            backgroundImage: `url(${imageBlob})`,
+            transform: `${isFirefox ? 'scale(0.5)' : ''} rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`
           }}
+          gradientDegree={gradientDegree}
           id="container-ficha-tcg-minimalista"
         >
           <Borda src={borda}/>

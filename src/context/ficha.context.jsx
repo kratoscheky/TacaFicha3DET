@@ -46,6 +46,8 @@ export const FichaProvider = ({children}) => {
 
   const [anotacoes, setAnotacoes] = useState('');
 
+  const [imagem, setImagemGerada] = useState("");
+
   useEffect(() => {
     let acaoFinal = atributos.poder === 0 ? 1 : atributos.poder;
     let manaFinal = atributos.habilidade === 0 ? 1 : atributos.habilidade * 5;
@@ -153,7 +155,9 @@ export const FichaProvider = ({children}) => {
         foil,
         setFoil,
         anotacoes,
-        setAnotacoes
+        setAnotacoes,
+        imagem,
+        setImagemGerada
       }}
     >
       {children}
