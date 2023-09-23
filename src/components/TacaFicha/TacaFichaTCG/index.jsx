@@ -29,21 +29,13 @@ export function TacaFichaTCG() {
         // Convertendo o canvas para um URL de imagem
 
         canvas.toBlob((blob) => {
-          const newImg = document.createElement("img");
           const url = URL.createObjectURL(blob);
-
-          newImg.onload = () => {
-            // no longer need to read the blob so it's revoked
-            URL.revokeObjectURL(url);
-          };
-
-          newImg.src = url;
           const downloadLink = document.createElement("a");
           downloadLink.href = url;
           downloadLink.download = "ficha.png";
           downloadLink.click();
           setSalvandoLoading(false);
-        });
+        }, 'image/png');
       }).catch(e => {
         alert(`Ocorreu um erro! ${e.message}`)
         setSalvandoLoading(false);
