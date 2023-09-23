@@ -10,6 +10,8 @@ import { AvisoTopo } from "./components/AvisoTopo";
 import { ArquetipoPainel } from "./components/ArquetiposPainel";
 import { useShare } from "./context/share.context";
 import {LoadingSaveCard} from "./components/LoadingSaveCard";
+import {TacaDado} from "./components/TacaDado";
+import {SalvarSlot} from "./components/SalvarSlot";
 
 function App() {
   const [page, setPage] = useState("");
@@ -47,7 +49,7 @@ function App() {
             <SaveSlots/>
             <ArquetipoPainel/>
             <Ficha/>
-            <SalvarSlot/>
+            <SalvarSlot />
           </>
         )}
         {page === "ShareView" && (<ShareView/>)}

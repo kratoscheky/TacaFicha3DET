@@ -18,7 +18,7 @@ import {useFicha} from "../../../context/ficha.context";
 export function TacaFichaTCG() {
   const [swiper, setSwiper] = useState(null);
   const [actualCard, setActualCard] = useState('tacaficha')
-  const {setSalvandoLoading} = useFicha();
+  const {setSalvandoLoading, setImagemGerada, foil, setFoil} = useFicha();
 
   const captureAndSaveFicha = () => {
     setSalvandoLoading(true);
@@ -31,9 +31,10 @@ export function TacaFichaTCG() {
 
         // Criando um link para download
         const downloadLink = document.createElement("a");
+        downloadLink.setAttribute('download', '')
         downloadLink.href = imgURL;
         downloadLink.download = "ficha.png";
-        setImagem(imgURL);
+        setImagemGerada(imgURL);
         downloadLink.click();
         setSalvandoLoading(false);
       }).catch(e => {

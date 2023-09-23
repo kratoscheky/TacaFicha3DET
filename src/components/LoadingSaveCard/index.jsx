@@ -2,9 +2,10 @@ import Lottie from 'react-lottie';
 import animationData from './animations/cardsanimation.json';
 import {Container} from "./styles";
 import {useFicha} from "../../context/ficha.context";
+import {Button} from "../../pages/Ficha/styles";
 
 export const LoadingSaveCard = () => {
-  const {salvandoLoading} = useFicha();
+  const {salvandoLoading, setImagemGerada, imagem} = useFicha();
 
   const defaultOptions = {
     loop: true,
@@ -15,8 +16,18 @@ export const LoadingSaveCard = () => {
     }
   };
 
+  // if(imagem)
+  //   return (
+  //     <>
+  //       <Container onClick={() => setImagemGerada(null)}>
+  //         <a href={imagem} download><Button>Download</Button></a>
+  //       </Container>
+  //     </>
+  //   )
+
   if(!salvandoLoading)
     return null
+
 
   return (
     <Container>

@@ -49,7 +49,8 @@ export const FichaCard = () => {
     extras,
     imageBlob,
     recursosFinal,
-    foil
+    foil,
+    setSalvandoLoading
   } = useFicha();
 
   const [rotation, setRotation] = useState({x: 0, y: 0});
