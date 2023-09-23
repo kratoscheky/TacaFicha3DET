@@ -24,6 +24,9 @@ export function TacaFichaTCG() {
     setSalvandoLoading(true);
     const container = document.querySelector(`#${actualCard}`); // Use a classe do ContainerFicha real
 
+    if (foil)
+      container.classList.remove('foil');
+
     if (container) {
       html2canvas(container).then((canvas) => {
         // Convertendo o canvas para um URL de imagem
