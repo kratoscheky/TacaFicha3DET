@@ -39,8 +39,8 @@ export const Card = styled.div`
 
     &.foil:after {
         opacity: 1;
-        background-image: url("assets/sparkles.webp"), 
-            url(assets/holo.webp), 
+        background-image: url("https://tacaficha.com.br/assets/sparkles.webp"), 
+            url(https://tacaficha.com.br/assets/holo.webp), 
             linear-gradient(125deg, #ff008450 15%, #fca40040 30%, #ffff0030 40%, #00ff8a20 60%, #00cfff40 70%, #cc4cfa50 85%);
         background-position: 50% 50%;
         background-size: cover;
