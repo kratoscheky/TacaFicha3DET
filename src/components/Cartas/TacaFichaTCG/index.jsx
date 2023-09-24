@@ -178,7 +178,7 @@ export const TacaFicha = () => {
             <TagsPericias>
               {
                 pericias.map(p => <p style={{
-                  backgroundColor: CoresPericias[p.Nome],
+                  backgroundColor: CoresPericias[p.Nome] ?? "#ff0068",
                 }}>{p.Nome}</p>)
               }
             </TagsPericias>
