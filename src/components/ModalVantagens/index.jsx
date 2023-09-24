@@ -3,6 +3,7 @@ import {AdicionarButton, ContainerItens, ContainerModal, ConteudoModal, Titulo,}
 import {Vantagens} from "../../data/vantagens";
 import AddIcon from "@mui/icons-material/Add";
 import FichaInput from "../FichaInput";
+import {useEffect, useState} from "react";
 
 export default function ModalVantagens({
                                          open,
@@ -10,6 +11,17 @@ export default function ModalVantagens({
                                          onAdicionarClick,
                                        }) {
   const [customizada, setCustomizada] = React.useState("");
+  const [vantagensFiltradas, setVantagensFiltradas] = useState(Vantagens);
+  const [filtro, setFiltro] = useState("");
+
+  useEffect(() => {
+    let filtroAplicado = Vantagens;
+
+    if(filtro !== "")
+      filtroAplicado = Vantagens.filter(p => p.Nome.includes(filtro))
+
+    setVantagensFiltradas(filtroAplicado)
+  }, [filtro]);
 
   return (
     <div>
@@ -44,7 +56,13 @@ export default function ModalVantagens({
               onEdit={(e) => setCustomizada(e.target.value)}
             />
             <hr style={{width: "100%"}}/>
-            {Vantagens.map((v) => {
+            <FichaInput
+              width='100%'
+              label={"Pesquisar Vantagem"}
+              valor={filtro}
+              onEdit={(e) => setFiltro(e.target.value)}
+            />
+            {vantagensFiltradas.map((v) => {
               return (
                 <div
                   style={{
