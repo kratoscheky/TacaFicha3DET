@@ -9,7 +9,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import {CropComponent} from "../../components/CropComponent";
-import {TacaFichaTCG} from "../../components/TacaFicha/TacaFichaTCG";
+import {TacaFichaTCG} from "../../components/TacaFicha/index.jsx";
 import ContentCutIcon from '@mui/icons-material/ContentCut';
 
 export const Ficha = () => {

@@ -21,22 +21,22 @@ import {
   TagRecursoMana,
   TagRecursoVida,
   TopoNomePonto,
-} from "./styles";
-import ponto from "../../images/tcgminimalista/bg_niverl.svg";
-import name from "../../images/tcgminimalista/bg_nme.svg";
-import borda from "../../images/tcgminimalista/borda.svg";
-import poderIcon from "../../images/minimalista/poder.svg";
-import habilidadeIcon from "../../images/minimalista/habilidade.svg";
-import resistenciaIcon from "../../images/minimalista/resistencia.svg";
-import acaoIcon from "../../images/minimalista/acao.svg";
-import manaIcon from "../../images/minimalista/mana.svg";
-import vidaIcon from "../../images/minimalista/vida.svg";
+} from "./styles.jsx";
+import ponto from "../../../images/tcgminimalista/bg_niverl.svg";
+import name from "../../../images/tcgminimalista/bg_nme.svg";
+import borda from "../../../images/tcgminimalista/borda.svg";
+import poderIcon from "../../../images/minimalista/poder.svg";
+import habilidadeIcon from "../../../images/minimalista/habilidade.svg";
+import resistenciaIcon from "../../../images/minimalista/resistencia.svg";
+import acaoIcon from "../../../images/minimalista/acao.svg";
+import manaIcon from "../../../images/minimalista/mana.svg";
+import vidaIcon from "../../../images/minimalista/vida.svg";
 import html2canvas from "html2canvas";
-import {useFicha} from "../../context/ficha.context";
-import tresdettag from "../../images/tcg/3dettag.svg";
+import {useFicha} from "../../../context/ficha.context.jsx";
+import tresdettag from "../../../images/tcg/3dettag.svg";
 import throttle from 'lodash/throttle';
-import {useBrowserContext} from "../../context/browser.context";
-import {useShare} from "../../context/share.context";
+import {useBrowserContext} from "../../../context/browser.context.jsx";
+import {useShare} from "../../../context/share.context.jsx";
 
 export const TacaCola = () => {
   const [rotation, setRotation] = useState({x: 0, y: 0});

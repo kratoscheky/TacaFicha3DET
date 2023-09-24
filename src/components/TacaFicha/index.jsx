@@ -1,237 +1,126 @@
-import frame from '../../images/CartaTacaFicha/Frame.png'
-import poderIcon from '../../images/CartaTacaFicha/Icons/poderIcon.svg'
-import acaoIcon from '../../images/CartaTacaFicha/Icons/acaoIcon.svg'
-import habilidadeIcon from '../../images/CartaTacaFicha/Icons/habilidadeIcon.svg'
-import manaIcon from '../../images/CartaTacaFicha/Icons/manaIcon.svg'
-import vidaIcon from '../../images/CartaTacaFicha/Icons/vidaIcon.svg'
-import resistenciaIcon from '../../images/CartaTacaFicha/Icons/resistenciaIcon.svg'
-import vantagemIcon from '../../images/CartaTacaFicha/Icons/Vantagem.svg'
-import desvantagemIcon from '../../images/CartaTacaFicha/Icons/Desvantagem.svg'
-import Bottom from '../../images/CartaTacaFicha/Bottom.svg'
-import Top from '../../images/CartaTacaFicha/Top.svg'
+import {TacaFicha} from "../Cartas/TacaFichaTCG/index.jsx";
+import {TacaFichaVerso} from "../Cartas/TacaFichaVerso/index.jsx";
+import React, {useState} from "react";
+import {Swiper, SwiperSlide} from 'swiper/react';
+import {EffectCards, Navigation} from 'swiper/modules';
+import html2canvas from "html2canvas";
+import {Button} from "./styles.jsx";
+import SaveIcon from "@mui/icons-material/Save";
+import {TacaCarta} from "../Cartas/TacaCarta/index.jsx";
+import {TacaCola} from "../Cartas/TacaCola/index.jsx";
+import {FichaCard} from "../Cartas/FichaCard/index.jsx";
+import {FichaTCGMinimalista} from "../Cartas/FichaTCGMinimalista/index.jsx";
+import Brightness5Icon from '@mui/icons-material/Brightness5';
+import BrightnessHighIcon from '@mui/icons-material/BrightnessHigh';
+import 'swiper/css/navigation';
+import {useFicha} from "../../context/ficha.context.jsx";
 
-import {
-  ArquetipoContainer,
-  AtributosContainerHabilidade,
-  AtributosContainerPoder,
-  AtributosContainerresistencia,
-  Baixo,
-  Carta,
-  Container,
-  ContainerFrame,
-  ContainerFramesTextos,
-  ContainerNomePontos,
-  ContainerText,
-  DetalhesContainer,
-  EscalaPoder,
-  Frame,
-  Meio,
-  RecursosContainer,
-  Svg,
-  TagsPericias,
-  TextoDesVanContainer,
-  TextosContainer,
-  Topo,
-  VanDesContainer
-} from "./styles";
-import {useFicha} from "../../context/ficha.context";
-import {useState} from "react";
-import {useBrowserContext} from "../../context/browser.context";
-import throttle from "lodash/throttle";
+export function TacaFichaTCG() {
+  const [swiper, setSwiper] = useState(null);
+  const [actualCard, setActualCard] = useState('tacaficha')
+  const {setSalvandoLoading, setImagemGerada, foil, setFoil} = useFicha();
 
-export const TacaFicha = () => {
-  const [rotation, setRotation] = useState({x: 0, y: 0});
-  const [gradientDegree, setGradientDegree] = useState(125);
+  const captureAndSaveFicha = () => {
+    setSalvandoLoading(true);
+    const container = document.querySelector(`#${actualCard}`); // Use a classe do ContainerFicha real
 
-  const {isFirefox} = useBrowserContext();
+    if (foil)
+      container.classList.remove('foil');
 
-  const handleMouseMove = throttle((e) => {
-    const posX = e.nativeEvent.offsetX || (e.nativeEvent.touches && e.nativeEvent.touches[0].clientX);
-    const posY = e.nativeEvent.offsetY || (e.nativeEvent.touches && e.nativeEvent.touches[0].clientY);
-    const x = Math.abs(Math.floor(100 / e.target.offsetWidth * posX) - 100);
-    const y = Math.abs(Math.floor(100 / e.target.offsetHeight * posY) - 100);
+    if (container) {
+      html2canvas(container).then((canvas) => {
+        // Convertendo o canvas para um URL de imagem
 
-    const backgroundX = 50 + (x - 50) / 1.5;
-    const backgroundY = 50 + (y - 50) / 1.5;
-
-    const ty = ((backgroundY - 50) / 2) * -1;
-    const tx = ((backgroundX - 50) / 1.5) * 0.5;
-    setRotation({x: ty, y: tx});
-
-    const _gradientDegree = 20 + Math.abs((50 - x) + (50 - y)) * 1.5;
-    setGradientDegree(_gradientDegree);
-  }, 100);
-
-  const handleMouseLeave = () => {
-    setRotation({x: 0, y: 0});
-  };
-
-  const {
-    atributos,
-    nome,
-    detalhes,
-    vantagens,
-    desvantagens,
-    pericias,
-    pontosTotais,
-    arquetipo,
-    imageBlob,
-    recursosFinal,
-    foil,
-    setFoil,
-  } = useFicha();
-
-  const CoresPericias = {
-    Animais: "#A6CEE3",
-    Arte: "#1F78B4",
-    Influência: "#B2DF8A",
-    Esporte: "#33A02C",
-    Luta: "#FB9A99",
-    Manha: "#E31A1C",
-    Máquinas: "#FDBF6F",
-    Medicina: "#FF7F00",
-    Mística: "#CAB2D6",
-    Percepção: "#6A3D9A",
-    Saber: "#F2C000",
-    Sustento: "#B15928",
-  };
-
-  const DefinirCorEscala = (escala) => {
-    if (escala.includes('Ni')) {
-      return '#00A6F0';
-    } else if (escala.includes('S')) {
-      return '#7CBA01';
-    } else if (escala.includes('Ka')) {
-      return '#EF5121';
-    } else if (escala.includes('K')) {
-      return '#FFB901';
-    } else if (escala.includes('Ch')) {
-      return '#FFB901';
-    } else if (escala.includes('N')) {
-      return '#00A6F0';
-    } else if (escala.includes('Mu')) {
-      return '#00A6F0';
-    } else {
-      return '#00A6C1';
+        canvas.toBlob((blob) => {
+          const url = URL.createObjectURL(blob);
+          const downloadLink = document.createElement("a");
+          downloadLink.href = url;
+          downloadLink.download = "ficha.png";
+          downloadLink.click();
+          setSalvandoLoading(false);
+        }, 'image/png');
+      }).catch(e => {
+        alert(`Ocorreu um erro! ${e.message}`)
+        setSalvandoLoading(false);
+      });
     }
+
+    if (foil)
+      container.classList.add('foil');
+  };
+
+  const CartasIds = [
+    'tacaficha',
+    'tacaficha-verso',
+    'container-ficha-taca-carta',
+    'container-ficha-taca-cola',
+    'container-ficha-tcg-minimalista',
+    'container-ficha-card',
+  ]
+
+  const HandleCardAtivo = (index) => {
+    setActualCard(CartasIds[index])
   }
 
-  return (
-    <Container>
-      <Carta className={foil ? "foil" : ""}
-             onMouseMove={handleMouseMove}
-             onTouchMove={handleMouseMove}
-             onMouseLeave={handleMouseLeave}
-             onTouchEnd={handleMouseLeave}
-             id='tacaficha'
-             style={{
-                backgroundImage: `url(${imageBlob})`,
-                transform: `${isFirefox ? 'scale(0.5)' : ''} rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`
-              }}
-             gradientDegree={gradientDegree}
-      >
-        <Frame src={frame} />
-        <EscalaPoder>
-          <Svg fillEscala={DefinirCorEscala(pontosTotais.toString())} width="175" height="59" viewBox="0 0 175 59"
-               fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g clip-path="url(#clip0_125_2)">
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M174.004 58.3936L-0.00610352 58.3616L27.7039 -0.000366211H143.434L174.004 31.3496V58.3936Z"
-                    fill="#00A6C1"/>
-            </g>
-            <defs>
-              <clipPath id="clip0_125_2">
-                <rect width="175" height="59" fill="white"/>
-              </clipPath>
-            </defs>
-          </Svg>
-        </EscalaPoder>
-        <EscalaPoder/>
-        <Topo>
-          <ContainerNomePontos>
-            <p>{nome}</p>
-            <div><p>{pontosTotais}</p></div>
-          </ContainerNomePontos>
-          <ArquetipoContainer>
-            <p>{arquetipo}</p>
-          </ArquetipoContainer>
-        </Topo>
-        <Meio>
-          <AtributosContainerPoder>
-            <img src={poderIcon}/>
-            <p>{atributos.poder}</p>
-          </AtributosContainerPoder>
-          <AtributosContainerHabilidade>
-            <img src={habilidadeIcon}/>
-            <p>{atributos.habilidade}</p>
-          </AtributosContainerHabilidade>
-          <AtributosContainerresistencia>
-            <img src={resistenciaIcon}/>
-            <p>{atributos.resistencia}</p>
-          </AtributosContainerresistencia>
-        </Meio>
-        <TextosContainer>
-          <ContainerFramesTextos>
-            <div>
-              <img src={Top}/>
-            </div>
-            <TagsPericias>
-              {
-                pericias.map(p => <p style={{
-                  backgroundColor: CoresPericias[p.Nome],
-                }}>{p.Nome}</p>)
-              }
-            </TagsPericias>
-          </ContainerFramesTextos>
-          <ContainerText>
-            <VanDesContainer>
-              <div>
-                <img src={vantagemIcon}/>
-              </div>
-              <TextoDesVanContainer>
-                {vantagens.map((v) => v.Nome + ".").join(" ")}
-              </TextoDesVanContainer>
-            </VanDesContainer>
-            <div style={{
-              width: '100%',
-              height: '2px',
-              background: '#00000040',
-              margin: '8px 0'
-            }}/>
-            <VanDesContainer>
-              <div>
-                <img src={desvantagemIcon}/>
-              </div>
-              <TextoDesVanContainer>
-                {desvantagens.map((v) => v.Nome + ".").join(" ")}
-              </TextoDesVanContainer>
-            </VanDesContainer>
-          </ContainerText>
-          <ContainerFramesTextos>
-            <ContainerFrame>
-              <img src={Bottom}/>
-              <div/>
-            </ContainerFrame>
-            <DetalhesContainer>
-              <p>{detalhes}</p>
-            </DetalhesContainer>
-          </ContainerFramesTextos>
-        </TextosContainer>
-        <Baixo>
-          <RecursosContainer>
-            <img src={acaoIcon}/>
-            <p>{recursosFinal.pontosDeAcao.toString().padStart(2, '0')}</p>
-          </RecursosContainer>
-          <RecursosContainer>
-            <img src={manaIcon}/>
-            <p>{recursosFinal.pontosDeMana.toString().padStart(2, '0')}</p>
-          </RecursosContainer>
-          <RecursosContainer>
-            <img src={vidaIcon}/>
-            <p>{recursosFinal.pontosDeVida.toString().padStart(2, '0')}</p>
-          </RecursosContainer>
-        </Baixo>
-      </Carta>
-    </Container>
-  )
+  return <div style={{
+    gap: "8px",
+    overflow: "auto",
+    padding: "20px",
+    background: '#6F0062',
+    borderRadius: '8px',
+  }}>
+    <div style={{
+      width: '100%',
+      display: 'flex',
+      justifyContent: 'space-between'
+    }}>
+      <h1 style={{color: '#FFBF22', paddingBottom: '20px'}}>TACA FICHA!</h1>
+      <Button onClick={() => setFoil(f => !f)}>
+        {
+          foil ?
+            <BrightnessHighIcon style={{color: '#FFF'}} />
+            :
+            <Brightness5Icon style={{color: '#FFF'}} />
+        }
+      </Button>
+    </div>
+    <Swiper
+      navigation
+      effect={'cards'}
+      grabCursor={true}
+      modules={[EffectCards, Navigation]}
+      className="mySwiper"
+      onSwiper={setSwiper}
+      onSlideChange={e => HandleCardAtivo(e.activeIndex)}
+    >
+      <SwiperSlide><TacaFicha/></SwiperSlide>
+      <SwiperSlide><TacaFichaVerso/></SwiperSlide>
+      <SwiperSlide><TacaCarta/></SwiperSlide>
+      <SwiperSlide><TacaCola/></SwiperSlide>
+      <SwiperSlide><FichaTCGMinimalista/></SwiperSlide>
+      <SwiperSlide><FichaCard/></SwiperSlide>
+    </Swiper>
+    <br/>
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      flexDirection: 'column',
+      alignItems: 'center'
+    }}>
+      {
+        actualCard === 'container-ficha-card' &&
+        <>
+          <p style={{color: '#FFF'}}>
+            Modelo de ficha por{" "}
+            <a style={{color: '#FFF'}} href="https://twitter.com/lukeskelington">@lukeskelington</a>
+          </p>
+          <br/>
+        </>
+      }
+      <Button onClick={() => captureAndSaveFicha()}>
+        <SaveIcon/>
+        Salvar Imagem
+      </Button>
+    </div>
+  </div>;
 }
