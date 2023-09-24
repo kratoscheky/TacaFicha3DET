@@ -20,15 +20,11 @@ export const AvisoTopo = () => {
           <b>contatotacaficha@gmail.com</b>
         </p>
         <br/>
-        <p><b>3DeT</b> é um sistema de RPG produzido pela <b>Jambô Editora.</b></p>
+        <p><b>3DeT</b> é um sistema de RPG produzido pela <a href='https://jamboeditora.com.br/'>
+          <b>Jambô Editora.</b>
+        </a></p>
         <br/>
-        <a style={{
-          display: 'flex',
-          flexWrap: 'wrap'
-        }} href='https://jamboeditora.com.br/'>
-          <img src={jamboLogo}/>
-          <img src={tresdetLogo} />
-        </a>
+
       </div>
     </Container>
   );

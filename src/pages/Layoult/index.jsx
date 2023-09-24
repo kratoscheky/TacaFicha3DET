@@ -4,14 +4,15 @@ import {ShareView} from "../ShareView/index.jsx";
 import React from "react";
 import {Analytics} from "@vercel/analytics/react";
 import {Footer} from "../../components/Footer/index.jsx";
+import {Outlet} from "react-router-dom";
 
-export const Layoult = ({children}) => {
+export const Layoult = () => {
   return (
     <>
       <BarraSuperior />
       <Analytics />
       <LoadingSaveCard />
-      {children}
+      <Outlet />
       <Footer />
     </>
   )

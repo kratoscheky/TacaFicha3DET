@@ -26,12 +26,20 @@ export const LinksUteis = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
-  a{
+  a, p{
+    cursor: pointer;
+  }
+  a {
+    cursor: pointer;
     text-decoration: none;
     color: #FFF;
     :visited{
       color: #fa0851;
     }
+  p {
+    color: #FFF;
+    cursor: pointer;
+   }
     
   }
 `
