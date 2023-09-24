@@ -484,5 +484,5 @@ export default defineConfig({
           "sizes": "1024x1024"
         }
       ]
-    }, includeAssets: ['favicon.ico'] })],
+    }, includeAssets: ['favicon.ico', 'assets/*.webp'] })],
 })
