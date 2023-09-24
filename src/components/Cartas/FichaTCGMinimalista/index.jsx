@@ -28,23 +28,23 @@ import {
   SubIcon,
   TagsPericias,
   TopoNomePonto,
-} from "./styles";
-import ponto from "../../images/tcgminimalista/bg_niverl.svg";
-import name from "../../images/tcgminimalista/bg_nme.svg";
-import arquetipoImage from "../../images/tcgminimalista/bg_arquetipo.svg";
-import poder from "../../images/tcgminimalista/bg_poder.svg";
-import habilidade from "../../images/tcgminimalista/bg_habilidade.svg";
-import resistencia from "../../images/tcgminimalista/bg_defesa.svg";
-import borda from "../../images/tcgminimalista/borda.svg";
-import poderIcon from "../../images/minimalista/poder.svg";
-import habilidadeIcon from "../../images/minimalista/habilidade.svg";
-import resistenciaIcon from "../../images/minimalista/resistencia.svg";
-import acaoIcon from "../../images/minimalista/acao.svg";
-import manaIcon from "../../images/minimalista/mana.svg";
-import vidaIcon from "../../images/minimalista/vida.svg";
+} from "./styles.jsx";
+import ponto from "../../../images/tcgminimalista/bg_niverl.svg";
+import name from "../../../images/tcgminimalista/bg_nme.svg";
+import arquetipoImage from "../../../images/tcgminimalista/bg_arquetipo.svg";
+import poder from "../../../images/tcgminimalista/bg_poder.svg";
+import habilidade from "../../../images/tcgminimalista/bg_habilidade.svg";
+import resistencia from "../../../images/tcgminimalista/bg_defesa.svg";
+import borda from "../../../images/tcgminimalista/borda.svg";
+import poderIcon from "../../../images/minimalista/poder.svg";
+import habilidadeIcon from "../../../images/minimalista/habilidade.svg";
+import resistenciaIcon from "../../../images/minimalista/resistencia.svg";
+import acaoIcon from "../../../images/minimalista/acao.svg";
+import manaIcon from "../../../images/minimalista/mana.svg";
+import vidaIcon from "../../../images/minimalista/vida.svg";
 import html2canvas from "html2canvas";
-import {useFicha} from "../../context/ficha.context";
-import {useBrowserContext} from "../../context/browser.context";
+import {useFicha} from "../../../context/ficha.context.jsx";
+import {useBrowserContext} from "../../../context/browser.context.jsx";
 import throttle from "lodash/throttle";
 
 export const FichaTCGMinimalista = () => {
@@ -214,7 +214,7 @@ export const FichaTCGMinimalista = () => {
                 {pericias.map((p) => (
                   <p
                     style={{
-                      backgroundColor: CoresPericias[p.Nome],
+                      backgroundColor: CoresPericias[p.Nome] ?? "#ff0068",
                     }}
                   >
                     {p.Nome}

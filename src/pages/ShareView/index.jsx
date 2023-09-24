@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import {FichaSwiper} from "../../components/FichaSwiper";
 import {Container} from "./styles";
 import {useShare} from "../../context/share.context.jsx";
-import {TacaFichaTCG} from "../../components/TacaFicha/TacaFichaTCG/index.jsx";
+import {TacaFichaTCG} from "../../components/TacaFicha/index.jsx";
 
 export const ShareView = () => {
   const {loadShareableString} = useShare();

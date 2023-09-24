@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {useFicha} from "../../context/ficha.context";
+import {useFicha} from "../../../context/ficha.context.jsx";
 import {
   AlinhamentoInfos,
   ArquetipoTexto,
@@ -20,20 +20,20 @@ import {
   SubStatusContainer,
   SubStatusTexto,
   VantagensTexto,
-} from "./styles";
-import poderIcon from "../../images/tcg/poder.svg";
-import habilidadeIcon from "../../images/tcg/habilidade.svg";
-import resistenciaIcon from "../../images/tcg/resistencia.svg";
-import acaoIcon from "../../images/tcg/acao.svg";
-import manaIcon from "../../images/tcg/mana.svg";
-import vidaIcon from "../../images/tcg/vida.svg";
-import topoImage from "../../images/tcg/topo.svg";
-import barrinhaPreta from "../../images/tcg/barrinhapreta.svg";
-import pontoBar from "../../images/tcg/ponto.svg";
-import bottomBar from "../../images/tcg/bottombar.svg";
-import cardrosa from "../../images/tcg/cardrosa.svg";
+} from "./styles.jsx";
+import poderIcon from "../../../images/tcg/poder.svg";
+import habilidadeIcon from "../../../images/tcg/habilidade.svg";
+import resistenciaIcon from "../../../images/tcg/resistencia.svg";
+import acaoIcon from "../../../images/tcg/acao.svg";
+import manaIcon from "../../../images/tcg/mana.svg";
+import vidaIcon from "../../../images/tcg/vida.svg";
+import topoImage from "../../../images/tcg/topo.svg";
+import barrinhaPreta from "../../../images/tcg/barrinhapreta.svg";
+import pontoBar from "../../../images/tcg/ponto.svg";
+import bottomBar from "../../../images/tcg/bottombar.svg";
+import cardrosa from "../../../images/tcg/cardrosa.svg";
 import html2canvas from "html2canvas";
-import {useBrowserContext} from "../../context/browser.context";
+import {useBrowserContext} from "../../../context/browser.context.jsx";
 import throttle from "lodash/throttle";
 
 export const FichaCard = () => {

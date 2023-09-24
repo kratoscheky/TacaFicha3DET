@@ -21,11 +21,11 @@ import {
   RecursosContainer,
   Svg,
   Topo
-} from "./styles";
-import {useFicha} from "../../../context/ficha.context";
+} from "./styles.jsx";
+import {useFicha} from "../../../context/ficha.context.jsx";
 import React, {useState} from "react";
-import {Container} from "../styles";
-import {useBrowserContext} from "../../../context/browser.context";
+import {Container} from "../TacaFichaTCG/styles.jsx";
+import {useBrowserContext} from "../../../context/browser.context.jsx";
 import throttle from "lodash/throttle";
 
 export const TacaFichaVerso = () => {
