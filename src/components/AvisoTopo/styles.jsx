@@ -23,6 +23,7 @@ export const Container = styled.div`
     a{
       display: flex;
       gap: 18px;
+      flex-wrap: wrap;
     }
     img{
       max-height: 100px;
