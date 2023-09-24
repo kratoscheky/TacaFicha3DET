@@ -13,16 +13,11 @@ import {TacaFichaTCG} from "../../components/TacaFicha/TacaFichaTCG";
 import ContentCutIcon from '@mui/icons-material/ContentCut';
 
 export const Ficha = () => {
-  const {handleFileChange} = useFicha();
-
   const hiddenFileInput = useRef(null);
-  const [viewCrop, setViewCrop] = useState(false)
 
   const handleClick = event => {
     hiddenFileInput.current.click();
   };
-
-  const SeparadorDadinho = () => <img src={dadinho} style={{width: '100%', maxWidth: '500px'}} alt={"Dados"}/>;
 
   return (
     <>

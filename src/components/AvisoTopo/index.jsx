@@ -22,7 +22,10 @@ export const AvisoTopo = () => {
         <br/>
         <p><b>3DeT</b> é um sistema de RPG produzido pela <b>Jambô Editora.</b></p>
         <br/>
-        <a href='https://jamboeditora.com.br/'>
+        <a style={{
+          display: 'flex',
+          flexWrap: 'wrap'
+        }} href='https://jamboeditora.com.br/'>
           <img src={jamboLogo}/>
           <img src={tresdetLogo} />
         </a>
