@@ -22,8 +22,8 @@ export const Footer = () => {
           <h1>Links Úteis</h1>
           <p onClick={() => navigate('/sobre')}>Sobre</p>
           <p onClick={() => navigate('/colaboradores')}>Colaboradores</p>
-          <a href='https://site.jamboeditora.com.br/3det/'>Loja da Jambô</a>
-          <a href='https://jamboeditora.com.br/'>3DeT Victory!</a>
+          <a href='https://site.jamboeditora.com.br/3det/'>3DeT Victory!</a>
+          <a href='https://jamboeditora.com.br/'>Loja da Jambô</a>
         </LinksUteis>
         <RedesSociais>
             <FacebookIcon />
