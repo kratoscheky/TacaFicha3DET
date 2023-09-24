@@ -36,7 +36,7 @@ export const ShareProvider = ({children}) => {
 
   const copyShareableLinkToClipboard = (slot) => {
     const shareableLink = generateShareableString(slot);
-    navigator.clipboard.writeText(window.location.origin + "?share=" + shareableLink);
+    navigator.clipboard.writeText(window.location.origin + "/shareview?share=" + shareableLink);
   }
 
   const generateShareableString = (slot) => {

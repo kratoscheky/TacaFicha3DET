@@ -18,20 +18,14 @@ import {
 import DownloadIcon from "@mui/icons-material/Download";
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {Autoplay, Navigation, Pagination} from 'swiper/modules';
+import {AvisoTopo} from "../AvisoTopo/index.jsx";
+import {Navigate, useNavigate} from "react-router-dom";
 
 export const Topo = (props) => {
   const {showSwiper = true} = props;
 
   return (
     <>
-      <ContainerBarraSuperior>
-        <ContainerLogo onClick={() => window.location.href = "https://tacaficha.com.br"}>
-          <img style={{height: "37px"}} src={logo} alt="3DeT TacaFicha"/>
-          <div/>
-          <img style={{height: "37px"}} src={tresdetlogo} alt="TacaFicha"/>
-        </ContainerLogo>
-        <DarkModeToggle/>
-      </ContainerBarraSuperior>
       {showSwiper && (
         <Swiper
           spaceBetween={50}
@@ -135,6 +129,24 @@ export const Topo = (props) => {
           </SwiperSlide>
         </Swiper>
       )}
+      <AvisoTopo />
     </>
   );
 };
+
+export const BarraSuperior = () => {
+  const navigate = useNavigate();
+
+  return (
+    <>
+      <ContainerBarraSuperior>
+        <ContainerLogo onClick={() => navigate('/')}>
+          <img style={{height: "37px"}} src={logo} alt="3DeT TacaFicha"/>
+          <div/>
+          <img style={{height: "37px"}} src={tresdetlogo} alt="TacaFicha"/>
+        </ContainerLogo>
+        <DarkModeToggle/>
+      </ContainerBarraSuperior>
+    </>
+  )
+}
