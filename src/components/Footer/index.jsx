@@ -14,9 +14,9 @@ export const Footer = () => {
     <>
       <Container>
         <EsquerdaContainer>
-          <img src={logo} />
-          <img src={tresdet} />
-          <img src={logojambo} />
+          <a href='/'><img src={logo} /></a>
+          <a href='https://site.jamboeditora.com.br/3det/'><img src={tresdet} /></a>
+          <a href='https://jamboeditora.com.br/'><img src={logojambo} /></a>
         </EsquerdaContainer>
         <LinksUteis>
           <h1>Links Úteis</h1>
