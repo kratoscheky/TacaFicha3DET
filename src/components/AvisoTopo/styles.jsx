@@ -6,13 +6,25 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     div{
-        padding: 16px;
         max-width: 1200px;
+        padding: 20px;
+        background: #6F0062;
+    }
+    b{
+      color: #FFF;
     }
     h1{
-        color: #6F0062;
+        color: #FFBF22;
+        text-transform: uppercase;
     }
     p{
-        color: #5B5B5B;
+        color: #FFF;
+    }
+    a{
+      display: flex;
+      gap: 18px;
+    }
+    img{
+      max-height: 100px;
     }
 `
