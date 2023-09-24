@@ -26,8 +26,8 @@ export const Footer = () => {
           <a href='https://jamboeditora.com.br/'>Loja da Jambô</a>
         </LinksUteis>
         <RedesSociais>
-            <FacebookIcon />
-            <TwitterIcon />
+          <a href='https://www.facebook.com/tacaficha'><FacebookIcon /></a>
+          <a href='https://twitter.com/TacaFicha'><TwitterIcon /></a>
         </RedesSociais>
       </Container>
     </>

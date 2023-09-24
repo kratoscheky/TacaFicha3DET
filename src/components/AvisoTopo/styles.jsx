@@ -28,11 +28,6 @@ export const Container = styled.div`
     p{
         color: #FFF;
     }
-    a{
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
     img{
       max-height: 100px;
     }
