@@ -3,9 +3,21 @@ import {AdicionarButton, ContainerItens, ContainerModal, ConteudoModal, Titulo} 
 import {Pericias} from '../../data/pericias';
 import AddIcon from "@mui/icons-material/Add";
 import FichaInput from '../FichaInput';
+import {useEffect, useState} from "react";
 
 export default function ModalPericias({open, handleClose, onAdicionarClick}) {
-  const [customizada, setCustomizada] = React.useState("");
+  const [customizada, setCustomizada] = useState("");
+  const [periciasFiltradas, setPericiasFiltradas] = useState(Pericias);
+  const [filtro, setFiltro] = useState("");
+
+  useEffect(() => {
+    let filtroAplicado = Pericias;
+
+    if(filtro !== "")
+      filtroAplicado = Pericias.filter(p => p.Nome.includes(filtro))
+
+    setPericiasFiltradas(filtroAplicado)
+  }, [filtro]);
 
   return (
     <div>
@@ -37,8 +49,14 @@ export default function ModalPericias({open, handleClose, onAdicionarClick}) {
               onEdit={(e) => setCustomizada(e.target.value)}
             />
             <hr style={{width: "100%"}}/>
+            <FichaInput
+              width='100%'
+              label={"Pesquisar Pericia"}
+              valor={filtro}
+              onEdit={(e) => setFiltro(e.target.value)}
+            />
             {
-              Pericias.map(p => {
+              periciasFiltradas.map(p => {
                 return <div style={{
                   backgroundColor: '#44003C',
                   padding: '18px',

@@ -3,6 +3,7 @@ import {AdicionarButton, ContainerItens, ContainerModal, ConteudoModal, Titulo,}
 import {Desvantagens} from "../../data/desvantagens";
 import AddIcon from "@mui/icons-material/Add";
 import FichaInput from "../FichaInput";
+import {useEffect, useState} from "react";
 
 export default function ModalDesvantagens({
                                             open,
@@ -10,6 +11,17 @@ export default function ModalDesvantagens({
                                             onAdicionarClick,
                                           }) {
   const [customizada, setCustomizada] = React.useState("");
+  const [desvantagensFiltradas, setDesvantagensFiltradas] = useState(Desvantagens);
+  const [filtro, setFiltro] = useState("");
+
+  useEffect(() => {
+    let filtroAplicado = Desvantagens;
+
+    if(filtro !== "")
+      filtroAplicado = Desvantagens.filter(p => p.Nome.includes(filtro))
+
+    setDesvantagensFiltradas(filtroAplicado)
+  }, [filtro]);
 
   return (
     <div>
@@ -43,7 +55,13 @@ export default function ModalDesvantagens({
               onEdit={(e) => setCustomizada(e.target.value)}
             />
             <hr style={{width: "100%"}}/>
-            {Desvantagens.map((d) => {
+            <FichaInput
+              width='100%'
+              label={"Pesquisar Desvantagem"}
+              valor={filtro}
+              onEdit={(e) => setFiltro(e.target.value)}
+            />
+            {desvantagensFiltradas.map((d) => {
               return (
                 <div
                   style={{
