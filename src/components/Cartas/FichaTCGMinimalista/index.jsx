@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import {useState} from "react";
 import {
   ArquetipoBar,
   ArquetipoText,
@@ -42,7 +42,6 @@ import resistenciaIcon from "../../../images/minimalista/resistencia.svg";
 import acaoIcon from "../../../images/minimalista/acao.svg";
 import manaIcon from "../../../images/minimalista/mana.svg";
 import vidaIcon from "../../../images/minimalista/vida.svg";
-import html2canvas from "html2canvas";
 import {useFicha} from "../../../context/ficha.context.jsx";
 import {useBrowserContext} from "../../../context/browser.context.jsx";
 import throttle from "lodash/throttle";
@@ -59,8 +58,7 @@ export const FichaTCGMinimalista = () => {
     arquetipo,
     imageBlob,
     recursosFinal,
-    foil,
-    setSalvandoLoading
+    foil
   } = useFicha();
 
   const [rotation, setRotation] = useState({x: 0, y: 0});
@@ -104,30 +102,6 @@ export const FichaTCGMinimalista = () => {
     Sustento: "#B15928",
   };
 
-  const captureAndSaveFicha = () => {
-    setSalvandoLoading(true)
-    const container = document.querySelector(
-      "#container-ficha-tcg-minimalista"
-    ); // Use a classe do ContainerFicha real
-
-    if (container) {
-      html2canvas(container).then((canvas) => {
-        // Convertendo o canvas para um URL de imagem
-        const imgURL = canvas.toDataURL("image/png");
-
-        // Criando um link para download
-        const downloadLink = document.createElement("a");
-        downloadLink.href = imgURL;
-        downloadLink.download = "ficha.png";
-        downloadLink.click();
-        setSalvandoLoading(false)
-      }).catch(e => {
-        alert(`Ocorreu um erro! ${e.message}`)
-        setSalvandoLoading(false);
-      });
-    }
-  };
-
   return (
     <Container>
       <div
@@ -138,7 +112,7 @@ export const FichaTCGMinimalista = () => {
         }}
       >
         <Card
-          className={foil ? "foil" : ""}
+          // className={foil ? "foil" : ""}
           onMouseMove={handleMouseMove}
           onTouchMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}

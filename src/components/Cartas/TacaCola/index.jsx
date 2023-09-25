@@ -47,64 +47,13 @@ export const TacaCola = () => {
   const {
     atributos,
     nome,
-    detalhes,
-    vantagens,
-    desvantagens,
-    pericias,
     pontosTotais,
-    arquetipo,
     imageBlob,
     recursosFinal,
     foil,
     setFoil,
     anotacoes,
-    setSalvandoLoading
   } = useFicha();
-
-  const {isShareView} = useShare();
-
-  const CoresPericias = {
-    Animais: "#A6CEE3",
-    Arte: "#1F78B4",
-    Influência: "#B2DF8A",
-    Esporte: "#33A02C",
-    Luta: "#FB9A99",
-    Manha: "#E31A1C",
-    Máquinas: "#FDBF6F",
-    Medicina: "#FF7F00",
-    Mística: "#CAB2D6",
-    Percepção: "#6A3D9A",
-    Saber: "#F2C000",
-    Sustento: "#B15928",
-  };
-
-  const captureAndSaveFicha = () => {
-    setSalvandoLoading(true)
-    const container = document.querySelector("#container-ficha-taca-cola"); // Use a classe do ContainerFicha real
-
-    if (foil)
-      container.classList.remove('foil');
-
-    if (container) {
-      html2canvas(container).then((canvas) => {
-        // Convertendo o canvas para um URL de imagem
-        const imgURL = canvas.toDataURL("image/png");
-
-        // Criando um link para download
-        const downloadLink = document.createElement("a");
-        downloadLink.href = imgURL;
-        downloadLink.download = "ficha.png";
-        downloadLink.click();
-        setSalvandoLoading(false)
-      }).catch(e => {
-        alert(`Ocorreu um erro! ${e.message}`)
-        setSalvandoLoading(false);
-      });
-    }
-
-    if (foil)
-      container.classList.add('foil');
-  };
 
   const handleMouseMove = throttle((e) => {
     const posX = e.nativeEvent.offsetX || (e.nativeEvent.touches && e.nativeEvent.touches[0].clientX);
@@ -137,7 +86,7 @@ export const TacaCola = () => {
         }}
       >
         <Card
-          className={foil ? "foil" : ""}
+          // className={foil ? "foil" : ""}
           onMouseMove={handleMouseMove}
           onTouchMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}

@@ -44,12 +44,10 @@ import resistenciaIcon from "../../../images/minimalista/resistencia.svg";
 import acaoIcon from "../../../images/minimalista/acao.svg";
 import manaIcon from "../../../images/minimalista/mana.svg";
 import vidaIcon from "../../../images/minimalista/vida.svg";
-import html2canvas from "html2canvas";
 import {useFicha} from "../../../context/ficha.context.jsx";
 import tresdettag from "../../../images/tcg/3dettag.svg";
 import throttle from 'lodash/throttle';
 import {useBrowserContext} from "../../../context/browser.context.jsx";
-import {useShare} from "../../../context/share.context.jsx";
 
 export const TacaCarta = () => {
   const [rotation, setRotation] = useState({x: 0, y: 0});
@@ -69,11 +67,7 @@ export const TacaCarta = () => {
     imageBlob,
     recursosFinal,
     foil,
-    setFoil,
-    setSalvandoLoading
   } = useFicha();
-
-  const {isShareView} = useShare();
 
   const CoresPericias = {
     Animais: "#A6CEE3",
@@ -121,7 +115,7 @@ export const TacaCarta = () => {
         }}
       >
         <Card
-          className={foil ? "foil" : ""}
+          // className={foil ? "foil" : ""}
           onMouseMove={handleMouseMove}
           onTouchMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}

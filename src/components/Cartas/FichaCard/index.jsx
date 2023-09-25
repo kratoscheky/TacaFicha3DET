@@ -46,11 +46,9 @@ export const FichaCard = () => {
     pericias,
     pontosTotais,
     arquetipo,
-    extras,
     imageBlob,
     recursosFinal,
-    foil,
-    setSalvandoLoading
+    foil
   } = useFicha();
 
   const [rotation, setRotation] = useState({x: 0, y: 0});
@@ -79,28 +77,6 @@ export const FichaCard = () => {
     setRotation({x: 0, y: 0});
   };
 
-  const captureAndSaveFicha = () => {
-    const container = document.querySelector("#container-ficha-card"); // Use a classe do ContainerFicha real
-
-    if (container) {
-      setSalvandoLoading(true)
-      html2canvas(container).then((canvas) => {
-        // Convertendo o canvas para um URL de imagem
-        const imgURL = canvas.toDataURL("image/png");
-
-        // Criando um link para download
-        const downloadLink = document.createElement("a");
-        downloadLink.href = imgURL;
-        downloadLink.download = "ficha.png";
-        downloadLink.click();
-        setSalvandoLoading(false)
-      }).catch(e => {
-        alert(`Ocorreu um erro! ${e.message}`)
-        setSalvandoLoading(false);
-      });
-    }
-  };
-
   return (
     <div
       style={{
@@ -118,7 +94,7 @@ export const FichaCard = () => {
         alignItems: 'center'
       }}>
         <ContainerFicha
-          className={foil ? "foil" : ""}
+          // className={foil ? "foil" : ""}
           onMouseMove={handleMouseMove}
           onTouchMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
