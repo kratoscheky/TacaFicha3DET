@@ -1,6 +1,7 @@
 import React, {createContext, useContext, useState} from "react";
 import {useFicha} from "./ficha.context";
 import {Base64} from 'js-base64';
+import {GetCarta} from "../services/carta.service.js";
 
 export const ShareContext = createContext();
 
@@ -85,6 +86,24 @@ export const ShareProvider = ({children}) => {
     return Base64.encode(JSON.stringify(dataToShare), true);
   }
 
+  const getDaNuvem = async (id) => {
+    let dataToShare = await GetCarta(id)
+
+    dataToShare = JSON.parse(dataToShare.data.json)
+
+    setNome(dataToShare.nome)
+    setDetalhes(dataToShare.detalhes)
+    setPericias(dataToShare.pericias)
+    setVantagens(dataToShare.vantagens)
+    setDesvantagens(dataToShare.desvantagens)
+    setArquetipo(dataToShare.arquetipo)
+    setAtributos(dataToShare.atributos)
+    setExtras(dataToShare.extras)
+    setPontosTotais(dataToShare.pontosTotais)
+    setImageUrl(dataToShare.imageUrl)
+    setFoil(dataToShare.foil ?? false)
+  }
+
   const loadShareableString = (shareableString) => {
     const dataToShare = JSON.parse(Base64.decode(shareableString));
     setNome(dataToShare.nome)
@@ -109,6 +128,7 @@ export const ShareProvider = ({children}) => {
         generateShareableString,
         loadShareableString,
         isShareView,
+        getDaNuvem
       }}
     >
       {children}

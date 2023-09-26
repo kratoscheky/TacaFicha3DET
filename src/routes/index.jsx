@@ -14,6 +14,7 @@ export const Routes = () => {
           <Route path='/' element={<Layoult />}>
             <Route path="/" element={<Home />} />
             <Route path="/shareview" element={<ShareView />} />
+            <Route path="/shareview/:id" element={<ShareView />} />
             <Route path="/sobre" element={<Sobre />} />
             <Route path="/colaboradores" element={<Colaboradores />} />
           </Route>
