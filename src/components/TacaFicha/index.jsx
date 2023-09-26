@@ -38,6 +38,7 @@ export function TacaFichaTCG() {
           downloadLink.download = "ficha.png";
           downloadLink.click();
           setSalvandoLoading(false);
+          setImagemGerada(url)
         }, 'image/png');
       }).catch(e => {
         alert(`Ocorreu um erro! ${e.message}`)

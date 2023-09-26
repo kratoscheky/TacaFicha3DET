@@ -23,6 +23,7 @@
     "react": "^18.2.0",
     "react-cropper": "^2.3.3",
     "react-dark-mode-toggle-2": "^2.0.8",
+    "react-device-detect": "^2.2.3",
     "react-dom": "^18.2.0",
     "react-lottie": "^1.2.3",
     "react-quill": "^2.0.0",
