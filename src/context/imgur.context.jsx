@@ -29,6 +29,9 @@ export const ImgurProvider = ({children}) => {
       } else {
         setImageUploadCount(parseInt(storedCount.split(":")[1]));
       }
+    }else{
+      const currentDate = new Date();
+      localStorage.setItem(localStorageKey, `${currentDate.getTime()}:${0}`);
     }
   }, []);
 

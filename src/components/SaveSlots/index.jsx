@@ -24,6 +24,7 @@ import DeleteForeverRoundedIcon from "@mui/icons-material/DeleteForeverRounded";
 import ShareIcon from '@mui/icons-material/Share';
 import {Modal, Tooltip} from "@mui/material";
 import {useShare} from "../../context/share.context";
+import LinkIcon from '@mui/icons-material/Link';
 
 const ModalConfirmarDelete = ({open, onClose, onDelete}) => {
   return (
@@ -92,6 +93,14 @@ export const SaveSlots = () => {
     }, 2000);
   }
 
+  const handleCopyLinkNuvem = (id) => {
+    navigator.clipboard.writeText(`${window.location.origin}/shareview/${id}`)
+    setCopyTooltip("Link copiado!");
+    setTimeout(() => {
+      setCopyTooltip("Copiar link de compartilhamento");
+    }, 2000);
+  }
+
   return (
     <ContainerSessao>
       <p style={{color: "#fff"}}>BETA</p>
@@ -134,11 +143,22 @@ export const SaveSlots = () => {
                   <SimCardDownloadRoundedIcon style={{color: "#FFF"}}/>
                 </IconButton>
               </Tooltip>
-              <Tooltip title={copyTooltip}>
-                <IconButton onClick={() => handleCopyLinkToClipboard(s)}>
-                  <ShareIcon style={{color: "#FFF"}}/>
-                </IconButton>
-              </Tooltip>
+              {
+                !s.id &&
+                <Tooltip title={copyTooltip}>
+                  <IconButton onClick={() => handleCopyLinkToClipboard(s)}>
+                    <ShareIcon style={{color: "#FFF"}}/>
+                  </IconButton>
+                </Tooltip>
+              }
+              {
+                s.id &&
+                <Tooltip title={copyTooltip}>
+                  <IconButton onClick={() => handleCopyLinkNuvem(s.id)}>
+                    <LinkIcon style={{color: "#FFF"}}/>
+                  </IconButton>
+                </Tooltip>
+              }
             </ContainerButtons>
           </Card>
         ))}

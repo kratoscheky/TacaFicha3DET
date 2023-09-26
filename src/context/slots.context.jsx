@@ -1,6 +1,8 @@
 import React, {createContext, useContext, useEffect, useState} from "react";
 import {useFicha} from "./ficha.context";
 import {useImgur} from "./imgur.context";
+import {v4} from "uuid";
+import {AddCarta, DeleteCarta} from "../services/carta.service.js";
 
 
 export const SlotsContext = createContext();
@@ -60,11 +62,14 @@ export const SlotsProvider = ({children}) => {
       }
     }
 
+    if(!localStorage.getItem('uuid'))
+      localStorage.setItem('uuid', v4())
+
     let localStorageVar = JSON.parse(localStorage.getItem('slots'));
     if (!localStorageVar)
       localStorageVar = []
 
-    localStorageVar.push({
+    const slot = {
       nome: nome,
       detalhes: detalhes,
       pericias: pericias,
@@ -85,7 +90,24 @@ export const SlotsProvider = ({children}) => {
       },
       imageUrl: _imageUrl,
       foil: foil,
-    })
+    }
+
+    if(_imageUrl?.includes('imgur')){
+      try{
+        const uuid = localStorage.getItem('uuid');
+        let {data} = await AddCarta({
+          json: JSON.stringify(slot),
+          uuidDoDono: uuid
+        })
+
+        slot.uuidDoDono = uuid;
+        slot.id = data;
+      } catch (e){
+        console.error(e.message)
+      }
+    }
+
+    localStorageVar.push(slot);
 
     localStorage.setItem('slots', JSON.stringify(localStorageVar))
     LoadSlots()
@@ -116,6 +138,12 @@ export const SlotsProvider = ({children}) => {
 
   const DeleteSlot = (index) => {
     let localStorageVar = JSON.parse(localStorage.getItem('slots'));
+    const uuid = localStorage.getItem('uuid')
+    let slotADeletar = localStorageVar[index];
+
+    if(slotADeletar.uuidDoDono === uuid && slotADeletar.id)
+      DeleteCarta(slotADeletar.id)
+
     localStorageVar.splice(index, 1)
     localStorage.setItem('slots', JSON.stringify(localStorageVar))
     LoadSlots();
