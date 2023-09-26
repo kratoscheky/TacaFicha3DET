@@ -143,11 +143,14 @@ export const SaveSlots = () => {
                   <SimCardDownloadRoundedIcon style={{color: "#FFF"}}/>
                 </IconButton>
               </Tooltip>
-              <Tooltip title={copyTooltip}>
-                <IconButton onClick={() => handleCopyLinkToClipboard(s)}>
-                  <ShareIcon style={{color: "#FFF"}}/>
-                </IconButton>
-              </Tooltip>
+              {
+                !s.id &&
+                <Tooltip title={copyTooltip}>
+                  <IconButton onClick={() => handleCopyLinkToClipboard(s)}>
+                    <ShareIcon style={{color: "#FFF"}}/>
+                  </IconButton>
+                </Tooltip>
+              }
               {
                 s.id &&
                 <Tooltip title={copyTooltip}>
