@@ -4,6 +4,7 @@ import {ShareView} from "../pages/ShareView/index.jsx";
 import {Sobre} from "../pages/Sobre/index.jsx";
 import {Colaboradores} from "../pages/Colaboradores/index.jsx";
 import {Layoult} from "../pages/Layoult/index.jsx";
+import {Showcase} from "../pages/Showcase/index.jsx";
 
 
 export const Routes = () => {
@@ -17,6 +18,7 @@ export const Routes = () => {
             <Route path="/shareview/:id" element={<ShareView />} />
             <Route path="/sobre" element={<Sobre />} />
             <Route path="/colaboradores" element={<Colaboradores />} />
+            <Route path="/showcase" element={<Showcase />} />
           </Route>
         </Routess>
       </Router>

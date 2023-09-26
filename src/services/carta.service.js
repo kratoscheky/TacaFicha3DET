@@ -15,3 +15,7 @@ export const DeleteCarta = async (id) => {
 export const GetColecao = async (id) => {
   return await axios.get(`https://api.tacaficha.com.br/api/colecao?id=${id}`);
 }
+
+export const Comunidade = async () => {
+  return await axios.get(`https://api.tacaficha.com.br/api/comunidade`);
+}
