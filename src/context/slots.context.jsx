@@ -96,13 +96,13 @@ export const SlotsProvider = ({children}) => {
       try{
         const uuid = localStorage.getItem('uuid');
         console.log("VO SALVA")
-        let id = await AddCarta({
+        let {data} = await AddCarta({
           json: JSON.stringify(slot),
           uuidDoDono: uuid
         })
 
         slot.uuidDoDono = uuid;
-        slot.id = id;
+        slot.id = data;
       } catch (e){
         console.error(e.message)
       }
