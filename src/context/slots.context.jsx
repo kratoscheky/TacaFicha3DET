@@ -92,10 +92,9 @@ export const SlotsProvider = ({children}) => {
       foil: foil,
     }
 
-    if(_imageUrl.includes('imgur')){
+    if(_imageUrl?.includes('imgur')){
       try{
         const uuid = localStorage.getItem('uuid');
-        console.log("VO SALVA")
         let {data} = await AddCarta({
           json: JSON.stringify(slot),
           uuidDoDono: uuid

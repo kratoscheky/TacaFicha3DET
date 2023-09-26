@@ -9,6 +9,7 @@ export const useShare = () => useContext(ShareContext);
 
 export const ShareProvider = ({children}) => {
   const [isShareView, setShareView] = useState(false);
+  const {setSalvandoLoading} = useFicha();
 
   const {
     atributos,
@@ -87,7 +88,9 @@ export const ShareProvider = ({children}) => {
   }
 
   const getDaNuvem = async (id) => {
+    setSalvandoLoading(true)
     let dataToShare = await GetCarta(id)
+      .catch(setSalvandoLoading(false))
 
     dataToShare = JSON.parse(dataToShare.data.json)
 
@@ -102,6 +105,7 @@ export const ShareProvider = ({children}) => {
     setPontosTotais(dataToShare.pontosTotais)
     setImageUrl(dataToShare.imageUrl)
     setFoil(dataToShare.foil ?? false)
+    setSalvandoLoading(false)
   }
 
   const loadShareableString = (shareableString) => {
