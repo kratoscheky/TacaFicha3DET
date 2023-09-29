@@ -6,7 +6,7 @@ describe('Monta ficha e faz download', () => {
     cy.deleteDownloadsFolder();
     
     // Visit your website's homepage
-    cy.visit('http://127.0.0.1:3000/');
+    cy.visit('http://localhost:5173/');
 
     // Set character's info
     cy.getByTestId('nome').type('MIZYU');
@@ -32,6 +32,8 @@ describe('Monta ficha e faz download', () => {
     cy.getByTestId('desvantagem-Frágil').click();
 
     cy.getByTestId('imagem-customizada').selectFile('cypress/fixtures/imagem-referencia.jpg', { force: true })
+
+    cy.get('.swiper-button-next').click().click();
 
     // Find and click the "Save Image" button
     cy.contains('Salvar Imagem').click();
