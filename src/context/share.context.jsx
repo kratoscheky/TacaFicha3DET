@@ -1,13 +1,15 @@
-import React, { createContext, useContext, useState } from "react";
-import { useFicha } from "./ficha.context";
-import { Base64 } from 'js-base64';
+import React, {createContext, useContext, useState} from "react";
+import {useFicha} from "./ficha.context";
+import {Base64} from 'js-base64';
+import {GetCarta} from "../services/carta.service.js";
 
 export const ShareContext = createContext();
 
 export const useShare = () => useContext(ShareContext);
 
-export const ShareProvider = ({ children }) => {
+export const ShareProvider = ({children}) => {
   const [isShareView, setShareView] = useState(false);
+  const {setSalvandoLoading} = useFicha();
 
   const {
     atributos,
@@ -36,7 +38,7 @@ export const ShareProvider = ({ children }) => {
 
   const copyShareableLinkToClipboard = (slot) => {
     const shareableLink = generateShareableString(slot);
-    navigator.clipboard.writeText(window.location.origin + "?share=" + shareableLink);
+    navigator.clipboard.writeText(window.location.origin + "/shareview?share=" + shareableLink);
   }
 
   const generateShareableString = (slot) => {
@@ -57,7 +59,7 @@ export const ShareProvider = ({ children }) => {
         imageUrl: slot.imageUrl,
         foil: slot.foil,
       };
-    //Caso nenhum slot tenha sido passado, montamos o link com os dados atuais da ficha (Pode ser util no futuro)
+      //Caso nenhum slot tenha sido passado, montamos o link com os dados atuais da ficha (Pode ser util no futuro)
     } else {
       dataToShare = {
         nome: nome,
@@ -85,6 +87,27 @@ export const ShareProvider = ({ children }) => {
     return Base64.encode(JSON.stringify(dataToShare), true);
   }
 
+  const getDaNuvem = async (id) => {
+    setSalvandoLoading(true)
+    let dataToShare = await GetCarta(id)
+      .catch(setSalvandoLoading(false))
+
+    dataToShare = JSON.parse(dataToShare.data.json)
+
+    setNome(dataToShare.nome)
+    setDetalhes(dataToShare.detalhes)
+    setPericias(dataToShare.pericias)
+    setVantagens(dataToShare.vantagens)
+    setDesvantagens(dataToShare.desvantagens)
+    setArquetipo(dataToShare.arquetipo)
+    setAtributos(dataToShare.atributos)
+    setExtras(dataToShare.extras)
+    setPontosTotais(dataToShare.pontosTotais)
+    setImageUrl(dataToShare.imageUrl)
+    setFoil(dataToShare.foil ?? false)
+    setSalvandoLoading(false)
+  }
+
   const loadShareableString = (shareableString) => {
     const dataToShare = JSON.parse(Base64.decode(shareableString));
     setNome(dataToShare.nome)
@@ -109,6 +132,7 @@ export const ShareProvider = ({ children }) => {
         generateShareableString,
         loadShareableString,
         isShareView,
+        getDaNuvem
       }}
     >
       {children}

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { TextArea, Label, InputContainer, Input, IconInput, Icon } from "./styles";
+import {Icon, IconInput, Input, InputContainer, Label, TextArea} from "./styles";
 
 export default function FichaInput(props) {
   const { label, valor, onEdit, isTextArea, maxLength, width, disabled, icon, type, testId } = props;
@@ -10,7 +10,7 @@ export default function FichaInput(props) {
     ) : (
       <IconInput>
         {
-          icon && <Icon src={icon} />
+          icon && <Icon src={icon}/>
         }
         <Input type={type} style={{
           padding: icon ? '16px 16px 16px 42px' : '16px 16px',

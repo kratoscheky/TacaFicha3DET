@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+![TacaFicha](https://i.imgur.com/ACyzHu0.jpg)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# TacaFicha: Sua Ferramenta de Criação de Personagens 3DeT Victory
 
-## Available Scripts
+Bem-vindo ao mundo do RPG 3DeT Victory, onde a imaginação se encontra com a estratégia e a aventura! Com o aplicativo TacaFicha, você está prestes a descobrir uma ferramenta indispensável para dar vida aos seus personagens de forma mais simples e eficaz do que nunca.
 
-In the project directory, you can run:
+## Principais Recursos:
 
-### `npm start`
+- **Criação de Personagem Simplificada:** Com o TacaFicha, você pode criar personagens para o sistema de RPG 3DeT Victory de forma intuitiva e sem complicações. De iniciantes a veteranos, todos podem aproveitar essa ferramenta para criar personagens emocionantes.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Formato de Cartas Dinâmicas:** O aplicativo permite que você crie fichas de personagens no formato de cartas, tornando a visualização e o compartilhamento de informações do seu herói ou heroína ainda mais envolventes. Dê um toque de autenticidade às suas aventuras!
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Cálculos Automáticos:** Adeus, calculadora! O TacaFicha faz todos os cálculos para você. Seja para pontos de vida, pontos de habilidade, ou outros atributos, nossos algoritmos garantem que você possa se concentrar na narrativa, enquanto as complexidades ficam por nossa conta.
 
-### `npm test`
+- **Apoio para Perícias, Vantagens e Desvantagens:** Mantenha todas as informações organizadas com espaços dedicados para perícias, vantagens e desvantagens do seu personagem. Nunca mais se perca nas regras ou detalhes!
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Atualizações Contínuas:** Estamos comprometidos em melhorar constantemente o TacaFicha. Escutamos a comunidade de jogadores e continuamos aprimorando o aplicativo com base em seus feedbacks e sugestões.
 
-### `npm run build`
+Faça parte da comunidade de jogadores apaixonados que já descobriram a facilidade e a eficácia do TacaFicha. Deixe sua criatividade fluir, mergulhe em aventuras épicas e concentre-se no que realmente importa - a diversão!
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Não perca mais tempo com planilhas complicadas ou cálculos manuais. Baixe o TacaFicha agora e leve seus personagens 3DeT Victory para o próximo nível. Junte-se à jornada e torne-se o herói que sempre quis ser!
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Scripts Disponíveis
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+No diretório do projeto, você pode executar:
 
-### `npm run eject`
+### `yarn dev`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Executa o aplicativo no modo de desenvolvimento.\
+Abra [http://localhost:5173/](http://localhost:5173/) para visualizá-lo em seu navegador.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Licença:**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+[![Licença](https://img.shields.io/badge/Licença-Attribution--NonCommercial--NoDerivatives%204.0%20International-<cor>?style=flat-square)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Este trabalho está licenciado sob a [Licença Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)](https://creativecommons.org/licenses/by-nc-nd/4.0/).

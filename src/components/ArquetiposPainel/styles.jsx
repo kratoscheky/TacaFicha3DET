@@ -11,7 +11,7 @@ export const Container = styled.div`
 
 export const Painel = styled.div`
     border-radius: 8px;
-    height: 250px;
+    height: 300px;
     min-width: 200px;
     width: 200px;
     display: grid;
@@ -19,13 +19,13 @@ export const Painel = styled.div`
     align-items: end;
     justify-content: center;
     justify-items: center;
-    background: url(https://site.jamboeditora.com.br/wp-content/uploads/2023/07/3DeT-fundo-opacidade.png);
+    background: url(https://site.jamboeditora.com.br/wp-content/uploads/2023/07/3DeT-respiro-02.png);
     background-size: cover;
     box-shadow: 4px 4px 9px 0px var(--drop-shadow);
     cursor: pointer;
     img {
         width: 100%;
-        max-height: 250px;
+        max-height: 300px;
         grid-row: 1 / 2;
         grid-column: 1 / 2;
         border-radius: 8px;

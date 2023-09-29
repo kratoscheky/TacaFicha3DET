@@ -1,4 +1,4 @@
-import { Modal } from '@mui/material';
+import {Modal} from '@mui/material';
 import styled from 'styled-components';
 
 export const ContainerModal = styled(Modal)`
@@ -39,7 +39,7 @@ export const Titulo = styled.h3`
     align-items: center;
     justify-content: space-between;
     color: #FFF
-` 
+`
 
 export const AdicionarButton = styled.span`
     display: flex;

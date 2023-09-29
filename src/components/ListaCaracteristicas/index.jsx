@@ -1,16 +1,10 @@
 import React from "react";
-import {
-  ContainerCaracteristicas,
-  Caracteristica,
-  AdicionarButton,
-  ContainerTitulo,
-  Container,
-} from "./styles";
+import {AdicionarButton, Caracteristica, Container, ContainerCaracteristicas, ContainerTitulo,} from "./styles";
 import AddIcon from "@mui/icons-material/Add";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 
 export const ListaCaracteristicas = (props) => {
-  const { caracteristicas, onAdicionarClick, onRemoverClick, titulo, testId } = props;
+  const {caracteristicas, onAdicionarClick, onRemoverClick, titulo, testId} = props;
 
   return (
     <Container>
@@ -18,7 +12,7 @@ export const ListaCaracteristicas = (props) => {
         <h1>{titulo}</h1>
         <AdicionarButton onClick={() => onAdicionarClick()} data-test-id={testId}>
           <p>Adicionar</p>
-          <AddIcon style={{ width: "15px" }} />
+          <AddIcon style={{width: "15px"}}/>
         </AdicionarButton>
       </ContainerTitulo>
 
@@ -27,7 +21,7 @@ export const ListaCaracteristicas = (props) => {
           <Caracteristica>
             {caracteristica.Nome}
             <CloseRoundedIcon
-              style={{ width: "15px" }}
+              style={{width: "15px"}}
               onClick={() => onRemoverClick(caracteristica.Id)}
             />
           </Caracteristica>

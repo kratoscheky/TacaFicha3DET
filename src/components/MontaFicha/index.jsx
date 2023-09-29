@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from "react";
-import { useFicha } from "../../context/ficha.context";
+import React, {useState} from "react";
+import {useFicha} from "../../context/ficha.context";
 import poder from "../../images/home/poder.svg";
 import habilidade from "../../images/home/habilidade.svg";
 import resistencia from "../../images/home/resistencia.svg";
@@ -11,8 +11,7 @@ import pontosvidaplus from "../../images/home/pontosvidaplus.svg";
 import pontosmanaplus from "../../images/home/pontosmanaplus.svg";
 import {
   AtributosImagem,
-  ButtonFicha,
-  ButtonSecundario, ContainerAnotacoes,
+  ContainerAnotacoes,
   ContainerAtributos,
   ContainerInputs,
   ContainerMontaFicha,
@@ -26,13 +25,12 @@ import dadinho from "../../images/dadinhos.png";
 import ModalPericias from "../ModalPericias";
 import ModalVantagens from "../ModalVantagens";
 import ModalDesvantagens from "../ModalDesvantagens";
-import { ListaCaracteristicas } from "../ListaCaracteristicas";
-import { useSlots } from "../../context/slots.context";
-import BookIcon from "@mui/icons-material/Book";
-import BackspaceIcon from "@mui/icons-material/Backspace";
-import { useImgur } from "../../context/imgur.context";
+import {ListaCaracteristicas} from "../ListaCaracteristicas";
+import {useSlots} from "../../context/slots.context";
+import {useImgur} from "../../context/imgur.context";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import {ImageComponent} from "../../pages/Ficha";
 
 export const MontaFicha = () => {
   const {
@@ -60,27 +58,26 @@ export const MontaFicha = () => {
     setAnotacoes
   } = useFicha();
 
-  const { SaveSlot } = useSlots();
+  const {SaveSlot} = useSlots();
 
-  const { remainingUploadsToday } = useImgur();
+  const {remainingUploadsToday} = useImgur();
 
   const [addPericiasOpen, setAddPericiasOpen] = useState(false);
   const [addVantagensOpen, setAddVantagensOpen] = useState(false);
   const [addDesvantagensOpen, setAddDesvantagensOpen] = useState(false);
 
   const SeparadorDadinho = () => (
-    <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
+    <div style={{width: "100%", display: "flex", justifyContent: "center"}}>
       <img style={{
         width: '100%',
         maxWidth: '500px',
-      }} src={dadinho} alt={"Dados"} />
+      }} src={dadinho} alt={"Dados"}/>
     </div>
   );
 
   return (
     <>
       <ContainerMontaFicha>
-        <SeparadorDadinho />
         <SessaoInputs>
           <h1 id="monta-ficha-dados-basicos">Dados Basicos</h1>
           <ContainerInputs>
@@ -113,12 +110,11 @@ export const MontaFicha = () => {
             testId="descricao"
           />
         </SessaoInputs>
-        <SeparadorDadinho />
         <SessaoInputsAtributos>
           <div>
             <ContainerAtributos>
               <h1>Atributos</h1>
-              <br />
+              <br/>
               <ContainerInputs>
                 <FichaInput
                   type="number"
@@ -152,7 +148,7 @@ export const MontaFicha = () => {
                   valor={extras.pontosDeAcao}
                   icon={pontosacaoplus}
                   onEdit={(e) =>
-                    setExtras({ ...extras, pontosDeAcao: parseInt(e.target.value) })
+                    setExtras({...extras, pontosDeAcao: parseInt(e.target.value)})
                   }
                 />
                 <FichaInput
@@ -161,7 +157,7 @@ export const MontaFicha = () => {
                   valor={extras.pontosDeMana}
                   icon={pontosmanaplus}
                   onEdit={(e) =>
-                    setExtras({ ...extras, pontosDeMana: parseInt(e.target.value) })
+                    setExtras({...extras, pontosDeMana: parseInt(e.target.value)})
                   }
                 />
                 <FichaInput
@@ -170,7 +166,7 @@ export const MontaFicha = () => {
                   valor={extras.pontosDeVida}
                   icon={pontosvidaplus}
                   onEdit={(e) =>
-                    setExtras({ ...extras, pontosDeVida: parseInt(e.target.value) })
+                    setExtras({...extras, pontosDeVida: parseInt(e.target.value)})
                   }
                 />
               </ContainerInputs>
@@ -195,10 +191,9 @@ export const MontaFicha = () => {
                 />
               </ContainerInputs>
             </ContainerAtributos>
-            <AtributosImagem />
+            <AtributosImagem/>
           </div>
         </SessaoInputsAtributos>
-        <SeparadorDadinho />
         <ContainerPersonalidade>
           <PainelPersonalidade>
             <ListaCaracteristicas
@@ -237,34 +232,17 @@ export const MontaFicha = () => {
         <SessaoInputs>
           <h1>Anotações</h1>
           <ContainerAnotacoes>
-            <ReactQuill theme="snow" value={anotacoes} onChange={setAnotacoes} />
+            <ReactQuill theme="snow" value={anotacoes} onChange={setAnotacoes}/>
           </ContainerAnotacoes>
         </SessaoInputs>
-        <div>
-          <ButtonFicha onClick={async () => await SaveSlot()}>
-            <BookIcon />
-            Salvar Ficha em Slot
-          </ButtonFicha>
-          <ButtonSecundario
-            style={{ maxWidth: "110px" }}
-            onClick={() => LimparCampos()}
-          >
-            <BackspaceIcon />
-            Limpar Campos
-          </ButtonSecundario>
-        </div>
-        <h6 style={{textAlign: "center", color: "var(--secondary-text)", lineHeight: "12px"}}>
-          Você pode salvar mais {remainingUploadsToday} fichas com imagem hoje
-          <br/>Após isso as fichas serão salvas sem imagem
-          <br/>Essa limitação permite que todos possam aproveitar o TacaFicha
-        </h6>
+        <ImageComponent/>
       </ContainerMontaFicha>
 
       <ModalPericias
         open={addPericiasOpen}
         handleClose={() => setAddPericiasOpen(false)}
         onAdicionarClick={(Nome) => {
-          setPericias([...pericias, { Id: crypto.randomUUID(), Nome }]);
+          setPericias([...pericias, {Id: crypto.randomUUID(), Nome}]);
           setAddPericiasOpen(false);
         }}
       />
@@ -272,7 +250,7 @@ export const MontaFicha = () => {
         open={addVantagensOpen}
         handleClose={() => setAddVantagensOpen(false)}
         onAdicionarClick={(Nome) => {
-          setVantagens([...vantagens, { Id: crypto.randomUUID(), Nome }]);
+          setVantagens([...vantagens, {Id: crypto.randomUUID(), Nome}]);
           setAddVantagensOpen(false);
         }}
       />
@@ -280,7 +258,7 @@ export const MontaFicha = () => {
         open={addDesvantagensOpen}
         handleClose={() => setAddDesvantagensOpen(false)}
         onAdicionarClick={(Nome) => {
-          setDesvantagens([...desvantagens, { Id: crypto.randomUUID(), Nome }]);
+          setDesvantagens([...desvantagens, {Id: crypto.randomUUID(), Nome}]);
           setAddDesvantagensOpen(false);
         }}
       />

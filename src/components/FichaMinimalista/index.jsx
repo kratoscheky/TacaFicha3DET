@@ -1,18 +1,18 @@
 import React from "react";
-import { useFicha } from "../../context/ficha.context";
+import {useFicha} from "../../context/ficha.context";
 import {
-  ContainerExtras,
-  Icon,
+  ArquetipoTexto,
   Button,
-  Container,
   Card,
+  Container,
+  ContainerExtras,
+  ContainerIcons,
+  DescricaoMinimalista,
+  ExtraCard,
+  Icon,
   InnerCard,
   NomeTopo,
-  StatusContainer,
-  ContainerIcons,
-  ExtraCard,
-  DescricaoMinimalista,
-  ArquetipoTexto
+  StatusContainer
 } from "./styles";
 import poderIcon from "../../images/minimalista/poder.svg";
 import habilidadeIcon from "../../images/minimalista/habilidade.svg";
@@ -35,10 +35,12 @@ export const FichaMinimalista = () => {
     pericias,
     extras,
     imageBlob,
-    recursosFinal
+    recursosFinal,
+    setSalvandoLoading
   } = useFicha();
 
   const captureAndSaveFicha = () => {
+    setSalvandoLoading(true);
     const container = document.querySelector("#container-ficha-minimalista"); // Use a classe do ContainerFicha real
 
     if (container) {
@@ -51,25 +53,29 @@ export const FichaMinimalista = () => {
         downloadLink.href = imgURL;
         downloadLink.download = "ficha.png";
         downloadLink.click();
+        setSalvandoLoading(false);
+      }).catch(e => {
+        alert(`Ocorreu um erro! ${e.message}`)
+        setSalvandoLoading(false);
       });
     }
   };
 
   return (
     <Container>
-      <h1>Minimalista</h1>
+      <h1 style={{color: '#FFF'}}>Minimalista</h1>
       <Card
         id="container-ficha-minimalista"
         style={{
           backgroundImage:
-          `url(${imageBlob ?? 'https://site.jamboeditora.com.br/wp-content/uploads/2023/07/3DeT-abertura-mobile.png'})`,
+            `url(${imageBlob ?? 'https://site.jamboeditora.com.br/wp-content/uploads/2023/07/3DeT-abertura-mobile.png'})`,
         }}
       >
         <NomeTopo>
           <p>{nome}</p>
         </NomeTopo>
         {
-          arquetipo && 
+          arquetipo &&
           <ArquetipoTexto>
             <p>{arquetipo}</p>
           </ArquetipoTexto>
@@ -77,33 +83,33 @@ export const FichaMinimalista = () => {
         <ContainerIcons>
           <InnerCard>
             <StatusContainer>
-              <Icon src={poderIcon} />
+              <Icon src={poderIcon}/>
               <p>{atributos.poder}</p>
             </StatusContainer>
             <StatusContainer>
-              <Icon src={habilidadeIcon} />
+              <Icon src={habilidadeIcon}/>
               <p>{atributos.habilidade}</p>
             </StatusContainer>
             <StatusContainer>
-              <Icon src={resistenciaIcon} />
+              <Icon src={resistenciaIcon}/>
               <p>{atributos.resistencia}</p>
             </StatusContainer>
           </InnerCard>
           <InnerCard>
             <StatusContainer>
-              <Icon src={acaoIcon} />
+              <Icon src={acaoIcon}/>
               <p>
                 {recursosFinal.pontosDeAcao}
               </p>
             </StatusContainer>
             <StatusContainer>
-              <Icon src={manaIcon} />
+              <Icon src={manaIcon}/>
               <p>
                 {recursosFinal.pontosDeMana}
               </p>
             </StatusContainer>
             <StatusContainer>
-              <Icon src={vidaIcon} />
+              <Icon src={vidaIcon}/>
               <p>
                 {recursosFinal.pontosDeVida}
               </p>
@@ -130,7 +136,7 @@ export const FichaMinimalista = () => {
       </Card>
 
       <Button onClick={captureAndSaveFicha}>
-        <SaveIcon />
+        <SaveIcon/>
         Salvar Imagem
       </Button>
     </Container>

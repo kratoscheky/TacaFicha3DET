@@ -5,7 +5,7 @@ export const ContainerCaracteristicas = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     gap: 16px 8px;
-` 
+`
 
 export const Caracteristica = styled.div`
     padding: 4px 0;
@@ -19,7 +19,7 @@ export const Caracteristica = styled.div`
     svg {
         cursor: pointer;
     }
-` 
+`
 
 export const AdicionarButton = styled.span`
     display: flex;
@@ -36,7 +36,7 @@ export const AdicionarButton = styled.span`
     p{
         padding-top: 4px;
     }
-` 
+`
 
 export const ContainerTitulo = styled.div`
     display: flex;
