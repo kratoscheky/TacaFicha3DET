@@ -4,13 +4,13 @@ import AddIcon from "@mui/icons-material/Add";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 
 export const ListaCaracteristicas = (props) => {
-  const {caracteristicas, onAdicionarClick, onRemoverClick, titulo} = props;
+  const {caracteristicas, onAdicionarClick, onRemoverClick, titulo, testId} = props;
 
   return (
     <Container>
       <ContainerTitulo>
         <h1>{titulo}</h1>
-        <AdicionarButton onClick={() => onAdicionarClick()}>
+        <AdicionarButton onClick={() => onAdicionarClick()} data-test-id={testId}>
           <p>Adicionar</p>
           <AddIcon style={{width: "15px"}}/>
         </AdicionarButton>

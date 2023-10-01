@@ -37,7 +37,7 @@ export default function ModalDesvantagens({
           <ContainerItens>
             <Titulo>
               Customizada
-              <AdicionarButton onClick={() => onAdicionarClick(customizada)}>
+              <AdicionarButton onClick={() => onAdicionarClick(customizada)} data-test-id="desvantagem-adicionar-customizada">
                 <AddIcon style={{width: "15px"}}/>
                 Adicionar
               </AdicionarButton>
@@ -53,6 +53,7 @@ export default function ModalDesvantagens({
               label={"Nome da desvantagem"}
               valor={customizada}
               onEdit={(e) => setCustomizada(e.target.value)}
+              testId="desvantagem-customizada"
             />
             <hr style={{width: "100%"}}/>
             <FichaInput
@@ -73,7 +74,7 @@ export default function ModalDesvantagens({
                 >
                   <Titulo>
                     {d.Nome} {d.Pontos}pt
-                    <AdicionarButton onClick={() => onAdicionarClick(d.Nome)}>
+                    <AdicionarButton onClick={() => onAdicionarClick(d.Nome)} data-test-id={'desvantagem-' + d.Nome}>
                       <AddIcon style={{width: "15px"}}/>
                       Adicionar
                     </AdicionarButton>

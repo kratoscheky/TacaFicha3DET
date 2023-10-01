@@ -24,10 +24,14 @@ export function TacaFichaTCG() {
     setSalvandoLoading(true);
     const container = document.querySelector(`#${actualCard}`); // Use a classe do ContainerFicha real
 
-    if (foil)
-      container.classList.remove('foil');
-
     if (container) {
+      var originalTransform = container.parentElement.style.transform
+      console.log(originalTransform);
+      container.parentElement.style.transform = 'translate3d(0px, 0px, 0px)';
+
+      if (foil)
+        container.classList.remove('foil');
+
       html2canvas(container).then((canvas) => {
         // Convertendo o canvas para um URL de imagem
 
@@ -38,15 +42,17 @@ export function TacaFichaTCG() {
           downloadLink.download = "ficha.png";
           downloadLink.click();
           setSalvandoLoading(false);
+          setImagemGerada(url)
         }, 'image/png');
       }).catch(e => {
         alert(`Ocorreu um erro! ${e.message}`)
         setSalvandoLoading(false);
+      }).finally(() => {
+        container.parentElement.style.transform = originalTransform;
+        if (foil)
+          container.classList.add('foil');
       });
     }
-
-    if (foil)
-      container.classList.add('foil');
   };
 
   const CartasIds = [
@@ -93,12 +99,12 @@ export function TacaFichaTCG() {
       onSwiper={setSwiper}
       onSlideChange={e => HandleCardAtivo(e.activeIndex)}
     >
-      <SwiperSlide><TacaFicha/></SwiperSlide>
-      <SwiperSlide><TacaFichaVerso/></SwiperSlide>
-      <SwiperSlide><TacaCarta/></SwiperSlide>
-      <SwiperSlide><TacaCola/></SwiperSlide>
-      <SwiperSlide><FichaTCGMinimalista/></SwiperSlide>
-      <SwiperSlide><FichaCard/></SwiperSlide>
+      <SwiperSlide><TacaFicha disableMovement={actualCard != 'tacaficha'} disableFoilAnimation={actualCard != 'tacaficha'} /></SwiperSlide>
+      <SwiperSlide><TacaFichaVerso disableMovement={actualCard != 'tacaficha-verso'} disableFoilAnimation={actualCard != 'tacaficha-verso'} /></SwiperSlide>
+      <SwiperSlide><TacaCarta disableMovement={actualCard != 'container-ficha-taca-carta'} disableFoilAnimation={actualCard != 'container-ficha-taca-carta'} /></SwiperSlide>
+      <SwiperSlide><TacaCola disableMovement={actualCard != 'container-ficha-taca-cola'} disableFoilAnimation={actualCard != 'container-ficha-taca-cola'} /></SwiperSlide>
+      <SwiperSlide><FichaTCGMinimalista disableMovement={actualCard != 'container-ficha-tcg-minimalista'} disableFoilAnimation={actualCard != 'container-ficha-tcg-minimalista'} /></SwiperSlide>
+      <SwiperSlide><FichaCard disableMovement={actualCard != 'container-ficha-card'} disableFoilAnimation={actualCard != 'container-ficha-card'} /></SwiperSlide>
     </Swiper>
     <br/>
     <div style={{

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useRef, useEffect} from "react";
 import {
   ArquetipoBar,
   ArquetipoText,
@@ -33,6 +33,7 @@ import {
   TagRecursoVida,
   TagsPericias,
   TopoNomePonto,
+  InnerContainer,
 } from "./styles.jsx";
 import ponto from "../../../images/tcgminimalista/bg_niverl.svg";
 import name from "../../../images/tcgminimalista/bg_nme.svg";
@@ -44,16 +45,14 @@ import resistenciaIcon from "../../../images/minimalista/resistencia.svg";
 import acaoIcon from "../../../images/minimalista/acao.svg";
 import manaIcon from "../../../images/minimalista/mana.svg";
 import vidaIcon from "../../../images/minimalista/vida.svg";
-import html2canvas from "html2canvas";
 import {useFicha} from "../../../context/ficha.context.jsx";
 import tresdettag from "../../../images/tcg/3dettag.svg";
-import throttle from 'lodash/throttle';
 import {useBrowserContext} from "../../../context/browser.context.jsx";
-import {useShare} from "../../../context/share.context.jsx";
 
-export const TacaCarta = () => {
-  const [rotation, setRotation] = useState({x: 0, y: 0});
-  const [gradientDegree, setGradientDegree] = useState(125);
+export const TacaCarta = (props) => {
+  const { disableMovement = false, disableFoilAnimation = false } = props;
+
+  const animatedTimeout = useRef(null)
 
   const {isFirefox} = useBrowserContext();
 
@@ -69,11 +68,7 @@ export const TacaCarta = () => {
     imageBlob,
     recursosFinal,
     foil,
-    setFoil,
-    setSalvandoLoading
   } = useFicha();
-
-  const {isShareView} = useShare();
 
   const CoresPericias = {
     Animais: "#A6CEE3",
@@ -90,48 +85,89 @@ export const TacaCarta = () => {
     Sustento: "#B15928",
   };
 
-  const handleMouseMove = throttle((e) => {
-    const posX = e.nativeEvent.offsetX || (e.nativeEvent.touches && e.nativeEvent.touches[0].clientX);
-    const posY = e.nativeEvent.offsetY || (e.nativeEvent.touches && e.nativeEvent.touches[0].clientY);
-    const x = Math.abs(Math.floor(100 / e.target.offsetWidth * posX) - 100);
-    const y = Math.abs(Math.floor(100 / e.target.offsetHeight * posY) - 100);
+  const handleMove = (e) => {
+    if (disableMovement) return;
 
-    const backgroundX = 50 + (x - 50) / 1.5;
-    const backgroundY = 50 + (y - 50) / 1.5;
+    // normalise touch/mouse
+    var pos = [
+      e.nativeEvent.offsetX || (e.nativeEvent.touches && e.nativeEvent.touches[0].clientX),
+      e.nativeEvent.offsetY || (e.nativeEvent.touches && e.nativeEvent.touches[0].clientY)
+    ];
 
-    const ty = ((backgroundY - 50) / 2) * -1;
-    const tx = ((backgroundX - 50) / 1.5) * 0.5;
-    setRotation({x: ty, y: tx});
+    e.preventDefault();
 
-    const _gradientDegree = 20 + Math.abs((50 - x) + (50 - y)) * 1.5;
-    setGradientDegree(_gradientDegree);
-  }, 100);
+    var card = e.target;
 
-  const handleMouseLeave = () => {
-    setRotation({x: 0, y: 0});
+    // math for mouse position
+    var l = pos[0] * 2.5;
+    var t = pos[1] * 2.5;
+    var h = card.offsetHeight;
+    var w = card.offsetWidth;
+    var px = Math.abs(Math.floor(100 / w * l)-100);
+    var py = Math.abs(Math.floor(100 / h * t)-100);
+    var pa = (50-px)+(50-py);
+
+    // math for gradient / background positions
+    var lp = (50+(px - 50)/1.5);
+    var tp = (50+(py - 50)/1.5);
+    var px_spark = (50+(px - 50)/7);
+    var py_spark = (50+(py - 50)/7);
+    var p_opc = 20+(Math.abs(pa)*1.5);
+    var ty = ((tp - 50)/2) * -1;
+    var tx = ((lp - 50)/1.5) * .5;
+
+    // css to apply for active card
+    var grad_pos = `background-position: ${lp}% ${tp}% !important;`
+    var sprk_pos = `background-position: ${px_spark}% ${py_spark}% !important;`
+    var opc = `opacity: ${p_opc/100};`
+    var tf = `${isFirefox ? 'scale(0.5)' : ''} rotateX(${ty}deg) rotateY(${tx}deg)`
+
+    // need to use a <style> tag for psuedo elements
+    var style = `
+      .foil:hover:before { ${grad_pos} }  /* gradient */
+      .foil:hover:after { ${sprk_pos} ${opc} }   /* sparkles */ 
+    `
+  
+    // set styles
+    card.style.transform = tf;
+    document.getElementById("card-foil-hover").innerHTML = style;
+    
+    card.classList.remove('animated');
+
+    if ( e.type === "touchmove" ) {
+      return false; 
+    }
+
+    clearTimeout(animatedTimeout.current)
+  }
+
+  const handleEnd = (e) => {
+    if (disableMovement) return;
+
+    // remove css, apply custom animation on end
+    var card = e.target;
+    card.style.transform = `${isFirefox ? 'scale(0.5)' : ''}`;
+    document.getElementById("card-foil-hover").innerHTML = '';
+    animatedTimeout.current = setTimeout(function() {
+      card.classList.add('animated');
+    },2500);
   };
+
+  useEffect(() => {
+    if (disableFoilAnimation)
+      clearTimeout(animatedTimeout.current);
+  }, [disableFoilAnimation]);
 
   return (
     <Container>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
+      <InnerContainer>
         <Card
-          className={foil ? "foil" : ""}
-          onMouseMove={handleMouseMove}
-          onTouchMove={handleMouseMove}
-          onMouseLeave={handleMouseLeave}
-          onTouchEnd={handleMouseLeave}
-          style={{
-            backgroundImage: `url(${imageBlob ??
-            "https://site.jamboeditora.com.br/wp-content/uploads/2023/07/3DeT-abertura-mobile.png"})`,
-            transform: `${isFirefox ? 'scale(0.5)' : ''} rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`
-          }}
-          gradientDegree={gradientDegree}
+          className={foil ? `foil ${!disableFoilAnimation ? 'animated' : ''}` : ''}
+          onMouseMove={handleMove}
+          onTouchMove={handleMove}
+          onMouseLeave={handleEnd}
+          onTouchEnd={handleEnd}
+          style={{ backgroundImage: `url(${imageBlob})` }}
           id="container-ficha-taca-carta"
         >
           <Borda src={borda}/>
@@ -247,7 +283,7 @@ export const TacaCarta = () => {
             <img alt="Três dê e tê tag" src={tresdettag}/>
           </ContainerRecursos>
         </Card>
-      </div>
+      </InnerContainer>
     </Container>
   );
 };

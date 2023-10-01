@@ -33,7 +33,7 @@ export default function ModalPericias({open, handleClose, onAdicionarClick}) {
             <br/>
             <Titulo>
               Customizada
-              <AdicionarButton onClick={() => onAdicionarClick(customizada)}>
+              <AdicionarButton onClick={() => onAdicionarClick(customizada)} data-test-id="pericia-adicionar-customizada">
                 <AddIcon
                   style={{width: "15px"}}
                 />
@@ -47,6 +47,7 @@ export default function ModalPericias({open, handleClose, onAdicionarClick}) {
               label={"Nome da perícia"}
               valor={customizada}
               onEdit={(e) => setCustomizada(e.target.value)}
+              testId="pericia-customizada"
             />
             <hr style={{width: "100%"}}/>
             <FichaInput
@@ -64,7 +65,7 @@ export default function ModalPericias({open, handleClose, onAdicionarClick}) {
                 }} key={p.Nome}>
                   <Titulo>
                     {p.Nome}
-                    <AdicionarButton onClick={() => onAdicionarClick(p.Nome)}>
+                    <AdicionarButton onClick={() => onAdicionarClick(p.Nome)} data-test-id={'pericia-' + p.Nome}>
                       <AddIcon
                         style={{width: "15px"}}
                       />

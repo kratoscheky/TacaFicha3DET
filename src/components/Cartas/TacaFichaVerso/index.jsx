@@ -23,12 +23,17 @@ import {
   Topo
 } from "./styles.jsx";
 import {useFicha} from "../../../context/ficha.context.jsx";
-import React, {useState} from "react";
+import React, {useRef, useEffect} from "react";
 import {Container} from "../TacaFichaTCG/styles.jsx";
 import {useBrowserContext} from "../../../context/browser.context.jsx";
-import throttle from "lodash/throttle";
 
-export const TacaFichaVerso = () => {
+export const TacaFichaVerso = (props) => {
+  const { disableMovement = false, disableFoilAnimation = false } = props;
+
+  const animatedTimeout = useRef(null);
+  
+  const {isFirefox} = useBrowserContext();
+
   const {
     atributos,
     nome,
@@ -45,46 +50,78 @@ export const TacaFichaVerso = () => {
     anotacoes
   } = useFicha();
 
-  const [rotation, setRotation] = useState({x: 0, y: 0});
-  const [gradientDegree, setGradientDegree] = useState(125);
+  const handleMove = (e) => {
+    if (disableMovement) return;
 
-  const {isFirefox} = useBrowserContext();
+    // normalise touch/mouse
+    var pos = [
+      e.nativeEvent.offsetX || (e.nativeEvent.touches && e.nativeEvent.touches[0].clientX),
+      e.nativeEvent.offsetY || (e.nativeEvent.touches && e.nativeEvent.touches[0].clientY)
+    ];
 
-  const handleMouseMove = throttle((e) => {
-    const posX = e.nativeEvent.offsetX || (e.nativeEvent.touches && e.nativeEvent.touches[0].clientX);
-    const posY = e.nativeEvent.offsetY || (e.nativeEvent.touches && e.nativeEvent.touches[0].clientY);
-    const x = Math.abs(Math.floor(100 / e.target.offsetWidth * posX) - 100);
-    const y = Math.abs(Math.floor(100 / e.target.offsetHeight * posY) - 100);
+    e.preventDefault();
 
-    const backgroundX = 50 + (x - 50) / 1.5;
-    const backgroundY = 50 + (y - 50) / 1.5;
+    var card = e.target;
 
-    const ty = ((backgroundY - 50) / 2) * -1;
-    const tx = ((backgroundX - 50) / 1.5) * 0.5;
-    setRotation({x: ty, y: tx});
+    // math for mouse position
+    var l = pos[0] * 2.5;
+    var t = pos[1] * 2.5;
+    var h = card.offsetHeight;
+    var w = card.offsetWidth;
+    var px = Math.abs(Math.floor(100 / w * l)-100);
+    var py = Math.abs(Math.floor(100 / h * t)-100);
+    var pa = (50-px)+(50-py);
 
-    const _gradientDegree = 20 + Math.abs((50 - x) + (50 - y)) * 1.5;
-    setGradientDegree(_gradientDegree);
-  }, 100);
+    // math for gradient / background positions
+    var lp = (50+(px - 50)/1.5);
+    var tp = (50+(py - 50)/1.5);
+    var px_spark = (50+(px - 50)/7);
+    var py_spark = (50+(py - 50)/7);
+    var p_opc = 20+(Math.abs(pa)*1.5);
+    var ty = ((tp - 50)/2) * -1;
+    var tx = ((lp - 50)/1.5) * .5;
 
-  const handleMouseLeave = () => {
-    setRotation({x: 0, y: 0});
+    // css to apply for active card
+    var grad_pos = `background-position: ${lp}% ${tp}% !important;`
+    var sprk_pos = `background-position: ${px_spark}% ${py_spark}% !important;`
+    var opc = `opacity: ${p_opc/100};`
+    var tf = `${isFirefox ? 'scale(0.5)' : ''} rotateX(${ty}deg) rotateY(${tx}deg)`
+
+    // need to use a <style> tag for psuedo elements
+    var style = `
+      .foil:hover:before { ${grad_pos} }  /* gradient */
+      .foil:hover:after { ${sprk_pos} ${opc} }   /* sparkles */ 
+    `
+  
+    // set styles
+    card.style.transform = tf;
+    document.getElementById("card-foil-hover").innerHTML = style;
+    
+    card.classList.remove('animated');
+
+    if ( e.type === "touchmove" ) {
+      return false; 
+    }
+
+    clearTimeout(animatedTimeout.current)
+  }
+
+  const handleEnd = (e) => {
+    if (disableMovement) return;
+
+    // remove css, apply custom animation on end
+    var card = e.target;
+    card.style.transform = `${isFirefox ? 'scale(0.5)' : ''}`;
+    document.getElementById("card-foil-hover").innerHTML = '';
+    animatedTimeout.current = setTimeout(function() {
+      card.classList.add('animated');
+    },2500);
   };
 
-  const CoresPericias = {
-    Animais: "#A6CEE3",
-    Arte: "#1F78B4",
-    Influência: "#B2DF8A",
-    Esporte: "#33A02C",
-    Luta: "#FB9A99",
-    Manha: "#E31A1C",
-    Máquinas: "#FDBF6F",
-    Medicina: "#FF7F00",
-    Mística: "#CAB2D6",
-    Percepção: "#6A3D9A",
-    Saber: "#F2C000",
-    Sustento: "#B15928",
-  };
+  useEffect(() => {
+    if (disableFoilAnimation)
+      clearTimeout(animatedTimeout.current);
+  }, [disableFoilAnimation]);
 
   const DefinirCorEscala = (escala) => {
     if (escala.includes('Ni')) {
@@ -108,17 +145,15 @@ export const TacaFichaVerso = () => {
 
   return (
     <Container>
-      <Carta className={foil ? "foil" : ""}
-             onMouseMove={handleMouseMove}
-             onTouchMove={handleMouseMove}
-             onMouseLeave={handleMouseLeave}
-             onTouchEnd={handleMouseLeave}
-             style={{
-               backgroundImage: `url(${imageBlob})`,
-               transform: `${isFirefox ? 'scale(0.5)' : ''} rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`
-             }}
-             gradientDegree={gradientDegree}
-             id='tacaficha-verso'>
+      <Carta
+        className={foil ? `foil ${!disableFoilAnimation ? 'animated' : ''}` : ''}
+        onMouseMove={handleMove}
+        onTouchMove={handleMove}
+        onMouseLeave={handleEnd}
+        onTouchEnd={handleEnd}
+        style={{ backgroundImage: `url(${imageBlob})` }}
+        id='tacaficha-verso'
+      >
         <Frame src={frame}/>
         <EscalaPoder>
           <Svg fillEscala={DefinirCorEscala(pontosTotais.toString())} width="175" height="59" viewBox="0 0 175 59"

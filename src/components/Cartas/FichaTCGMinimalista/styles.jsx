@@ -9,67 +9,195 @@ export const Card = styled.div`
     zoom: 38%;
     -moz-transform: scale(0.5);
     background-size: cover;
-  &:before,
-  &:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
+
+
+
+
+    // DAQUI PRA BAIXO É SÓ CODIGO ESTILO RELACIONADO AO FOIL
+
+    --color1: #ec9bb6;
+    --color2: #ccac6f;
+    --color3: #69e4a5;
+    --color4: #8ec5d6;
+    --color5: #b98cce;
+    
+    position: relative;
+    overflow: hidden;
+    margin: 20px;
+    overflow: hidden;
+    z-index: 10;
+    touch-action: none;
+    
+    
+    //transition: transform 0.5s ease;
+    will-change: transform, filter;
+    
+    //background-color: #040712;
+    background-size: cover;
     background-repeat: no-repeat;
-    opacity: .5;
-    mix-blend-mode: color-dodge;
-    // transition: all .33s ease;
-    filter: brightness(.66) contrast(1.33);
-  }
-
-  &.foil:before {
-    background-position: 50% 50%;
-    background-size: cover;
-    background-image: linear-gradient(125deg, #ff008450 15%, #fca40040 30%, #ffff0030 40%, #00ff8a20 60%, #00cfff40 70%, #cc4cfa50 85%);
-    opacity: 0.5;
-    filter: brightness(.66) contrast(1.33);
-    z-index: 1;
-  }
-
-  &.foil:after {
-    opacity: 1;
-    background-image: url("/assets/sparkles.webp"),
-    url("/assets/holo.webp"),
-    linear-gradient(125deg, #ff008450 15%, #fca40040 30%, #ffff0030 40%, #00ff8a20 60%, #00cfff40 70%, #cc4cfa50 85%);
-    background-position: 50% 50%;
-    background-size: cover;
-    background-blend-mode: overlay;
-    z-index: 2;
-    filter: brightness(1) contrast(1);
-    transition: all .33s ease;
-    mix-blend-mode: color-dodge;
-    opacity: .75;
-  }
-
-  &.foil.active:after,
-  &.foil:hover:after {
-    filter: brightness(1) contrast(1);
-    opacity: 1;
-  }
-
-  &.foil.active,
-  &.foil:hover {
-    animation: none;
-    transition: box-shadow 0.1s ease-out;
-  }
-
-  &.foil.active:before,
-  &.foil:hover:before {
-    animation: none;
-    background: linear-gradient(${(props) => props.gradientDegree ? props.gradientDegree : '125'}deg, #ff008450 15%, #fca40040 30%, #ffff0030 40%, #00ff8a20 60%, #00cfff40 70%, #cc4cfa50 85%);
-    background-position: 50% 50%;
-    background-size: 100% 100%;
-    opacity: .88;
-    filter: brightness(.66) contrast(1.33);
-    transition: background 0.3s ease-in-out !important;
-  }
+    //background-position: 50% 50%;
+    transform-origin: center;
+  
+    &.foil {
+      transition: transform 0.5s ease;
+    }
+  
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      background-repeat: no-repeat;
+      opacity: .5;
+      mix-blend-mode: color-dodge;
+      transition: all .33s ease;
+    }
+  
+    &.foil:before {
+      background-position: 50% 50%;
+      background-size: 300% 300%;
+      background-image: linear-gradient(
+        115deg,
+        transparent 0%,
+        var(--color1) 25%,
+        transparent 47%,
+        transparent 53%,
+        var(--color2) 75%,
+        transparent 100%
+      );
+      opacity: .5;
+      filter: brightness(.5) contrast(1);
+      z-index: 1;
+    }
+  
+    &.foil:after {
+      opacity: 1;
+      background-image: url("/assets/sparkles.webp"), 
+        url("/assets/holo.webp"), 
+        linear-gradient(125deg, #ff008450 15%, #fca40040 30%, #ffff0030 40%, #00ff8a20 60%, #00cfff40 70%, #cc4cfa50 85%);
+      background-position: 50% 50%;
+      background-size: 160%;
+      background-blend-mode: overlay;
+      z-index: 2;
+      filter: brightness(1) contrast(1);
+      transition: all .33s ease;
+      mix-blend-mode: color-dodge;
+      opacity: .75;
+    }
+  
+    &.foil:hover:after {
+      filter: brightness(1) contrast(1);;
+      opacity: 1;
+    }
+  
+    &.foil:hover {
+      animation: none;
+      transition: box-shadow 0.1s ease-out;
+    }
+  
+    &.foil:hover:before {
+      animation: none;
+      background-image: linear-gradient(
+        115deg,
+        transparent 20%,
+        var(--color1) 36%,
+        var(--color2) 43%,
+        var(--color3) 50%,
+        var(--color4) 57%,
+        var(--color5) 64%,
+        transparent 80%
+      );
+      background-position: 50% 50%;
+      background-size: 250% 250%;
+      opacity: .88;
+      filter: brightness(.66) contrast(1.33);
+      transition: none;
+    }
+  
+    &.foil:hover:before,
+    &.foil:hover:after {
+      animation: none;
+      transition: none;
+    }
+  
+    &.foil.animated {
+      transition: none;
+      animation: holoCard 12s ease 0s 1;
+      &:before { 
+        transition: none;
+        animation: holoGradient 12s ease 0s 1;
+      }
+      &:after {
+        transition: none;
+        animation: holoSparkle 12s ease 0s 1;
+      }
+    }
+    
+    @keyframes holoSparkle {
+      0%, 100% {
+        opacity: .75; background-position: 50% 50%; filter: brightness(1.2) contrast(1.25);
+      }
+      5%, 8% {
+        opacity: 1; background-position: 40% 40%; filter: brightness(.8) contrast(1.2);
+      }
+      13%, 16% {
+        opacity: .5; background-position: 50% 50%; filter: brightness(1.2) contrast(.8);
+      }
+      35%, 38% {
+        opacity: 1; background-position: 60% 60%; filter: brightness(1) contrast(1);
+      }
+      55% {
+        opacity: .33; background-position: 45% 45%; filter: brightness(1.2) contrast(1.25);
+      }
+    }
+    
+    @keyframes holoGradient {
+      0%, 100% {
+        opacity: 0.5;
+        background-position: 50% 50%;
+        filter: brightness(.5) contrast(1);
+      }
+      5%, 9% {
+        background-position: 100% 100%;
+        opacity: 1;
+        filter: brightness(.75) contrast(1.25);
+      }
+      13%, 17% {
+        background-position: 0% 0%;
+        opacity: .88;
+      }
+      35%, 39% {
+        background-position: 100% 100%;
+        opacity: 1;
+        filter: brightness(.5) contrast(1);
+      }
+      55% {
+        background-position: 0% 0%;
+        opacity: 1;
+        filter: brightness(.75) contrast(1.25);
+      }
+    }
+    
+    @keyframes holoCard {
+      0%, 100% {
+        transform: rotateZ(0deg) rotateX(0deg) rotateY(0deg);
+      }
+      5%, 8% {
+        transform: rotateZ(0deg) rotateX(6deg) rotateY(-20deg);
+      }
+      13%, 16% {
+        transform: rotateZ(0deg) rotateX(-9deg) rotateY(32deg);
+      }
+      35%, 38% {
+        transform: rotateZ(3deg) rotateX(12deg) rotateY(20deg);
+      }
+      55% {
+        transform: rotateZ(-3deg) rotateX(-12deg) rotateY(-27deg);
+      }
+    }
 `
 
 export const ContainerBarras = styled.div`
@@ -312,4 +440,19 @@ export const Container = styled.div`
     justify-content: space-between;
     height: 100%;
     align-items: center;
+`
+
+export const InnerContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  perspective: 2000px;
+  position: relative;
+  z-index: 1;
+  transform: translate3d(0.1px, 0.1px, 0.1px )
 `

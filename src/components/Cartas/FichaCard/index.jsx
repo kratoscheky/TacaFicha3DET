@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useRef} from "react";
 import {useFicha} from "../../../context/ficha.context.jsx";
 import {
   AlinhamentoInfos,
@@ -20,6 +20,7 @@ import {
   SubStatusContainer,
   SubStatusTexto,
   VantagensTexto,
+  InnerContainer,
 } from "./styles.jsx";
 import poderIcon from "../../../images/tcg/poder.svg";
 import habilidadeIcon from "../../../images/tcg/habilidade.svg";
@@ -34,9 +35,12 @@ import bottomBar from "../../../images/tcg/bottombar.svg";
 import cardrosa from "../../../images/tcg/cardrosa.svg";
 import html2canvas from "html2canvas";
 import {useBrowserContext} from "../../../context/browser.context.jsx";
-import throttle from "lodash/throttle";
 
-export const FichaCard = () => {
+export const FichaCard = (props) => {
+  const { disableMovement = false, disableFoilAnimation = false } = props;
+
+  const animatedTimeout = useRef(null);
+
   const {
     atributos,
     nome,
@@ -46,60 +50,85 @@ export const FichaCard = () => {
     pericias,
     pontosTotais,
     arquetipo,
-    extras,
     imageBlob,
     recursosFinal,
-    foil,
-    setSalvandoLoading
+    foil
   } = useFicha();
-
-  const [rotation, setRotation] = useState({x: 0, y: 0});
-  const [gradientDegree, setGradientDegree] = useState(125);
 
   const {isFirefox} = useBrowserContext();
 
-  const handleMouseMove = throttle((e) => {
-    const posX = e.nativeEvent.offsetX || (e.nativeEvent.touches && e.nativeEvent.touches[0].clientX);
-    const posY = e.nativeEvent.offsetY || (e.nativeEvent.touches && e.nativeEvent.touches[0].clientY);
-    const x = Math.abs(Math.floor(100 / e.target.offsetWidth * posX) - 100);
-    const y = Math.abs(Math.floor(100 / e.target.offsetHeight * posY) - 100);
+  const handleMove = (e) => {
+    if (disableMovement) return;
 
-    const backgroundX = 50 + (x - 50) / 1.5;
-    const backgroundY = 50 + (y - 50) / 1.5;
+    // normalise touch/mouse
+    var pos = [
+      e.nativeEvent.offsetX || (e.nativeEvent.touches && e.nativeEvent.touches[0].clientX),
+      e.nativeEvent.offsetY || (e.nativeEvent.touches && e.nativeEvent.touches[0].clientY)
+    ];
 
-    const ty = ((backgroundY - 50) / 2) * -1;
-    const tx = ((backgroundX - 50) / 1.5) * 0.5;
-    setRotation({x: ty, y: tx});
+    e.preventDefault();
 
-    const _gradientDegree = 20 + Math.abs((50 - x) + (50 - y)) * 1.5;
-    setGradientDegree(_gradientDegree);
-  }, 100);
+    var card = e.target;
 
-  const handleMouseLeave = () => {
-    setRotation({x: 0, y: 0});
-  };
+    // math for mouse position
+    var l = pos[0] * 2.5;
+    var t = pos[1] * 2.5;
+    var h = card.offsetHeight;
+    var w = card.offsetWidth;
+    var px = Math.abs(Math.floor(100 / w * l)-100);
+    var py = Math.abs(Math.floor(100 / h * t)-100);
+    var pa = (50-px)+(50-py);
 
-  const captureAndSaveFicha = () => {
-    const container = document.querySelector("#container-ficha-card"); // Use a classe do ContainerFicha real
+    // math for gradient / background positions
+    var lp = (50+(px - 50)/1.5);
+    var tp = (50+(py - 50)/1.5);
+    var px_spark = (50+(px - 50)/7);
+    var py_spark = (50+(py - 50)/7);
+    var p_opc = 20+(Math.abs(pa)*1.5);
+    var ty = ((tp - 50)/2) * -1;
+    var tx = ((lp - 50)/1.5) * .5;
 
-    if (container) {
-      setSalvandoLoading(true)
-      html2canvas(container).then((canvas) => {
-        // Convertendo o canvas para um URL de imagem
-        const imgURL = canvas.toDataURL("image/png");
+    // css to apply for active card
+    var grad_pos = `background-position: ${lp}% ${tp}% !important;`
+    var sprk_pos = `background-position: ${px_spark}% ${py_spark}% !important;`
+    var opc = `opacity: ${p_opc/100};`
+    var tf = `${isFirefox ? 'scale(0.5)' : ''} rotateX(${ty}deg) rotateY(${tx}deg)`
 
-        // Criando um link para download
-        const downloadLink = document.createElement("a");
-        downloadLink.href = imgURL;
-        downloadLink.download = "ficha.png";
-        downloadLink.click();
-        setSalvandoLoading(false)
-      }).catch(e => {
-        alert(`Ocorreu um erro! ${e.message}`)
-        setSalvandoLoading(false);
-      });
+    // need to use a <style> tag for psuedo elements
+    var style = `
+      .foil:hover:before { ${grad_pos} }  /* gradient */
+      .foil:hover:after { ${sprk_pos} ${opc} }   /* sparkles */ 
+    `
+  
+    // set styles
+    card.style.transform = tf;
+    document.getElementById("card-foil-hover").innerHTML = style;
+    
+    card.classList.remove('animated');
+
+    if ( e.type === "touchmove" ) {
+      return false; 
     }
+
+    clearTimeout(animatedTimeout.current)
+  }
+
+  const handleEnd = (e) => {
+    if (disableMovement) return;
+
+    // remove css, apply custom animation on end
+    var card = e.target;
+    card.style.transform = `${isFirefox ? 'scale(0.5)' : ''}`;
+    document.getElementById("card-foil-hover").innerHTML = '';
+    animatedTimeout.current = setTimeout(function() {
+      card.classList.add('animated');
+    },2500);
   };
+
+  useEffect(() => {
+    if (disableFoilAnimation)
+      clearTimeout(animatedTimeout.current);
+  }, [disableFoilAnimation]);
 
   return (
     <div
@@ -111,23 +140,14 @@ export const FichaCard = () => {
         height: '100%'
       }}
     >
-      <div style={{
-        display: 'flex',
-        marginTop: "16px",
-        flexDirection: 'column',
-        alignItems: 'center'
-      }}>
+      <InnerContainer>
         <ContainerFicha
-          className={foil ? "foil" : ""}
-          onMouseMove={handleMouseMove}
-          onTouchMove={handleMouseMove}
-          onMouseLeave={handleMouseLeave}
-          onTouchEnd={handleMouseLeave}
-          style={{
-            backgroundImage: `url(${imageBlob})`,
-            transform: `${isFirefox ? 'scale(0.5)' : ''} rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`
-          }}
-          gradientDegree={gradientDegree}
+          className={foil ? `foil ${!disableFoilAnimation ? 'animated' : ''}` : ''}
+          onMouseMove={handleMove}
+          onTouchMove={handleMove}
+          onMouseLeave={handleEnd}
+          onTouchEnd={handleEnd}
+          style={{ backgroundImage: `url(${imageBlob})` }}
           id="container-ficha-card"
         >
           <DadosPersonagem>
@@ -317,7 +337,7 @@ export const FichaCard = () => {
             </Detalhes>
           </AlinhamentoInfos>
         </ContainerFicha>
-      </div>
+      </InnerContainer>
     </div>
   );
 };

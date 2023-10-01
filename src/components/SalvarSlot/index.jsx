@@ -15,7 +15,10 @@ export const SalvarSlot = () => {
   return (
     <>
       <Container>
-        <ButtonFicha onClick={async () => await SaveSlot()}>
+        <ButtonFicha onClick={async () => {scrollTo({
+          top: 870,
+          behavior: "smooth",
+        }); await SaveSlot(); LimparCampos()}}>
           <BookIcon/>
           Salvar Ficha em Slot
         </ButtonFicha>

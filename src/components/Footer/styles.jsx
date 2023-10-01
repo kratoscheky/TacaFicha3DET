@@ -47,4 +47,7 @@ export const LinksUteis = styled.div`
 export const RedesSociais = styled.div`
   display: flex;
   gap: 8px;
+  a{
+    color: #FFF;
+  }
 `

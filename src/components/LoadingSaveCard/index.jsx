@@ -1,8 +1,8 @@
 import Lottie from 'react-lottie';
 import animationData from './animations/cardsanimation.json';
-import {Container} from "./styles";
+import {Container, ModalCartaGerada} from "./styles";
 import {useFicha} from "../../context/ficha.context";
-import {Button} from "../../pages/Ficha/styles";
+import {isMobile} from "react-device-detect";
 
 export const LoadingSaveCard = () => {
   const {salvandoLoading, setImagemGerada, imagem} = useFicha();
@@ -16,8 +16,22 @@ export const LoadingSaveCard = () => {
     }
   };
 
+  if(imagem)
+    return (
+      <ModalCartaGerada onClick={() => setImagemGerada(null)}>
+        <div onClick={e => e.stopPropagation()}>
+          <img src={imagem} style={{
+            width: '300px',
+          }} />
+          <br />
+          <b>Caso o download da carta não tenha iniciado, {isMobile ? 'toque e segure para salvar manualmente...' : 'Clique com o botão direito para salvar manualmente...'}</b>
+        </div>
+      </ModalCartaGerada>
+    )
+
   if(!salvandoLoading)
     return null
+
 
 
   return (

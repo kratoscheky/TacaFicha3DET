@@ -85,17 +85,20 @@ export const MontaFicha = () => {
               label={"Nome"}
               valor={nome}
               onEdit={(e) => setNome(e.target.value)}
+              testId="nome"
             />
             <FichaInput
               label={"Arquetipo"}
               valor={arquetipo}
               onEdit={(e) => setArquetipo(e.target.value)}
+              testId="arquetipo"
             />
             <FichaInput
               label={"Pontos Totais"}
               valor={pontosTotais}
               width={"200px"}
               onEdit={(e) => setPontosTotais(e.target.value)}
+              testId="pontos-totais"
             />
           </ContainerInputs>
           <FichaInput
@@ -104,6 +107,7 @@ export const MontaFicha = () => {
             valor={detalhes}
             onEdit={(e) => setDetalhes(e.target.value)}
             maxLength={250}
+            testId="descricao"
           />
         </SessaoInputs>
         <SessaoInputsAtributos>
@@ -118,6 +122,7 @@ export const MontaFicha = () => {
                   valor={atributos.poder}
                   icon={poder}
                   onEdit={(v) => HandleAtributos(v.target.value, "poder")}
+                  testId="poder"
                 />
                 <FichaInput
                   type="number"
@@ -125,6 +130,7 @@ export const MontaFicha = () => {
                   valor={atributos.habilidade}
                   icon={habilidade}
                   onEdit={(v) => HandleAtributos(v.target.value, "habilidade")}
+                  testId="habilidade"
                 />
                 <FichaInput
                   type="number"
@@ -132,6 +138,7 @@ export const MontaFicha = () => {
                   valor={atributos.resistencia}
                   icon={resistencia}
                   onEdit={(v) => HandleAtributos(v.target.value, "resistencia")}
+                  testId="resistencia"
                 />
               </ContainerInputs>
               <ContainerInputs>
@@ -196,6 +203,7 @@ export const MontaFicha = () => {
               onRemoverClick={(Id) =>
                 setPericias(pericias.filter((v) => v.Id !== Id))
               }
+              testId="btn-pericias"
             />
           </PainelPersonalidade>
           <PainelPersonalidade>
@@ -206,6 +214,7 @@ export const MontaFicha = () => {
               onRemoverClick={(Id) =>
                 setVantagens(vantagens.filter((v) => v.Id !== Id))
               }
+              testId="btn-vantagens"
             />
           </PainelPersonalidade>
           <PainelPersonalidade>
@@ -216,6 +225,7 @@ export const MontaFicha = () => {
               onRemoverClick={(Id) =>
                 setDesvantagens(desvantagens.filter((v) => v.Id !== Id))
               }
+              testId="btn-desvantagens"
             />
           </PainelPersonalidade>
         </ContainerPersonalidade>

@@ -52,6 +52,7 @@ export function ImageComponent() {
           display: "none"
         }}
         ref={hiddenFileInput}
+        data-test-id="imagem-customizada"
       />
       <ButtonCut onClick={() => setViewCrop(true)}><ContentCutIcon/></ButtonCut>
     </ContainerButtons>
