@@ -5,8 +5,9 @@ import {Ficha} from "../../components/Ficha/index.jsx";
 import {SalvarSlot} from "../../components/SalvarSlot/index.jsx";
 import React from "react";
 import {Topo} from "../../components/Topo/index.jsx";
+import {MontaFichaAlpha} from "../../components/TacaFicha3DeTAlpha/MontaFicha/index.jsx";
 
-export const Home = () => {
+export const HomeAlpha = () => {
   return(
     <>
       <TacaDado />
@@ -17,10 +18,7 @@ export const Home = () => {
         alignItems: 'center',
         padding: '8px'
       }}>
-        <SaveSlots/>
-        <ArquetipoPainel/>
-        <Ficha/>
-        <SalvarSlot />
+        <MontaFichaAlpha />
       </div>
     </>
   )

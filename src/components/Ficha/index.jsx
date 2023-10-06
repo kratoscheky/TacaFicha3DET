@@ -1,15 +1,15 @@
 import React, {useRef, useState} from "react";
-import {MontaFicha} from "../../components/MontaFicha";
-import {ButtonCut, ButtonUpload, Container, ContainerButtons, CropContainer, ImageInputContainer} from "./styles";
-import {useFicha} from "../../context/ficha.context";
+import {MontaFicha} from "../MontaFicha/index.jsx";
+import {ButtonCut, ButtonUpload, Container, ContainerButtons, CropContainer, ImageInputContainer} from "./styles.jsx";
+import {useFicha} from "../../context/ficha.context.jsx";
 import BackupIcon from '@mui/icons-material/Backup';
 import dadinho from '../../images/dadinhos.png'
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import {CropComponent} from "../../components/CropComponent";
-import {TacaFichaTCG} from "../../components/TacaFicha/index.jsx";
+import {CropComponent} from "../CropComponent/index.jsx";
+import {TacaFichaTCG} from "../TacaFicha/index.jsx";
 import ContentCutIcon from '@mui/icons-material/ContentCut';
 
 export const Ficha = () => {

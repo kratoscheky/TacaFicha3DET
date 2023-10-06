@@ -9,6 +9,7 @@ import {ImgurProvider} from './context/imgur.context';
 import {BrowserProvider} from './context/browser.context';
 import {ShareProvider} from './context/share.context';
 import { registerSW } from "virtual:pwa-register";
+import {FichaAlphaProvider} from "./context/fichaAlpha.context.jsx";
 
 const updateSW = registerSW({
   onNeedRefresh() {
@@ -24,6 +25,7 @@ root.render(
     <BrowserProvider>
       <ImgurProvider>
         <FichaProvider>
+          <FichaAlphaProvider>
           <SlotsProvider>
             <ShareProvider>
               <ColorSchemeProvider>
@@ -31,6 +33,7 @@ root.render(
               </ColorSchemeProvider>
             </ShareProvider>
           </SlotsProvider>
+          </FichaAlphaProvider>
         </FichaProvider>
       </ImgurProvider>
     </BrowserProvider>

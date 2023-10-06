@@ -1,14 +1,13 @@
 import React, {useState} from "react";
-import {useFicha} from "../../context/ficha.context";
-import poder from "../../images/home/poder.svg";
-import habilidade from "../../images/home/habilidade.svg";
-import resistencia from "../../images/home/resistencia.svg";
-import pontosdemana from "../../images/home/pontosdemana.svg";
-import pontosdevida from "../../images/home/pontosdevida.svg";
-import pontosdeacao from "../../images/home/pontosdeacao.svg";
-import pontosacaoplus from "../../images/home/pontosacaoplus.svg";
-import pontosvidaplus from "../../images/home/pontosvidaplus.svg";
-import pontosmanaplus from "../../images/home/pontosmanaplus.svg";
+import poder from "../../../images/home/poder.svg";
+import habilidade from "../../../images/home/habilidade.svg";
+import resistencia from "../../../images/home/resistencia.svg";
+import pontosdemana from "../../../images/home/pontosdemana.svg";
+import pontosdevida from "../../../images/home/pontosdevida.svg";
+import pontosdeacao from "../../../images/home/pontosdeacao.svg";
+import pontosacaoplus from "../../../images/home/pontosacaoplus.svg";
+import pontosvidaplus from "../../../images/home/pontosvidaplus.svg";
+import pontosmanaplus from "../../../images/home/pontosmanaplus.svg";
 import {
   AtributosImagem,
   ContainerAnotacoes,
@@ -20,19 +19,21 @@ import {
   SessaoInputs,
   SessaoInputsAtributos,
 } from "./styles";
-import FichaInput from "../FichaInput";
-import dadinho from "../../images/dadinhos.png";
-import ModalPericias from "../ModalPericias";
-import ModalVantagens from "../ModalVantagens";
-import ModalDesvantagens from "../ModalDesvantagens";
-import {ListaCaracteristicas} from "../ListaCaracteristicas";
-import {useSlots} from "../../context/slots.context";
-import {useImgur} from "../../context/imgur.context";
+import FichaInput from "../../FichaInput";
+import dadinho from "../../../images/dadinhos.png";
+import ModalPericias from "../../ModalPericias";
+import ModalVantagens from "../../ModalVantagens";
+import ModalDesvantagens from "../../ModalDesvantagens";
+import {ListaCaracteristicas} from "../../ListaCaracteristicas";
+import {useSlots} from "../../../context/slots.context";
+import {useImgur} from "../../../context/imgur.context";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import {ImageComponent} from "../Ficha";
+import {ImageComponent} from "../../Ficha";
+import {useFichaAlpha} from "../../../context/fichaAlpha.context.jsx";
+import {ListaCaracteristicasAlpha} from "../ListaCaracteristicasAlpha/index.jsx";
 
-export const MontaFicha = () => {
+export const MontaFichaAlpha = () => {
   const {
     atributos,
     detalhes,
@@ -56,7 +57,7 @@ export const MontaFicha = () => {
     recursosFinal,
     anotacoes,
     setAnotacoes
-  } = useFicha();
+  } = useFichaAlpha();
 
   const {SaveSlot} = useSlots();
 
@@ -94,7 +95,7 @@ export const MontaFicha = () => {
               testId="arquetipo"
             />
             <FichaInput
-              label={"Pontos Totais"}
+              label={"Pontos"}
               valor={pontosTotais}
               width={"200px"}
               onEdit={(e) => setPontosTotais(e.target.value)}
@@ -133,6 +134,14 @@ export const MontaFicha = () => {
                   testId="habilidade"
                 />
                 <FichaInput
+                    type="number"
+                    label={"Armadura"}
+                    valor={atributos.poder}
+                    icon={resistencia}
+                    onEdit={(v) => HandleAtributos(v.target.value, "poder")}
+                    testId="poder"
+                />
+                <FichaInput
                   type="number"
                   label={"Resistência"}
                   valor={atributos.resistencia}
@@ -140,17 +149,16 @@ export const MontaFicha = () => {
                   onEdit={(v) => HandleAtributos(v.target.value, "resistencia")}
                   testId="resistencia"
                 />
+                <FichaInput
+                    type="number"
+                    label={"PdF"}
+                    valor={atributos.poder}
+                    icon={poder}
+                    onEdit={(v) => HandleAtributos(v.target.value, "poder")}
+                    testId="poder"
+                />
               </ContainerInputs>
               <ContainerInputs>
-                <FichaInput
-                  type="number"
-                  label={"+Ação"}
-                  valor={extras.pontosDeAcao}
-                  icon={pontosacaoplus}
-                  onEdit={(e) =>
-                    setExtras({...extras, pontosDeAcao: parseInt(e.target.value)})
-                  }
-                />
                 <FichaInput
                   type="number"
                   label={"+Mana"}
@@ -173,12 +181,6 @@ export const MontaFicha = () => {
               <ContainerInputs>
                 <FichaInput
                   disabled
-                  label={"Pontos de Ação"}
-                  valor={recursosFinal.pontosDeAcao}
-                  icon={pontosdeacao}
-                />
-                <FichaInput
-                  disabled
                   label={"Pontos de Mana"}
                   valor={recursosFinal.pontosDeMana}
                   icon={pontosdemana}
@@ -196,7 +198,7 @@ export const MontaFicha = () => {
         </SessaoInputsAtributos>
         <ContainerPersonalidade>
           <PainelPersonalidade>
-            <ListaCaracteristicas
+            <ListaCaracteristicasAlpha
               titulo="Pericias"
               caracteristicas={pericias}
               onAdicionarClick={() => setAddPericiasOpen(true)}
@@ -207,7 +209,7 @@ export const MontaFicha = () => {
             />
           </PainelPersonalidade>
           <PainelPersonalidade>
-            <ListaCaracteristicas
+            <ListaCaracteristicasAlpha
               titulo="Vantagens"
               caracteristicas={vantagens}
               onAdicionarClick={() => setAddVantagensOpen(true)}
@@ -218,7 +220,7 @@ export const MontaFicha = () => {
             />
           </PainelPersonalidade>
           <PainelPersonalidade>
-            <ListaCaracteristicas
+            <ListaCaracteristicasAlpha
               titulo="Desvantagens"
               caracteristicas={desvantagens}
               onAdicionarClick={() => setAddDesvantagensOpen(true)}

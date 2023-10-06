@@ -5,6 +5,7 @@ import {Sobre} from "../pages/Sobre/index.jsx";
 import {Colaboradores} from "../pages/Colaboradores/index.jsx";
 import {Layoult} from "../pages/Layoult/index.jsx";
 import {Showcase} from "../pages/Showcase/index.jsx";
+import {HomeAlpha} from "../pages/HomeAlpha/index.jsx";
 
 
 export const Routes = () => {
@@ -14,6 +15,7 @@ export const Routes = () => {
         <Routess>
           <Route path='/' element={<Layoult />}>
             <Route path="/" element={<Home />} />
+            <Route path='/Alpha' element={<HomeAlpha />} />
             <Route path="/shareview" element={<ShareView />} />
             <Route path="/shareview/:id" element={<ShareView />} />
             <Route path="/sobre" element={<Sobre />} />
