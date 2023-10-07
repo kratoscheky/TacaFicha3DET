@@ -149,21 +149,23 @@ export const SaveSlots = () => {
       <p style={{ color: "#fff" }}>BETA</p>
       <h1>Personagens Salvos</h1>
       <br />
-      {
-        localStorage.getItem("uuid") &&
-        <ContainerInteracoesIdportar>
+
+      <ContainerInteracoesIdportar>
+        {
+          localStorage.getItem("uuid") &&
           <ContainerCodigoColecao>
             <label><b>Seu Id de Coleção:</b></label>
             <div>
               <input value={localStorage.getItem("uuid")} readOnly /> <ContentCopyIcon onClick={() => navigator.clipboard.writeText(localStorage.getItem("uuid"))} style={{ cursor: "pointer", color: 'var(--color-foreground)' }} />
             </div>
           </ContainerCodigoColecao>
-          <ContainerBotoesImportar>
-            <Button onClick={() => setAddCartaOpen(true)}>Importar Carta</Button>
-            <Button onClick={() => setAddColecaoOpen(true)}>Importar Coleção</Button>
-          </ContainerBotoesImportar>
-        </ContainerInteracoesIdportar>
-      }
+        }
+        <ContainerBotoesImportar>
+          <Button onClick={() => setAddCartaOpen(true)}>Importar Carta</Button>
+          <Button onClick={() => setAddColecaoOpen(true)}>Importar Coleção</Button>
+        </ContainerBotoesImportar>
+      </ContainerInteracoesIdportar>
+
       <ContainerCards>
         {slots.map((s, index) => (
           <Card
