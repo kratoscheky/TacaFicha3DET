@@ -50,26 +50,16 @@ export const FichaProvider = ({children}) => {
   const [imagem, setImagemGerada] = useState("");
 
   useEffect(() => {
-    let acaoFinal = atributos.poder === 0 ? 1 : atributos.poder;
-    let manaFinal = atributos.habilidade === 0 ? 1 : atributos.habilidade * 5;
-    let vidaFinal = atributos.resistencia === 0 ? 1 : atributos.resistencia * 5;
-
-    console.log({
-      acaoFinal,
-      manaFinal,
-      vidaFinal
-    })
-
     let resultadoFinal = {
-      pontosDeAcao: acaoFinal + extras.pontosDeAcao,
-      pontosDeMana: manaFinal + extras.pontosDeMana,
-      pontosDeVida: vidaFinal + extras.pontosDeVida,
+      pontosDeAcao: recursos.pontosDeAcao,
+      pontosDeMana: recursos.pontosDeMana,
+      pontosDeVida: recursos.pontosDeVida,
     }
 
     console.log(resultadoFinal)
 
     setRecursosFinal(resultadoFinal);
-  }, [atributos, extras])
+  }, [atributos, extras, recursos])
 
   const HandleAtributos = (value, key) => {
     console.log(value, key, atributos, pontosTotais);
@@ -105,12 +95,25 @@ export const FichaProvider = ({children}) => {
   }
 
   useEffect(() => {
+    const countVantagensComVida = vantagens.filter(vantagem => vantagem.Nome === "+Vida").length * 10;
+    const countVantagensComMana = vantagens.filter(vantagem => vantagem.Nome === "+Mana").length * 10;
+    const countVantagensComPontoDeAcao = vantagens.filter(vantagem => vantagem.Nome === "+Ação" || vantagem.Nome === "Ação").length * 10;
+
+    let acaoFinal = atributos.poder === 0 ? 1 : atributos.poder;
+    let manaFinal = atributos.habilidade === 0 ? 1 : atributos.habilidade * 5;
+    let vidaFinal = atributos.resistencia === 0 ? 1 : atributos.resistencia * 5;
+
+    
+    const  pontosDeAcao = acaoFinal + extras.pontosDeAcao + countVantagensComPontoDeAcao;
+    const  pontosDeMana = manaFinal + extras.pontosDeMana + countVantagensComMana;
+    const  pontosDeVida = vidaFinal + extras.pontosDeVida + countVantagensComVida;
+
     setRecursos({
-      pontosDeAcao: atributos.poder,
-      pontosDeMana: atributos.habilidade * 5,
-      pontosDeVida: atributos.resistencia * 5,
+      pontosDeAcao,
+      pontosDeMana,
+      pontosDeVida,
     });
-  }, [atributos]);
+  }, [atributos, vantagens]);
 
   useEffect(() => {
     fetch(imageUrl ?? "https://site.jamboeditora.com.br/wp-content/uploads/2023/07/3DeT-abertura-mobile.png", {referrer: ""})
