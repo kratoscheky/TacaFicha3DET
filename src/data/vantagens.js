@@ -5,7 +5,7 @@ export const Vantagens = [
     Pontos: 1
   },
   {
-    Nome: "Ação",
+    Nome: "+Ação",
     Descricao: "Você possui uma reserva adicional de Pontos de Ação, além dos concedidos pelo seu Poder.",
     Pontos: 1
   },

@@ -54,6 +54,7 @@ export const MontaFicha = () => {
     setExtras,
     LimparCampos,
     recursosFinal,
+    recursos,
     anotacoes,
     setAnotacoes
   } = useFicha();
@@ -143,8 +144,28 @@ export const MontaFicha = () => {
               </ContainerInputs>
               <ContainerInputs>
                 <FichaInput
+                  disabled
+                  label={"Pontos de Ação"}
+                  valor={recursos.pontosDeAcao}
+                  icon={pontosdeacao}
+                />
+                <FichaInput
+                  disabled
+                  label={"Pontos de Mana"}
+                  valor={recursos.pontosDeMana}
+                  icon={pontosdemana}
+                />
+                <FichaInput
+                  disabled
+                  label={"Pontos de Vida"}
+                  valor={recursos.pontosDeVida}
+                  icon={pontosdevida}
+                />
+              </ContainerInputs>
+              <ContainerInputs>
+                <FichaInput
                   type="number"
-                  label={"+Ação"}
+                  label={"Ação Atual"}
                   valor={extras.pontosDeAcao}
                   icon={pontosacaoplus}
                   onEdit={(e) =>
@@ -153,7 +174,7 @@ export const MontaFicha = () => {
                 />
                 <FichaInput
                   type="number"
-                  label={"+Mana"}
+                  label={"Mana Atual"}
                   valor={extras.pontosDeMana}
                   icon={pontosmanaplus}
                   onEdit={(e) =>
@@ -162,32 +183,12 @@ export const MontaFicha = () => {
                 />
                 <FichaInput
                   type="number"
-                  label={"+Vida"}
+                  label={"Vida Atual"}
                   valor={extras.pontosDeVida}
                   icon={pontosvidaplus}
                   onEdit={(e) =>
                     setExtras({...extras, pontosDeVida: parseInt(e.target.value)})
                   }
-                />
-              </ContainerInputs>
-              <ContainerInputs>
-                <FichaInput
-                  disabled
-                  label={"Pontos de Ação"}
-                  valor={recursosFinal.pontosDeAcao}
-                  icon={pontosdeacao}
-                />
-                <FichaInput
-                  disabled
-                  label={"Pontos de Mana"}
-                  valor={recursosFinal.pontosDeMana}
-                  icon={pontosdemana}
-                />
-                <FichaInput
-                  disabled
-                  label={"Pontos de Vida"}
-                  valor={recursosFinal.pontosDeVida}
-                  icon={pontosdevida}
                 />
               </ContainerInputs>
             </ContainerAtributos>
