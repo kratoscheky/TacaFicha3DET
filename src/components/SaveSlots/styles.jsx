@@ -23,6 +23,12 @@ export const ContainerSessao = styled.div`
     }
 `
 
+export const ContainerBotoesImportar = styled.div`
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+`
+
 export const ContainerModal = styled.div`
     display: flex;
     width: 100%;
@@ -115,6 +121,50 @@ export const ButtonsFlex = styled.div`
     width: 100%;
 `
 
+export const ContainerCodigoColecao = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    div{
+        display: flex;
+        align-items: center;
+        background: #FFF;
+        color: var(--color-foreground);
+        fill: var(--color-background);
+        background-color: var(--color-background);
+        width: fit-content;
+        padding-right: 8px;
+        border-radius: 4px;
+        gap: 4px;
+    }
+    input{
+        border-radius: 4px;
+        padding: 8px;
+        border: none;
+        width: fit-content;
+        border-radius: 4px 0 0 4px;
+        display: inline-block;
+        line-height: 1;
+        font-size: 15px;
+        padding: 12px 24px;
+        border-radius: 3px;
+        color: var(--color-foreground);
+        fill: var(--color-background);
+        background-color: var(--color-background);
+        transition: all .3s;
+        width: 100%;
+    }
+`
+
+export const ContainerInteracoesIdportar = styled.div`
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
+`
+
 export const Card = styled.div`
     height: 200px;
     min-width: 160px;
@@ -161,6 +211,7 @@ export const StatusContainer = styled.div`
     background-color: #00000090;
     padding: 4px;
     border-radius: 4px;
+    max-width: 160px;
     p{
         font-weight: 700;
         color: #FFF;
