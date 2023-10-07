@@ -160,7 +160,8 @@ export const SlotsProvider = ({children}) => {
         setSlots,
         SaveSlot,
         LoadSlot,
-        DeleteSlot
+        DeleteSlot,
+        LoadSlots
       }}
     >
       {children}
