@@ -37,6 +37,7 @@ import {
 import {useFicha} from "../../../context/ficha.context.jsx";
 import {useEffect, useRef} from "react";
 import {useBrowserContext} from "../../../context/browser.context.jsx";
+import { ContadorPericiaVantagemDesvantagem } from '../../../utils/contador'
 
 export const TacaFicha = (props) => {
   const { disableMovement = false, disableFoilAnimation = false } = props;
@@ -237,7 +238,7 @@ export const TacaFicha = (props) => {
                 <img src={vantagemIcon}/>
               </div>
               <TextoDesVanContainer>
-                {vantagens.map((v) => v.Nome + ".").join(" ")}
+                {ContadorPericiaVantagemDesvantagem(vantagens).map((v) => v.Nome + (v.Total === 1 ? '' :  ` (${v.Total}x)`) + ".").join(" ")}
               </TextoDesVanContainer>
             </VanDesContainer>
             <div style={{
@@ -251,7 +252,7 @@ export const TacaFicha = (props) => {
                 <img src={desvantagemIcon}/>
               </div>
               <TextoDesVanContainer>
-                {desvantagens.map((v) => v.Nome + ".").join(" ")}
+                {ContadorPericiaVantagemDesvantagem(desvantagens).map((v) => v.Nome + (v.Total === 1 ? '' :  ` (${v.Total}x)`) + ".").join(" ")}
               </TextoDesVanContainer>
             </VanDesContainer>
           </ContainerText>

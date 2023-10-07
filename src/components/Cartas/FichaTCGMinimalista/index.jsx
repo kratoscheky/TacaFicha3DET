@@ -45,6 +45,7 @@ import manaIcon from "../../../images/minimalista/mana.svg";
 import vidaIcon from "../../../images/minimalista/vida.svg";
 import {useFicha} from "../../../context/ficha.context.jsx";
 import {useBrowserContext} from "../../../context/browser.context.jsx";
+import {ContadorPericiaVantagemDesvantagem} from "../../../utils/contador.js";
 
 export const FichaTCGMinimalista = (props) => {
   const { disableMovement = false, disableFoilAnimation = false } = props;
@@ -241,7 +242,7 @@ export const FichaTCGMinimalista = (props) => {
               {vantagens.length > 0 && (
                 <div>
                   <PDescricaoVantagens>
-                    {vantagens.map((v) => v.Nome + ".").join(" ")}
+                    {ContadorPericiaVantagemDesvantagem(vantagens).map((v) => v.Nome + (v.Total === 1 ? '' :  ` (${v.Total}x)`) + ".").join(" ")}
                   </PDescricaoVantagens>
                 </div>
               )}
@@ -249,7 +250,7 @@ export const FichaTCGMinimalista = (props) => {
               {desvantagens.length > 0 && (
                 <div>
                   <PDescricaoDesvantagens>
-                    {desvantagens.map((v) => v.Nome + ".").join(" ")}
+                    {ContadorPericiaVantagemDesvantagem(desvantagens).map((v) => v.Nome + (v.Total === 1 ? '' :  ` (${v.Total}x)`) + ".").join(" ")}
                   </PDescricaoDesvantagens>
                 </div>
               )}

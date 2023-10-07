@@ -35,6 +35,7 @@ import bottomBar from "../../../images/tcg/bottombar.svg";
 import cardrosa from "../../../images/tcg/cardrosa.svg";
 import html2canvas from "html2canvas";
 import {useBrowserContext} from "../../../context/browser.context.jsx";
+import {ContadorPericiaVantagemDesvantagem} from "../../../utils/contador.js";
 
 export const FichaCard = (props) => {
   const { disableMovement = false, disableFoilAnimation = false } = props;
@@ -326,10 +327,10 @@ export const FichaCard = (props) => {
                 <b>{pericias.map((v) => v.Nome + ".").join(" ")}</b>
               </PericiasTexto>
               <VantagensTexto>
-                <p>{vantagens.map((v) => v.Nome + ".").join(" ")}</p>
+                <p>{ContadorPericiaVantagemDesvantagem(vantagens).map((v) => v.Nome + (v.Total === 1 ? '' :  ` (${v.Total}x)`) + ".").join(" ")}</p>
               </VantagensTexto>
               <DesvantagensTexto>
-                <p>{desvantagens.map((v) => v.Nome + ".").join(" ")}</p>
+                <p>{ContadorPericiaVantagemDesvantagem(desvantagens).map((v) => v.Nome + (v.Total === 1 ? '' :  ` (${v.Total}x)`) + ".").join(" ")}</p>
               </DesvantagensTexto>
             </ContainerExtras>
             <Detalhes>
