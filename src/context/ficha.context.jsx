@@ -97,7 +97,7 @@ export const FichaProvider = ({children}) => {
   useEffect(() => {
     const countVantagensComVida = vantagens.filter(vantagem => vantagem.Nome === "+Vida").length * 10;
     const countVantagensComMana = vantagens.filter(vantagem => vantagem.Nome === "+Mana").length * 10;
-    const countVantagensComPontoDeAcao = vantagens.filter(vantagem => vantagem.Nome === "+Ação" || vantagem.Nome === "Ação").length * 10;
+    const countVantagensComPontoDeAcao = vantagens.filter(vantagem => vantagem.Nome === "+Ação" || vantagem.Nome === "Ação").length * 2;
 
     let acaoFinal = atributos.poder === 0 ? 1 : atributos.poder;
     let manaFinal = atributos.habilidade === 0 ? 1 : atributos.habilidade * 5;
