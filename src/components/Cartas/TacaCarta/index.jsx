@@ -48,6 +48,7 @@ import vidaIcon from "../../../images/minimalista/vida.svg";
 import {useFicha} from "../../../context/ficha.context.jsx";
 import tresdettag from "../../../images/tcg/3dettag.svg";
 import {useBrowserContext} from "../../../context/browser.context.jsx";
+import {ContadorPericiaVantagemDesvantagem} from "../../../utils/contador.js";
 
 export const TacaCarta = (props) => {
   const { disableMovement = false, disableFoilAnimation = false } = props;
@@ -231,7 +232,7 @@ export const TacaCarta = (props) => {
                   <>
                     <H1Descricao>Vantagens</H1Descricao>
                     <PDescricao>
-                      {vantagens.map((v) => v.Nome + ".").join(" ")}
+                      {ContadorPericiaVantagemDesvantagem(vantagens).map((v) => v.Nome + (v.Total === 1 ? '' :  ` (${v.Total}x)`) + ".").join(" ")}
                     </PDescricao>
                   </>
                 )}
@@ -256,7 +257,7 @@ export const TacaCarta = (props) => {
                 <div>
                   <H1Descricao>Desvantagens</H1Descricao>
                   <PDescricao>
-                    {desvantagens.map((v) => v.Nome + ".").join(" ")}
+                    {ContadorPericiaVantagemDesvantagem(desvantagens).map((v) => v.Nome + (v.Total === 1 ? '' :  ` (${v.Total}x)`) + ".").join(" ")}
                   </PDescricao>
                 </div>
               )}

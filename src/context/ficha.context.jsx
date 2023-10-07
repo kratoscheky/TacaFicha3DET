@@ -104,6 +104,8 @@ export const FichaProvider = ({children}) => {
     let vidaFinal = atributos.resistencia === 0 ? 1 : atributos.resistencia * 5;
 
     
+    console.log(vantagens)
+
     const  pontosDeAcao = acaoFinal + extras.pontosDeAcao + countVantagensComPontoDeAcao;
     const  pontosDeMana = manaFinal + extras.pontosDeMana + countVantagensComMana;
     const  pontosDeVida = vidaFinal + extras.pontosDeVida + countVantagensComVida;
