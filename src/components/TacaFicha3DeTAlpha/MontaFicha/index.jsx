@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useRef, useState} from "react";
 import poder from "../../../images/home/poder.svg";
 import habilidade from "../../../images/home/habilidade.svg";
 import resistencia from "../../../images/home/resistencia.svg";
@@ -21,17 +21,20 @@ import {
 } from "./styles";
 import FichaInput from "../../FichaInput";
 import dadinho from "../../../images/dadinhos.png";
-import ModalPericias from "../../ModalPericias";
-import ModalVantagens from "../../ModalVantagens";
-import ModalDesvantagens from "../../ModalDesvantagens";
-import {ListaCaracteristicas} from "../../ListaCaracteristicas";
 import {useSlots} from "../../../context/slots.context";
 import {useImgur} from "../../../context/imgur.context";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import {ImageComponent} from "../../Ficha";
 import {useFichaAlpha} from "../../../context/fichaAlpha.context.jsx";
 import {ListaCaracteristicasAlpha} from "../ListaCaracteristicasAlpha/index.jsx";
+import ModalPericiasAlpha from "../ModalPericias/index.jsx";
+import ModalVantagensAlpha from "../ModalVantagens/index.jsx";
+import ModalDesvantagensAlpha from "../ModalDesvantagens/index.jsx";
+import {useFicha} from "../../../context/ficha.context.jsx";
+import {ButtonCut, ButtonUpload, ContainerButtons, CropContainer, ImageInputContainer} from "./styles.jsx";
+import BackupIcon from "@mui/icons-material/Backup.js";
+import ContentCutIcon from "@mui/icons-material/ContentCut.js";
+import {CropComponent} from "../../CropComponent/index.jsx";
 
 export const MontaFichaAlpha = () => {
   const {
@@ -240,7 +243,7 @@ export const MontaFichaAlpha = () => {
         <ImageComponent/>
       </ContainerMontaFicha>
 
-      <ModalPericias
+      <ModalPericiasAlpha
         open={addPericiasOpen}
         handleClose={() => setAddPericiasOpen(false)}
         onAdicionarClick={(Nome) => {
@@ -248,7 +251,7 @@ export const MontaFichaAlpha = () => {
           setAddPericiasOpen(false);
         }}
       />
-      <ModalVantagens
+      <ModalVantagensAlpha
         open={addVantagensOpen}
         handleClose={() => setAddVantagensOpen(false)}
         onAdicionarClick={(Nome) => {
@@ -256,7 +259,7 @@ export const MontaFichaAlpha = () => {
           setAddVantagensOpen(false);
         }}
       />
-      <ModalDesvantagens
+      <ModalDesvantagensAlpha
         open={addDesvantagensOpen}
         handleClose={() => setAddDesvantagensOpen(false)}
         onAdicionarClick={(Nome) => {
@@ -267,3 +270,38 @@ export const MontaFichaAlpha = () => {
     </>
   );
 };
+
+export function ImageComponent() {
+  const [viewCrop, setViewCrop] = useState(false)
+  const hiddenFileInput = useRef(null);
+  const {handleFileChange} = useFicha();
+  const handleClick = event => {
+    hiddenFileInput.current.click();
+    setViewCrop(true);
+  };
+
+  return <ImageInputContainer>
+    <h1>Imagem</h1>
+    <ContainerButtons>
+      <ButtonUpload onClick={() => handleClick()}>
+        <BackupIcon />
+        Enviar Uma Imagem
+      </ButtonUpload>
+      <input
+          type="file"
+          onChange={handleFileChange}
+          style={{
+            display: "none"
+          }}
+          ref={hiddenFileInput}
+          data-test-id="imagem-customizada"
+      />
+      <ButtonCut onClick={() => setViewCrop(true)}><ContentCutIcon/></ButtonCut>
+    </ContainerButtons>
+    {viewCrop &&
+        <CropContainer onClick={() => setViewCrop(false)}>
+          <CropComponent Fechar={() => setViewCrop(false)}/>
+        </CropContainer>
+    }
+  </ImageInputContainer>;
+}
