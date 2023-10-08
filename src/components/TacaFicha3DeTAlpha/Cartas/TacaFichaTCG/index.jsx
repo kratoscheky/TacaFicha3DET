@@ -1,4 +1,4 @@
-import frame from '../../../../images/Alpha/Frame.png'
+import frame from '../../../../images/Alpha/frame.png'
 import poderIcon from '../../../../images/CartaTacaFicha/Icons/poderIcon.svg'
 import acaoIcon from '../../../../images/CartaTacaFicha/Icons/acaoIcon.svg'
 import habilidadeIcon from '../../../../images/CartaTacaFicha/Icons/habilidadeIcon.svg'
