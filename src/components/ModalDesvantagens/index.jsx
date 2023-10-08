@@ -18,7 +18,7 @@ export default function ModalDesvantagens({
     let filtroAplicado = Desvantagens;
 
     if(filtro !== "")
-      filtroAplicado = Desvantagens.filter(p => p.Nome.includes(filtro))
+      filtroAplicado = Desvantagens.filter(p => p.Nome.toLowerCase().includes(filtro.toLowerCase()))
 
     setDesvantagensFiltradas(filtroAplicado)
   }, [filtro]);

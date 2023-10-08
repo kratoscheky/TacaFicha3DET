@@ -14,7 +14,7 @@ export default function ModalPericias({open, handleClose, onAdicionarClick}) {
     let filtroAplicado = Pericias;
 
     if(filtro !== "")
-      filtroAplicado = Pericias.filter(p => p.Nome.includes(filtro))
+      filtroAplicado = Pericias.filter(p => p.Nome.toLowerCase().includes(filtro.toLowerCase()))
 
     setPericiasFiltradas(filtroAplicado)
   }, [filtro]);
