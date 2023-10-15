@@ -4,6 +4,7 @@ import {ShareView} from "../pages/ShareView/index.jsx";
 import {Sobre} from "../pages/Sobre/index.jsx";
 import {Colaboradores} from "../pages/Colaboradores/index.jsx";
 import {Layoult} from "../pages/Layoult/index.jsx";
+import { TacaFichaPdf } from '../components/TacaFichaPdf/index.jsx';
 
 
 export const Routes = () => {
