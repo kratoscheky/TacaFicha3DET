@@ -5,7 +5,6 @@ import {Ficha} from "../Ficha/index.jsx";
 import {SalvarSlot} from "../../components/SalvarSlot/index.jsx";
 import React from "react";
 import {Topo} from "../../components/Topo/index.jsx";
-import { TacaFichaPdf } from "../../components/TacaFichaPdf/index.jsx";
 
 export const Home = () => {
   return(
@@ -22,7 +21,6 @@ export const Home = () => {
         <ArquetipoPainel/>
         <Ficha/>
         <SalvarSlot />
-        <TacaFichaPdf />
       </div>
     </>
   )

@@ -1,4 +1,25 @@
-import { CamposDadosBasicos, CantoDireito, CantoEsquerdo, Container, ContainerAnotacoes, ContainerAtributos, ContainerCampoAtributo, ContainerCamposDadosBasicos, ContainerCamposExtras, ContainerColunas, ContainerDadosExp, ContainerExp, ContainerExtrasDireito, ContainerTopo, ExpExpacamento, Frame, LogoTresDeETe, PaddingInterno, TituloCampo } from "./styles"
+import {
+  CamposDadosBasicos,
+  CantoDireito,
+  CantoEsquerdo,
+  Container,
+  ContainerAnotacoes,
+  ContainerAtributos,
+  ContainerCampoAtributo,
+  ContainerCamposDadosBasicos,
+  ContainerCamposExtras,
+  ContainerColunas,
+  ContainerDadosExp,
+  ContainerExp,
+  ContainerExtrasDireito,
+  ContainerTacaFicha,
+  ContainerTopo,
+  ExpExpacamento,
+  Frame,
+  LogoTresDeETe,
+  PaddingInterno,
+  TituloCampo
+} from "./styles"
 import frame from '../../images/pdf/frame.png'
 import cantoDireito from '../../images/pdf/cantoDireito.png'
 import cantoEsquerdo from '../../images/pdf/cantoEsquerdo.png'
@@ -15,6 +36,7 @@ import { useFicha } from "../../context/ficha.context"
 import html2canvas from 'html2canvas'
 import jsPDF from 'jspdf';
 import { PDFDocument } from 'pdf-lib';
+import {Button} from "../TacaFicha/styles.jsx";
 
 
 export const TacaFichaPdf = () => {
@@ -71,8 +93,7 @@ export const TacaFichaPdf = () => {
   };
 
   return (
-    <>
-      <button onClick={captureAndSaveFicha}>Salvar</button>
+    <ContainerTacaFicha>
       <Container id="tacaficha-pdf">
         <PaddingInterno>
           <CantoEsquerdo src={cantoEsquerdo} />
@@ -199,6 +220,8 @@ export const TacaFichaPdf = () => {
           </ContainerColunas>
         </PaddingInterno>
       </Container>
-    </>
+      <br />
+      <Button onClick={captureAndSaveFicha}>Baixar Ficha em Pdf</Button>
+    </ContainerTacaFicha>
   )
 }

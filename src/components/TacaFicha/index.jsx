@@ -14,6 +14,7 @@ import Brightness5Icon from '@mui/icons-material/Brightness5';
 import BrightnessHighIcon from '@mui/icons-material/BrightnessHigh';
 import 'swiper/css/navigation';
 import {useFicha} from "../../context/ficha.context.jsx";
+import {TacaFichaPdf} from "../TacaFichaPdf/index.jsx";
 
 export function TacaFichaTCG() {
   const [swiper, setSwiper] = useState(null);
@@ -128,5 +129,7 @@ export function TacaFichaTCG() {
         Salvar Imagem
       </Button>
     </div>
+    <br />
+    <TacaFichaPdf />
   </div>;
 }
