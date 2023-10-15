@@ -19,7 +19,7 @@ export const Carta = styled.div`
   width: 750px;
   height: 1040px;
   display: grid;
-  grid-template-rows: 167.8px 360.9px 421.7px 89px;
+  grid-template-rows: 129.8px 416.9px 402.7px 89px;
   background-size: cover;
   background-position: 50% 0;
   color: #FFF;
@@ -236,17 +236,20 @@ export const Topo = styled.div`
   grid-row: 1/2;
   grid-column: 1/2;
   padding: 25px;
+  padding-top: 50px;
+  padding-left: 36px;
 `
 
 export const Meio = styled.div`
-  display: flex;
-  grid-column: 1/2;
-  grid-row: 2/3;
-  font-weight: 900;
-  align-items: flex-start;
-  flex-direction: column;
-  height: 342px;
-  justify-content: space-around;
+    display: flex;
+    grid-column: 1/2;
+    grid-row: 2/3;
+    font-weight: 900;
+    align-items: flex-start;
+    flex-direction: column;
+    height: 428px;
+    gap: 45px;
+    padding-top: 20px;
 `
 
 export const TextosContainer = styled.div`
@@ -348,6 +351,8 @@ export const ContainerNomePontos = styled.div`
     width: 174px;
     display: flex;
     justify-content: center;
+    padding-right: 20px;
+    padding-top: 6px;
   }
   div p{
     color: #FFF;
@@ -357,10 +362,10 @@ export const ContainerNomePontos = styled.div`
 `
 
 export const ArquetipoContainer = styled.div`
-  height: 48px;
+  height: 30px;
   display: flex;
   align-items: center;
-  padding-left: 20px;
+  padding-left: 154px;
   p{
     font-size: 25px;
     font-weight: 600;
@@ -371,22 +376,29 @@ export const Baixo = styled.div`
   grid-column: 1/2;
   grid-row: 4/5;
   display: flex;
-  padding-left: 52px;
   padding-top: 10px;
-  width: 452px;
+  width: 514px;
   align-items: center;
-  justify-content: space-between;
   font-weight: 900;
+  padding-left: 40px;
+  gap: 18px;
 `
 
 export const RecursosContainer = styled.div`
-  width: 116px;
+  width: 94px;
+  flex-direction: column;
   display: flex;
   justify-content: center;
-  gap: 8px;
-  align-items: end;
+  gap: 2px;
+  align-items: center;
+  h1{
+    color: #5ACDFF;
+    font-size: 28px;
+    font-weight: 800;
+  }
   p{
     font-size: 34px;
+    font-weight: 400;
   }
 `
 export const RecursosContainerMana = styled.div`
@@ -408,9 +420,15 @@ export const AtributosContainerPoder = styled.div`
   gap: 8px;
   align-items: center;
   justify-content: center;
-  width: 122px;
+  width: 134px;
+  h1{
+    color: #5ACDFF;
+    font-weight: 800;
+  }
   p{
     font-size: 41px;
+    font-weight: 400;
+    
   }
 `
 export const AtributosContainerHabilidade = styled.div`
@@ -418,9 +436,14 @@ export const AtributosContainerHabilidade = styled.div`
   gap: 8px;
   align-items: center;
   justify-content: center;
-  width: 122px;
+  width: 134px;
+  h1{
+    color: #5ACDFF;
+    font-weight: 800;
+  }
   p{
     font-size: 41px;
+    font-weight: 400;
   }
 `
 export const AtributosContainerresistencia = styled.div`
@@ -428,8 +451,14 @@ export const AtributosContainerresistencia = styled.div`
   gap: 8px;
   align-items: center;
   justify-content: center;
-  width: 122px;
+  width: 134px;
+  h1{
+    color: #5ACDFF;
+    font-weight: 800;
+    padding-top: 4px;
+  }
   p{
     font-size: 41px;
+    font-weight: 400;
   }
 `

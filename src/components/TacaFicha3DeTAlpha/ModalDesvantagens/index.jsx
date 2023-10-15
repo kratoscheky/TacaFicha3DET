@@ -18,7 +18,7 @@ export default function ModalDesvantagensAlpha({
     let filtroAplicado = Desvantagens;
 
     if(filtro !== "")
-      filtroAplicado = Desvantagens.filter(p => p.Nome.includes(filtro))
+      filtroAplicado = Desvantagens.filter(p => p.Nome.toLowerCase().includes(filtro.toLowerCase()))
 
     setDesvantagensFiltradas(filtroAplicado)
   }, [filtro]);
@@ -73,7 +73,7 @@ export default function ModalDesvantagensAlpha({
                   key={d.Nome}
                 >
                   <Titulo>
-                    {d.Nome} {d.Pontos}pt
+                    {d.Nome} {d.Pontos === 9999 ? '(Especial)' : `${d.Pontos} pt`} {d.a && ` a ${d.a}pt`}
                     <AdicionarButton onClick={() => onAdicionarClick(d.Nome)} data-test-id={'desvantagem-' + d.Nome}>
                       <AddIcon style={{width: "15px"}}/>
                       Adicionar
@@ -88,22 +88,36 @@ export default function ModalDesvantagensAlpha({
                     <>
                       <br/>
                       {d.Tipo.map((t) => (
-                        <Titulo
-                          style={{
-                            paddingBottom: "8px",
+                        <div style={{
+                          backgroundColor: "#00294450",
+                          padding: "18px",
+                          borderRadius: "8px",
+                          marginBottom: '8px'
+                        }}>
+                          <Titulo
+                            style={{
+                              paddingBottom: "8px",
+                              paddingLeft: '8px'
+                            }}
+                          >
+                            {t.Nome} {t.Pontos}pt {t.a && ` a ${t.a}pt`}
+                            <AdicionarButton
+                              onClick={() =>
+                                onAdicionarClick(`${d.Nome} (${t.Nome})`)
+                              }
+                            >
+                              <AddIcon style={{width: "15px"}}/>
+                              Adicionar
+                            </AdicionarButton>
+                          </Titulo>
+                          <p style={{
                             paddingLeft: '8px'
                           }}
-                        >
-                          {t.Nome} -{t.Pontos}pt
-                          <AdicionarButton
-                            onClick={() =>
-                              onAdicionarClick(`${d.Nome} (${t.Nome})`)
-                            }
-                          >
-                            <AddIcon style={{width: "15px"}}/>
-                            Adicionar
-                          </AdicionarButton>
-                        </Titulo>
+                            dangerouslySetInnerHTML={{
+                              __html: t.Descricao.replaceAll("\n", "<br/><br/>"),
+                            }}
+                          ></p>
+                        </div>
                       ))}
                     </>
                   )}

@@ -198,7 +198,7 @@ export const TacaFicha = (props) => {
         <Topo>
           <ContainerNomePontos>
             <p>{nome}</p>
-            <div><p>{pontosTotais}</p></div>
+            <div><p>{pontosTotais} pts</p></div>
           </ContainerNomePontos>
           <ArquetipoContainer>
             <p>{arquetipo}</p>
@@ -206,16 +206,24 @@ export const TacaFicha = (props) => {
         </Topo>
         <Meio>
           <AtributosContainerPoder>
-            <h1>P</h1>
-            <p>{atributos.poder}</p>
+            <h1>F</h1>
+            <p>{atributos.poder.toString().padStart(2, '0')}</p>
           </AtributosContainerPoder>
           <AtributosContainerHabilidade>
             <h1>H</h1>
-            <p>{atributos.habilidade}</p>
+            <p>{atributos.habilidade.toString().padStart(2, '0')}</p>
           </AtributosContainerHabilidade>
           <AtributosContainerresistencia>
             <h1>R</h1>
-            <p>{atributos.resistencia}</p>
+            <p>{atributos.resistencia.toString().padStart(2, '0')}</p>
+          </AtributosContainerresistencia>
+          <AtributosContainerresistencia>
+            <h1>A</h1>
+            <p>{atributos.armadura.toString().padStart(2, '0')}</p>
+          </AtributosContainerresistencia>
+          <AtributosContainerresistencia>
+            <h1>PdF</h1>
+            <p>{atributos.poderDeFogo.toString().padStart(2, '0')}</p>
           </AtributosContainerresistencia>
         </Meio>
         <TextosContainer>
@@ -266,17 +274,26 @@ export const TacaFicha = (props) => {
           </ContainerFramesTextos>
         </TextosContainer>
         <Baixo>
-          <RecursosContainer>
-            <img src={acaoIcon}/>
-            <p>{recursosFinal.pontosDeAcao.toString().padStart(2, '0')}</p>
+          <RecursosContainer style={{
+            width: '144px'
+          }}>
+            <h1>FA/FAD</h1>
+            <div style={{
+              display: 'flex',
+              flexDirection: 'row'
+            }}><p>{recursosFinal.forcaDeAtaque?.toString().padStart(2, '0')}/{recursosFinal.forcaDeAtaqueDistancia?.toString().padStart(2, '0')}</p></div>
           </RecursosContainer>
           <RecursosContainer>
-            <img src={manaIcon}/>
-            <p>{recursosFinal.pontosDeMana.toString().padStart(2, '0')}</p>
+            <h1>FD</h1>
+            <p>{recursosFinal.forcaDeDefesa?.toString().padStart(2, '0')}</p>
           </RecursosContainer>
           <RecursosContainer>
-            <img src={vidaIcon}/>
+            <h1>PV</h1>
             <p>{recursosFinal.pontosDeVida.toString().padStart(2, '0')}</p>
+          </RecursosContainer>
+          <RecursosContainer>
+            <h1>PM</h1>
+            <p>{recursosFinal.pontosDeMana.toString().padStart(2, '0')}</p>
           </RecursosContainer>
         </Baixo>
       </Carta>

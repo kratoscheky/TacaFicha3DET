@@ -1,15 +1,15 @@
 import * as React from "react";
-import {AdicionarButton, ContainerItens, ContainerModal, ConteudoModal, Titulo,} from "./styles";
-import {Vantagens} from "../../../data/alpha/vantagens";
+import { AdicionarButton, ContainerItens, ContainerModal, ConteudoModal, Titulo, } from "./styles";
+import { Vantagens } from "../../../data/alpha/vantagens";
 import AddIcon from "@mui/icons-material/Add";
 import FichaInput from "../../FichaInput";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
 export default function ModalVantagensAlpha({
-                                         open,
-                                         handleClose,
-                                         onAdicionarClick,
-                                       }) {
+  open,
+  handleClose,
+  onAdicionarClick,
+}) {
   const [customizada, setCustomizada] = React.useState("");
   const [vantagensFiltradas, setVantagensFiltradas] = useState(Vantagens);
   const [filtro, setFiltro] = useState("");
@@ -17,8 +17,8 @@ export default function ModalVantagensAlpha({
   useEffect(() => {
     let filtroAplicado = Vantagens;
 
-    if(filtro !== "")
-      filtroAplicado = Vantagens.filter(p => p.Nome.includes(filtro))
+    if (filtro !== "")
+      filtroAplicado = Vantagens.filter(p => p.Nome.toLowerCase().includes(filtro.toLowerCase()))
 
     setVantagensFiltradas(filtroAplicado)
   }, [filtro]);
@@ -33,20 +33,20 @@ export default function ModalVantagensAlpha({
       >
         <ConteudoModal>
           <h1>Vantagens</h1>
-          <br/>
+          <br />
           <ContainerItens>
             <Titulo>
               Customizada
               <AdicionarButton onClick={() => onAdicionarClick(customizada)} data-test-id="vantagem-adicionar-customizada">
-                <AddIcon style={{width: "15px"}}/>
+                <AddIcon style={{ width: "15px" }} />
                 Adicionar
               </AdicionarButton>
             </Titulo>
             <p>
               Sua mesa utiliza uma vantagem customizada ou não encontrou o que
               procurava?
-              <br/>
-              <br/>
+              <br />
+              <br />
               Sem problemas! Adicione a vantagem que quiser no campo abaixo
             </p>
             <FichaInput
@@ -56,7 +56,7 @@ export default function ModalVantagensAlpha({
               onEdit={(e) => setCustomizada(e.target.value)}
               testId="vantagem-customizada"
             />
-            <hr style={{width: "100%"}}/>
+            <hr style={{ width: "100%" }} />
             <FichaInput
               width='100%'
               label={"Pesquisar Vantagem"}
@@ -74,9 +74,9 @@ export default function ModalVantagensAlpha({
                   key={v.Nome}
                 >
                   <Titulo>
-                    {v.Nome} {v.Pontos}pt
+                    {v.Nome} {v.Pontos === 9999 ? '(Especial)' : `${v.Pontos} pt`} {v.a && ` a ${v.a}pt`}
                     <AdicionarButton onClick={() => onAdicionarClick(v.Nome)} data-test-id={'vantagem-' + v.Nome}>
-                      <AddIcon style={{width: "15px"}}/>
+                      <AddIcon style={{ width: "15px" }} />
                       Adicionar
                     </AdicionarButton>
                   </Titulo>
@@ -87,19 +87,32 @@ export default function ModalVantagensAlpha({
                   ></p>
                   {v.Tipo && (
                     <>
-                      <br/>
+                      <br />
                       {v.Tipo.map((t) => (
-                        <Titulo style={{
-                          paddingBottom: '8px'
+                        <div style={{
+                          backgroundColor: "#00294450",
+                          padding: "18px",
+                          borderRadius: "8px",
+                          marginBottom: '8px'
                         }}>
-                          {t.Nome} {t.Pontos}pt
-                          <AdicionarButton
-                            onClick={() => onAdicionarClick(`${v.Nome} (${t.Nome})`)}
-                          >
-                            <AddIcon style={{width: "15px"}}/>
-                            Adicionar
-                          </AdicionarButton>
-                        </Titulo>
+
+                          <Titulo style={{
+                            paddingBottom: '8px'
+                          }}>
+                            {t.Nome} {t.Pontos}pt {t.a && ` a ${t.a}pt`}
+                            <AdicionarButton
+                              onClick={() => onAdicionarClick(`${v.Nome} (${t.Nome})`)}
+                            >
+                              <AddIcon style={{ width: "15px" }} />
+                              Adicionar
+                            </AdicionarButton>
+                          </Titulo>
+                          <p
+                            dangerouslySetInnerHTML={{
+                              __html: t.Descricao.replaceAll("\n", "<br/><br/>"),
+                            }}
+                          ></p>
+                        </div>
                       ))}
                     </>
                   )}

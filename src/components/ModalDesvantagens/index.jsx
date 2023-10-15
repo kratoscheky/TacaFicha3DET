@@ -94,7 +94,7 @@ export default function ModalDesvantagens({
                             paddingLeft: '8px'
                           }}
                         >
-                          {t.Nome} -{t.Pontos}pt
+                          {t.Nome} {t.Pontos}pt
                           <AdicionarButton
                             onClick={() =>
                               onAdicionarClick(`${d.Nome} (${t.Nome})`)

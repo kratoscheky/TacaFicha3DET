@@ -9,6 +9,8 @@ const initialAtributos = {
   poder: 0,
   habilidade: 0,
   resistencia: 0,
+  poderDeFogo: 0,
+  armadura: 0,
 };
 
 const initialRecursos = {
@@ -21,6 +23,9 @@ const initialExtras = {
   pontosDeAcao: 0,
   pontosDeMana: 0,
   pontosDeVida: 0,
+  forcaDeDefesa: 0,
+  forcaDeAtaque: 0,
+  forcaDeAtaqueDistancia: 0
 }
 
 export const FichaAlphaProvider = ({children}) => {
@@ -53,6 +58,9 @@ export const FichaAlphaProvider = ({children}) => {
     let acaoFinal = atributos.poder === 0 ? 1 : atributos.poder;
     let manaFinal = atributos.habilidade === 0 ? 1 : atributos.habilidade * 5;
     let vidaFinal = atributos.resistencia === 0 ? 1 : atributos.resistencia * 5;
+    let forcaDeAtaque = atributos.habilidade + atributos.poder;
+    let forcaDeAtaqueDistancia = atributos.habilidade + atributos.poderDeFogo;
+    let forcaDeDefesa = atributos.habilidade + atributos.armadura;
 
     console.log({
       acaoFinal,
@@ -61,9 +69,12 @@ export const FichaAlphaProvider = ({children}) => {
     })
 
     let resultadoFinal = {
-      pontosDeAcao: acaoFinal + extras.pontosDeAcao,
-      pontosDeMana: manaFinal + extras.pontosDeMana,
-      pontosDeVida: vidaFinal + extras.pontosDeVida,
+      pontosDeAcao: extras.pontosDeAcao,
+      pontosDeMana: extras.pontosDeMana,
+      pontosDeVida: extras.pontosDeVida,
+      forcaDeAtaque,
+      forcaDeAtaqueDistancia,
+      forcaDeDefesa
     }
 
     console.log(resultadoFinal)

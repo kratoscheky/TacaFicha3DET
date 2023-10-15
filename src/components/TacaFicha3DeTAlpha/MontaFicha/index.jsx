@@ -122,7 +122,7 @@ export const MontaFichaAlpha = () => {
               <ContainerInputs>
                 <FichaInput
                   type="number"
-                  label={"Poder"}
+                  label={"Força"}
                   valor={atributos.poder}
                   icon={poder}
                   onEdit={(v) => HandleAtributos(v.target.value, "poder")}
@@ -137,14 +137,6 @@ export const MontaFichaAlpha = () => {
                   testId="habilidade"
                 />
                 <FichaInput
-                    type="number"
-                    label={"Armadura"}
-                    valor={atributos.poder}
-                    icon={resistencia}
-                    onEdit={(v) => HandleAtributos(v.target.value, "poder")}
-                    testId="poder"
-                />
-                <FichaInput
                   type="number"
                   label={"Resistência"}
                   valor={atributos.resistencia}
@@ -154,45 +146,39 @@ export const MontaFichaAlpha = () => {
                 />
                 <FichaInput
                     type="number"
+                    label={"Armadura"}
+                    valor={atributos.armadura}
+                    icon={resistencia}
+                    onEdit={(v) => HandleAtributos(v.target.value, "armadura")}
+                    testId="poder"
+                />
+                <FichaInput
+                    type="number"
                     label={"PdF"}
-                    valor={atributos.poder}
+                    valor={atributos.poderDeFogo}
                     icon={poder}
-                    onEdit={(v) => HandleAtributos(v.target.value, "poder")}
+                    onEdit={(v) => HandleAtributos(v.target.value, "poderDeFogo")}
                     testId="poder"
                 />
               </ContainerInputs>
               <ContainerInputs>
                 <FichaInput
                   type="number"
-                  label={"+Mana"}
-                  valor={extras.pontosDeMana}
-                  icon={pontosmanaplus}
-                  onEdit={(e) =>
-                    setExtras({...extras, pontosDeMana: parseInt(e.target.value)})
-                  }
-                />
-                <FichaInput
-                  type="number"
-                  label={"+Vida"}
+                  label={"Pontos de Vida"}
                   valor={extras.pontosDeVida}
-                  icon={pontosvidaplus}
+                  icon={pontosdevida}
                   onEdit={(e) =>
                     setExtras({...extras, pontosDeVida: parseInt(e.target.value)})
                   }
                 />
-              </ContainerInputs>
-              <ContainerInputs>
                 <FichaInput
-                  disabled
-                  label={"Pontos de Mana"}
-                  valor={recursosFinal.pontosDeMana}
+                  type="number"
+                  label={"Pontos de Magia"}
+                  valor={extras.pontosDeMana}
                   icon={pontosdemana}
-                />
-                <FichaInput
-                  disabled
-                  label={"Pontos de Vida"}
-                  valor={recursosFinal.pontosDeVida}
-                  icon={pontosdevida}
+                  onEdit={(e) =>
+                    setExtras({...extras, pontosDeMana: parseInt(e.target.value)})
+                  }
                 />
               </ContainerInputs>
             </ContainerAtributos>
