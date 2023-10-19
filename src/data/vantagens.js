@@ -54,7 +54,19 @@ export const Vantagens = [
   {
     Nome: "Alcance",
     Descricao: "Seus ataques possuem um alcance ampliado.",
-    Pontos: "1-2"
+    Pontos: "1-2",
+    Tipo: [
+      {
+        Nome: "1pt",
+        Descricao: "",
+        Pontos: 1
+      },
+      {
+        Nome: "2pt",
+        Descricao: "",
+        Pontos: 2
+      },
+    ]
   },
   {
     Nome: "Anulação",
@@ -340,7 +352,29 @@ export const Vantagens = [
   {
     Nome: "Inventário",
     Descricao: "Você carrega itens consumíveis para utilizar em momentos de necessidade.",
-    Pontos: "1-3"
+    Pontos: "1-3",
+    Tipo: [
+      {
+        Nome: "0pt",
+        Descricao: "",
+        Pontos: 1
+      },
+      {
+        Nome: "1pt",
+        Descricao: "",
+        Pontos: 1
+      },
+      {
+        Nome: "2pt",
+        Descricao: "",
+        Pontos: 1
+      },
+      {
+        Nome: "3pt",
+        Descricao: "",
+        Pontos: 1
+      }
+    ]
   },
   {
     Nome: "Invisível",
@@ -395,7 +429,19 @@ export const Vantagens = [
   {
     Nome: "Punição",
     Descricao: "Pode impor um efeito negativo a um alvo, como uma Maldição, torná-lo Monstruoso, Lento, ou outro efeito similar.",
-    Pontos: "1-2"
+    Pontos: "1-2",
+    Tipo: [
+      {
+        Nome: "1pt",
+        Descricao: "",
+        Pontos: 1
+      },
+      {
+        Nome: "2pt",
+        Descricao: "",
+        Pontos: 2
+      }
+    ]
   },
   {
     Nome: "Regeneração",
@@ -410,7 +456,24 @@ export const Vantagens = [
   {
     Nome: "Riqueza",
     Descricao: "Você é um verdadeiro burguês! Possui recursos financeiros em uma escala superior.",
-    Pontos: 2
+    Pontos: "2, 4 ou 8pt",
+    Tipo : [
+      {
+        Nome: "2pt",
+        Descricao: "",
+        Pontos: 2
+      },
+      {
+        Nome: "4pt",
+        Descricao: "",
+        Pontos: 4
+      },
+      {
+        Nome: "8pt",
+        Descricao: "",
+        Pontos: 8
+      }
+    ]
   },
   {
     Nome: "Sentido",
@@ -457,7 +520,19 @@ export const Vantagens = [
   {
     Nome: "Transformação",
     Descricao: "Você tem a capacidade de mudar de forma e habilidades.",
-    Pontos: "1-2"
+    Pontos: "1-2",
+    Tipo: [
+      {
+        Nome: "1p",
+        Descricao: "",
+        Pontos: 1
+      },
+      {
+        Nome: "2p",
+        Descricao: "",
+        Pontos: 2
+      }
+    ]
   },
   {
     Nome: "+Vida",
