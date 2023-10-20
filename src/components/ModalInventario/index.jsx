@@ -17,7 +17,7 @@ export default function ModalInventario({open, handleClose, onAdicionarClick}) {
       >
         <ConteudoModal>
           <ContainerItens>
-            <h1>Inventario</h1>
+            <h1>Inventário</h1>
             <Titulo>
               Adicionar Item
               <AdicionarButton onClick={() => onAdicionarClick(customizada)} data-test-id="pericia-adicionar-customizada">
@@ -32,7 +32,7 @@ export default function ModalInventario({open, handleClose, onAdicionarClick}) {
               label={"Nome do Item"}
               valor={customizada}
               onEdit={(e) => setCustomizada(e.target.value)}
-              testId="pericia-customizada"
+              testId="inventario-customizada"
             />
           </ContainerItens>
         </ConteudoModal>

@@ -238,7 +238,7 @@ export const MontaFicha = () => {
           </PainelPersonalidade>
           <PainelPersonalidade>
             <ListaCaracteristicas
-              titulo="Tecnicas"
+              titulo="Técnicas"
               caracteristicas={tecnicas}
               onAdicionarClick={() => setAddTecnicasOpen(true)}
               onRemoverClick={(Id) =>
@@ -249,7 +249,7 @@ export const MontaFicha = () => {
           </PainelPersonalidade>
           <PainelPersonalidade>
             <ListaCaracteristicas
-              titulo="Inventario"
+              titulo="Inventário"
               caracteristicas={inventario}
               onAdicionarClick={() => setAddInventarioOpen(true)}
               onRemoverClick={(Id) =>

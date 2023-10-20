@@ -34,7 +34,7 @@ export default function ModalTecnicas({open, handleClose, onAdicionarClick}) {
       >
         <ConteudoModal>
           <ContainerItens>
-            <h1>Tecnicas</h1>
+            <h1>Técnicas</h1>
             <Titulo>
               Customizada
               <AdicionarButton onClick={() => onAdicionarClick(customizada)} data-test-id="pericia-adicionar-customizada">
@@ -44,11 +44,11 @@ export default function ModalTecnicas({open, handleClose, onAdicionarClick}) {
                 Adicionar
               </AdicionarButton>
             </Titulo>
-            <p>Sua mesa utiliza uma perícia customizada ou não encontrou o que procurava?
-              <br/><br/>Sem problemas! Adicione a perícia que quiser no campo abaixo</p>
+            <p>Sua mesa utiliza uma técnica customizada ou não encontrou o que procurava?
+              <br/><br/>Sem problemas! Adicione a técnica que quiser no campo abaixo</p>
             <FichaInput
               width='100%'
-              label={"Nome da perícia"}
+              label={"Nome da Técnica"}
               valor={customizada}
               onEdit={(e) => setCustomizada(e.target.value)}
               testId="pericia-customizada"
@@ -56,7 +56,7 @@ export default function ModalTecnicas({open, handleClose, onAdicionarClick}) {
             <hr style={{width: "100%"}}/>
             <FichaInput
               width='100%'
-              label={"Pesquisar Tecnica"}
+              label={"Pesquisar Técnica"}
               valor={filtro}
               onEdit={(e) => setFiltro(e.target.value)}
             />
