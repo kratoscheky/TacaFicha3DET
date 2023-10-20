@@ -118,7 +118,9 @@ export const ContainerExp = styled.div`
 `
 
 export const ContainerCamposDireito = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  height: 100%;
   flex-direction: column;
   gap: 4mm;
 `
