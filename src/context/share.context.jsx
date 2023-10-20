@@ -34,6 +34,10 @@ export const ShareProvider = ({children}) => {
     setFoil,
     imageUrl,
     setImageUrl,
+    inventario,
+    setInventario,
+    tecnicas,
+    setTecnicas
   } = useFicha();
 
   const copyShareableLinkToClipboard = (slot) => {
@@ -58,6 +62,8 @@ export const ShareProvider = ({children}) => {
         extras: slot.extras,
         imageUrl: slot.imageUrl,
         foil: slot.foil,
+        inventario: slot.inventario,
+        tecnicas: slot.tecnicas
       };
       //Caso nenhum slot tenha sido passado, montamos o link com os dados atuais da ficha (Pode ser util no futuro)
     } else {
@@ -81,6 +87,8 @@ export const ShareProvider = ({children}) => {
         },
         imageUrl: imageUrl,
         foil: foil,
+        inventario: inventario,
+        tecnicas: tecnicas
       };
     }
 
@@ -106,6 +114,8 @@ export const ShareProvider = ({children}) => {
     setImageUrl(dataToShare.imageUrl)
     setFoil(dataToShare.foil ?? false)
     setSalvandoLoading(false)
+    setTecnicas(dataToShare.tecnicas ?? [])
+    setInventario(dataToShare.inventario ?? [])
   }
 
   const loadShareableString = (shareableString) => {
@@ -121,6 +131,8 @@ export const ShareProvider = ({children}) => {
     setPontosTotais(dataToShare.pontosTotais)
     setImageUrl(dataToShare.imageUrl)
     setFoil(dataToShare.foil ?? false)
+    setTecnicas(dataToShare.tecnicas ?? [])
+    setInventario(dataToShare.inventario ?? [])
 
     setShareView(true);
   }

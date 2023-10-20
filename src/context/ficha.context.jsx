@@ -33,6 +33,8 @@ export const FichaProvider = ({children}) => {
   const [pericias, setPericias] = useState([]);
   const [vantagens, setVantagens] = useState([]);
   const [desvantagens, setDesvantagens] = useState([]);
+  const [inventario, setInventario] = useState([]);
+  const [tecnicas, setTecnicas] = useState([]);
   const [arquetipo, setArquetipo] = useState("");
 
   const [selectedFile, setSelectedFile] = useState(null);
@@ -92,6 +94,8 @@ export const FichaProvider = ({children}) => {
     setExtras(initialExtras)
     setPontosTotais(10);
     setAnotacoes('');
+    setInventario([]);
+    setTecnicas([]);
   }
 
   useEffect(() => {
@@ -165,7 +169,11 @@ export const FichaProvider = ({children}) => {
         imagem,
         setImagemGerada,
         salvandoLoading,
-        setSalvandoLoading
+        setSalvandoLoading,
+        inventario,
+        setInventario,
+        tecnicas,
+        setTecnicas
       }}
     >
       {children}

@@ -54,50 +54,50 @@ export const ContainerLegado = styled.div`
 `
 
 export const ButtonUpload = styled.button`
-    font-weight: 600;
-    text-shadow: 0 0 16px rgba(0,0,0,.53);
-    background-color: #ffb300;
-    box-shadow: 0 0 10px 0 rgba(0,0,0,.5);
-    font-size: 16px;
-    padding: 15px 30px;
-    border-radius: 4px;
-    text-decoration: none;
-    fill: #fff;
-    text-align: center;
-    transition: all .3s;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    width: 100%;
-    display: flex;
-    gap: 4px;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+  font-weight: 600;
+  text-shadow: 0 0 16px rgba(0, 0, 0, .53);
+  background-color: #fdbe22;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, .5);
+  font-size: 16px;
+  padding: 15px 30px;
+  border-radius: 4px;
+  text-decoration: none;
+  fill: #6e0061;
+  text-align: center;
+  transition: all .3s;
+  border: none;
+  color: #6e0061;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 `
 
 export const ButtonCut = styled.button`
-    font-weight: 600;
-    text-shadow: 0 0 16px rgba(0,0,0,.53);
-    box-shadow: 0 0 10px 0 rgba(0,0,0,.5);
-    font-size: 16px;
-    padding: 15px 30px;
-    border-radius: 4px;
-    text-decoration: none;
-    fill: #fff;
-    text-align: center;
-    transition: all .3s;
-    border: none;
-    display: inline-block;
-    color: #fff;
-    cursor: pointer;
-    width: 100%;
-    display: flex;
-    gap: 4px;
-    justify-content: center;
-    align-items: center;
-    background: #ffb300;
-    max-width: 80px;
+  font-weight: 600;
+  text-shadow: 0 0 16px rgba(0, 0, 0, .53);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, .5);
+  font-size: 16px;
+  padding: 15px 30px;
+  border-radius: 4px;
+  text-decoration: none;
+  fill: #6e0061;
+  text-align: center;
+  transition: all .3s;
+  border: none;
+  display: inline-block;
+  color: #6e0061;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  align-items: center;
+  background: #fdbe22;
+  max-width: 80px;
 `
 
 export const DadosPersonagem = styled.div`
