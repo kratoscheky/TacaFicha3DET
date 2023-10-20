@@ -1,4 +1,4 @@
-export const tecnicas = {
+export const Tecnicas = {
     Truques: [
         {
             Nome: 'Ás Indomável',

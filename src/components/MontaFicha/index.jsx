@@ -31,6 +31,8 @@ import {useImgur} from "../../context/imgur.context";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import {ImageComponent} from "../../pages/Ficha";
+import ModalTecnicas from "../ModalTecnicas/index.jsx";
+import ModalInventario from "../ModalInventario/index.jsx";
 
 export const MontaFicha = () => {
   const {
@@ -55,7 +57,11 @@ export const MontaFicha = () => {
     LimparCampos,
     recursosFinal,
     anotacoes,
-    setAnotacoes
+    setAnotacoes,
+    tecnicas,
+    setTecnicas,
+    inventario,
+    setInventario
   } = useFicha();
 
   const {SaveSlot} = useSlots();
@@ -65,6 +71,8 @@ export const MontaFicha = () => {
   const [addPericiasOpen, setAddPericiasOpen] = useState(false);
   const [addVantagensOpen, setAddVantagensOpen] = useState(false);
   const [addDesvantagensOpen, setAddDesvantagensOpen] = useState(false);
+  const [addTecnicasOpen, setAddTecnicasOpen] = useState(false);
+  const [addInventarioOpen, setAddInventarioOpen] = useState(false);
 
   const SeparadorDadinho = () => (
     <div style={{width: "100%", display: "flex", justifyContent: "center"}}>
@@ -228,6 +236,29 @@ export const MontaFicha = () => {
               testId="btn-desvantagens"
             />
           </PainelPersonalidade>
+          <PainelPersonalidade>
+            <ListaCaracteristicas
+              titulo="Tecnicas"
+              caracteristicas={tecnicas}
+              onAdicionarClick={() => setAddTecnicasOpen(true)}
+              onRemoverClick={(Id) =>
+                setTecnicas(tecnicas.filter((v) => v.Id !== Id))
+              }
+              testId="btn-tecnicas"
+            />
+          </PainelPersonalidade>
+          <PainelPersonalidade>
+            <ListaCaracteristicas
+              titulo="Inventario"
+              caracteristicas={inventario}
+              onAdicionarClick={() => setAddInventarioOpen(true)}
+              onRemoverClick={(Id) =>
+                setInventario(inventario.filter((v) => v.Id !== Id))
+              }
+              testId="btn-inventario"
+            />
+          </PainelPersonalidade>
+          <ImageComponent/>
         </ContainerPersonalidade>
         <SessaoInputs>
           <h1>Anotações</h1>
@@ -235,7 +266,6 @@ export const MontaFicha = () => {
             <ReactQuill theme="snow" value={anotacoes} onChange={setAnotacoes}/>
           </ContainerAnotacoes>
         </SessaoInputs>
-        <ImageComponent/>
       </ContainerMontaFicha>
 
       <ModalPericias
@@ -260,6 +290,22 @@ export const MontaFicha = () => {
         onAdicionarClick={(Nome) => {
           setDesvantagens([...desvantagens, {Id: crypto.randomUUID(), Nome}]);
           setAddDesvantagensOpen(false);
+        }}
+      />
+      <ModalTecnicas
+        open={addTecnicasOpen}
+        handleClose={() => setAddTecnicasOpen(false)}
+        onAdicionarClick={(Nome) => {
+          setTecnicas([...tecnicas, {Id: crypto.randomUUID(), Nome}]);
+          setAddTecnicasOpen(false);
+        }}
+      />
+      <ModalInventario
+        open={addInventarioOpen}
+        handleClose={() => setAddInventarioOpen(false)}
+        onAdicionarClick={(Nome) => {
+          setInventario([...inventario, {Id: crypto.randomUUID(), Nome}]);
+          setAddInventarioOpen(false);
         }}
       />
     </>

@@ -104,6 +104,8 @@ export const FichaProvider = ({children}) => {
     setExtras(initialExtras)
     setPontosTotais(10);
     setAnotacoes('');
+    setInventario([]);
+    setTecnicas([]);
   }
 
   useEffect(() => {
