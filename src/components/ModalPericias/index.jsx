@@ -30,7 +30,6 @@ export default function ModalPericias({open, handleClose, onAdicionarClick}) {
         <ConteudoModal>
           <ContainerItens>
             <h1>Perícias</h1>
-            <br/>
             <Titulo>
               Customizada
               <AdicionarButton onClick={() => onAdicionarClick(customizada)} data-test-id="pericia-adicionar-customizada">

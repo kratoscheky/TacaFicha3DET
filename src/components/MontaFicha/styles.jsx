@@ -131,8 +131,10 @@ export const PainelPersonalidade = styled.div`
 `
 
 export const ContainerPersonalidade = styled.div`
-    display: flex;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr;
     @media (max-width: 768px) {
+        display: flex !important;
         flex-wrap: wrap;
     }
 `

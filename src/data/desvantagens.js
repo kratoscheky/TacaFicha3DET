@@ -17,7 +17,19 @@ export const Desvantagens = [
   {
     Nome: "Assombrado",
     Descricao: "Você é atormentado por um espírito, uma sensação negativa, uma lembrança amarga ou qualquer outra coisa que prejudique sua concentração.",
-    Pontos: -1
+    Pontos: "-1 ou -2pts",
+    Tipo: [
+      {
+        Nome: "-1pt",
+        Descricao: "",
+        Pontos: -1
+      },
+      {
+        Nome: "-2pts",
+        Descricao: "",
+        Pontos: -2
+      },
+    ]
   },
   {
     Nome: "Atrapalhado",
@@ -27,7 +39,19 @@ export const Desvantagens = [
   {
     Nome: "Aura",
     Descricao: "Você emana uma aura densa de energia negativa, estática eletromagnética, karma ruim, um cheiro desagradável ou pura má sorte.",
-    Pontos: "-1-2"
+    Pontos: "-1-2",
+    Tipo: [
+      {
+        Nome: "-1pt",
+        Descricao: "",
+        Pontos: -1
+      },
+      {
+        Nome: "-2pts",
+        Descricao: "",
+        Pontos: -2
+      },
+    ]
   },
   {
     Nome: "Bateria",
@@ -114,17 +138,17 @@ export const Desvantagens = [
   {
     Nome: "Fraqueza",
     Descricao: "Você tem uma vulnerabilidade especial a um objeto, elemento ou condição específica.",
-    Pontos: "-1-2",
+    Pontos: "-1 a -2pts",
     Tipo: [
       {
-        Nome: "Incomum",
+        Nome: "Incomum (-1pt)",
         Descricao: "",
-        Pontos: 1
+        Pontos: -1
       },
       {
-        Nome: "Comum",
+        Nome: "Comum (-2pts)",
         Descricao: "",
-        Pontos: 1
+        Pontos: -2
       }
     ]
   },
@@ -208,7 +232,19 @@ export const Desvantagens = [
   {
     Nome: "Maldição",
     Descricao: "Sofre de uma maldição perturbadora.",
-    Pontos: "-1-2"
+    Pontos: "-1 a -2pts",
+    Tipo: [
+      {
+        Nome: "-1pt",
+        Descricao: "",
+        Pontos: -1
+      },
+      {
+        Nome: "-2pts",
+        Descricao: "",
+        Pontos: -2
+      }
+    ]
   },
   {
     Nome: "Monstruoso",
@@ -223,7 +259,19 @@ export const Desvantagens = [
   {
     Nome: "Pacifista",
     Descricao: "Rejeita violência.",
-    Pontos: "-1-2"
+    Pontos: "-1 a -2pts",
+    Tipo: [
+      {
+        Nome: "-1pt",
+        Descricao: "",
+        Pontos: -1
+      },
+      {
+        Nome: "-2pts",
+        Descricao: "",
+        Pontos: -2
+      }
+    ]
   },
   {
     Nome: "Pobreza",
