@@ -7,6 +7,7 @@ import {
   ContainerAtributos,
   ContainerCampoAtributo,
   ContainerCamposDadosBasicos,
+  ContainerCamposDireito,
   ContainerCamposExtras,
   ContainerColunas,
   ContainerDadosExp,
@@ -36,7 +37,7 @@ import { useFicha } from "../../context/ficha.context"
 import html2canvas from 'html2canvas'
 import jsPDF from 'jspdf';
 import { PDFDocument } from 'pdf-lib';
-import {Button} from "../TacaFicha/styles.jsx";
+import { Button } from "../TacaFicha/styles.jsx";
 
 
 export const TacaFichaPdf = () => {
@@ -53,7 +54,9 @@ export const TacaFichaPdf = () => {
     imageBlob,
     recursosFinal,
     foil,
-    anotacoes
+    anotacoes,
+    inventario,
+    tecnicas
   } = useFicha()
 
   const captureAndSaveFicha = async () => {
@@ -105,9 +108,9 @@ export const TacaFichaPdf = () => {
           <ContainerColunas>
             <div>
               <Frame style={{
-                backgroundImage: `url(${imageBlob})`
+                backgroundImage: `url(${frame})`
               }}>
-                <img src={frame} alt="logo" />
+                <img src={imageBlob} alt="logo" />
               </Frame>
               <ContainerCamposDadosBasicos>
                 <CamposDadosBasicos>
@@ -155,64 +158,65 @@ export const TacaFichaPdf = () => {
                   <h6>{recursosFinal.pontosDeVida.toString().padStart(2, '0')}</h6>
                 </ContainerCampoAtributo>
               </ContainerAtributos>
-              <ContainerCamposExtras>
-                <TituloCampo>Anotações</TituloCampo>
-                <ContainerAnotacoes dangerouslySetInnerHTML={{__html: anotacoes}} />
+              <ContainerCamposExtras style={{
+                paddingTop: '7.7mm'
+              }}>
+                <TituloCampo>Inventário</TituloCampo>
+                <div>
+                  {inventario.map((v) => v.Nome + ".").join(" ")}
+                </div>
               </ContainerCamposExtras>
             </div>
             <div>
+
               <ContainerExtrasDireito>
-                <ContainerCamposExtras>
-                  <TituloCampo>Vantagens</TituloCampo>
-                  <div>
-                    {vantagens.map((v) => v.Nome + ".").join(" ")}
-                  </div>
-                </ContainerCamposExtras>
+                <ContainerCamposDireito>
+                  <ContainerCamposExtras>
+                    <TituloCampo>Vantagens</TituloCampo>
+                    <div>
+                      {vantagens.map((v) => <p>{v.Nome + "."}</p>)}
+                    </div>
+                  </ContainerCamposExtras>
 
-                <ContainerCamposExtras>
-                  <TituloCampo>Desvantagens</TituloCampo>
-                  <div>
-                    {desvantagens.map((d) => d.Nome + ".").join(" ")}
-                  </div>
-                </ContainerCamposExtras>
-
-
-                <ContainerCamposExtras>
-                  <TituloCampo>Perícias</TituloCampo>
-                  <div>
-                    {pericias.map((v) => v.Nome + ".").join(" ")}
-                  </div>
-                </ContainerCamposExtras>
+                  <ContainerCamposExtras>
+                    <TituloCampo>Desvantagens</TituloCampo>
+                    <div>
+                      {desvantagens.map((d) => <p>{d.Nome + "."}</p>)}
+                    </div>
+                  </ContainerCamposExtras>
 
 
-                <ContainerCamposExtras>
-                  <TituloCampo>Técnicas</TituloCampo>
-                  <div>
+                  <ContainerCamposExtras>
+                    <TituloCampo>Perícias</TituloCampo>
+                    <div>
+                      {pericias.map((v) => <p>{v.Nome + "."}</p>)}
+                    </div>
+                  </ContainerCamposExtras>
 
-                  </div>
-                </ContainerCamposExtras>
+
+                  <ContainerCamposExtras>
+                    <TituloCampo>Técnicas</TituloCampo>
+                    <div>
+                      {tecnicas.map((v) => <p>{v.Nome + "."}</p>)}
+                    </div>
+                  </ContainerCamposExtras>
+                </ContainerCamposDireito>
 
 
-                <ContainerCamposExtras>
-                  <TituloCampo>Equipamento</TituloCampo>
-                  <div>
-
-                  </div>
-                </ContainerCamposExtras>
                 <ContainerDadosExp>
                   <ExpExpacamento>
                     <h1>EXP</h1>
                     <ContainerExp style={{
                       backgroundImage: `url(${xp})`
                     }}>
-                      <h6>{pontosTotais}</h6>
+                      
                     </ContainerExp>
                   </ExpExpacamento>
-                  <div style={{
-                    alignSelf: 'flex-end',
-                    paddingBottom: '44px'
-                  }}>
-                    <img src={logo} />
+                  <div>
+                    <img style={{
+                      width: '24.9mm',
+                      height: '6.8mm'
+                    }} src={logo} />
                   </div>
                 </ContainerDadosExp>
               </ContainerExtrasDireito>

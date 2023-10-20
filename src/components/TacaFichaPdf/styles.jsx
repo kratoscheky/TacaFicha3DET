@@ -3,159 +3,182 @@ import styled from 'styled-components';
 export const ContainerTacaFicha = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  border-top: 1px solid #FFFFFF50;
+  border-top: 1px solid #FFFFFF;
+  padding-top: 20px;
+  *{
+    font-family: Oxanium;
+    box-sizing: border-box;
+  }
 `
 
 export const Container = styled.div`
-  background: #FFFFFF;
-  width: 2483px;
-  height: 3508px;
-  color: #000;
-  padding: 100px 101.5px 200px 101.5px;
-  zoom: 10%;
+  width: 210mm;
+  height: 297mm;
+  background-color: #FFF;
+  zoom: 40%;
 `
 
 export const PaddingInterno = styled.div`
-  height: 100%;
-  padding: 139.1px 135.6px;
+  padding: 11mm;
   position: relative;
+  height: 100%;
 `
 
 export const CantoEsquerdo = styled.img`
+  width: 72mm;
+  height: 67.4mm;
   position: absolute;
-  left: 0;
-  top: 0;
 `
 
 export const CantoDireito = styled.img`
+  width: 75mm;
+  height: 70.3mm;
   position: absolute;
-  right: 0;
-  bottom: 0;
+  bottom: 11mm;
+  right: 11mm;
 `
 
 export const Frame = styled.div`
-  width: 935.9px;
-  height: 1283.3px;
-  margin-bottom: 40px;
+  width: 79.2mm;
+  height: 108.7mm;
   background-size: cover;
-  background-position-x: center;
+  img{
+    width: 79.2mm;
+    height: 108.7mm;
+    padding: 4.1mm;
+  }
 `
 
 export const ContainerCamposDadosBasicos = styled.div`
+  padding: 7mm 0 7mm 0;
   display: flex;
   flex-direction: column;
-  padding: 40px 0;
-  gap: 40px;
+  gap: 4mm;
 `
 
 export const CamposDadosBasicos = styled.div`
-display: inline;
-  gap: 20px;
+  display: inline-block;
   p{
-    display: inline;
-    font-size: 28px;
+    color: #000;
+    display: inline-block;
   }
   h6{
-    display: inline;
-    font-size: 28px;
+    font-size: unset;
+    color: #000;
     text-transform: uppercase;
-    padding-right: 16px;
+    font-weight: 700;
+    display: inline-block;
+    padding-right: 1mm;
   }
 `
 
 export const ContainerAtributos = styled.div`
   display: grid;
-  grid-template-columns: 291.9px 291.9px 291.9px;
-  grid-template-rows: 155.8px 155.8px;
-  gap: 39.7px;
+  grid-template-columns: 24.7mm 24.7mm 24.7mm;
+  grid-template-rows: 13.2mm 13.2mm;
+  gap: 3.4mm;
 `
 
 export const ContainerExtrasDireito = styled.div`
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 245px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 100%;
-  width: 970px;
+  padding-bottom: 7.2mm;
 `
 
 export const ContainerDadosExp = styled.div`
   display: flex;
-  justify-content: space-between;
   width: 100%;
+  align-items: center;
+  align-items: flex-end;
+  justify-content: space-between;
 `
 
 export const ExpExpacamento = styled.div`
   display: flex;
-  gap: 50.6px;
+  gap: 4.3mm;
   align-items: center;
-  font-size: 30px;
+  color: #000;
+  h1{
+    font-size: 3.3mm;
+  }
 `
 
 export const ContainerExp = styled.div`
-  width: 390.7px;
-  height: 161px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 33.1mm;
+  height: 13.6mm;
+  background-size: cover;
   h6{
-      font-size: 100px;
+
   }
+`
+
+export const ContainerCamposDireito = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4mm;
 `
 
 export const ContainerAnotacoes = styled.div`
   p{
-      font-size: 20px;
+
   }
 `
 
 export const ContainerCamposExtras = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 70px;
-  padding: 70px 0;
+  color: #000;
+  text-transform: uppercase;
+  font-weight: 700;
   div{
-      font-size: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 1mm;
   }
 `
 
 export const ContainerCampoAtributo = styled.div`
-  height: 100%;
-  display: flex;
-  align-items: center;
-  padding-left: 130px;
+  background-size: cover;
   h6{
-      font-size: 60px;
-      margin: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    font-size: 8mm;
+    padding-left: 8mm;
   }
 `
 
 export const ContainerTopo = styled.div`
+  padding: 11.8mm;
   display: flex;
   align-items: center;
-  margin-bottom: 98.1px;
   h1{
-      font-size: 130px;
-      font-weight: bold;
-      margin-left: 80px;
-      text-transform: uppercase;
+    color: #000;
+    font-size: 8.9mm;
+    text-transform: uppercase;
+    padding-left: 6.5mm;
   }
 `
 
 export const LogoTresDeETe = styled.img`
-  width: 362.4px;
-  height: 175.1px;
+  width: 30.7mm;
+  height: 14.8mm;
 `
 
 export const ContainerColunas = styled.div`
-  display: flex;
-  gap: 160px;
-  height: 94%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 11.6mm;
+  height: calc(100% - 42mm);
+  gap: 12mm;
 `
 
 export const TituloCampo = styled.h1`
-  font-size: 39.1px;
-  font-weight: bold;
-  text-transform: uppercase;
+
 `
