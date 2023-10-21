@@ -62,7 +62,13 @@ export const MontaFicha = () => {
     tecnicas,
     setTecnicas,
     inventario,
-    setInventario
+    setInventario,
+    conceito,
+    setConceito,
+    xp,
+    setXp,
+    escala,
+    setEscala,
   } = useFicha();
 
   const {SaveSlot} = useSlots();
@@ -107,6 +113,28 @@ export const MontaFicha = () => {
               valor={pontosTotais}
               width={"200px"}
               onEdit={(e) => setPontosTotais(e.target.value)}
+              testId="pontos-totais"
+            />
+          </ContainerInputs>
+          <ContainerInputs>
+            <FichaInput
+              label={"Conceito"}
+              valor={conceito}
+              onEdit={(e) => setConceito(e.target.value)}
+              testId="nome"
+            />
+            <FichaInput
+              label={"Escala"}
+              valor={escala}
+              onEdit={(e) => setEscala(e.target.value)}
+              testId="arquetipo"
+              width={"200px"}
+            />
+            <FichaInput
+              label={"Xp"}
+              valor={xp}
+              width={"200px"}
+              onEdit={(e) => setXp(e.target.value)}
               testId="pontos-totais"
             />
           </ContainerInputs>

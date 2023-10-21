@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import frame from '../../images/pdf/frame.png';
 
 export const ContainerTacaFicha = styled.div`
   display: flex;
@@ -18,169 +19,99 @@ export const Container = styled.div`
   width: 210mm;
   height: 297mm;
   background-color: #FFF;
-  zoom: 40%;
+  background-image: url(${frame});
+  background-size: cover;
+  zoom: 35%;
 `
 
 export const PaddingInterno = styled.div`
-  padding: 11mm;
-  position: relative;
+  padding: 10mm;
   height: 100%;
 `
 
-export const CantoEsquerdo = styled.img`
-  width: 72mm;
-  height: 67.4mm;
-  position: absolute;
+export const EspacamentoTopo = styled.div`
+  height: 20.2mm;
 `
-
-export const CantoDireito = styled.img`
-  width: 75mm;
-  height: 70.3mm;
-  position: absolute;
-  bottom: 11mm;
-  right: 11mm;
-`
-
-export const Frame = styled.div`
-  width: 79.2mm;
-  height: 108.7mm;
-  background-size: cover;
-  img{
-    width: 79.2mm;
-    height: 108.7mm;
-    padding: 4.1mm;
-  }
-`
-
-export const ContainerCamposDadosBasicos = styled.div`
-  padding: 7mm 0 7mm 0;
+export const Colunas = styled.div`
   display: flex;
-  flex-direction: column;
-  gap: 4mm;
+  gap: 10mm;
 `
 
-export const CamposDadosBasicos = styled.div`
-  display: inline-block;
-  p{
-    color: #000;
-    display: inline-block;
-  }
-  h6{
-    font-size: unset;
-    color: #000;
-    text-transform: uppercase;
-    font-weight: 700;
-    display: inline-block;
-    padding-right: 1mm;
-  }
-`
-
-export const ContainerAtributos = styled.div`
-  display: grid;
-  grid-template-columns: 24.7mm 24.7mm 24.7mm;
-  grid-template-rows: 13.2mm 13.2mm;
-  gap: 3.4mm;
-`
-
-export const ContainerExtrasDireito = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  padding-bottom: 7.2mm;
-`
-
-export const ContainerDadosExp = styled.div`
-  display: flex;
+export const ColunaEsquerda = styled.div`
   width: 100%;
-  align-items: center;
-  align-items: flex-end;
-  justify-content: space-between;
 `
 
-export const ExpExpacamento = styled.div`
+export const ColunaDireita = styled.div`
+  width: 100%;
+`
+
+export const DadosBasicosTextos = styled.div`
   display: flex;
-  gap: 4.3mm;
-  align-items: center;
-  color: #000;
-  h1{
-    font-size: 3.3mm;
-  }
-`
-
-export const ContainerExp = styled.div`
-  width: 33.1mm;
-  height: 13.6mm;
-  background-size: cover;
-  h6{
-
-  }
-`
-
-export const ContainerCamposDireito = styled.div`
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-  height: 100%;
   flex-direction: column;
-  gap: 4mm;
-`
-
-export const ContainerAnotacoes = styled.div`
-  p{
-
-  }
-`
-
-export const ContainerCamposExtras = styled.div`
-  color: #000;
-  text-transform: uppercase;
-  font-weight: 700;
   div{
     display: flex;
-    flex-direction: column;
-    gap: 1mm;
   }
 `
 
-export const ContainerCampoAtributo = styled.div`
-  background-size: cover;
-  h6{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #000;
-    font-size: 8mm;
-    padding-left: 8mm;
-  }
+export const Texto = styled.p`
+  font-size: 10pt;
+  font-family: 'Roboto';
+  font-weight: 400;
+  color: #000;
+  max-width: 800px;
+  max-height: 11pt;
+  overflow: hidden;
+  min-height: 3.6mm;
 `
 
-export const ContainerTopo = styled.div`
-  padding: 11.8mm;
-  display: flex;
-  align-items: center;
-  h1{
-    color: #000;
-    font-size: 8.9mm;
-    text-transform: uppercase;
-    padding-left: 6.5mm;
-  }
+export const TriadeDeDados = styled.div`
+  display: grid !important;
+  grid-template-columns: 45.7mm 20.7mm 23.7mm;
+  margin-top: 9.5mm;
 `
 
-export const LogoTresDeETe = styled.img`
-  width: 30.7mm;
-  height: 14.8mm;
-`
-
-export const ContainerColunas = styled.div`
+export const AtributosContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding: 0 11.6mm;
-  height: calc(100% - 42mm);
-  gap: 12mm;
+  grid-template-columns: 27.7mm 27.7mm 27.7mm;
+  grid-template-rows: 14.8mm 14.8mm;
+  column-gap: 3.5mm;
+  row-gap: 6.9mm;
+  margin-top: 11.3mm;
 `
 
-export const TituloCampo = styled.h1`
+export const TextoAtributo = styled.p`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 3.4mm;
+  font-family: Oxanium;
+  font-size: 18.3pt;
+  font-weight: 800;
+  color: #000;
+`
 
+export const ContainerImagem = styled.div`
+  margin-top: 15mm;
+  margin-left: 5mm;
+`
+
+export const Imagem = styled.div`
+  width: 82mm;
+  height: 83.5mm;
+  background-image: url(${props => props.src});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+`
+
+export const ContainerLinhas = styled.p`
+  line-height: 2.4;
+  font-size: 10pt;
+  font-family: 'Roboto';
+  font-weight: 400;
+  color: #000;
+  max-width: 800px;
+  overflow: hidden;
 `

@@ -37,7 +37,13 @@ export const ShareProvider = ({children}) => {
     inventario,
     setInventario,
     tecnicas,
-    setTecnicas
+    setTecnicas,
+    xp,
+    setXp,
+    escala,
+    setEscala,
+    conceito,
+    setConceito
   } = useFicha();
 
   const copyShareableLinkToClipboard = (slot) => {
@@ -63,7 +69,10 @@ export const ShareProvider = ({children}) => {
         imageUrl: slot.imageUrl,
         foil: slot.foil,
         inventario: slot.inventario,
-        tecnicas: slot.tecnicas
+        tecnicas: slot.tecnicas,
+        xp: slot.xp,
+        escala: slot.escala,
+        conceito: slot.conceito
       };
       //Caso nenhum slot tenha sido passado, montamos o link com os dados atuais da ficha (Pode ser util no futuro)
     } else {
@@ -88,7 +97,10 @@ export const ShareProvider = ({children}) => {
         imageUrl: imageUrl,
         foil: foil,
         inventario: inventario,
-        tecnicas: tecnicas
+        tecnicas: tecnicas,
+        xp,
+        escala,
+        conceito
       };
     }
 
@@ -116,6 +128,9 @@ export const ShareProvider = ({children}) => {
     setSalvandoLoading(false)
     setTecnicas(dataToShare.tecnicas ?? [])
     setInventario(dataToShare.inventario ?? [])
+    setXp(dataToShare.xp ?? '')
+    setEscala(dataToShare.escala ?? '')
+    setConceito(dataToShare.conceito ?? '')
   }
 
   const loadShareableString = (shareableString) => {
@@ -133,6 +148,9 @@ export const ShareProvider = ({children}) => {
     setFoil(dataToShare.foil ?? false)
     setTecnicas(dataToShare.tecnicas ?? [])
     setInventario(dataToShare.inventario ?? [])
+    setXp(dataToShare.xp ?? '')
+    setEscala(dataToShare.escala ?? '')
+    setConceito(dataToShare.conceito ?? '')
 
     setShareView(true);
   }

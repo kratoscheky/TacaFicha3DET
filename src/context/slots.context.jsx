@@ -44,7 +44,13 @@ export const SlotsProvider = ({children}) => {
     inventario,
     setInventario,
     tecnicas,
-    setTecnicas
+    setTecnicas,
+    xp,
+    setXp,
+    escala,
+    setEscala,
+    conceito,
+    setConceito
   } = useFicha();
 
   const {uploadImage} = useImgur();
@@ -95,7 +101,10 @@ export const SlotsProvider = ({children}) => {
         pontosDeVida: extras.pontosDeVida,
       },
       imageUrl: _imageUrl,
-      foil: foil
+      foil: foil,
+      xp,
+      escala,
+      conceito
     }
 
     if(_imageUrl?.includes('imgur')){
@@ -133,7 +142,10 @@ export const SlotsProvider = ({children}) => {
     setFoil(slot.foil ?? false)
     setAnotacoes(slot.anotacoes ?? '')
     setTecnicas(slot.tecnicas ?? [])
-    setInventario(slot.inventario ?? [])
+    setInventario(slot.inventario ?? []),
+    setXp(slot.xp ?? ''),
+    setEscala(slot.escala ?? ''),
+    setConceito(slot.conceito ?? '')
   }
 
   const LoadSlots = () => {
