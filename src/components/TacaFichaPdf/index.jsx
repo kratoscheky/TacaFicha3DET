@@ -38,7 +38,10 @@ export const TacaFichaPdf = () => {
     foil,
     anotacoes,
     inventario,
-    tecnicas
+    tecnicas,
+    conceito,
+    escala,
+    xp
   } = useFicha()
 
   const captureAndSaveFicha = async () => {
@@ -96,37 +99,49 @@ export const TacaFichaPdf = () => {
                 <Texto style={{
                   paddingLeft: '26mm',
                   marginTop: '9.5mm'
-                }}>{detalhes}</Texto>
+                }}>{conceito}</Texto>
 
                 <TriadeDeDados>
                   <Texto style={{
                   paddingLeft: '16mm'
-                }}>Nygen</Texto>
+                }}>{escala}</Texto>
                   <Texto style={{
                   paddingLeft: '10mm'
                 }}>{pontosTotais}</Texto>
                   <Texto style={{
                   paddingLeft: '11.5mm'
-                }}>200</Texto>
+                }}>{xp}</Texto>
                 </TriadeDeDados>
               </DadosBasicosTextos>
               <AtributosContainer>
-                <TextoAtributo>
+                <TextoAtributo style={{
+                  paddingTop: '3mm'
+                }}>
                   {atributos.poder.toString().padStart(2, '0')}
                 </TextoAtributo>
-                <TextoAtributo>
+                <TextoAtributo style={{
+                  paddingTop: '3mm'
+                }}>
                   {atributos.habilidade.toString().padStart(2, '0')}
                 </TextoAtributo>
-                <TextoAtributo>
+                <TextoAtributo style={{
+                  paddingTop: '3mm'
+                }}>
                   {atributos.resistencia.toString().padStart(2, '0')}
                 </TextoAtributo>
-                <TextoAtributo>
+                <TextoAtributo style={{
+                  paddingTop: '2mm'
+                }}>
                   {recursosFinal.pontosDeAcao.toString().padStart(2, '0')}
                 </TextoAtributo>
-                <TextoAtributo>
+                <TextoAtributo style={{
+                  paddingTop: '2mm'
+                }}>
                   {recursosFinal.pontosDeMana.toString().padStart(2, '0')}
                 </TextoAtributo>
-                <TextoAtributo>
+                <TextoAtributo style={{
+                  paddingTop: '2mm'
+                }}>
                   {recursosFinal.pontosDeVida.toString().padStart(2, '0')}
                 </TextoAtributo>
               </AtributosContainer>

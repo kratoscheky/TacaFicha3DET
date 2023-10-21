@@ -36,6 +36,9 @@ export const FichaProvider = ({children}) => {
   const [inventario, setInventario] = useState([]);
   const [tecnicas, setTecnicas] = useState([]);
   const [arquetipo, setArquetipo] = useState("");
+  const [conceito, setConceito] = useState("");
+  const [xp, setXp] = useState("");
+  const [escala, setEscala] = useState("");
 
   const [selectedFile, setSelectedFile] = useState(null);
   const [imageBlob, setImageBlob] = useState("");
@@ -168,7 +171,13 @@ export const FichaProvider = ({children}) => {
         inventario,
         setInventario,
         tecnicas,
-        setTecnicas
+        setTecnicas,
+        conceito,
+        setConceito,
+        xp,
+        setXp,
+        escala,
+        setEscala
       }}
     >
       {children}
