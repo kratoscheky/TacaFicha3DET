@@ -1,38 +1,20 @@
 import {
-  CamposDadosBasicos,
-  CantoDireito,
-  CantoEsquerdo,
+  AtributosContainer,
+  ColunaDireita,
+  ColunaEsquerda,
+  Colunas,
   Container,
-  ContainerAnotacoes,
-  ContainerAtributos,
-  ContainerCampoAtributo,
-  ContainerCamposDadosBasicos,
-  ContainerCamposDireito,
-  ContainerCamposExtras,
-  ContainerColunas,
-  ContainerDadosExp,
-  ContainerExp,
-  ContainerExtrasDireito,
+  ContainerImagem,
+  ContainerLinhas,
   ContainerTacaFicha,
-  ContainerTopo,
-  ExpExpacamento,
-  Frame,
-  LogoTresDeETe,
+  DadosBasicosTextos,
+  EspacamentoTopo,
+  Imagem,
   PaddingInterno,
-  TituloCampo
+  Texto,
+  TextoAtributo,
+  TriadeDeDados
 } from "./styles"
-import frame from '../../images/pdf/frame.png'
-import cantoDireito from '../../images/pdf/cantoDireito.png'
-import cantoEsquerdo from '../../images/pdf/cantoEsquerdo.png'
-import habilidade from '../../images/pdf/habilidade.png'
-import poder from '../../images/pdf/poder.png'
-import pontosdeacao from '../../images/pdf/pontosdeacao.png'
-import pontosdevida from '../../images/pdf/pontosdevida.png'
-import resistencia from '../../images/pdf/resistencia.png'
-import pontosdemana from '../../images/pdf/pontosdemana.png'
-import logo from '../../images/pdf/logo.png'
-import xp from '../../images/pdf/xp.png'
-import logotresdeete from '../../images/pdf/logotresdeete.png'
 import { useFicha } from "../../context/ficha.context"
 import html2canvas from 'html2canvas'
 import jsPDF from 'jspdf';
@@ -99,129 +81,91 @@ export const TacaFichaPdf = () => {
     <ContainerTacaFicha>
       <Container id="tacaficha-pdf">
         <PaddingInterno>
-          <CantoEsquerdo src={cantoEsquerdo} />
-          <CantoDireito src={cantoDireito} />
-          <ContainerTopo>
-            <LogoTresDeETe src={logotresdeete} alt="logo" />
-            <h1>Ficha de Personagem</h1>
-          </ContainerTopo>
-          <ContainerColunas>
-            <div>
-              <Frame style={{
-                backgroundImage: `url(${frame})`
+          <EspacamentoTopo />
+          <Colunas>
+            <ColunaEsquerda>
+              <DadosBasicosTextos>
+                <Texto style={{
+                  paddingLeft: '18mm',
+                  marginTop: '1.5mm'
+                }}>{nome}</Texto>
+                <Texto style={{
+                  paddingLeft: '30mm',
+                  marginTop: '9.5mm'
+                }}>{arquetipo}</Texto>
+                <Texto style={{
+                  paddingLeft: '26mm',
+                  marginTop: '9.5mm'
+                }}>{detalhes}</Texto>
+
+                <TriadeDeDados>
+                  <Texto style={{
+                  paddingLeft: '16mm'
+                }}>Nygen</Texto>
+                  <Texto style={{
+                  paddingLeft: '10mm'
+                }}>{pontosTotais}</Texto>
+                  <Texto style={{
+                  paddingLeft: '11.5mm'
+                }}>200</Texto>
+                </TriadeDeDados>
+              </DadosBasicosTextos>
+              <AtributosContainer>
+                <TextoAtributo>
+                  {atributos.poder.toString().padStart(2, '0')}
+                </TextoAtributo>
+                <TextoAtributo>
+                  {atributos.habilidade.toString().padStart(2, '0')}
+                </TextoAtributo>
+                <TextoAtributo>
+                  {atributos.resistencia.toString().padStart(2, '0')}
+                </TextoAtributo>
+                <TextoAtributo>
+                  {recursosFinal.pontosDeAcao.toString().padStart(2, '0')}
+                </TextoAtributo>
+                <TextoAtributo>
+                  {recursosFinal.pontosDeMana.toString().padStart(2, '0')}
+                </TextoAtributo>
+                <TextoAtributo>
+                  {recursosFinal.pontosDeVida.toString().padStart(2, '0')}
+                </TextoAtributo>
+              </AtributosContainer>
+              <ContainerImagem>
+                <Imagem src={imageBlob} />
+              </ContainerImagem>
+              <ContainerLinhas style={{
+                marginTop: '22.5mm'
               }}>
-                <img src={imageBlob} alt="logo" />
-              </Frame>
-              <ContainerCamposDadosBasicos>
-                <CamposDadosBasicos>
-                  <h6>Nome:</h6>
-                  <p>{nome}</p>
-                </CamposDadosBasicos>
-                <CamposDadosBasicos>
-                  <h6>Conceito:</h6>
-                  <p>{detalhes}</p>
-                </CamposDadosBasicos>
-                <CamposDadosBasicos>
-                  <h6>Arquétipo:</h6>
-                  <p>{arquetipo}</p>
-                </CamposDadosBasicos>
-              </ContainerCamposDadosBasicos>
-              <ContainerAtributos>
-                <ContainerCampoAtributo style={{
-                  backgroundImage: `url(${poder})`
-                }}>
-                  <h6>{atributos.poder.toString().padStart(2, '0')}</h6>
-                </ContainerCampoAtributo>
-                <ContainerCampoAtributo style={{
-                  backgroundImage: `url(${habilidade})`
-                }}>
-                  <h6>{atributos.habilidade.toString().padStart(2, '0')}</h6>
-                </ContainerCampoAtributo>
-                <ContainerCampoAtributo style={{
-                  backgroundImage: `url(${resistencia})`
-                }}>
-                  <h6>{atributos.resistencia.toString().padStart(2, '0')}</h6>
-                </ContainerCampoAtributo>
-                <ContainerCampoAtributo style={{
-                  backgroundImage: `url(${pontosdeacao})`
-                }}>
-                  <h6>{recursosFinal.pontosDeAcao.toString().padStart(2, '0')}</h6>
-                </ContainerCampoAtributo>
-                <ContainerCampoAtributo style={{
-                  backgroundImage: `url(${pontosdemana})`
-                }}>
-                  <h6>{recursosFinal.pontosDeMana.toString().padStart(2, '0')}</h6>
-                </ContainerCampoAtributo>
-                <ContainerCampoAtributo style={{
-                  backgroundImage: `url(${pontosdevida})`
-                }}>
-                  <h6>{recursosFinal.pontosDeVida.toString().padStart(2, '0')}</h6>
-                </ContainerCampoAtributo>
-              </ContainerAtributos>
-              <ContainerCamposExtras style={{
-                paddingTop: '7.7mm'
+                {inventario.map(i => i.Nome+ ".").join(" ")}
+              </ContainerLinhas>
+            </ColunaEsquerda>
+            <ColunaDireita>
+              <ContainerLinhas style={{
+                paddingTop: '10.5mm',
+                height: '72.6mm'
               }}>
-                <TituloCampo>Inventário</TituloCampo>
-                <div>
-                  {inventario.map((v) => v.Nome + ".").join(" ")}
-                </div>
-              </ContainerCamposExtras>
-            </div>
-            <div>
-
-              <ContainerExtrasDireito>
-                <ContainerCamposDireito>
-                  <ContainerCamposExtras>
-                    <TituloCampo>Vantagens</TituloCampo>
-                    <div>
-                      {vantagens.map((v) => <p>{v.Nome + "."}</p>)}
-                    </div>
-                  </ContainerCamposExtras>
-
-                  <ContainerCamposExtras>
-                    <TituloCampo>Desvantagens</TituloCampo>
-                    <div>
-                      {desvantagens.map((d) => <p>{d.Nome + "."}</p>)}
-                    </div>
-                  </ContainerCamposExtras>
-
-
-                  <ContainerCamposExtras>
-                    <TituloCampo>Perícias</TituloCampo>
-                    <div>
-                      {pericias.map((v) => <p>{v.Nome + "."}</p>)}
-                    </div>
-                  </ContainerCamposExtras>
-
-
-                  <ContainerCamposExtras>
-                    <TituloCampo>Técnicas</TituloCampo>
-                    <div>
-                      {tecnicas.map((v) => <p>{v.Nome + "."}</p>)}
-                    </div>
-                  </ContainerCamposExtras>
-                </ContainerCamposDireito>
-
-
-                <ContainerDadosExp>
-                  <ExpExpacamento>
-                    <h1>EXP</h1>
-                    <ContainerExp style={{
-                      backgroundImage: `url(${xp})`
-                    }}>
-                      
-                    </ContainerExp>
-                  </ExpExpacamento>
-                  <div>
-                    <img style={{
-                      width: '24.9mm',
-                      height: '6.8mm'
-                    }} src={logo} />
-                  </div>
-                </ContainerDadosExp>
-              </ContainerExtrasDireito>
-            </div>
-          </ContainerColunas>
+                {vantagens.map(v => v.Nome + ".").join(" ")}
+              </ContainerLinhas>
+              <ContainerLinhas style={{
+                paddingTop: '21.3mm',
+                height: '50.6mm'
+              }}>
+                {desvantagens.map(d => d.Nome + ".").join(" ")}
+              </ContainerLinhas>
+              <ContainerLinhas style={{
+                paddingTop: '23.3mm',
+                height: '53.6mm'
+              }}>
+                {pericias.map(p => p.Nome + ".").join(" ")}
+              </ContainerLinhas>
+              <ContainerLinhas style={{
+                paddingTop: '20.3mm',
+                height: '60.6mm'
+              }}>
+                {tecnicas.map(t => t.Nome + ".").join(" ")}
+              </ContainerLinhas>
+            </ColunaDireita>
+          </Colunas>
         </PaddingInterno>
       </Container>
       <br />
