@@ -21,6 +21,7 @@ export const Container = styled.div`
   background-color: #FFF;
   background-image: url(${frame});
   background-size: cover;
+  zoom: 40%;
 `
 
 export const PaddingInterno = styled.div`

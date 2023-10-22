@@ -41,10 +41,47 @@ export const TacaFichaPdf = () => {
     tecnicas,
     conceito,
     escala,
-    xp
+    xp,
+    setSalvandoLoading
   } = useFicha()
 
+  const captureAndSaveFichaImage = () => {
+    setSalvandoLoading(true);
+    const container = document.querySelector(`#tacaficha-pdf`); // Use a classe do ContainerFicha real
+
+    if (container) {
+      var originalTransform = container.parentElement.style.transform
+      console.log(originalTransform);
+      container.parentElement.style.transform = 'translate3d(0px, 0px, 0px)';
+
+      if (foil)
+        container.classList.remove('foil');
+
+      html2canvas(container).then((canvas) => {
+        // Convertendo o canvas para um URL de imagem
+
+        canvas.toBlob((blob) => {
+          const url = URL.createObjectURL(blob);
+          const downloadLink = document.createElement("a");
+          downloadLink.href = url;
+          downloadLink.download = "ficha.png";
+          downloadLink.click();
+          setSalvandoLoading(false);
+          setImagemGerada(url)
+        }, 'image/png');
+      }).catch(e => {
+        alert(`Ocorreu um erro! ${e.message}`)
+        setSalvandoLoading(false);
+      }).finally(() => {
+        container.parentElement.style.transform = originalTransform;
+        if (foil)
+          container.classList.add('foil');
+      });
+    }
+  };
+
   const captureAndSaveFicha = async () => {
+    setSalvandoLoading(true);
     const container = document.querySelector('#tacaficha-pdf');
 
     if (container) {
@@ -76,6 +113,7 @@ export const TacaFichaPdf = () => {
       const link = document.createElement('a');
       link.href = url;
       link.download = 'ficha.pdf';
+      setSalvandoLoading(false);
       link.click();
     }
   };
@@ -178,7 +216,15 @@ export const TacaFichaPdf = () => {
         </PaddingInterno>
       </Container>
       <br />
-      <Button onClick={captureAndSaveFicha}>Baixar Ficha em Pdf</Button>
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: '8px'
+      }}>
+        <Button onClick={captureAndSaveFicha}>Salvar Pdf</Button>
+        <Button onClick={captureAndSaveFichaImage}>Salvar Png</Button>
+      </div>
     </ContainerTacaFicha>
   )
 }
