@@ -21,7 +21,6 @@ export const Container = styled.div`
   background-color: #FFF;
   background-image: url(${frame});
   background-size: cover;
-  zoom: 35%;
 `
 
 export const PaddingInterno = styled.div`
@@ -67,7 +66,7 @@ export const Texto = styled.p`
 export const TriadeDeDados = styled.div`
   display: grid !important;
   grid-template-columns: 45.7mm 20.7mm 23.7mm;
-  margin-top: 9.5mm;
+  margin-top: 12.5mm;
 `
 
 export const AtributosContainer = styled.div`
@@ -93,13 +92,13 @@ export const TextoAtributo = styled.p`
 `
 
 export const ContainerImagem = styled.div`
-  margin-top: 15mm;
-  margin-left: 5mm;
+  margin-top: 12.8mm;
+  margin-left: 1.5mm;
 `
 
 export const Imagem = styled.div`
-  width: 82mm;
-  height: 83.5mm;
+  width: 87.3mm;
+  height: 82.5mm;
   background-image: url(${props => props.src});
   background-size: cover;
   background-position: center;

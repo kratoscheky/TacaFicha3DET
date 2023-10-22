@@ -90,7 +90,7 @@ export const TacaFichaPdf = () => {
               <DadosBasicosTextos>
                 <Texto style={{
                   paddingLeft: '18mm',
-                  marginTop: '1.5mm'
+                  marginTop: '2.5mm'
                 }}>{nome}</Texto>
                 <Texto style={{
                   paddingLeft: '30mm',
@@ -129,19 +129,13 @@ export const TacaFichaPdf = () => {
                 }}>
                   {atributos.resistencia.toString().padStart(2, '0')}
                 </TextoAtributo>
-                <TextoAtributo style={{
-                  paddingTop: '2mm'
-                }}>
+                <TextoAtributo>
                   {recursosFinal.pontosDeAcao.toString().padStart(2, '0')}
                 </TextoAtributo>
-                <TextoAtributo style={{
-                  paddingTop: '2mm'
-                }}>
+                <TextoAtributo>
                   {recursosFinal.pontosDeMana.toString().padStart(2, '0')}
                 </TextoAtributo>
-                <TextoAtributo style={{
-                  paddingTop: '2mm'
-                }}>
+                <TextoAtributo>
                   {recursosFinal.pontosDeVida.toString().padStart(2, '0')}
                 </TextoAtributo>
               </AtributosContainer>
