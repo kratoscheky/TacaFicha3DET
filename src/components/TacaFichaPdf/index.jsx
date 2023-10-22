@@ -156,25 +156,25 @@ export const TacaFichaPdf = () => {
             </ColunaEsquerda>
             <ColunaDireita>
               <ContainerLinhas style={{
-                paddingTop: '10.5mm',
+                paddingTop: '10mm',
                 height: '72.6mm'
               }}>
                 {vantagens.map(v => v.Nome + ".").join(" ")}
               </ContainerLinhas>
               <ContainerLinhas style={{
-                paddingTop: '21.3mm',
+                paddingTop: '20.9mm',
                 height: '50.6mm'
               }}>
                 {desvantagens.map(d => d.Nome + ".").join(" ")}
               </ContainerLinhas>
               <ContainerLinhas style={{
-                paddingTop: '23.3mm',
+                paddingTop: '23.2mm',
                 height: '53.6mm'
               }}>
                 {pericias.map(p => p.Nome + ".").join(" ")}
               </ContainerLinhas>
               <ContainerLinhas style={{
-                paddingTop: '20.3mm',
+                paddingTop: '19.8mm',
                 height: '60.6mm'
               }}>
                 {tecnicas.map(t => t.Nome + ".").join(" ")}
