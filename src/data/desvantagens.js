@@ -178,7 +178,7 @@ export const Desvantagens = [
     Pontos: -1
   },
   {
-    Nome: "Insano",
+    Nome: "Transtorno",
     Descricao: "Sofre de um problema mental.",
     Pontos: -1,
     Tipo: [
@@ -318,6 +318,18 @@ export const Desvantagens = [
   {
     Nome: "Utensílio",
     Descricao: "Necessita de item específico para usar perícia corretamente.",
-    Pontos: -1
+    Pontos: '-1 a -2',
+    Tipo: [
+      {
+        Nome: "-1pt",
+        Descricao: "",
+        Pontos: -1
+      },
+      {
+        Nome: "-2pts",
+        Descricao: "",
+        Pontos: -2
+      }
+    ]
   }
 ]

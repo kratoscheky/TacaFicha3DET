@@ -251,7 +251,7 @@ export const arquetipos = [
     }
   },
   {
-    Nome: 'Dahllan - 2pt',
+    Nome: 'Dahllan - 1pt',
     Descricao: '',
     Imagem: dahllan,
     slot: {
@@ -582,7 +582,7 @@ export const arquetipos = [
     }
   },
   {
-    Nome: 'Qareen - 3pt',
+    Nome: 'Qareen - 2pt',
     Descricao: '',
     Imagem: qareen,
     slot: {

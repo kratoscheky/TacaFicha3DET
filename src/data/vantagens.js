@@ -156,6 +156,28 @@ export const Vantagens = [
     Pontos: 1
   },
   {
+    Nome: "Brutal",
+    Descricao: "Ao atacar inimigos, além de causar dano, você recupera suas próprias energias.",
+    Pontos: 1,
+    Tipo: [
+      {
+        Nome: "Vida",
+        Descricao: "",
+        Pontos: 1
+      },
+      {
+        Nome: "Mana",
+        Descricao: "",
+        Pontos: 1
+      },
+      {
+        Nome: "Derrota",
+        Descricao: "",
+        Pontos: 1
+      }
+    ]
+  },
+  {
     Nome: "Carismático",
     Descricao: "Você possui uma habilidade inata para conquistar a simpatia dos outros.",
     Pontos: 1
@@ -166,7 +188,7 @@ export const Vantagens = [
     Pontos: 1
   },
   {
-    Nome: "Cópia",
+    Nome: "Clone",
     Descricao: "Você pode criar cópias exatas de si mesmo, gastando 2PM e um movimento para cada cópia.",
     Pontos: 1
   },
@@ -337,7 +359,34 @@ export const Vantagens = [
   {
     Nome: "Inimigo",
     Descricao: "Você é especializado em enfrentar um tipo específico de criatura, conhecendo suas habilidades e fraquezas.",
-    Pontos: 1
+    Pontos: "1-2",
+    Tipo: [
+      {
+        Nome: "Humanos",
+        Descricao: "",
+        Pontos: 1
+      },
+      {
+        Nome: "Humanoides",
+        Descricao: "",
+        Pontos: 1
+      },
+      {
+        Nome: "Construtos",
+        Descricao: "",
+        Pontos: 1
+      },
+      {
+        Nome: "Espíritos",
+        Descricao: "",
+        Pontos: 1
+      },
+      {
+        Nome: "Monstros",
+        Descricao: "",
+        Pontos: 1
+      }
+    ]
   },
   {
     Nome: "Inofensivo",
@@ -379,7 +428,19 @@ export const Vantagens = [
   {
     Nome: "Invisível",
     Descricao: "Pode usar uma ação e gastar 3PM para se tornar invisível.",
-    Pontos: 1
+    Pontos: 1,
+    Tipo: [
+      {
+        Nome: "1pt",
+        Descricao: "",
+        Pontos: 1
+      },
+      {
+        Nome: "2pt",
+        Descricao: "",
+        Pontos: 2
+      }
+    ]
   },
   {
     Nome: "Irresistível",
@@ -414,7 +475,7 @@ export const Vantagens = [
   {
     Nome: "Obstinado",
     Descricao: "Pode usar seus Pontos de Vida (PV) em vez de Pontos de Magia (PM) para ativar suas vantagens.",
-    Pontos: 2
+    Pontos: 1
   },
   {
     Nome: "Paralisia",
@@ -446,7 +507,19 @@ export const Vantagens = [
   {
     Nome: "Regeneração",
     Descricao: "Você é incrivelmente difícil de derrotar.",
-    Pontos: 2
+    Pontos: "1-2",
+    Tipo: [
+      {
+        Nome: "1pt",
+        Descricao: "",
+        Pontos: 1
+      },
+      {
+        Nome: "2pt",
+        Descricao: "",
+        Pontos: 2
+      }
+    ]
   },
   {
     Nome: "Resoluto",
@@ -469,9 +542,9 @@ export const Vantagens = [
         Pontos: 4
       },
       {
-        Nome: "8pt",
+        Nome: "6pt",
         Descricao: "",
-        Pontos: 8
+        Pontos: 6
       }
     ]
   },
