@@ -44,7 +44,7 @@ export const Pericias = [
     Descricao: "Você possui um vasto conhecimento teórico em ciências, idiomas e até mesmo assuntos sobrenaturais, ou sabe onde pesquisar tais informações. Esta é uma perícia ampla, abrangendo diversos campos de conhecimento, sendo adequada para cientistas ávidos ou fanáticos por conhecimento que sabem um pouco sobre tudo!"
   },
   {
-    Nome: "Sustento",
+    Nome: "Sobrevivência",
     Descricao: "Você é capaz de sobreviver e se orientar em situações adversas. Pode encontrar e produzir alimentos, construir abrigos, rastrear pistas, identificar criaturas selvagens, criar e desarmar armadilhas, ser furtivo, nadar, prever condições climáticas e muito mais."
   }
 ]
