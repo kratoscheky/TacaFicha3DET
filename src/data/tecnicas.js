@@ -29,6 +29,13 @@ export const Tecnicas = {
             Descricao: 'Você pode controlar um único elemento à sua escolha, como fogo, terra, água, ar, luz ou trevas; ou elementos mais exóticos, como vapor, gelo, relâmpago ou outros.'
         },
         {
+            Nome: 'Golpes',
+            Requisito: 'Luta',
+            Alcance: 'Variável',
+            Duração: 'Instantânea',
+            Descricao: 'Você domina diversas manobras únicas de artes marciais.',
+        },
+        {
             Nome: 'Grimório Debilitante',
             Requisito: 'Magia',
             Alcance: 'Perto',
@@ -87,11 +94,32 @@ export const Tecnicas = {
     ],
     TecnicasComuns: [
         {
+            Nome: 'Absorver Mana',
+            Requisito: 'Mística',
+            Alcance: 'Pessoal',
+            Duração: 'Instantânea',
+            Descricao: 'No lugar de gastar sua própria energia para ativar poderes, você pode absorvê-lo do ambiente.'
+        },
+        {
+            Nome: 'Área de Batalha',
+            Requisito: 'Poder ou Habilidade 2, Mística',
+            Alcance: 'Perto',
+            Duração: 'Enquanto pagar o custo',
+            Descricao: 'Usando uma ação, você transporta a você e um número de personagens iguais ao seu Poder ou Habilidade (à sua escolha) para um campo de batalha especial, em outra dimensão, onde possui vantagens sobre eles.'
+        },
+        {
             Nome: 'Bola de Fogo',
             Requisito: 'Habilidade 2, Magia',
             Alcance: 'Longe',
             Duração: 'Instantânea',
             Descricao: 'Um dos mais conhecidos feitiços de ataque, esta técnica cria uma grande esfera flamejante que explode ao atingir o alvo.'
+        },
+        {
+            Nome: 'Combo',
+            Requisito: 'Habilidade 1, Golpe',
+            Alcance: 'Variável',
+            Duração: 'Instantânea',
+            Descricao: 'Você pode realizar diversos golpes em sequência.'
         },
         {
             Nome: 'Desprezo',
@@ -106,6 +134,13 @@ export const Tecnicas = {
             Alcance: 'Longe',
             Duração: 'Instantânea',
             Descricao: 'Você concentra sua energia espiritual em uma esfera, raio ou outro formato, e dispara contra um alvo.'
+        },
+        {
+            Nome: 'Consertar',
+            Requisito: 'Máquinas',
+            Alcance: 'Perto',
+            Duração: 'Instantânea',
+            Descricao: 'Você pode recuperar PV de um construto.'
         },
         {
             Nome: 'Encantar',
@@ -213,6 +248,13 @@ export const Tecnicas = {
             Descricao: 'Seu conhecimento de sobrevivência permite obter itens necessários em locais com os quais você está familiarizado.'
         },
         {
+            Nome: 'Role os Dados',
+            Requisito: 'Habilidade 3, Arte',
+            Alcance: 'Perto',
+            Duração: 'Instantânea',
+            Descricao: 'O bardo do grupo também pode cantar o maior sucesso da banda Holy Avenger!'
+        },
+        {
             Nome: 'Setas Infalíveis de Petrovna',
             Requisito: 'Habilidade 1, Magia',
             Alcance: 'Longe',
@@ -264,6 +306,13 @@ export const Tecnicas = {
             Descricao: 'Você domina as artes místicas com tamanha precisão que pode modificar todos os seus parâmetros!'
         },
         {
+            Nome: 'Percepção Cósmica',
+            Requisito: 'Habilidade 5, Maestria (Percepção)',
+            Alcance: 'Pessoal',
+            Duração: 'Enquanto pagar o custo',
+            Descricao: 'Você é uno com o mundo!'
+        },
+        {
             Nome: 'Morte Estelar',
             Requisito: 'Habilidade 9, Magia',
             Alcance: 'Muito Longe',
@@ -283,6 +332,13 @@ export const Tecnicas = {
             Alcance: 'Pessoal',
             Duração: 'Instantânea',
             Descricao: 'Você é ainda mais eficiente em encontrar itens de utilidade em locais com os quais é familiarizado.'
+        },
+        {
+            Nome: 'Trapacear o Destino',
+            Requisito: 'Habilidade 5, Maestria (Manha)',
+            Alcance: 'Pessoal',
+            Duração: 'Instantânea',
+            Descricao: 'Você é tão esguio e trapaceiro que nem o próprio destino consegue pegá-lo!'
         },
         {
             Nome: 'Visão do Futuro',
