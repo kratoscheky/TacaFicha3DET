@@ -42,6 +42,49 @@ export const Topo = (props) => {
           <SwiperSlide>
             <ContainerBanner
               style={{
+                backgroundImage: `url(https://s3-sa-east-1.amazonaws.com/cdn.br.catarse/uploads/project/uploaded_image/178305/db3b6b9a-a485-4638-8a8c-83508f0a123e.png)`,
+                backgroundPositionX: 'right'
+              }}
+            >
+              <ContainerTextoETablet>
+                <ContainerTexto>
+                  <Descricao style={{
+                    background: '#6F0062',
+                    padding: '18px',
+                    borderRadius: '8px'
+                  }}>
+                    <h1 style={{color: '#FFBF22'}}>Jornada Heroica: Guerra Artoniana</h1>
+                    <br/>
+                    <p style={{color: '#FFF'}}>
+                      Junte-se às tropas de Arton — e ajude as vítimas de uma catástrofe real. <br /> <br /> <b>O valor arrecadado para doação</b> será destinado a <b>colaboradores da Jambô</b> que tiveram perdas pela enchente no Rio Grande do Sul.
+                    </p>
+                  </Descricao>
+
+                  <a
+                    href="https://www.catarse.me/guerraartoniana"
+                    target="_blank"
+                    style={{textDecoration: "none"}}
+                    rel="noreferrer"
+                  >
+                    <Button>
+                      <b>Apoiar Campanha</b>
+                      <DownloadIcon
+                        style={{
+                          color: "#FFF",
+                        }}
+                      />
+                    </Button>
+                  </a>
+                </ContainerTexto>
+                <ContainerTablet>
+
+                </ContainerTablet>
+              </ContainerTextoETablet>
+            </ContainerBanner>
+          </SwiperSlide>
+          <SwiperSlide>
+            <ContainerBanner
+              style={{
                 backgroundImage: `url(${bannerPng})`
               }}
             >
@@ -80,49 +123,6 @@ export const Topo = (props) => {
                     src={tablet}
                     alt=""
                   />
-                </ContainerTablet>
-              </ContainerTextoETablet>
-            </ContainerBanner>
-          </SwiperSlide>
-          <SwiperSlide>
-            <ContainerBanner
-              style={{
-                backgroundImage: `url(${tacaficha})`,
-                backgroundPositionX: 'right'
-              }}
-            >
-              <ContainerTextoETablet>
-                <ContainerTexto>
-                  <Descricao style={{
-                    background: '#6F0062',
-                    padding: '18px',
-                    borderRadius: '8px'
-                  }}>
-                    <h1 style={{color: '#FFBF22'}}>Uma ficha completa!</h1>
-                    <br/>
-                    <p style={{color: '#FFF'}}>
-                      Confira nossa ficha em branco no formato pdf. É só <b>baixar e imprimir!</b>
-                    </p>
-                  </Descricao>
-
-                  <a
-                    href="https://drive.google.com/file/d/1ULj5wjFDZ5eD3cmnDbvMxGW_iKrZSGae/view"
-                    target="_blank"
-                    style={{textDecoration: "none"}}
-                    rel="noreferrer"
-                  >
-                    <Button>
-                      <b>Baixe a Ficha</b>
-                      <DownloadIcon
-                        style={{
-                          color: "#FFF",
-                        }}
-                      />
-                    </Button>
-                  </a>
-                </ContainerTexto>
-                <ContainerTablet>
-
                 </ContainerTablet>
               </ContainerTextoETablet>
             </ContainerBanner>
