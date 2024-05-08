@@ -68,11 +68,6 @@ export const Topo = (props) => {
                   >
                     <Button>
                       <b>Apoiar Campanha</b>
-                      <DownloadIcon
-                        style={{
-                          color: "#FFF",
-                        }}
-                      />
                     </Button>
                   </a>
                 </ContainerTexto>
