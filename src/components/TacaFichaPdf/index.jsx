@@ -57,6 +57,8 @@ export const TacaFichaPdf = () => {
       if (foil)
         container.classList.remove('foil');
 
+      document.querySelector('#tacaficha-pdf').style.zoom = 'unset';
+
       html2canvas(container).then((canvas) => {
         // Convertendo o canvas para um URL de imagem
 
@@ -76,6 +78,8 @@ export const TacaFichaPdf = () => {
         container.parentElement.style.transform = originalTransform;
         if (foil)
           container.classList.add('foil');
+
+        document.querySelector('#tacaficha-pdf').style.zoom = '40%';
       });
     }
   };
@@ -222,7 +226,7 @@ export const TacaFichaPdf = () => {
         alignItems: 'center',
         gap: '8px'
       }}>
-        <Button onClick={captureAndSaveFicha}>Salvar Pdf</Button>
+        {/* <Button onClick={captureAndSaveFicha}>Salvar Pdf</Button> */}
         <Button onClick={captureAndSaveFichaImage}>Salvar Png</Button>
       </div>
     </ContainerTacaFicha>

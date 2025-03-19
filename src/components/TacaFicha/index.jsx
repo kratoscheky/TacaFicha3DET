@@ -15,6 +15,7 @@ import BrightnessHighIcon from '@mui/icons-material/BrightnessHigh';
 import 'swiper/css/navigation';
 import {useFicha} from "../../context/ficha.context.jsx";
 import {TacaFichaPdf} from "../TacaFichaPdf/index.jsx";
+import { Zoom } from "@mui/material";
 
 export function TacaFichaTCG() {
   const [swiper, setSwiper] = useState(null);
@@ -32,6 +33,8 @@ export function TacaFichaTCG() {
 
       if (foil)
         container.classList.remove('foil');
+
+      document.querySelector('.mySwiper').style.zoom = 'unset';
 
       html2canvas(container).then((canvas) => {
         // Convertendo o canvas para um URL de imagem
@@ -52,6 +55,8 @@ export function TacaFichaTCG() {
         container.parentElement.style.transform = originalTransform;
         if (foil)
           container.classList.add('foil');
+
+        document.querySelector('.mySwiper').style.zoom = '40%';
       });
     }
   };
@@ -99,6 +104,10 @@ export function TacaFichaTCG() {
       className="mySwiper"
       onSwiper={setSwiper}
       onSlideChange={e => HandleCardAtivo(e.activeIndex)}
+      //zoom 40%
+      style={{
+        zoom: '40%'
+      }}
     >
       <SwiperSlide><TacaFicha disableMovement={actualCard != 'tacaficha'} disableFoilAnimation={actualCard != 'tacaficha'} /></SwiperSlide>
       <SwiperSlide><TacaFichaVerso disableMovement={actualCard != 'tacaficha-verso'} disableFoilAnimation={actualCard != 'tacaficha-verso'} /></SwiperSlide>

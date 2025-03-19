@@ -12,7 +12,6 @@ export const Container = styled.div`
   gap: 20px;
   overflow: auto;
   align-items: flex-end;
-  zoom: 70%;
   padding: 20px 0;
 `
 

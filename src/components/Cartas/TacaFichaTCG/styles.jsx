@@ -23,7 +23,6 @@ export const Carta = styled.div`
   background-size: cover;
   background-position: 50% 0;
   color: #FFF;
-  zoom: 40%;
 
 
 

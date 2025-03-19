@@ -5,7 +5,6 @@ export const Card = styled.div`
     grid-template-rows: 180px 370px 378px 116px;
     width: 760px;
     background-color: #00000050;
-    zoom: 40%;
     -moz-transform: scale(0.5);
     color: #000;
     background-size: cover;

@@ -8,7 +8,6 @@ export const Carta = styled.div`
   background-size: cover;
   background-position: center;
   color: #FFF;
-  zoom: 40%;
 
 
 
